@@ -1,0 +1,25 @@
+# Class 2 {.ct}
+
+## Reactions and Stoichiometry {.ch}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 2 you should...
+
+1. 
+
+## Prepare {.ch}
+
+to be added.
+
+## Attend {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include includes/_bottom_license.qmd >}}

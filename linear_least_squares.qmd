@@ -1,0 +1,7 @@
+# Linear Least Squares {.ct}
+
+
+
+to be added
+
+{{< include includes/_bottom_license.qmd >}}

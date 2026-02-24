@@ -1,0 +1,7 @@
+![](graphics/REB_The_Course.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="300"}
+
+# Getting Started {.ct}
+
+to be added
+
+{{< include includes/_bottom_license.qmd >}}

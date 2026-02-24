@@ -1,0 +1,7 @@
+![](graphics/REB_The_Course.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="300"}
+
+# Introduction and Review {.ct}
+
+This first section of REB, The Course introduces the field of reaction engineering and reviews some important facts about chemical reactions. Class 1 offers a very general description of reaction engineering. It describes ethical standards for its practice and emphasizes the critical importance of safety awareness. Class 2 discusses the origin of reaction stoichiometry and its use in the calculation of the composition of a reacting system. Several measures of reaction progress are defined, and the calculation of heats of reaction and equilbrium constants is reviewed.
+
+{{< include includes/_bottom_license.qmd >}}
