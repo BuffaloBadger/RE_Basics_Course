@@ -10,11 +10,12 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for enzyme, homogeneous/heterogeneous catalyst, catalytic site, and surface coverage
 * Understand
-    * 
+    * when a mechanism involves charged reagents, enzymes, or catalysts, a catalyst/charge conservation must replace one of the Bodenstein steady state approximations because the Bodenstein steady state approximations are not mathematically independent
 * Be able to
-    * 
+    * write an expression for the conservation of catalyst, catalytic sites or charge
+    * eliminate concentrations of reactive intermediates from mechanistic rate expressions when catalysts, enzymes, or charged species participate in the mechanism
 
 ## Prepare {.ch}
 

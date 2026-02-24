@@ -10,11 +10,7 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
-* Understand
-    * 
-* Be able to
-    * 
+* Understand the selectivity in an SBSTR can be affected by the reagent feed rate
 
 ## Prepare {.ch}
 

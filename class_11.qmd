@@ -10,11 +10,14 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for steady-state multiplicity
 * Understand
-    * 
+    * there may be more than one physically realizable solution of the steady-state CSTR design equations
+    * numerical ATE solvers only find one solution of the ATEs
+    * there is only one inlet CSTR temperature for each outlet temperature
 * Be able to
-    * 
+    * determine whether multiple steady states are possible for a given CSTR
+    * obtain solutions of the CSTR design equations for each steady state
 
 ## Prepare {.ch}
 

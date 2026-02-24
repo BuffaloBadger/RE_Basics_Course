@@ -10,11 +10,11 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for differential ideal gas law
 * Understand
-    * 
-* Be able to
-    * 
+    * the BSTR model assumptions
+    * when a gas reacts in a BSTR, the differential form of the ideal gas law usually must be added to the design equations
+* Be able to select and simplify the mole and energy balance equations needed for modeling a given BSTR
 
 ## Prepare {.ch}
 

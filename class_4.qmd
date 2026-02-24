@@ -10,11 +10,16 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for reaction mechanism, mechanistic rate expression, reactive intermediate, Bodenstein steady-state approximation, and apparent rate coefficient
 * Understand
-    * 
+    * mechanistic steps are elementary reactions
 * Be able to
-    * 
+    * write an expression for the rate of generation of a reactant or product of a non-elementary reaction in terms of its rates of generation in the steps of the reaction’s mechanism
+    * simplify rate expressions for kinetically insignificant and effectively irreversible steps
+    * identify reactive intermediates
+    * write Bodenstein steady-state approximation for a reactive intermediate
+    * eliminate concentrations of reactive intermediates from mechanistic rate expressions using the Bodenstein steady-state approximation
+    * define the minimum number of apparent rate coefficients in a mechanistic rate expression
 
 ## Prepare {.ch}
 

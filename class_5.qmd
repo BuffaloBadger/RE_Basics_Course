@@ -10,11 +10,11 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for ate-determining step and quasi-equilibrium
 * Understand
-    * 
+    * when one step in a reaction mechanism is rate-determining, all other steps are quasi-equilibrated
 * Be able to
-    * 
+    * liminate concentrations of reactive intermediates from mechanistic rate expressions using quasi-equilibrium expressions, when appropriate
 
 ## Prepare {.ch}
 

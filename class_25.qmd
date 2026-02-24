@@ -10,11 +10,14 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for factors, measured/predicted response, experimental design, factorial design, predicted responses model, kinetics parameter, parameter estimation, uncertainty, 95% confidence interval, standard error, coefficient of determination, parity plot, and residuals plot
 * Understand
-    * 
+    * the procedure for developing a rate expression
+    * how a numerical fitting function works and how to use one
 * Be able to
-    * 
+    * design a set of kinetics experiments
+    * estimate pre-exponential factors using their base-10 logarithm as the fitting parameter
+    * assess the accuracy of a proposed rate expression
 
 ## Prepare {.ch}
 

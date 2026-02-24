@@ -10,11 +10,11 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
-* Understand
-    * 
+* Know the definition/defining equation for initial rate, differential PFR operation, half-life, linearized model and differential analysis
 * Be able to
-    * 
+    * linearize a reactor model
+    * approximate a derivative using finite differences
+    * use linear least squares to fit a linearized model to experimental data
 
 ## Prepare {.ch}
 

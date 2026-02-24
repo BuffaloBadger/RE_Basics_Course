@@ -10,11 +10,13 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for initial-value, ordinary differential equations (IVODEs) and derivative expression
 * Understand
-    * 
+    * how a numerical IVODE solver works and how to use one
+    * when multiple steady states are possible, the procedure used to start a CSTR up determines which steady state it reaches
 * Be able to
-    * 
+    * determine whether a reaction engineering assignment involves a steady-state CSTR or a transient CSTR
+    * solve a set of IVODEs numerically
 
 ## Prepare {.ch}
 

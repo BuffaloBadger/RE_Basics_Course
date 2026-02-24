@@ -10,11 +10,12 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for underspecified system, constraint, commodity/specialty chemical
 * Understand
-    * 
-* Be able to
-    * 
+    * situational advantages and disadvantages ideal reactors
+    * levels of design
+    * factors that affect the economics of reactor operation
+* Be able to articulate a design strategy
 
 ## Prepare {.ch}
 

@@ -10,11 +10,11 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
 * Understand
-    * 
-* Be able to
-    * 
+    * the SBSTR model assumptions
+    * when a gas reacts in an SBSTR, the differential form of the ideal gas law may need to be added to the design equations
+    * the rate at which heat is released in an SBSTR can be controlled using the inlet flow rate
+* Be able to select and simplify the mole and energy balance equations needed for modeling a given SBSTR
 
 ## Prepare {.ch}
 

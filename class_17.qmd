@@ -10,11 +10,8 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
-* Understand
-    * 
-* Be able to
-    * 
+* Know the definition/defining equation for instantaneous selectivity
+* Be able to use instantaneous selectivity to identify BSTR operating parameters that may affect selectivity
 
 ## Prepare {.ch}
 

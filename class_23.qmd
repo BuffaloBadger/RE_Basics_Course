@@ -10,11 +10,9 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
-* Understand
-    * 
-* Be able to
-    * 
+* Know the definition/defining equation for bulk fluid, porous solid, boundary layer, porosity, tortuosity, Thiele modulus, and effectiveness factor
+* Understand when two phases are present in a packed bed reactor, temperature and concentration gradients exist between the bulk fluid and the surface and within the solid packing if it is porous
+* Be able to use the effectiveness factor to account for temperature and concentration gradients when modeling a packed bed PFR
 
 ## Prepare {.ch}
 

@@ -10,11 +10,10 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
-* Understand
-    * 
+* Know the definition/defining equation for instantaneous yield/selectivity
 * Be able to
-    * 
+    * use instantaneous selectivity to assess how temperature and composition affect overall selectivity in reaction networks
+    * use the REB assignment workflow to complete reaction engineering assignments involving optimization tasks
 
 ## Prepare {.ch}
 

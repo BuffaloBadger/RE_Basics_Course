@@ -10,11 +10,12 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for net rate
 * Understand
-    * 
-* Be able to
-    * 
+    * BSTR operation may involve a protocol where operating variables are changed at specified times
+    * each change in an operating variable defines the end of one stage and the beginning of the next
+    * the values of BSTR variables at the end of one stage are used as the initial values for the next stage
+* Be able to calculate the net rate of BSTR production numerically
 
 ## Prepare {.ch}
 

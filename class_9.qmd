@@ -10,11 +10,11 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
-* Understand
-    * 
+* Know the definition/defining equation for algebraic-transcendental equations (ATEs) and residual expressions
+* Understand how a numerical ATE solver works and how to use one
 * Be able to
-    * 
+    * use the REB assignment workflow to complete reaction engineering assignments involving specification tasks
+    * solve a set of ATEs numerically
 
 ## Prepare {.ch}
 

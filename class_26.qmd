@@ -10,11 +10,10 @@ to be added
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for 
-* Understand
-    * 
+* Understand an isothermal, steady-state CSTR is preferred for generation of kinetics data
 * Be able to
-    * 
+    * estimate model parameters numerically
+    * use the REB assignment workflow to complete reaction engineering assignments involving parameter estimation tasks
 
 ## Prepare {.ch}
 
