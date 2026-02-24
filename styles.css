@@ -2,8 +2,14 @@
 
 .ch h2{
     text-align: center;
+    font-size: larger;
 }
 
 .ct h1{
     text-align: center;
+}
+
+.cc h2{
+    text-align: center;
+    font-size: x-large;
 }

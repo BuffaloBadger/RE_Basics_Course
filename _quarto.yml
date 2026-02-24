@@ -11,12 +11,17 @@ website:
   navbar:
     title: false
     search: true
+    logo: graphics/Banner.png
     left:
-      - text: "![](graphics/REB_Book_Logo.png){height=48px fig-alt='REB The Book'}"
+      - text: "REB, The Book"
         href: http://buffalobadger.github.io/RE_Basics
-      - text: "![](graphics/REB_Slide_Logo.png){height=48px fig-alt='REB The Course'}"
+      - text: "REB, The Course"
         href: http://buffalobadger.github.io/SCoRE
-      - text: "![](graphics/REB_About_Logo.png){height=48px fig-alt='About REB'}"
+      - text: "REB, The Design"
+        href: http://buffalobadger.github.io/ToTaL_Engineering
+      - text: "The Sett"
+        href: http://buffalobadger.github.io/The_Sett
+      - text: "About"
         href: about.qmd
   sidebar:
     style: floating
@@ -26,24 +31,111 @@ website:
       - text: "Welcome"
         href: index.qmd
       - section: "Getting Started"
-        href: getting_started.qmd
         contents:
           - text: "Preparing for the Course"
             href: preparing.qmd
           - text: "Taking the Course"
             href: taking.qmd
-      - section: "Introduction and Review"
-        href: introduction.qmd
+      - section: "Introduction"
         contents:
           - text: "Class 1: Reaction Engineering, Ethics, and Safety"
             href: class_1.qmd
+      - section: "Reactions, Rates, and Rate Expressions"
+        contents:
           - text: "Class 2: Reactions and Stoichiometry"
             href: class_2.qmd
-      - section: "Rates and Rate Expressions"
-        href: rate_expressions.qmd
-        contents:
           - text: "Class 3: Rates and Rate Expressions"
             href: class_3.qmd
+          - text: "Class 4: The Bodenstein Steady-State Approximation"
+            href: class_x.qmd
+          - text: "Class 5: Rate-Determining Steps and Quasi-Equilibrium"
+            href: class_x.qmd
+          - text: "Class 6: Conservation of Catalyst and Charge"
+            href: class_x.qmd
+          - text: "Class 7: Most Abundant Intermediate"
+            href: class_x.qmd
+      - section: "Ideal Reactor Analysis"
+        contents:
+          - text: "Class 8: Qualitative and Quantitative Analysis of Ideal Reactors"
+            href: class_x.qmd
+      - section: "CSTR Analysis"
+        contents:
+          - text: "Class 9: Non-Isothermal, Steady-State CSTR Analysis"
+            href: class_x.qmd
+          - text: "Class 10: Selectivity in Steady-State CSTRs"
+            href: class_x.qmd
+          - text: "Class 11: Multiplicity of CSTR Steady States"
+            href: class_x.qmd
+          - text: "Class 12: CSTR Startup and Shut Down"
+            href: class_x.qmd
+          - text: "Class 13: Stability of CSTR Steady States"
+            href: class_x.qmd
+      - section: "BSTR Analysis"
+        contents:
+          - text: "Class 14: Non-Isothermal BSTR Analysis"
+            href: class_x.qmd
+          - text: "Class 15: BSTR Properties and Initial Values"
+            href: class_x.qmd
+          - text: "Class 16: Net Production Rate"
+            href: class_x.qmd
+          - text: "Class 17: Selectivity in BSTRs"
+            href: class_x.qmd
+          - text: "Class 18: Variable BSTR Heating or Cooling"
+            href: class_x.qmd
+      - section: "SBSTR Analysis"
+        contents:
+          - text: "Class 19: Use of SBSTRs to Control Temperature"
+            href: class_x.qmd
+          - text: "Class 20: Selectivity in SBSTRs"
+            href: class_x.qmd
+      - section: "PFR Analysis"
+        contents:
+          - text: "Class 21: Non-Isothermal, Steady-State PFR Analysis"
+            href: class_x.qmd
+          - text: "Class 22: Pressure Drop in Steady-State PFRs"
+            href: class_x.qmd
+          - text: "Class 23: Steady-State Packed Bed PFRs"
+            href: class_x.qmd
+      - section: "Ideal Reactor Design"
+        contents:
+          - text: "Class 24: Design of Ideal Reactors"
+            href: class_x.qmd
+      - section: "Kinetics Data Analysis"
+        contents:
+          - text: "Class 25: Kinetics Experiments and Data Generation"
+            href: class_x.qmd
+          - text: "Class 26: Analysis of CSTR Kinetics Data"
+            href: class_x.qmd
+          - text: "Class 27: Analysis of BSTR Kinetics Data"
+            href: class_x.qmd
+          - text: "Class 28: Analysis of PFR Kinetics Data"
+            href: class_x.qmd
+          - text: "Class 29: Differential and Linearized Model Data Analysis"
+            href: class_x.qmd
+      - section: "Reactor System Analysis"
+        contents:
+          - text: "Class 30: Analysis of Steady-State Flow Reactor Systems"
+            href: class_x.qmd
+          - text: "Class 31: Analysis of Steady-State, Thermally Back-Mixed PFRs"
+            href: class_x.qmd
+          - text: "Class 32: Analysis of Steady-State, Recycle PFRs"
+            href: class_x.qmd
+          - text: "Class 33: The Age Function from Step-Change Stimuli"
+            href: class_x.qmd
+          - text: "Class 34: The Age Function from Impulse Stimuli"
+            href: class_x.qmd
+          - text: "Class 35: An Early Mixing Segregated Flow Reactor Model"
+            href: class_x.qmd
+          - text: "Class 36: A Late Mixing Segregated Flow Reactor Model"
+            href: class_x.qmd
+          - text: "Class 37: An Empirical Axial Dispersion Reactor Model"
+            href: class_x.qmd
+          - text: "Class 38: Zoned Reactor Models"
+            href: class_x.qmd
+      - section: "Intermediate Reaction Engineering"
+        contents:
+          - text: "Class 39: Intermediate Reaction Engineering"
+            href: class_x.qmd
       - section: "Numerical Methods Supplement"
         href: numerical_methods.qmd
         contents:

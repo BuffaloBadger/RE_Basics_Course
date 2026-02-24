@@ -1,7 +1,8 @@
-
 # Class 1 {.ct}
 
-## Reaction Engineering, Ethics, and Safety {.ch}
+![](graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Reaction Engineering, Ethics, and Safety {.cc}
 
 Class 1 defines reaction engineering. Codes of engineering ethics are presented and the importance of safety in chemical processing is stressed.
 
@@ -9,21 +10,22 @@ Class 1 defines reaction engineering. Codes of engineering ethics are presented 
 
 After completing Class 1 you should...
 
-1. have some understanding of what reaction engineering is
-2. be aware of the AIChE code of ethics and your responsibility to adhere to it
-3. know that failure to operate chemical processes safely can lead property damage, injury, or death
+* Know the definition/defining equation for reaction engineering
+* Understand
+    * the AIChE Code of Ethics
+    * process safety is paramount in the practice of reaction engineering
 
 ## Prepare {.ch} 
 
-* Read [Chapter 1 of REB, The Book]().
-* Watch the [Class 1 Preparation Video (YouTube)]()
+* Read Chapter 1 of REB, The Book
+* Watch the Class 1 Preparation Video
 
-## Attend {.ch}
+## Participate {.ch}
 
-* Attend [Class 1 (YouTube)]()
+* Attend Class 1
 
 ## Practice {.ch}
 
-* Complete the [Class 1 Practice Assignment]()
+* Complete the Class 1 Practice Assignment
 
 {{< include includes/_bottom_license.qmd >}}

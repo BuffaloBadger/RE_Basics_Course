@@ -1,6 +1,8 @@
 # Class 2 {.ct}
 
-## Reactions and Stoichiometry {.ch}
+![](graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Reactions and Stoichiometry {.cc}
 
 to be added
 
@@ -8,13 +10,18 @@ to be added
 
 After completing Class 2 you should...
 
-1. 
+* Know the definition/defining equation for stoichiometric coefficient, elementary reaction, true/apparent extent of reaction, mathematically independent reaction/equation, heat of reaction, exothermic/endothermic reaction, equilibrium, reversible/irreversible reaction, conversion, limiting reactant, overall yield, overall selectivity, and parallel/series/series-parallel reaction networks
+* Be able to
+    * identify a set of mathematically independent reactions/equations
+    * identify limiting reactants
+    * write and use equations inter-relating initial composition, current composition, stoichiometry, and reaction progress
+    * calculate heat of reaction as a function of temperature
 
 ## Prepare {.ch}
 
 to be added.
 
-## Attend {.ch}
+## Participate {.ch}
 
 to be added
 
