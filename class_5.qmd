@@ -1,8 +1,8 @@
-# Class X {.ct}
+# Class 5 {.ct}
 
 ![](graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
-## Title {.cc}
+## Rate-Determining Steps and Quasi-Equilibrium {.cc}
 
 to be added
 

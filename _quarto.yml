@@ -47,95 +47,95 @@ website:
           - text: "Class 3: Rates and Rate Expressions"
             href: class_3.qmd
           - text: "Class 4: The Bodenstein Steady-State Approximation"
-            href: class_x.qmd
+            href: class_4.qmd
           - text: "Class 5: Rate-Determining Steps and Quasi-Equilibrium"
-            href: class_x.qmd
+            href: class_5.qmd
           - text: "Class 6: Conservation of Catalyst and Charge"
-            href: class_x.qmd
+            href: class_6.qmd
           - text: "Class 7: Most Abundant Intermediate"
-            href: class_x.qmd
+            href: class_7.qmd
       - section: "Ideal Reactor Analysis"
         contents:
           - text: "Class 8: Qualitative and Quantitative Analysis of Ideal Reactors"
-            href: class_x.qmd
+            href: class_8.qmd
       - section: "CSTR Analysis"
         contents:
           - text: "Class 9: Non-Isothermal, Steady-State CSTR Analysis"
-            href: class_x.qmd
+            href: class_9.qmd
           - text: "Class 10: Selectivity in Steady-State CSTRs"
-            href: class_x.qmd
+            href: class_10.qmd
           - text: "Class 11: Multiplicity of CSTR Steady States"
-            href: class_x.qmd
+            href: class_11.qmd
           - text: "Class 12: CSTR Startup and Shut Down"
-            href: class_x.qmd
+            href: class_12.qmd
           - text: "Class 13: Stability of CSTR Steady States"
-            href: class_x.qmd
+            href: class_13.qmd
       - section: "BSTR Analysis"
         contents:
           - text: "Class 14: Non-Isothermal BSTR Analysis"
-            href: class_x.qmd
+            href: class_14.qmd
           - text: "Class 15: BSTR Properties and Initial Values"
-            href: class_x.qmd
+            href: class_15.qmd
           - text: "Class 16: Net Production Rate"
-            href: class_x.qmd
+            href: class_16.qmd
           - text: "Class 17: Selectivity in BSTRs"
-            href: class_x.qmd
+            href: class_17.qmd
           - text: "Class 18: Variable BSTR Heating or Cooling"
-            href: class_x.qmd
+            href: class_18.qmd
       - section: "SBSTR Analysis"
         contents:
           - text: "Class 19: Use of SBSTRs to Control Temperature"
-            href: class_x.qmd
+            href: class_19.qmd
           - text: "Class 20: Selectivity in SBSTRs"
-            href: class_x.qmd
+            href: class_20.qmd
       - section: "PFR Analysis"
         contents:
           - text: "Class 21: Non-Isothermal, Steady-State PFR Analysis"
-            href: class_x.qmd
+            href: class_21.qmd
           - text: "Class 22: Pressure Drop in Steady-State PFRs"
-            href: class_x.qmd
+            href: class_22.qmd
           - text: "Class 23: Steady-State Packed Bed PFRs"
-            href: class_x.qmd
+            href: class_23.qmd
       - section: "Ideal Reactor Design"
         contents:
           - text: "Class 24: Design of Ideal Reactors"
-            href: class_x.qmd
+            href: class_24.qmd
       - section: "Kinetics Data Analysis"
         contents:
           - text: "Class 25: Kinetics Experiments and Data Generation"
-            href: class_x.qmd
+            href: class_25.qmd
           - text: "Class 26: Analysis of CSTR Kinetics Data"
-            href: class_x.qmd
+            href: class_26.qmd
           - text: "Class 27: Analysis of BSTR Kinetics Data"
-            href: class_x.qmd
+            href: class_27.qmd
           - text: "Class 28: Analysis of PFR Kinetics Data"
-            href: class_x.qmd
+            href: class_28.qmd
           - text: "Class 29: Differential and Linearized Model Data Analysis"
-            href: class_x.qmd
+            href: class_29.qmd
       - section: "Reactor System Analysis"
         contents:
           - text: "Class 30: Analysis of Steady-State Flow Reactor Systems"
-            href: class_x.qmd
+            href: class_30.qmd
           - text: "Class 31: Analysis of Steady-State, Thermally Back-Mixed PFRs"
-            href: class_x.qmd
+            href: class_31.qmd
           - text: "Class 32: Analysis of Steady-State, Recycle PFRs"
-            href: class_x.qmd
+            href: class_32.qmd
           - text: "Class 33: The Age Function from Step-Change Stimuli"
-            href: class_x.qmd
+            href: class_33.qmd
           - text: "Class 34: The Age Function from Impulse Stimuli"
-            href: class_x.qmd
+            href: class_34.qmd
           - text: "Class 35: An Early Mixing Segregated Flow Reactor Model"
-            href: class_x.qmd
+            href: class_35.qmd
           - text: "Class 36: A Late Mixing Segregated Flow Reactor Model"
-            href: class_x.qmd
+            href: class_36.qmd
           - text: "Class 37: An Empirical Axial Dispersion Reactor Model"
-            href: class_x.qmd
+            href: class_37.qmd
           - text: "Class 38: Zoned Reactor Models"
-            href: class_x.qmd
+            href: class_38.qmd
       - section: "Intermediate Reaction Engineering"
         contents:
           - text: "Class 39: Intermediate Reaction Engineering"
-            href: class_x.qmd
+            href: class_39.qmd
 
 format:
   html:

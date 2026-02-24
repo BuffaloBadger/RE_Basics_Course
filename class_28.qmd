@@ -1,0 +1,31 @@
+# Class 28 {.ct}
+
+![](graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Analysis of PFR Kinetics Data {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 3 you should...
+
+* Know the definition/defining equation for 
+* Understand
+    * 
+* Be able to
+    * 
+
+## Prepare {.ch}
+
+to be added.
+
+## Participate {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include includes/_bottom_license.qmd >}}
