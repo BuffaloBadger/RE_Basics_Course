@@ -136,11 +136,6 @@ website:
         contents:
           - text: "Class 39: Intermediate Reaction Engineering"
             href: class_x.qmd
-      - section: "Numerical Methods Supplement"
-        href: numerical_methods.qmd
-        contents:
-          - text: "Linear Least Squares"
-            href: linear_least_squares.qmd
 
 format:
   html:
