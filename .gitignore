@@ -13,7 +13,6 @@
 /_site/
 /.quarto/
 /problem_statements/
-/examples/
 
 .snakemake/
 *__pycache__/

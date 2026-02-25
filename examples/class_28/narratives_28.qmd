@@ -1,0 +1,21 @@
+# Class 28 Assignment Examples{.ct}
+
+![](../../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Preparation Example {.ch}
+
+[to be added]
+
+## Learning Activity {.ch}
+
+[to be added]
+
+## Practice Assignment {.ch} 
+
+[to be added]
+
+## Supplemental Examples {.ch}
+
+[to be added]
+
+{{< include ../../includes/_bottom_license.qmd >}}
