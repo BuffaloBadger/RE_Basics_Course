@@ -9,6 +9,7 @@
 *.jpeg
 *.xlsx
 *.csv
+*.pages
 
 /_site/
 /.quarto/

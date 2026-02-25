@@ -4,18 +4,32 @@
 
 ## Preparation Example {.ch}
 
-[to be added]
+The preparation assignment for Class 1 did not include an example.
 
-## Learning Activity {.ch}
+## Learning Activities {.ch}
 
-[to be added]
+**Activity 1.1** Reflect upon your current situation, places where you can apply the engineering code of ethics, and places where you may be falling short of ethical expectations. Then write a personal plan for adhering to ethical expectations in your daily life.
+
+**Activity 1.2** Think of a situation where you have had the opportunity or been tempted to act unethically. Analyze why you acted, or were tempted to act, as you did, what the consequences were, and what you might do differently in a similar situation in the future.
+
+**Activity 1.3** Choose one of the four reactive accidents from the CSB Reactive Hazards video. Summarize the incident. Describe any points where the code of ethics was not adhered to, what should have been done, and how doing so might have changed the outcome. Discuss whether heightened safety awareness might have prevented the incident.
+
+::: {.callout-note collapse="false"}
+Solutions for the Class 1 Learning Activities are not provided because every person who completes these activities will respond based on their own unique experiences and perspectives.
+:::
 
 ## Practice Assignment {.ch} 
 
-[to be added]
+**Class 1 Practice Assignment** Professional ethics with financial aspects were not considered in Class 1. Accepting money from anyone other than your employer can often raise ethical questions. In the extreme, such as accepting a bribe to act contrary to the law or your professional obligations, accepting money is clearly unethical and often illegal. Other situations may be more subtle.
+
+Suppose that as part of your job, you are responsible for ordering a piece of equipment. You have determined a number of minimum specifications that the equipment must satisfy. You have spoken with several vendors and identified three who offer a product that meets the minimum specifications. One of those vendors is a family relative who in the past, has invited you to vacation with them and has fully paid for your vacation.
+
+You may add assumptions to the situation described above, if you wish to do so. Then write a brief analysis of your potential courses of action, any dilemmas they present, their consequences, and the ethical course of action.
+
+[Representative Class 1 Practice Assignment Solution](Class%201%20Practice%20Assignment.pdf) (As with the Learning Activities for Class 1, your solution to the Practice Assignment will be based on your own unique experiences and perspectives. This representative solution is provided simply to illustrate how financial transactions can raise ethical issues. It is not intended to be the only "correct" answer.)
 
 ## Supplemental Examples {.ch}
 
-[to be added]
+At this time, there are no supplemental examples for Class 1.
 
 {{< include ../../includes/_bottom_license.qmd >}}
