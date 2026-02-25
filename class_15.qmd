@@ -8,7 +8,7 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 15 you should...
 
 * Know the definition/defining equation for implicit ATE and coupled equations
 * Understand when an unknown initial value or constant appears in IVODE reactor design equations, an implicit ATE must be added to the design equations

@@ -8,13 +8,16 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 30 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for series/parallel reactors, cascade, mixing point, splitting point, and heat exchanger
 * Understand
-    * 
+    * as the number of CSTRs connected in series increases, the behavior of the system approaches that of a PFR
+    * when there is no heating or cooling between them, two PFRs connected in series are equivalent to a single PFR with the same total volume
+    * mixing streams with unequal conversions should be avoided
 * Be able to
-    * 
+    * select and simplify the mole, energy, and momentum balance equations needed for modeling a system that consists of one or more reactors, splitting points, mixing points, and/or heat exchangers
+    * solve sets of coupled ATEs and IVODEs numerically
 
 ## Prepare {.ch}
 

@@ -8,7 +8,7 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 23 you should...
 
 * Know the definition/defining equation for bulk fluid, porous solid, boundary layer, porosity, tortuosity, Thiele modulus, and effectiveness factor
 * Understand when two phases are present in a packed bed reactor, temperature and concentration gradients exist between the bulk fluid and the surface and within the solid packing if it is porous

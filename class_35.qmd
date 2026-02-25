@@ -8,13 +8,14 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 35 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for segregated flow reactor and early/late mixing
 * Understand
-    * 
+    * segregated flow reactor models are inherently empirical
+    * there are different ways of incorporating thermal effects into segregated flow reactor models
 * Be able to
-    * 
+    * calculate the output molar flow rates and temperature from a given reactor using an early mixing segregated flow reactor model
 
 ## Prepare {.ch}
 

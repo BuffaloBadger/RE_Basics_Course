@@ -8,13 +8,14 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 38 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for a perfectly mixed stagnant zone
 * Understand
-    * 
+    * zoned reactor models are inherently empirical
+    * there are different ways of incorporating thermal effects into zoned reactor models
 * Be able to
-    * 
+    * calculate the output molar flow rates and temperature from a given reactor using a zoned reactor model
 
 ## Prepare {.ch}
 

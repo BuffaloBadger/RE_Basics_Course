@@ -8,13 +8,9 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 39 you should...
 
-* Know the definition/defining equation for 
-* Understand
-    * 
-* Be able to
-    * 
+* Understand there are many aspects of reaction engineering that we have not covered in this course
 
 ## Prepare {.ch}
 

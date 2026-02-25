@@ -8,13 +8,10 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 36 you should...
 
-* Know the definition/defining equation for 
-* Understand
-    * 
 * Be able to
-    * 
+    * calculate the output molar flow rates and temperature from a given reactor using a late mixing segregated flow reactor model
 
 ## Prepare {.ch}
 

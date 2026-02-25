@@ -8,13 +8,16 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 37 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for dispersion coefficient
 * Understand
-    * 
+    * under most circumstances, predictions using the axial dispersion model are negligibly different from predictions using the ideal PFR model
+    * when the dispersion coefficients are treated as fitting parameters, the axial dispersion model can be used to model reactors that are neither ideal PFRs nor CSTRs
+    * when the dispersion coefficients are very large, the axial dispersion model predictions approach those of the ideal CSTR model
+    * when the dispersion coefficients are very small, the axial dispersion model predictions approach those of the ideal PFR model
 * Be able to
-    * 
+    * calculate the output molar flow rates and temperature from a given reactor using an axial dispersion reactor model
 
 ## Prepare {.ch}
 

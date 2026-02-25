@@ -8,7 +8,7 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 22 you should...
 
 * Know the definition/defining equation for packed-bed PFR
 * Understand different momentum balances are used when modeling open tube PFRs and packed-bed PFRs

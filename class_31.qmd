@@ -8,13 +8,12 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 31 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for a thermally back-mixed PFR
 * Understand
-    * 
-* Be able to
-    * 
+    * the reactor inlet temperature should always be one of the variables found by numerically solving the heat exchanger balance equations for a thermally back-mixed PFR
+    * when the reactor inlet temperature is one of the variables found by numerically solving the heat exchanger balance equations for a thermally back-mixed PFR, the PFR design equations can be solved within the heat exchanger residuals function if necessary
 
 ## Prepare {.ch}
 

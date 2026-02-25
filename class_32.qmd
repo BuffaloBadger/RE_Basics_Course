@@ -8,13 +8,12 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 32 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for recycle PFR and recycle ratio
 * Understand
-    * 
-* Be able to
-    * 
+    * the reactor inlet molar flow rates and temperature should always be among the variables found by numerically solving the mixing point balance equations for a recycle PFR
+    * when the reactor inlet molar flow rates and temperature are among the variables found by numerically solving the mixing point balance equations for a recycle PFR, the PFR design equations can be solved within the mixing point residuals function if necessary
 
 ## Prepare {.ch}
 

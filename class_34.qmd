@@ -8,13 +8,9 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 34 you should...
 
-* Know the definition/defining equation for 
-* Understand
-    * 
-* Be able to
-    * 
+* Be able to calculate the cumulative age distribution function *vs.* age using impulse stimulus response data
 
 ## Prepare {.ch}
 

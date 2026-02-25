@@ -8,7 +8,7 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 4 you should...
 
 * Know the definition/defining equation for reaction mechanism, mechanistic rate expression, reactive intermediate, Bodenstein steady-state approximation, and apparent rate coefficient
 * Understand

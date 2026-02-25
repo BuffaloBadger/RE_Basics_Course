@@ -8,7 +8,7 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 13 you should...
 
 * Know the definition/defining equation for stable/unstable steady-state
 * Understand when a reactor is perturbed from a steady state it may return to that steady state, transition to different steady state, or go into sustained oscillations

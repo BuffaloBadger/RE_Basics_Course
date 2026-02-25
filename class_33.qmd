@@ -8,13 +8,15 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 33 you should...
 
-* Know the definition/defining equation for 
+* Know the definition/defining equation for fluid element, cumulative/differential age distribution function, tracer, step-change/impulse stimulus, stimulus response, cumulative age distribution function for a CSTR/PFR
 * Understand
-    * 
-* Be able to
-    * 
+    * the stimulus is applied instantaneously at the reactor inlet
+    * the response is measured at the reactor outlet as a function of time elapsed since the stimulus was applied
+    * the cumulative age distribution function ranges from 0 at an age of 0 to 1 at an age of infinity
+    * the measured cumulative age distribution function for a reactor matching the ideal CSTR/PFR cumulative age distribution function is a necessary, but not sufficient condition for the reactor to be modleled as an ideal CSTR/PFR
+* Be able to calculate the cumulative age distribution function *vs.* age using step-change stimulus response data
 
 ## Prepare {.ch}
 

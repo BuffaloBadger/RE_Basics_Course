@@ -8,7 +8,7 @@ to be added
 
 ## Learning Outcomes {.ch}
 
-After completing Class 3 you should...
+After completing Class 20 you should...
 
 * Understand the selectivity in an SBSTR can be affected by the reagent feed rate
 
