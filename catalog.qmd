@@ -1,0 +1,81 @@
+# REB Examples by Class {.ct}
+
+[Class 1: Reaction Engineering, Ethics and Safety](examples/class_1/narratives_1.qmd)
+
+[Class 2: Reactions and Stoichiometry](examples/class_2/narratives_2.qmd)
+
+[Class 3: Rates and Rate Expressions](examples/class_3/narratives_3.qmd)
+
+[Class 4: The Bodenstein Steady-State Approximation](examples/class_4/narratives_4.qmd)
+
+[Class 5: Rate-Determining Steps and Quasi-Equilibrium](examples/class_5/narratives_5.qmd)
+
+[Class 6: Conservation of Catalyst and Charge](examples/class_6/narratives_6.qmd)
+
+[Class 7: Most Abundant Intermediate](examples/class_7/narratives_7.qmd)
+
+[Class 8: Qualitative and Quantitative Analysis of Ideal Reactors](examples/class_8/narratives_8.qmd)
+
+[Class 9: Non-Isothermal, Steady-State CSTR Analysis](examples/class_9/narratives_9.qmd)
+
+[Class 10: Selectivity in Steady-State CSTRs](examples/class_10/narratives_10.qmd)
+
+[Class 11: Multiplicity of CSTR Steady States](examples/class_11/narratives_11.qmd)
+
+[Class 12: CSTR Startup and Shut Down](examples/class_12/narratives_12.qmd)
+
+[Class 13: Stability of CSTR Steady States](examples/class_13/narratives_13.qmd)
+
+[Class 14: Non-Isothermal BSTR Analysis](examples/class_14/narratives_14.qmd)
+
+[Class 15: BSTR Properties and Initial Values](examples/class_15/narratives_15.qmd)
+
+[Class 16: Net Production Rate](examples/class_16/narratives_16.qmd)
+
+[Class 17: Selectivity in BSTRs](examples/class_17/narratives_17.qmd)
+
+[Class 18: Variable BSTR Heating or Cooling](examples/class_18/narratives_18.qmd)
+
+[Class 19: Use of SBSTRs to Control Temperature](examples/class_19/narratives_19.qmd)
+
+[Class 20: Selectivity in SBSTRs](examples/class_20/narratives_20.qmd)
+
+[Class 21: Non-Isothermal, Steady-State PFR Analysis](examples/class_21/narratives_21.qmd)
+
+[Class 22: Pressure Drop in Steady-State PFRs](examples/class_22/narratives_22.qmd)
+
+[Class 23: Steady-State Packed Bed PFRs](examples/class_23/narratives_23.qmd)
+
+[Class 24: Design of Ideal Reactors](examples/class_24/narratives_24.qmd)
+
+[Class 25: Kinetics Experiments and Data Generation](examples/class_25/narratives_25.qmd)
+
+[Class 26: Analysis of CSTR Kinetics Data](examples/class_26/narratives_26.qmd)
+
+[Class 27: Analysis of BSTR Kinetics Data](examples/class_27/narratives_27.qmd)
+
+[Class 28: Analysis of PFR Kinetics Data](examples/class_28/narratives_28.qmd)
+
+[Class 29: Differential and Linearized Model Data Analysis](examples/class_29/narratives_29.qmd)
+
+[Class 30: Analysis of Steady-State Reactor Systems](examples/class_30/narratives_30.qmd)
+
+[Class 31: Analysis of Steady-State, Thermally Back-Mixed PFRs](examples/class_31/narratives_31.qmd)
+
+[Class 32: Analysis of Steady-State, Recycle PFRs](examples/class_32/narratives_32.qmd)
+
+[Class 33: The Age Function from Step-Change Stimuli](examples/class_33/narratives_33.qmd)
+
+[Class 34: The Age Function from Impulse Stimuli](examples/class_34/narratives_34.qmd)
+
+[Class 35: An Early Mixing Segregated Flow Reactor Model](examples/class_35/narratives_35.qmd)
+
+[Class 36: A Late Mixing Segregated Flow Reactor Model](examples/class_36/narratives_36.qmd)
+
+[Class 37: An Empirical Axial Dispersion Reactor Model](examples/class_37/narratives_37.qmd)
+
+[Class 38: Zoned Reactor Models](examples/class_38/narratives_38.qmd)
+
+[Class 39: Intermediate Reaction Engineering](examples/class_39/narratives_39.qmd)
+
+{{< include includes/_bottom_license.qmd >}}

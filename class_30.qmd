@@ -2,7 +2,7 @@
 
 ![](graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
-## Analysis of Steady-State Flow Reactor Systems {.cc}
+## Analysis of Steady-State Reactor Systems {.cc}
 
 to be added
 

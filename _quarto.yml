@@ -30,17 +30,15 @@ website:
     contents:
       - text: "Welcome"
         href: index.qmd
-      - section: "Getting Started"
+      - section: "**Getting Started**"
         contents:
           - text: "Preparing for the Course"
             href: preparing.qmd
           - text: "Taking the Course"
             href: taking.qmd
-      - section: "Introduction"
-        contents:
-          - text: "Class 1: Reaction Engineering, Ethics, and Safety"
-            href: class_1.qmd
-      - section: "Reactions, Rates, and Rate Expressions"
+      - text: "Class 1: Reaction Engineering, Ethics, and Safety"
+        href: class_1.qmd
+      - section: "**Reactions, Rates, and Rate Expressions**"
         contents:
           - text: "Class 2: Reactions and Stoichiometry"
             href: class_2.qmd
@@ -54,11 +52,9 @@ website:
             href: class_6.qmd
           - text: "Class 7: Most Abundant Intermediate"
             href: class_7.qmd
-      - section: "Ideal Reactor Analysis"
-        contents:
-          - text: "Class 8: Qualitative and Quantitative Analysis of Ideal Reactors"
-            href: class_8.qmd
-      - section: "CSTR Analysis"
+      - text: "Class 8: Qualitative and Quantitative Analysis of Ideal Reactors"
+        href: class_8.qmd
+      - section: "**CSTR Analysis**"
         contents:
           - text: "Class 9: Non-Isothermal, Steady-State CSTR Analysis"
             href: class_9.qmd
@@ -70,7 +66,7 @@ website:
             href: class_12.qmd
           - text: "Class 13: Stability of CSTR Steady States"
             href: class_13.qmd
-      - section: "BSTR Analysis"
+      - section: "**BSTR Analysis**"
         contents:
           - text: "Class 14: Non-Isothermal BSTR Analysis"
             href: class_14.qmd
@@ -82,13 +78,13 @@ website:
             href: class_17.qmd
           - text: "Class 18: Variable BSTR Heating or Cooling"
             href: class_18.qmd
-      - section: "SBSTR Analysis"
+      - section: "**SBSTR Analysis**"
         contents:
           - text: "Class 19: Use of SBSTRs to Control Temperature"
             href: class_19.qmd
           - text: "Class 20: Selectivity in SBSTRs"
             href: class_20.qmd
-      - section: "PFR Analysis"
+      - section: "**PFR Analysis**"
         contents:
           - text: "Class 21: Non-Isothermal, Steady-State PFR Analysis"
             href: class_21.qmd
@@ -96,11 +92,9 @@ website:
             href: class_22.qmd
           - text: "Class 23: Steady-State Packed Bed PFRs"
             href: class_23.qmd
-      - section: "Ideal Reactor Design"
-        contents:
-          - text: "Class 24: Design of Ideal Reactors"
-            href: class_24.qmd
-      - section: "Kinetics Data Analysis"
+      - text: "Class 24: Design of Ideal Reactors"
+        href: class_24.qmd
+      - section: "**Kinetics Data Analysis**"
         contents:
           - text: "Class 25: Kinetics Experiments and Data Generation"
             href: class_25.qmd
@@ -112,7 +106,7 @@ website:
             href: class_28.qmd
           - text: "Class 29: Differential and Linearized Model Data Analysis"
             href: class_29.qmd
-      - section: "Reactor System Analysis"
+      - section: "**Reactor System Analysis**"
         contents:
           - text: "Class 30: Analysis of Steady-State Flow Reactor Systems"
             href: class_30.qmd
@@ -132,10 +126,10 @@ website:
             href: class_37.qmd
           - text: "Class 38: Zoned Reactor Models"
             href: class_38.qmd
-      - section: "Intermediate Reaction Engineering"
-        contents:
-          - text: "Class 39: Intermediate Reaction Engineering"
-            href: class_39.qmd
+      - text: "Class 39: Intermediate Reaction Engineering"
+        href: class_39.qmd
+      - text: "Catalog of Examples by Class"
+        href: catalog.qmd
 
 format:
   html:
