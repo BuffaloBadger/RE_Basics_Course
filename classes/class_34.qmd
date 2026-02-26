@@ -1,0 +1,27 @@
+# Class 34 {.ct}
+
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## The Age Function from Impulse Stimuli {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 34 you should...
+
+* Be able to calculate the cumulative age distribution function *vs.* age using impulse stimulus response data
+
+## Prepare {.ch}
+
+to be added.
+
+## Participate {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include ../includes/_bottom_license.qmd >}}

@@ -1,0 +1,30 @@
+# Class 21 {.ct}
+
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Non-Isothermal, Steady-State PFR Analysis {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 21 you should...
+
+* Understand
+    * the PFR model assumptions
+    * when a gas reacts in a PFR, the differential form of the ideal gas law usually must be added to the design equations
+* Be able to select and simplify the mole, energy, and momentum balance equations needed for modeling a given PFR
+
+## Prepare {.ch}
+
+to be added.
+
+## Participate {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include ../includes/_bottom_license.qmd >}}

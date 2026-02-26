@@ -1,0 +1,32 @@
+# Class 6 {.ct}
+
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Conservation of Catalyst and Charge {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 6 you should...
+
+* Know the definition/defining equation for enzyme, homogeneous/heterogeneous catalyst, catalytic site, and surface coverage
+* Understand
+    * when a mechanism involves charged reagents, enzymes, or catalysts, a catalyst/charge conservation must replace one of the Bodenstein steady state approximations because the Bodenstein steady state approximations are not mathematically independent
+* Be able to
+    * write an expression for the conservation of catalyst, catalytic sites or charge
+    * eliminate concentrations of reactive intermediates from mechanistic rate expressions when catalysts, enzymes, or charged species participate in the mechanism
+
+## Prepare {.ch}
+
+to be added.
+
+## Participate {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include ../includes/_bottom_license.qmd >}}

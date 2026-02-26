@@ -1,0 +1,32 @@
+# Class 38 {.ct}
+
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Zoned Reactor Models {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 38 you should...
+
+* Know the definition/defining equation for a perfectly mixed stagnant zone
+* Understand
+    * zoned reactor models are inherently empirical
+    * there are different ways of incorporating thermal effects into zoned reactor models
+* Be able to
+    * calculate the output molar flow rates and temperature from a given reactor using a zoned reactor model
+
+## Prepare {.ch}
+
+to be added.
+
+## Participate {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include ../includes/_bottom_license.qmd >}}

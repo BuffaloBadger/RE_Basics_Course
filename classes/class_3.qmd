@@ -1,0 +1,36 @@
+# Class 3 {.ct}
+
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Rates and Rate Expressions {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 3 you should...
+
+* Know the definition/defining equation for reaction rate, species generation rate, net rate, forward rate, reverse rate, empirical/theoretical/mechanistic rate expression, Arrhenius expression, pre-exponential factor, activation energy, typical/auto-catalytic/product-inhibited/reactant-inhibited reactions
+* Understand
+    * the functional form of rate expressions is only known a priori for elementary reactions
+    * rate expressions must be experimentally validated
+* Be able to
+    * convert reaction rates to species generation rates and vice versa
+    * write a power-law rate expression
+    * modify a rate expression so that the rate it predicts goes to zero as equilibrium is approached
+    * estimate Arrhenius expression parameters using experimental data
+    * test whether a quantity displays Arrhenius temperature dependence given either data or an expression for its dependence on temperature
+
+## Prepare {.ch}
+
+to be added.
+
+## Attend {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include ../includes/_bottom_license.qmd >}}

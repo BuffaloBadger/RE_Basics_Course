@@ -1,0 +1,31 @@
+# Class 13 {.ct}
+
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Stability of CSTR Steady States {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 13 you should...
+
+* Know the definition/defining equation for stable/unstable steady-state
+* Understand when a reactor is perturbed from a steady state it may return to that steady state, transition to different steady state, or go into sustained oscillations
+* Be able to
+    * identify unstable steady states, ignition points and extinction points using a plot of outlet versus feed temperature
+    * determine the stability of a CSTR steady state by simulating the transient response to a small perturbation
+
+## Prepare {.ch}
+
+to be added.
+
+## Participate {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include ../includes/_bottom_license.qmd >}}

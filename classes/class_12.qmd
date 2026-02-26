@@ -1,0 +1,33 @@
+# Class 12 {.ct}
+
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## CSTR Startup and Shut Down {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 12 you should...
+
+* Know the definition/defining equation for initial-value, ordinary differential equations (IVODEs) and derivative expression
+* Understand
+    * how a numerical IVODE solver works and how to use one
+    * when multiple steady states are possible, the procedure used to start a CSTR up determines which steady state it reaches
+* Be able to
+    * determine whether a reaction engineering assignment involves a steady-state CSTR or a transient CSTR
+    * solve a set of IVODEs numerically
+
+## Prepare {.ch}
+
+to be added.
+
+## Participate {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include ../includes/_bottom_license.qmd >}}

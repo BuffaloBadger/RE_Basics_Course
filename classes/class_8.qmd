@@ -1,0 +1,35 @@
+# Class 8 {.ct}
+
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Qualitative and Quantitative Analysis of Ideal Reactors {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 8 you should...
+
+* Know the definition/defining equation for steady-state/transient/isothermal/adiabatic/non-isothermal/isobaric/isochoric reactor operation, sensible/latent heat, and specification/optimization/design/parameter estimation tasks
+* Understand
+    * the CSTR model assumptions
+    * the workflow used for completing reaction engineering assignments in REB
+* Be able to
+    * qualitatively describe how the reaction rate, composition, temperature, and related quantities evolve with space time, given appropriate information about rate expressions and reaction exothermicity
+    * concisely summarize a reaction engineering assignment
+    * select and simplify the mole, energy, and momentum balance equations needed for modeling a given CSTR
+    * express sensible heat terms using molar, volumetric, or gravimetric heat capacities
+
+## Prepare {.ch}
+
+to be added.
+
+## Participate {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include ../includes/_bottom_license.qmd >}}

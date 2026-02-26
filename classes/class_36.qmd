@@ -1,0 +1,28 @@
+# Class 36 {.ct}
+
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## A Late Mixing Segregated Flow Reactor Model {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 36 you should...
+
+* Be able to
+    * calculate the output molar flow rates and temperature from a given reactor using a late mixing segregated flow reactor model
+
+## Prepare {.ch}
+
+to be added.
+
+## Participate {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include ../includes/_bottom_license.qmd >}}

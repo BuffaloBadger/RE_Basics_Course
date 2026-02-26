@@ -1,0 +1,32 @@
+# Class 16 {.ct}
+
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Net Production Rate {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 16 you should...
+
+* Know the definition/defining equation for net rate
+* Understand
+    * BSTR operation may involve a protocol where operating variables are changed at specified times
+    * each change in an operating variable defines the end of one stage and the beginning of the next
+    * the values of BSTR variables at the end of one stage are used as the initial values for the next stage
+* Be able to calculate the net rate of BSTR production numerically
+
+## Prepare {.ch}
+
+to be added.
+
+## Participate {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include ../includes/_bottom_license.qmd >}}

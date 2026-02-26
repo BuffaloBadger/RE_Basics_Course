@@ -1,0 +1,31 @@
+# Class 15 {.ct}
+
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## BSTR Properties and Initial Values {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 15 you should...
+
+* Know the definition/defining equation for implicit ATE and coupled equations
+* Understand when an unknown initial value or constant appears in IVODE reactor design equations, an implicit ATE must be added to the design equations
+* Be able to
+    * write an implicit ATE for calculating an unknown initial value or constant in the BSTR design equations
+    * solve design equations consisting of coupled ATEs and IVODEs numerically
+
+## Prepare {.ch}
+
+to be added.
+
+## Participate {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include ../includes/_bottom_license.qmd >}}

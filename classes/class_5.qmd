@@ -1,0 +1,31 @@
+# Class 5 {.ct}
+
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Rate-Determining Steps and Quasi-Equilibrium {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 5 you should...
+
+* Know the definition/defining equation for ate-determining step and quasi-equilibrium
+* Understand
+    * when one step in a reaction mechanism is rate-determining, all other steps are quasi-equilibrated
+* Be able to
+    * liminate concentrations of reactive intermediates from mechanistic rate expressions using quasi-equilibrium expressions, when appropriate
+
+## Prepare {.ch}
+
+to be added.
+
+## Participate {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include ../includes/_bottom_license.qmd >}}

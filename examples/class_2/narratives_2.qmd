@@ -2,20 +2,182 @@
 
 ![](../../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
-## Preparation Example {.ch}
+## Preparation Examples {.ch}
 
-[to be added]
+**REB, The Book, Example 2.6.2** A new reactor is being developed with the hope of generating ethylene by the oxidative dehydrogenation of ethane, reaction (1). Reactions (2) and (3) also take place at the operating conditions of 1 atm and 150 °C. The process starts with 90% ethane and 10% air (you may take air to contain 79% N~2~ and 21% O~2~) and ends with a 50% conversion of O~2~ and a selectivity of 3 C~2~H~4~/CO~2~. Calculate the final mole fraction of CO~2~.
 
-## Learning Activity {.ch}
+$$
+2 C_2H_6 + O_2 \leftrightarrows 2 C_2H_4 + 2 H_2O \tag{1}
+$$
 
-[to be added]
+$$
+C_2H_4 + 3 O_2 \leftrightarrows 2 CO_2 + 2 H_2O \tag{2}
+$$
+
+$$
+2 C_2H_6 + 7 O_2 \leftrightarrows 4 CO_2 + 6 H_2O \tag{3}
+$$
+
+[Example 2.6.2 Solution](Example%202.6.2.pdf), and [Python Script that performs the calculations](example_2_6_2.py).
+
+**REB, The Book, Example 2.6.4** Suppose a sytem initially contains 1 mole of CH~4~ and 2.5 moles of H~2~O. Reactions (1) through (4) occur at 920 °C with 88% conversion of CH~4~ and a CO yield of 65%. Selected thermodynamic data are presented in @tbl-ch2_example4. Generate the necessary expressions for heats of reaction and use them to calculate the net heat released.
+
+$$
+CH_4 + H_2O \rightarrow CO + 3 H_2 \tag{1}
+$$
+
+$$
+CH_4 + CO_2 \rightarrow 2 CO + 2 H_2 \tag{2}
+$$
+
+$$
+CH_4 + 2 H_2O \rightarrow CO_2 + 4 H_2 \tag{3}
+$$
+
+$$
+CO + H_2O \rightarrow CO_2 + H_2 \tag{4}
+$$
+
+| $i$ | $\Delta H_{f,i}\big\vert_{T=298K}$ | $\hat{C}_{p,i}$ |
+|:-------:|:-------:|:-------:|
+| CH~4~ | -17.89 | 4.598 + 1.245 x 10^-2^ T + 2.86 x 10^-6^ T^2^ - 2.703 x 10^-9^ T^3^ |
+| H~2~O | -57.8 | 7.701 + 4.595 x 10^-4^ T + 5.521 x 10^-6^ T^2^ - 0.859 x 10^-9^ T^3^ |
+| CO | -26.42 | 7.373 - 3.07 x 10^-3^ T + 6.662 x 10^-6^ T^2^ - 3.037 x 10^-9^ T^3^ |
+| H~2~ | 0.0 | 6.483 + 2.215 x 10^-3^ T - 3.298 x 10^-6^ T^2^ + 1.826 x 10^-9^ T^3^ |
+| CO~2~ | -94.05 | 4.728 + 1.754 x 10^-2^ T - 1.338 x 10^-5^ T^2^ + 4.097 x 10^-9^ T^3^ |
+
+: Ideal gas standard heats of formation^1^ and heat capacities^2^ from @reid_properties_1977. {#tbl-ch2_example4 tbl-colwidths="[10,10,80]"}
+
+^1^ kcal mol^-1^  
+^2^ cal mol^-1^ K^-1^ for T in K
+
+[Example 2.6.4 Solution](Example%202.6.4.pdf), and [Python Script that performs the calculations](example_2_6_4.py).
+
+## Learning Activities {.ch}
+
+**Activity 2.1** The gas phase reaction synthesis of ammonia from NO, reaction (1), takes place in a system that initially contained 2 moles of H~2~ and 1 mole of NO. If 50% of the limiting reactant was converted, what was the final mole fraction of ammonia?
+
+$$
+2 NO + 5 H_2 \rightarrow 2 NH_3 + 2 H_2O \tag{1}
+$$
+
+[Activity 2.1 Solution](Activity%202.1.pdf)
+
+**Activity 2.2** A gas phase system initially contains 0.5 mol of N~2~O~5~ and 0.5 mol of NO~2~ at 600 K and 5 MPa. The N~2~O~5~ decomposes according to reaction (1). Write an expression for the amount of NO~2~ in terms of the amount of N~2~O~5~ and their initial amounts.
+
+[Activity 2.2 Solution](Activity%202.2.pdf)
+
+$$
+2 N_2O_5 \rightleftarrows 4 NO_2 + O_2 \tag{1}
+$$
+
+**Activity 2.3** The charge to a reactor consisted of 66 mol H~2~ and 34 mol CO. Reactions (1) through (6) occurred, after which 40% of the CO had been converted. The final ratio of H~2~ to CO was 1.5, and the selectivity for methanol over carbon dioxide was 8.3. Calculate the final molar amount of each reagent in the system.
+
+$$
+CO + 2 H_2 \rightleftarrows CH_3OH \tag{1}
+$$
+
+$$
+CO_2 + 3 H_2 \leftrightarrows CH_3OH + H_2O \tag{2}
+$$
+
+$$
+CO + H_2O \leftrightarrows CO_2 + H_2 \tag{3}
+$$
+
+$$
+CO + 3 H_2 \leftrightarrows CH_4 + H_2O \tag{4}
+$$
+
+$$
+CO_2 + 4 H_2 \leftrightarrows CH_4 + 2 H_2O \tag{5}
+$$
+
+$$
+CH_4 + H_2O \leftrightarrows CH_3OH + H_2 \tag{6}
+$$
+
+[Activity 2.3 Solution](Activity%202.3.pdf)
+
+**Activity 2.4** The vapor phase synthesis of methanol is given in reaction (1). The gas phase heat capacity of reagent $i$, $\hat{C}_{p,i}$, in J mol^-1^ K^-1^ can be calculated using equation (2) where $t$ is the temperature in K divided by 1000. The constants for use in equation (2), $A_i$ through $E_i$, are given in Table 1, which also includes the standard heat of formation at 298 K, the standard change in Gibbs free energy for formation, and the standard entropy of the reagents in kJ mol^-1^, kJ mol^-1^, and J mol^-1^ K^-1^, respectively. Generate an expression for the heat of reaction (1) as a function of temperature.
+
+$$
+CO + 2H_2 \rightleftarrows CH_3OH \tag{1}
+$$
+
+$$
+\hat{C}_{p,i} = A_i + B_it + C_it^2 +D_it^3 + \frac{E_i}{t^2} \tag{2}
+$$
+
+| i |￼CO | H~2~ | CH~3~OH |
+|:---:|:---:|:---:|:---:|
+| A~i~ | 25.567590 | 33.107800 | 21.138073 |
+| B~i~ | 6.096130 | -11.508000 | 70.878654 |
+| C~i~ | 4.054656 | 11.609300 | 25.853554 |
+| D~i~ | -2.671301 | 2.844400 | -28.497905 |
+| E~i~ | 0.131021 | -0.159665 | 0.0 |
+| $\Delta H_{f,i}\big\vert_{298K}$ | -110.53 | 0.0 | -201.0 |
+| $\Delta G_{f,i}\big\vert_{298K}$ | -137.3689 | 0.0 | -162.6153 |
+| $S_i^0$ 197.6482155 | 130.6656268	| 239.7234884 |
+
+: Table 1. Thermodynamic Data for Methanol Synthesis.
+
+[Activity 2.4 Solution](Activity%202.4.pdf)
 
 ## Practice Assignment {.ch} 
 
-[to be added]
+**1.** Cellulosic biomass, represented here as C~6~H~10~O~5~, can be gasified using steam. Reactions (1) through (3) take place. Suppose gasification began with 10 moles of H~2~O for every mole of C~6~H~10~O~5~, and no other reagents present. If 50% of the cellulose is converted and the selectivity for CO~2~ over CO is 3, what will the CO to H~2~ ratio equal?
+
+$$
+C_6H_{10}O_5 + 7 H_2O \rightarrow 6 CO_2 + 12 H_2 \tag{1}
+$$
+
+$$
+C_6H_{10}O_5 + H_2O \rightarrow 6 CO + 6 H_2 \tag{2}
+$$
+
+$$
+CO + H_2O \rightarrow CO_2 + H_2 \tag{3}
+$$
+
+[Practice Assignment 2.1 Solution](Practice%20Assignment%202.1.pdf)
+
+**2.** The oxidation of ethanol to produce acetic acid is given in equation (1). Standard gas phase heats of formation at 298 K and heat capacities for the reagents are provided in Table 1. Generate an expression for the standard heat of reaction as a function of temperature and use it to calculate the standard heat of reaction at 300, 350, and 400 K.
+
+$$
+C_2H_6O + O_2 \rightarrow C_2H_4O_2 + H_2O \tag{1}
+$$
+
+| Reagent | $\Delta H_f\big\vert_{298K}$ (kJ mol^-1^) | $\hat{C}_p$ (J mol^-1^ K^-1^) |
+|:-------:|:-------:|:-------:|
+| C~2~H~6~O | -234 | 73.4 |
+| C~2~H~4~O~2~ | -443 | 71.7 |
+| H~2~O | -242 | 33.9 |
+| O~2~ | 0 | 29.7 |
+
+: Table 1. Thermodynamic Data for Ethanol Oxidation.
+
+[Practice Assignment 2.2 Solution](Practice%20Assignment%202.2.pdf)
 
 ## Supplemental Examples {.ch}
 
-[to be added]
+**REB, The Book, Example 2.6.1** Carbon monoxide (CO) can be oxidized by molecular oxygen (O~2~) to produce carbon dioxide (CO~2~). If equal volumes of carbon monoxide and air at equal temperature and pressure are mixed and flow into a chemical reactor, which reactant is limiting?
+
+[Example 2.6.1 Solution](Example%202.6.1.pdf), and [Python Script that performs the calculations](example_2_6_1.py).
+
+**REB, The Book, Example 2.6.3** Suppose gas-phase reaction (1) was studied in an open, steady-state, isothermal, isobaric system. The flow into the system contained 0.5 mol min^−1^ of N~2~O~5~ and 0.5 mol min^−1^ of N~2~ at 600 K and 5 MPa. 
+(a) Write an equation for the outlet moler flow rate of NO~2~ in terms of the outlet molar flow rate of N~2~O~5~.
+(b) If the outlet flow contains 30% N~2~, calculate the conversion of N~2~O~5~.
+
+$$
+2 N_2O_5 \leftrightarrows 4 NO_2 + O_2 \tag{1}
+$$
+
+[Example 2.6.3 Solution](Example%202.6.3.pdf), and [Python Script that performs the calculations](example_2_6_3.py).
+
+## References {.unnumbered .ch}
+
+::: {#refs}
+:::
 
 {{< include ../../includes/_bottom_license.qmd >}}

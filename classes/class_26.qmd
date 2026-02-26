@@ -1,0 +1,30 @@
+# Class 26 {.ct}
+
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Analysis of CSTR Kinetics Data {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 26 you should...
+
+* Understand an isothermal, steady-state CSTR is preferred for generation of kinetics data
+* Be able to
+    * estimate model parameters numerically
+    * use the REB assignment workflow to complete reaction engineering assignments involving parameter estimation tasks
+
+## Prepare {.ch}
+
+to be added.
+
+## Participate {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include ../includes/_bottom_license.qmd >}}

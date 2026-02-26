@@ -1,0 +1,28 @@
+# Class 17 {.ct}
+
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Selectivity in BSTRs {.cc}
+
+to be added
+
+## Learning Outcomes {.ch}
+
+After completing Class 17 you should...
+
+* Know the definition/defining equation for instantaneous selectivity
+* Be able to use instantaneous selectivity to identify BSTR operating parameters that may affect selectivity
+
+## Prepare {.ch}
+
+to be added.
+
+## Participate {.ch}
+
+to be added
+
+## Practice {.ch}
+
+to be added
+
+{{< include ../includes/_bottom_license.qmd >}}
