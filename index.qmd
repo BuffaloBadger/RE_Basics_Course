@@ -2,6 +2,24 @@
 
 # Welcome {.ct}
 
-to be added
+Reaction Engineering Basics (REB) is an integrated educational resource designed to provide students with a solid, introductory foundation in the principles and applications of reaction engineering and to provide instructors with tools and ideas for teaching them. It is divided into three parts: REB, The Book; REB, The Course; and REB, The Design. This website is the home of REB, The Course.
+
+REB, The Course is a free, online, self-study course comparable to reaction engineering courses in undergraduate chemical engineering programs. It is based on REB, The Book, which is also available for free and can be accessed using the link banner above. REB is not affiliated with any institution, and REB, The Course is not offered for credit. It is intended to be used by students and instructors at any institution, and it is designed to be flexible enough to be used in a variety of ways. For example, students can use it for self-study or to supplement materials in a reaction engineering course they are taking at a college or university, and instructors can use it as a supplement to their existing courses or as the basis for a new course.
+
+## The Instructor {.ch}
+
+:::: {.columns}
+::: {.column width="75%"}
+
+REB, The Course is taught by Dr. Carl Lund, a professor of chemical and biological engineering at the University at Buffalo. Dr. Lund has been teaching reaction engineering for over 40 years and has a passion for engineering education, particularly in the area of pedagogy for problem-solving courses as described in REB, The Design. He is the author of REB, The Book, and the designer, developer, and teacher of REB, The Course. Dr. Lund is a SUNY Distinguished Teaching Professor and has been recognized for his teaching with several awards, including the SUNY Chancellor's Award for Excellence in Teaching and the ASEE St. Lawrence Section Outstanding Teaching Award. He is also a Fellow of the American Institute of Chemical Engineers (AIChE). He earned his Ph.D. in chemical engineering from the University of Wisconsin, and his B. S. from Purdue University.
+
+:::
+::: {.column width="5%"}
+&nbsp;
+:::
+::: {.column width="20%"}
+![](images/IMG_5590.jpg){fig-alt="Photo of Dr. Carl Lund" fig-align="center" width="100%"}
+:::
+::::
 
 {{< include includes/_bottom_license.qmd >}}
