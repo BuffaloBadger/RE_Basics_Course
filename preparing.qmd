@@ -1,7 +1,27 @@
-![](graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="300"}
-
 # Preparing for the Course {.ct}
 
-to be added
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+
+## Prerequisites {.ch}
+
+REB, The Course is comparable to reaction engineering courses found in the junior or senior year of undergraduate chemical engineering curricula in the U.S. Students should have a basic understanding of the following topics:
+
+* chemical engineering principles, particularly mass and energy balances
+* basic chemistry, including chemical reactions and stoichiometry
+* mathematics, including algebra, calculus, and differential equations
+* basic programming skills, most preferrably using Python
+
+## Computational Necessities {.ch}
+
+Python is the programming language used in REB, The Course. Students should have access to a computer with Python installed. All of the calculations presented in REB, The Course were performed using a free [miniconda distribution of Python](https://www.anaconda.com/docs/getting-started/miniconda/main). Later versions of the following packages may work, but the versions listed below were used in the development and testing of REB, The Course:
+
+* python 3.10.8
+* numpy 1.23.5
+* scipy 1.9.3
+* matplotlib 3.6.2
+* pandas 1.5.2
+* statsmodels 0.13.5
+
+Other programming languages and software packages may be used to perform the calculations presented in REB, The Course, but students should be prepared to translate the Python code provided in the course materials into the programming language or software package of their choice.
 
 {{< include includes/_bottom_license.qmd >}}
