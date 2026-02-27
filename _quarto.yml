@@ -30,7 +30,7 @@ website:
     contents:
       - text: "Welcome"
         href: index.qmd
-      - section: "**Getting Started**"
+      - section: "*Getting Started*"
         contents:
           - text: "Preparing for the Course"
             href: preparing.qmd
@@ -38,7 +38,7 @@ website:
             href: taking.qmd
       - text: "Class 1: Reaction Engineering, Ethics, and Safety"
         href: classes/class_1.qmd
-      - section: "**Reactions, Rates, and Rate Expressions**"
+      - section: "*Reactions, Rates, and Rate Expressions*"
         contents:
           - text: "Class 2: Reactions and Stoichiometry"
             href: classes/class_2.qmd
@@ -54,7 +54,7 @@ website:
             href: classes/class_7.qmd
       - text: "Class 8: Qualitative and Quantitative Analysis of Ideal Reactors"
         href: classes/class_8.qmd
-      - section: "**CSTR Analysis**"
+      - section: "*CSTR Analysis*"
         contents:
           - text: "Class 9: Non-Isothermal, Steady-State CSTR Analysis"
             href: classes/class_9.qmd
@@ -66,7 +66,7 @@ website:
             href: classes/class_12.qmd
           - text: "Class 13: Stability of CSTR Steady States"
             href: classes/class_13.qmd
-      - section: "**BSTR Analysis**"
+      - section: "*BSTR Analysis*"
         contents:
           - text: "Class 14: Non-Isothermal BSTR Analysis"
             href: classes/class_14.qmd
@@ -78,13 +78,13 @@ website:
             href: classes/class_17.qmd
           - text: "Class 18: Variable BSTR Heating or Cooling"
             href: classes/class_18.qmd
-      - section: "**SBSTR Analysis**"
+      - section: "*SBSTR Analysis*"
         contents:
           - text: "Class 19: Use of SBSTRs to Control Temperature"
             href: classes/class_19.qmd
           - text: "Class 20: Selectivity in SBSTRs"
             href: classes/class_20.qmd
-      - section: "**PFR Analysis**"
+      - section: "*PFR Analysis*"
         contents:
           - text: "Class 21: Non-Isothermal, Steady-State PFR Analysis"
             href: classes/class_21.qmd
@@ -94,7 +94,7 @@ website:
             href: classes/class_23.qmd
       - text: "Class 24: Design of Ideal Reactors"
         href: classes/class_24.qmd
-      - section: "**Kinetics Data Analysis**"
+      - section: "*Kinetics Data Analysis*"
         contents:
           - text: "Class 25: Kinetics Experiments and Data Generation"
             href: classes/class_25.qmd
@@ -106,7 +106,7 @@ website:
             href: classes/class_28.qmd
           - text: "Class 29: Differential and Linearized Model Data Analysis"
             href: classes/class_29.qmd
-      - section: "**Reactor System Analysis**"
+      - section: "*Reactor System Analysis*"
         contents:
           - text: "Class 30: Analysis of Steady-State Flow Reactor Systems"
             href: classes/class_30.qmd
@@ -114,6 +114,8 @@ website:
             href: classes/class_31.qmd
           - text: "Class 32: Analysis of Steady-State, Recycle PFRs"
             href: classes/class_32.qmd
+      - section: "*Non-Ideal Reactor Models*"
+        contents:
           - text: "Class 33: The Age Function from Step-Change Stimuli"
             href: classes/class_33.qmd
           - text: "Class 34: The Age Function from Impulse Stimuli"
@@ -128,8 +130,12 @@ website:
             href: classes/class_38.qmd
       - text: "Class 39: Intermediate Reaction Engineering"
         href: classes/class_39.qmd
-      - text: "Catalog of Examples by Class"
-        href: catalog.qmd
+      - section: "*Collected Resources*"
+        contents:
+        - text: "Examples by Class"
+          href: catalog.qmd
+        - text: "Numerical Methods Videos"
+          href: nm_videos.qmd
 
 
 bibliography: references.bib
