@@ -1,4 +1,6 @@
-# Preparing for Reaction Engineering Basics {.ct}
+![](graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="300"}
+
+# Preparing for the Course {.ct}
 
 to be added
 

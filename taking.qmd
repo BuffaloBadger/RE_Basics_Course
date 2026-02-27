@@ -1,4 +1,6 @@
-# Taking Reaction Engineering Basics {.ct}
+![](graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="300"}
+
+# Taking the Course {.ct}
 
 to be added
 
