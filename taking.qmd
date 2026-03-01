@@ -1,7 +1,37 @@
-![](graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="300"}
-
 # Taking the Course {.ct}
 
-to be added
+![](graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="300"}
+
+REB, The Course is designed as a self-study version of an undergraduate course on reaction engineering. It can also be used as a supplemental resource by students taking a traditional course. Progressing from top to bottom of the menu on the left will take you through the course in a logical order. Of course, if you want information on a specific topic, you can use the menu to jump to relevant classes. The last item, "Collected Resources," is a drop-down menu with links to two pages. One page contains links to all of the numerical methods videos used in the course. The other page contains links to all of the example, learning activity, and practice problem solutions, along with additional practice problems and solutions, listed by class.
+
+## Suggested Study Methods {.ch}
+
+REB, The Course is designed to mimic the in-person reaction engineering course I teach at the University at Buffalo. The reasoning behind the way I teach the course is described in REB, The Design, which can be accessed using the link in the page banner. REB, The Course mimics a "flipped classroom" teaching approach, which I believe allows students to learn very efficiently. Each class has three parts: preparation, participation, and practice/self-evaluation. Before describing how I believe you should use these three parts, I want to stress one thing: as you work through each phase of each class, you should have a mastery goal orientation. In a nutshell this means that your goal should be to know how to complete reaction engineering tasks, and not just to be able to get the correct answer. If you know how to complete a task, then you will get the correct answer (unless you make silly math or programming mistakes). However, there are ways to get the correct answer without mastering how to complete the task.
+
+## Preparation {.ch}
+
+Each class in REB, The Course has a preparation assignment. You should complete the entire preparation assignment before proceding to the participation phase of the class.
+
+**Learning Objectives.** Each preparation assignment begins with a set of learning outcomes. These are the definitions, defining equations, and facts you should know and the things you should be able to do using them. Personally I don't believe in memorizing equations, so when I say these are defining equations you should know, I mean you should be aware they exist and be able to pick them out, given an equation summary sheet such as the [REB Equation Summary](REB_Equation_Summary.pdf). Reading the learning objectives first will help you identify what is important as you proceed.
+
+**Reading.** Each preparation assignment lists sections or chapters of REB, The Book that you should read in their entirety. Doing so will afford you some perspective and insight for attaining the learning objectives.
+
+**Preparation Videos.** Videos make up the third component of each preparation assignment. The preparation videos provide an overview of the reading, present a more complete discussion of the information from the reading that is essential for meeting the learning objectives, and illustrate how to complete tasks inherent to those outcomes. Preparation assignments for classes where a numerical method is encountered for the first time also include a video describing that numerical method.
+
+## Participation {.ch}
+
+After completing the preparation assignment, you should participate in the vitual class using the video for that class. The key word here is participate; don't just watch. When I teach the class live, I pause several times and have the students work together in small groups to finish some part of a task. I haven't found an ideal way to do this in a video, so in most cases I'll just say pause the video and then resume it when you have completed the next step.
+
+In a live class, the students will be working in pairs or small groups, and I'll be circulating around the classroom. If questions arise, I can answer them. If I detect a common misconception, I can get everyone's attention and correct it. Unfortunately, I can't do any of this in a video. If you have friends or colleagues who are also taking REB, The Course, I'd encourage you to participate in the video class as a group.
+
+## Practice and Self-Evaluation {.ch}
+
+Each class includes a practice assignment which should be completed after participating in class. Apart from practice, the purpose of this assignment is for you to self-assess whether you have mastered the learning objectives for the class. The practice assignment includes both the assignment narrative, and the solution. You should attempt to complete the assignment without referring to anything other than the [REB Equation Summary](REB_Equation_Summary.pdf).
+
+If you get stuck while trying to complete the assignment, jot a brief note describing the point at which you got stuck. Then consult only as much of the solution as you need to get unstuck, and continue trying to complete the assignment. When you have completed the assignment, carefully compare your solution to the one included in the assignment. If you made any mistakes, jot down what you did wrong, or any misconceptions you had.
+
+Next, self-assess, whether you have mastered the learning objectives for the class. If you identified points where you did not know what to do next, or where you held a misconception, you should complete another assignment for additional practice. There is a listing of examples under the "Collected Resources" item in the menu on the left. If supplemental assignments are available, they will be listed there. If not, you might want to find a textbook on reaction engineering that includes solved examples and use one of them for practice.
+
+You should repeat this practice/self-evaluation cycle until you can complete an example without getting stuck and without conceptual mistakes in your solution. At that point, you should proceed to the next class.
 
 {{< include includes/_bottom_license.qmd >}}
