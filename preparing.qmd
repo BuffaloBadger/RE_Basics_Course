@@ -1,6 +1,6 @@
 # Preparing for the Course {.ct}
 
-![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
+![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="300"}
 
 ## Prerequisites {.ch}
 
