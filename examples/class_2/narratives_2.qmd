@@ -18,7 +18,7 @@ $$
 2 C_2H_6 + 7 O_2 \leftrightarrows 4 CO_2 + 6 H_2O \tag{3}
 $$
 
-[Example 2.6.2 Solution](Example%202.6.2.pdf), and [Python Script that performs the calculations](example_2_6_2.py).
+[Example 2.6.2 Solution](Example%202.6.2.pdf), and [Python Calculations Script](example_2_6_2.py).
 
 **REB, The Book, Example 2.6.4** Suppose a sytem initially contains 1 mole of CH~4~ and 2.5 moles of H~2~O. Reactions (1) through (4) occur at 920 °C with 88% conversion of CH~4~ and a CO yield of 65%. Selected thermodynamic data are presented in @tbl-ch2_example4. Generate the necessary expressions for heats of reaction and use them to calculate the net heat released.
 
@@ -51,7 +51,7 @@ $$
 ^1^ kcal mol^-1^  
 ^2^ cal mol^-1^ K^-1^ for T in K
 
-[Example 2.6.4 Solution](Example%202.6.4.pdf), and [Python Script that performs the calculations](example_2_6_4.py).
+[Example 2.6.4 Solution](Example%202.6.4.pdf), and [Python Calculations Script](example_2_6_4.py).
 
 ## Learning Activities {.ch}
 
@@ -163,7 +163,7 @@ $$
 
 **REB, The Book, Example 2.6.1** Carbon monoxide (CO) can be oxidized by molecular oxygen (O~2~) to produce carbon dioxide (CO~2~). If equal volumes of carbon monoxide and air at equal temperature and pressure are mixed and flow into a chemical reactor, which reactant is limiting?
 
-[Example 2.6.1 Solution](Example%202.6.1.pdf), and [Python Script that performs the calculations](example_2_6_1.py).
+[Example 2.6.1 Solution](Example%202.6.1.pdf), and [Python Calculations Script](example_2_6_1.py).
 
 **REB, The Book, Example 2.6.3** Suppose gas-phase reaction (1) was studied in an open, steady-state, isothermal, isobaric system. The flow into the system contained 0.5 mol min^−1^ of N~2~O~5~ and 0.5 mol min^−1^ of N~2~ at 600 K and 5 MPa. 
 (a) Write an equation for the outlet moler flow rate of NO~2~ in terms of the outlet molar flow rate of N~2~O~5~.
@@ -173,7 +173,7 @@ $$
 2 N_2O_5 \leftrightarrows 4 NO_2 + O_2 \tag{1}
 $$
 
-[Example 2.6.3 Solution](Example%202.6.3.pdf), and [Python Script that performs the calculations](example_2_6_3.py).
+[Example 2.6.3 Solution](Example%202.6.3.pdf), and [Python Calculations Script](example_2_6_3.py).
 
 ## References {.unnumbered .ch}
 

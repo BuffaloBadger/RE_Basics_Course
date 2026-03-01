@@ -2,20 +2,122 @@
 
 ![](../../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
+```{r}
+#| echo: false
+#| output: false
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(readxl)
+source("../../code/fmt_tibble_col.R")
+source("../../code/fmt_E_to_10.R")
+```
+
 ## Preparation Example {.ch}
 
-[to be added]
+**REB, The Book, Example 3.6.4** The decomposition of HI, equation (1), is elementary. Collision theory predicts the rate coefficient to depend upon temperature as shown in equation (2) where $N_{av}$ is Avogadro's number and $k_B$ is the Boltzmann constant. The collision cross-section, $\sigma_{HI-HI}$, is 38.5 Å, the reduced mass, $\mu$, is 1.063 x 10^-22^ g, and the activation energy, $E$, is 184.1 kJ mol^-1^.
+
+$$
+2 HI \rightleftarrows H_2 + I_2 \tag{1}
+$$
+
+$$
+k = N_{av}\sigma_{HI-HI} \sqrt{\frac{2k_BT}{\pi \mu}} \exp{\left( \frac{-E}{RT}\right)} \tag{2}
+$$
+
+Use equation (2) to calculate the rate coefficient at several temperatures between 300 and 400 K. Then use the resulting $\underline{k}$ *vs.* $\underline{T}$ data to assess how well the Arrhenius expression describes the rate coefficient.
+
+[Example 3.6.4 Solution](Example%203.6.4.pdf), and [Python Calculations Script](example_3_6_4.py).
 
 ## Learning Activity {.ch}
 
-[to be added]
+Reversible reaction (1) is elementary and the forward rate coefficient obeys the Arrhenius expression with a pre-exponential factor equal to 6.97 x 10^6^ L mol^–1^ min^–1^ and an activation energy equal to 57.3 kJ mol^–1^. Use the ideal gas law to replace the concentrations in the rate expression with partial pressures in atm, and combine the terms involving temperature into apparent forward and reverse rate coefficients. Does the apparent forward rate coefficient display Arrhenius temperature dependence, and, if so, what are the best estimates for the pre-exponential factor and the activation energy at temperatures between 0 and 100 °C?
+
+$$
+A + B \rightleftarrows Y + Z \tag{1}
+$$
+
+[Learning Activity Solution](Activity%203.pdf), and [Python Calculations Script](activity_3.py).
 
 ## Practice Assignment {.ch} 
 
-[to be added]
+A reaction was studied at the temperatures, $T$, listed in Table 1, and at each temperature the value of the first-order rate coefficient, $k$, was determined. On the basis of the information provided in the table, does the rate coefficient display Arrhenius temperature dependence? If it does, what are the values of the pre-exponential factor and the activation energy? The data are also available in the file, [practice_3_data.csv](practice_3_data.csv).
+
+| T (°F) | k (s^–1^) |
+|:---:|:---:|
+| 76.7 | 1.12 × 10^–5^ |
+| 92.9 | 3.63 × 10^–5^ |
+| 114.5 | 1.15 × 10^–4^ |
+| 132.5 | 3.26 × 10^–4^ |
+| 148.7 | 8.92 × 10^–4^ |
+
+: Table 1. Rate coefficient data.
+
+[Practice Assignment 3 Solution](Practice%20Assignment%203.pdf), and [Python Calculations Script](practice_3.py).
 
 ## Supplemental Examples {.ch}
 
-[to be added]
+**REB, The Book, Example 3.6.1** The synthesis of ammonia, reaction (1), is one of the highest production chemical processes in the world. (One reason for this is that ammonia is used to make fertilizer.) It is a heterogeneous catalytic reaction. The ammonia synthesis catalyst takes the form of pellets that pack into the the reactor with an apparent density of 155 lb~m~ ft^-3^. Rase [-@rase_h_f_chemical_1977] provides the expression in equation (2) for the rate of generation of ammonia via reaction (1). In that expression, $E_1$ is the activation energy, $K_{1,eq}$ is the equilibrium constant and $a_i$ represents the thermodynamic activity of reagent $i$.
+
+$$
+3 H_2 + N_2 \rightleftarrows 2 NH_3 \tag{1}
+$$
+
+$$
+\begin{align}
+r_{NH_3,1} &= 1.54 \times 10^{15} \exp{\left( \frac{-E_1}{RT} \right)} \\
+&\times \left[ K_{1,eq}^2\left( \frac{a_{N_2}a_{H_2}^{1.5}}{a_{NH_3}} \right) - \left( \frac{a_{NH_3}}{a_{H_2}^{1.5}} \right)  \right] \frac{\text{kmol NH}_3}{\text{m}_{\text{bed}}^3 \text{h}}
+\end{align} \tag{2}
+$$
+
+Write an expression for the general rate of reaction (1), $r_1$, that is normalized per lb~m~ of catalyst.
+
+[Example 3.6.1 Solution](Example%203.6.1.pdf), and [Python Calculations Script](example_3_6_1.py).
+
+**REB, The Book, Example 3.6.2** The water-gas shift, reaction (1), is used commercially to remove CO impurities from hydrogen. Suppose the rate expression shown in equation (2) was validated using experimental data that were far from thermodynamic equilibrium. At 675 K, the rate coefficient, $k_1$, was found to equal to 3.37 lbmol h^-1^ ft^-3^ atm^-0.55^. In equation (3), that power-law rate expression has been multiplied by a factor that will force it to evaluate to zero at equilibrium. At 675 K, the equilibrium constant, $K_1$ is equal to 12.0.
+
+If a system initially containing 75% H~2~O, 24% CO, and 1% CO~2~ at 10 atm and 675 K reacts isothermally and isobarically, the equilibrium conversion of CO will equal 96.3%. The net rate should go to zero at this conversion.
+
+$$
+CO + H_2O \rightleftarrows CO_2 + H_2 \tag{1}
+$$
+
+$$
+r_1 = k_1 P_{CO}^{0.9} P_{H_2O}^{0.25} P_{CO_2}^{-0.6} \tag{2}
+$$
+
+$$
+r_1 = k_1 P_{CO}^{0.9} P_{H_2O}^{0.25} P_{CO_2}^{-0.6} \left\{ 1 - \frac{P_{CO_2} P_{H_2}}{K_1 P_{CO} P_{H_2O}} \right\} \tag{3}
+$$
+
+For the system described above, make a plot of the net rate of reaction (1) predicted by equations (2) and (3) at CO conversions between 0 and 100%. Then make a second plot at conversions between 85 and 100%. Comment upon the results.
+
+[Example 3.6.2 Solution](Example%203.6.2.pdf), and [Python Calculations Script](example_3_6_2.py).
+
+**REB, The Book, Example 3.6.3** Kinetic studies were performed at a number of different temperatures, $T$, to find the value of a second order rate coefficient, $k$, at those temperatures. The results for each experiment, $i$, are given in the table below. Determine whether the temperature dependence of this rate coefficient is consistent with the Arrhenius expression, and find the best values for the pre-exponential factor and the activation energy.
+
+```{r}
+#| echo: false
+#| output: false
+results <- read.csv("example_3_6_3_data.csv")
+results <- fmt_tibble_col(results,3,3,3,1)
+```
+
+```{r}
+#| echo: false
+#| label: tbl-data_ch3_ex3
+#| tbl-cap: Rate coefficients measured experimentally at different temperatures.
+kbl(results, format = "markdown", align = "ccc", col.names = c("i (Expt. Number)", "T (°C)",
+    "k (L mol^-1^ min^-1^)"))
+```
+
+The data are available in the .csv file, [example_3_6_3_data.csv](example_3_6_3_data.csv).
+
+[Example 3.6.3 Solution](Example%203.6.3.pdf), and [Python Calculations Script](example_3_6_3.py).
+
+## References {.unnumbered .ch}
+
+::: {#refs}
+:::
 
 {{< include ../../includes/_bottom_license.qmd >}}
