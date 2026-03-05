@@ -27,6 +27,7 @@ After completing Class 3 you should...
 
 * Read Chapter 3 of REB, The Book
 * Watch the Class 3 Preparation Video
+* Watch the Linear Least Squares Video
 
 ## Attend {.ch}
 

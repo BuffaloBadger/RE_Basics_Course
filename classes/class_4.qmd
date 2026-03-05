@@ -13,6 +13,8 @@ After completing Class 4 you should...
 * Know the definition/defining equation for reaction mechanism, mechanistic rate expression, reactive intermediate, Bodenstein steady-state approximation, and apparent rate coefficient
 * Understand
     * mechanistic steps are elementary reactions
+    * there must be a linear combination of the mechanistic steps that equals the apparent, non-elementary reaction
+    * mechanistic steps must be reversible, but the reverse rate may be negligibly small
 * Be able to
     * write an expression for the rate of generation of a reactant or product of a non-elementary reaction in terms of its rates of generation in the steps of the reaction’s mechanism
     * simplify rate expressions for kinetically insignificant and effectively irreversible steps
@@ -23,7 +25,8 @@ After completing Class 4 you should...
 
 ## Prepare {.ch}
 
-to be added.
+* Read Sections 4.1 - 4.3 and 4.6 from Chapter 4 of REB, The Book
+* Watch the Class 4 Preparation Video
 
 ## Participate {.ch}
 
