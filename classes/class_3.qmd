@@ -14,7 +14,9 @@ After completing Class 3 you should...
 * Understand
     * the functional form of rate expressions is only known a priori for elementary reactions
     * rate expressions must be experimentally validated
+    * rate expressions must be single-valued and evaluate to zero at equilibrium
 * Be able to
+    * renormalize a reaction rate
     * convert reaction rates to species generation rates and vice versa
     * write a power-law rate expression
     * modify a rate expression so that the rate it predicts goes to zero as equilibrium is approached
@@ -23,7 +25,8 @@ After completing Class 3 you should...
 
 ## Prepare {.ch}
 
-to be added.
+* Read Chapter 3 of REB, The Book
+* Watch the Class 3 Preparation Video
 
 ## Attend {.ch}
 

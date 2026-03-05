@@ -31,13 +31,15 @@ Use equation (2) to calculate the rate coefficient at several temperatures betwe
 
 ## Learning Activity {.ch}
 
-Reversible reaction (1) is elementary and the forward rate coefficient obeys the Arrhenius expression with a pre-exponential factor equal to 6.97 x 10^6^ L mol^–1^ min^–1^ and an activation energy equal to 57.3 kJ mol^–1^. Use the ideal gas law to replace the concentrations in the rate expression with partial pressures in atm, and combine the terms involving temperature into apparent forward and reverse rate coefficients. Does the apparent forward rate coefficient display Arrhenius temperature dependence, and, if so, what are the best estimates for the pre-exponential factor and the activation energy at temperatures between 0 and 100 °C?
+Reversible reaction (1) is elementary and the forward rate coefficient obeys the Arrhenius expression with a pre-exponential factor equal to 6.97 x 10^6^ L mol^–1^ min^–1^ and an activation energy equal to 57.3 kJ mol^–1^. Use the ideal gas law to replace the concentrations in the rate expression with partial pressures in atm, and combine the terms involving temperature into apparent forward and reverse rate coefficients.
 
 $$
 A + B \rightleftarrows Y + Z \tag{1}
 $$
 
-[Learning Activity Solution](Activity%203.pdf), and [Python Calculations Script](activity_3.py).
+Write a utility function that takes the ideal gas constant and equal-sized arrays of absolute temperatures and rate coefficients as arguments and returns the pre-exponential factor and activation energy, their 95% confidence intervals, and the coefficient of determination. Add the function to reb_utils.py and use it to determine whether the apparent forward rate coefficient displays Arrhenius temperature dependence, and, if so, what are the best estimates for the pre-exponential factor and the activation energy at temperatures between 0 and 100 °C?
+
+[Learning Activity Solution](Activity%203.pdf), [reb_utils with Arrhenius_parameters added](../../code/reb_utils.py), and [Python Calculations Script](activity_3.py).
 
 ## Practice Assignment {.ch} 
 

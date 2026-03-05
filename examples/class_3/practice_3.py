@@ -12,7 +12,7 @@ plt.rc("savefig", dpi=300)
 R = 1.987 # BTU/lbmol/°R
 
 # read experimental data and convert temperatures to °R
-df = pd.read_csv('class_3_practice_data.csv')
+df = pd.read_csv('practice_3_data.csv')
 df.columns = ['T','k']
 T = df['T'].to_numpy() + 459.67 # °R
 k_meas = df['k'].to_numpy() # /s
@@ -29,8 +29,8 @@ plt.plot(1/T,np.log(k_AE),color='r', label='Arrhenius Expression')
 plt.xlabel('T$^{-1}$')
 plt.ylabel('ln k')
 plt.legend()
-plt.savefig('Python_Arrhenius_plot.png')
-plt.savefig('Python_Arrhenius_plot.pdf')
+plt.savefig('practice_3_fig_1.png')
+plt.savefig('practice_3_fig_1.pdf')
 plt.show()
 
 # tabulate, display, and save the results
@@ -45,4 +45,4 @@ results = pd.DataFrame(data, columns=['item','value','units'])
 print(' ')
 print(results)
 print(' ')
-results.to_csv("class_3_practice_Python_results.csv", index=False)
+results.to_csv("practice_3_results.csv", index=False)
