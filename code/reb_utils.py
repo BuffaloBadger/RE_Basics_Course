@@ -6,25 +6,30 @@ from scipy.optimize import root
 from scipy.integrate import solve_ivp
 from scipy.integrate import solve_bvp
 
+def lls_parameters(y,x,model_has_intercept):
+    # revised 3/4/26
+
+    # if the model has an intercept, add an array of ones to x
+    if model_has_intercept:
+        x = sm.add_constant(x)
+
+    # fit the linear model to the data
+    res = sm.OLS(y,x).fit()
+
+    # return an array with the parameters, an array of arrays with their
+    # 95% confidence intervals, and the coefficient of determination
+    return res.params, res.conf_int(alpha=0.05), res.rsquared
+
 def Arrhenius_parameters(k,T,R):
-    # revised 12/11/25
+    # revised 3/5/26
 
     # define x and y in the linearized Arrhenius expression
     x = 1/T
     y = np.log(k)
 
-    # add a constant to x because the model includes an intercept
-    x = sm.add_constant(x)
-
-    # fit a linear model to the data
-    res = sm.OLS(y,x).fit()
-
-    # extract the slope and intercept and their 95% confidence intervals
-    beta = res.params
-    beta_ci = res.conf_int(alpha=0.05)
-
-    # extract the coefficient of determination
-    r_squared = res.rsquared
+    # fit the linearized Arrhenius expression to the data
+    model_has_intercept = True
+    beta, beta_ci, r_squared = lls_parameters(y, x, model_has_intercept)
 
     # calculate the Arrhenius parameters and their 95% confidence intervals
     k0 = np.exp(beta[0])
