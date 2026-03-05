@@ -26,7 +26,7 @@ $$
 2 N \!\cdot\! \rightleftarrows N_2\tag{5}
 $$
 
-[Example 4.8.1 Solution]
+[Example 4.8.1 Solution](Example%204.8.1.pdf)
 
 ## Learning Activity {.ch}
 
@@ -56,7 +56,7 @@ $$
 2 H\cdot \rightleftarrows H_2 \tag{5}
 $$
 
-[Learning Activity Solution]
+[Learning Activity Solution](Activity%204.pdf)
 
 ## Practice Assignment {.ch} 
 
@@ -78,7 +78,7 @@ $$
 CO + Cl_3 \rightarrow COCl_2 + Cl \tag{4}
 $$
 
-[Practice Assignment 4 Solution]
+[Practice Assignment 4 Solution](Practice%20Assignment%204.pdf)
 
 ## Supplemental Examples {.ch}
 
