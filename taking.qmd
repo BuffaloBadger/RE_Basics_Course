@@ -2,7 +2,7 @@
 
 ![](graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="300"}
 
-REB, The Course is designed as a self-study version of an undergraduate course on reaction engineering. It can also be used as a supplemental resource by students taking a traditional course. Progressing from top to bottom of the menu on the left will take you through the course in a logical order. Of course, if you want information on a specific topic, you can use the menu to jump to relevant classes. The last item, "Collected Resources," is a drop-down menu with links to two pages. One page contains links to all of the numerical methods videos used in the course. The other page contains links to all of the example, learning activity, and practice problem solutions, along with additional practice problems and solutions, listed by class.
+REB, The Course is designed as a self-study version of an undergraduate course on reaction engineering. It can also be used as a supplemental resource by students taking a traditional course. Progressing from top to bottom of the menu on the left will take you through the course in a logical order. Of course, if you want information on a specific topic, you can use the menu to jump to relevant classes. The last item, "Collected Resources," is a drop-down menu with links to the REB Equation Summary mentioned in Preparing for the Course and two other pages. One page contains links to all of the numerical methods videos used in the course. The other page contains links to all of the example, learning activity, and practice problem solutions, along with additional practice problems and solutions, listed by class.
 
 ## Suggested Study Methods {.ch}
 

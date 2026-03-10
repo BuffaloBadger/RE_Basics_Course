@@ -132,6 +132,8 @@ website:
         href: classes/class_39.qmd
       - section: "*Collected Resources*"
         contents:
+        - text: "REB Equation Summary"
+          href: REB_Equation_Summary.pdf
         - text: "Examples by Class"
           href: catalog.qmd
         - text: "Numerical Methods Videos"
