@@ -10,16 +10,19 @@ to be added
 
 After completing Class 6 you should...
 
-* Know the definition/defining equation for enzyme, homogeneous/heterogeneous catalyst, catalytic site, and surface coverage
+* Know the definition/defining equation for enzyme, homogeneous/heterogeneous catalyst, catalytic site, surface coverage, adsorption/desorption, and adsorbed species
 * Understand
-    * when a mechanism involves charged reagents, enzymes, or catalysts, a catalyst/charge conservation must replace one of the Bodenstein steady state approximations because the Bodenstein steady state approximations are not mathematically independent
+    * when a mechanism involves charged reagents, enzymes, or catalysts, a catalyst/charge conservation equation must replace one of the Bodenstein steady-state approximations because the Bodenstein steady-state approximations are not mathematically independent
+    * it is acceptable for the concentration of a quantifiable reagent to appear in a mechanistic rate expression, but the concentration of complexes it forms with catalysts/enzymes/sites should be treated like reactive intermediates
+    * the total amount of catalyst or enzyme present in the system is constant and equal to the amount initially added
 * Be able to
-    * write an expression for the conservation of catalyst, catalytic sites or charge
-    * eliminate concentrations of reactive intermediates from mechanistic rate expressions when catalysts, enzymes, or charged species participate in the mechanism
+    * write an expression for the conservation of catalyst, enzyme, catalytic sites or charge
+    * eliminate concentrations of reagent-catalyst complexes from mechanistic rate expressions when catalysts, enzymes, or charged species participate in the mechanism
 
 ## Prepare {.ch}
 
-to be added.
+* Read Section 4.5 from Chapter 4 of REB, The Book
+* Watch the Class 6 Preparation Video
 
 ## Participate {.ch}
 

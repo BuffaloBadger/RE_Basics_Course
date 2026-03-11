@@ -10,7 +10,7 @@ to be added
 
 After completing Class 5 you should...
 
-* Know the definition/defining equation for ate-determining step and quasi-equilibrium
+* Know the definition/defining equation for rate-determining step and quasi-equilibrium
 * Understand
     * when one step in a reaction mechanism is rate-determining, all other steps are quasi-equilibrated
 * Be able to
@@ -18,7 +18,8 @@ After completing Class 5 you should...
 
 ## Prepare {.ch}
 
-to be added.
+* Read Sections 4.4 from Chapter 4 of REB, The Book
+* Watch the Class 5 Preparation Video
 
 ## Participate {.ch}
 
