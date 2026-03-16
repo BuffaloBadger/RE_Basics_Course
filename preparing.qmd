@@ -13,7 +13,7 @@ REB, The Course is comparable to reaction engineering courses found in the junio
 
 ## REB Equation Summary {.ch}
 
-You will encounter and use numerous equations as you progress through Reaction Engineering Basics. In my opinion, memorizing equations is largely a waste of time, but familiarity with many of them is essential. The [REB Equation Summary](REB_Equation_Summary.pdf) lists equations that are used repeatedly in the course. I recommend downloading the equation summary and either printing it out or having a link to it easily accessible so you can quickly refer to it as you complete assignments. You should attempt to complete each REB assignment referring only to this summary, and not to any books or other resources. You will know you have mastered a learning objective when you can complete a related assignment referring only to the equation summary.
+You will encounter and use numerous equations as you progress through Reaction Engineering Basics. In my opinion, memorizing equations is largely a waste of time, but familiarity with many of them is essential. The [REB Equation Summary](REB_Equation_Summary.pdf) lists equations that are used repeatedly in the course. I recommend downloading the equation summary and either printing it out or having a link to it easily accessible so you can quickly refer to it as you complete assignments. You should attempt to complete each REB assignment referring only to this summary, and not to REB, The Book or any other books or resources. You will know you have mastered a learning objective when you can complete a related assignment referring only to the equation summary.
 
 ## Computational Necessities {.ch}
 
