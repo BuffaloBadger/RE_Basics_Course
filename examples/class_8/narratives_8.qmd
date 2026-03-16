@@ -4,15 +4,25 @@
 
 ## Preparation Example {.ch}
 
-[to be added]
+**REB, the Book, Example 5.5.1** Consider the typical reaction, $A \rightarrow Z$, which is reversible and exothermic. Suppose that reaction is run using two different reactors. The initial composition and temperature are the same for both. One reactor is isothermal and the other is adiabatic.
+On separate axes, sketch the concentration of A, the temperature, and the net rate of reaction versus reaction time for each of the reactors. Describe the shape of each graph noting slopes, curvature, inflection points, etc. Then discuss the differences between the two reactors and the origins of those differences.
 
 ## Learning Activity {.ch}
 
-[to be added]
+Parallel reactions (1) and (2) are irreversible and exothermic with nearly equal heats of reaction, and they display typical kinetic behavior. The activation energy for reaction (2) is significantly greater than that for reaction (1). Suppose an adiabatic reactor initially contains reagent A at a temperature where the two rates are equal. On separate axes, sketch the concentration of A, the concentration of D, the concentration of U, the temperature, the net rate of reaction (1), and the net rate of reaction (2) versus reaction time. Describe the shape of each graph noting slopes, curvature, inflection points, etc. Then interpret the results in physical terms, and comment on whether initial temperature, or reaction time has the stronger effect on selectivity for the desired product, D.
+
+$$
+A \rightarrow D \tag{1}
+$$
+
+$$
+D \rightarrow U \tag{2}
+$$
 
 ## Practice Assignment {.ch} 
 
-[to be added]
+Consider the reaction, $A \rightarrow Z$, which is irreversible, autocatalytic and endothermic. Suppose that reaction is run using two different reactors. The initial composition and temperature are the same for both. One reactor is isothermal and the other is adiabatic.
+On separate axes, sketch the concentration of A, the temperature, and the net rate of reaction versus reaction time for each of the reactors. Describe the shape of each graph noting slopes, curvature, inflection points, etc. Then discuss the differences between the two reactors and the origins of those differences.
 
 ## Supplemental Examples {.ch}
 
