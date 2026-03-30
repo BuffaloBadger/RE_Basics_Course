@@ -1,10 +1,33 @@
+| | | |
+|:-------|:-------:|-------:|
+| [Previous Class](../class_9/narratives_9.qmd) | [List of Classes](../../catalog.qmd) | [Next Class](../class_11/narratives_11.qmd) |
+:  {tbl-colwidths="[33,33,34]"}
+
 # Class 10 Assignment Examples{.ct}
 
 ![](../../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
 ## Preparation Example {.ch}
 
-[to be added]
+**REB, the Book, Example 6.6.1** Reactants A and B can react irreversibly to produce either a desired product, D, or an undesired product, U, as shown in equations (1) and (2). The corresponding rate expressions are given in equations (3) and (4). The pre-exponential factors for $k_1$ and $k_2$ are 10.2 gal mol^–1^ min^–1^ and 17.0 gal mol^–1^ min^–1^, respectively, and the activation energies are 15.3 kJ mol^–1^ and 23.7 kJ mol^–1^, respectively. A liquid mixture containing 10 mol A gal^–1^ and 12 mol B gal^–1^ at 350 K is fed to an adiabatic 25 gal CSTR at a rate of 12.5 gal min^–1^ If the standard heats at 298 K of reactions (1) and (2) are –12.0 and –21.3 kJ mol^–1^, respectively, and if the reagents form an ideal liquid mixture with the temperature-independent heat capacities of A, B, D and U equal to 85, 125, 200 and 170 J mol^–1^ K^–1^, what are the conversion of the limiting reagent, the outlet selectivity (in mol D per mol U) and the outlet temperature?
+
+$$
+A + B \rightarrow D \tag{1}
+$$
+
+$$
+A + B \rightarrow U \tag{2}
+$$
+
+$$
+r_1 = k_1 C_AC_B \tag{3}
+$$
+
+$$
+r_2 = k_2 C_AC_B \tag{4}
+$$
+
+[Example 6.6.1 Solution](Example%206.6.1.pdf), [example_6_6_1.py](example_6_6_1.py)
 
 ## Learning Activity {.ch}
 

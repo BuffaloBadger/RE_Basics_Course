@@ -1,3 +1,8 @@
+| | | |
+|:-------|:-------:|-------:|
+| [Previous Class](../class_3/narratives_3.qmd) | [List of Classes](../../catalog.qmd) | [Next Class](../class_5/narratives_5.qmd) |
+:  {tbl-colwidths="[33,33,34]"}
+
 # Class 4 Assignment Examples{.ct}
 
 ![](../../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}

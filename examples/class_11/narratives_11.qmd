@@ -1,10 +1,25 @@
+| | | |
+|:-------|:-------:|-------:|
+| [Previous Class](../class_10/narratives_10.qmd) | [List of Classes](../../catalog.qmd) | [Next Class](../class_12/narratives_12.qmd) |
+:  {tbl-colwidths="[33,33,34]"}
+
 # Class 11 Assignment Examples{.ct}
 
 ![](../../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
 ## Preparation Example {.ch}
 
-[to be added]
+**REB, the Book, Example 6.6.4** An adiabatic, steady-state CSTR with a volume of 500 cm^3^ is going to be used to convert A and B into Y and Z. A liquid- solution flowing at 1.0 cm^3^ s^–1^ and containing equal amounts of A and B (0.015 mol cm^–3^) at 50 °C will be used. The heat capacity of the fluid is essentially equal to that of the solvent, 0.35 cal g^–1^ K^–1^ and can be considered to be constant. The (constant) density of the fluid is 0.93 gm cm^–3^. The rate expression for reaction (1) is given in equation (2), and the heat of reaction (1) may be assumed to be constant and equal to –20 kJ mol^–1^. The pre-exponential factor is 3.24 x 10^12^ cm3 mol^–1^ s^–1^, and the activation energy is 105.0 kJ mol^–1^. At these conditions three different steady states are possible; determine the conversion and outlet temperature for each of them.
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_AC_B  \tag{2}
+$$
+
+[Example 6.6.4 Solution](Example%206.6.4.pdf), [example_6_6_4.py](example_6_6_4.py)
 
 ## Learning Activity {.ch}
 
