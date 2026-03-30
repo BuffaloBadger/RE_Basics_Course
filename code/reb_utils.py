@@ -60,14 +60,14 @@ def solve_ivodes(ind_0, dep_0, stop_var, stop_val, derivs_fcn, odes_are_stiff,
         else:
             soln = solve_ivp(derivs_fcn, ind, dep_0, method='RK45'
                              , rtol = rel_tol, atol = abs_tol)
-        solved = soln.success
+        success = soln.success
         message = soln.message
     else:
         # use the event
         count = 0
-        solved = False
+        success = False
         ind_f = ind_0 + 1.0
-        while (count < 10 and not solved):
+        while (count < 10 and not success):
             ind = (ind_0, ind_f)
             count +=1
             if odes_are_stiff:
