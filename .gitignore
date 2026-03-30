@@ -10,6 +10,7 @@
 *.xlsx
 *.csv
 *.pages
+*.vscode
 
 /_site/
 /.quarto/
