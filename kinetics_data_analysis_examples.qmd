@@ -1,0 +1,9 @@
+# Assignments Involving Kinetics Data Analysis
+
+## Examples from *REB, The Book* {.ch}
+
+## Learning Activities from *REB, The Course* {.ch}
+
+## Practice Assignments from *REB, The Course* {.ch}
+
+## Additional Assignments for Extra Practice {.ch}
