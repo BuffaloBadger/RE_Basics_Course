@@ -4,28 +4,35 @@
 
 ## Non-Isothermal, Steady-State CSTR Analysis {.cc}
 
-to be added
+Class 9 introduces continuous stirred-tank reactors (CSTRs) and the quantitative analysis of their steady-state operation. It also illustrates the numerical solution of sets of algebraic-transcendental equations (ATEs).
 
 ## Learning Outcomes {.ch}
 
 After completing Class 9 you should...
 
-* Know the definition/defining equation for algebraic-transcendental equations (ATEs) and residual expressions
+* Know the definition/defining equation for CSTR mole and reacting fluid energy balances, algebraic-transcendental equations (ATEs) and residual expressions.
 * Understand how a numerical ATE solver works and how to use one
 * Be able to
-    * use the REB assignment workflow to complete reaction engineering assignments involving specification tasks
+    * select and simplify the design equations for modeling a steady-state CSTR
+    * select the reactor model variables to be found by solving the steady-state CSTR design equations
+    * identify additional unknowns appearing in the design equations and write equations for calculating them
     * solve a set of ATEs numerically
+    * write and solve any equations for calculating quantities of interest other than the reactor model variables
 
 ## Prepare {.ch}
 
-to be added.
+* Read Sections 6.1 - 6.3, 6.6, Appendix D.2 and Example 6.6.2 in *REB, The Book*.
+* Watch the Class 9 Preparation Video.
+* Watch the Solving ATEs Video.
+* Complete the Class 9 Preparation Assignment.
 
 ## Participate {.ch}
 
-to be added
+* Attend Class 9.
 
 ## Practice {.ch}
 
-to be added
+* Complete the Class 9 Practice Assignment.
+* [Examples that can be used for additional practice](../examples/class_9/narratives_9.qmd).
 
 {{< include ../includes/_bottom_license.qmd >}}

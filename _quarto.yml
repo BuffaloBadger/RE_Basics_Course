@@ -130,15 +130,30 @@ website:
             href: classes/class_38.qmd
       - text: "Class 39: Intermediate Reaction Engineering"
         href: classes/class_39.qmd
-      - section: "*Collected Resources*"
+      - section: "*Resources*"
         contents:
         - text: "REB Equation Summary"
           href: REB_Equation_Summary.pdf
-        - text: "Examples by Class"
-          href: catalog.qmd
         - text: "Numerical Methods Videos"
           href: nm_videos.qmd
-
+        - section: "*Assignments by Topic*"
+          contents:
+          - text: "Mechansitic Rate Expressions"
+            href: mechanism_examples.qmd
+          - text: "CSTR Analysis"
+            href: CSTR_examples.qmd
+          - text: "BSTR Analysis"
+            href: BSTR_examples.qmd
+          - text: "SBSTR Analysis"
+            href: SBSTR_examples.qmd
+          - text: "PFR Analysis"
+            href: PFR_examples.qmd
+          - text: "Kinetics Data Analysis"
+            href: kinetics_data_analysis_examples.qmd
+          - text: "Reactor System Analysis"
+            href: reactor_system_analysis_examples.qmd
+          - text: "Non-Ideal Reactor Models"
+            href: non_ideal_reactor_models_examples.qmd
 
 bibliography: references.bib
 

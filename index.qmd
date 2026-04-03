@@ -15,7 +15,7 @@ Upon successful completion of this course, students will be able to
 3. Using kinetics data from an ideal reactor, estimate values for rate expression parameters, assess the accuracy of the rate expression, and evaluate its suitability.
 4. Formulate steady-state and/or transient models of ideal batch, semi-batch, and continuous flow stirred tank reactors and plug flow reactors, use them to predict the response of, optimize, or design a reactor, and qualitatively rationalize or explain the results on a physical/chemical basis.
 5. Formulate steady-state models of simple CSTR and/or PFR systems that may include multiple reactors, stream splits, stream mixing and heat exchangers, use them to predict the response of, optimize or design a system of that type, and qualitatively rationalize or explain the results on a physical/chemical basis.
-6. Formulate steady-state zoned reactor models, segregated-flow reactor models (including, when necessary, numerical approximation of the age function using experimental stimulus/response data) and steady-state axial dispersion reactor models and use them to predict reactor response
+6. Formulate steady-state zoned reactor models, segregated-flow reactor models (including, when necessary, numerical approximation of the age function using experimental stimulus/response data) and steady-state axial dispersion reactor models and use them to predict reactor response.
 
 ## The Instructor {.ch}
 
