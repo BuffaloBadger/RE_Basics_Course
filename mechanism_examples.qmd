@@ -2,8 +2,383 @@
 
 ## Examples from *REB, The Book* {.ch}
 
+**Example 4.8.1** Suppose that nitrogen oxidation, equation (1), occurs via the chain reaction mechanism given in equations (2) through (5). Classify each of the mechanistic steps as initiation/termination, propagation, chain branching or chain transfer, and show that there is a linear combination the mechanistic steps that is equal to the apparent, non-elementary reaction. Then generate an expression for the apparent rate of generation of NO by reaction (1), assuming that step (4) is effectively irreversible and step (5) is kinetically insignificant. Group and rename combinations of true rate coefficients to minimize the number of apparent rate coefficients in the rate expression.
+
+$$
+N_2 + O_2 \rightleftarrows 2 N\!O \tag{1}
+$$
+
+$$
+O_2 \rightleftarrows 2 O \!\cdot\! \tag{2}
+$$
+
+$$
+O \!\cdot\! + N_2 \rightleftarrows N\!O + N \!\cdot\! \tag{3}
+$$
+
+$$
+N \!\cdot\! + O_2 \rightleftarrows N\!O + O \!\cdot\! \tag{4}
+$$
+
+$$
+2 N \!\cdot\! \rightleftarrows N_2\tag{5}
+$$
+
+[Example 4.8.1 Solution](examples/4_8_1/Example%204.8.1.pdf)
+
+[Example 4.8.1 Calculations](examples/4_8_1/Example%204.8.1%20Calculations.pdf)
+
+---
+
+**Example 4.8.2** Suppose that iodopropane disproportionates to produce iodine according to the apparent non-elementary reaction (1). By separately assuming each of the three mechanistic steps in the proposed mechanism, equations (2) through (4), to be rate-determining, generate three possible mechanistic rate expressions for reaction (1) that do not contain concentrations of reactive intermediates.
+
+$$
+2 C_3H_5I \rightleftarrows C_6H_{10} + I_2 \tag{1}
+$$
+
+$$
+C_3H_5I \rightleftarrows C_3H_5 \!\cdot + I \cdot \tag{2}
+$$
+
+$$
+C_3H_5I + I \cdot \rightleftarrows C_3H_5 \!\cdot + I_2 \tag{3}
+$$
+
+$$
+2C_3H_5 \cdot \rightleftarrows C_6H_{10} \tag{4}
+$$
+
+[Example 4.8.2 Solution](examples/4_8_2/Example%204.8.2.pdf)
+
+[Example 4.8.2 Calculations](examples/4_8_2/Example%204.8.2%20Calculations.pdf)
+
+---
+
+**Example 4.8.3** Suppose an enzyme, E, catalyzes the conversion of substrate, S, into product, P, as indicated in the apparent, non-elementary reaction (1). If the mechanism consists of reactions (2) and (3), derive a mechanistic rate expression for the apparent generation of P via reaction (1) assuming step (3) is effectively irreversible. The resulting rate expression should be suitable for reaction engineering purposes. That is, it should not contain concentrations of reactive intermediates. 
+
+$$
+S \rightleftarrows P \tag{1}
+$$
+
+$$
+E + S \rightleftarrows E\!\!-\!\!S \tag{2}
+$$
+
+$$
+E\!\!-\!\!S \rightleftarrows E + P \tag{3}
+$$
+
+[Example 4.8.3 Solution](examples/4_8_3/Example%204.8.3.pdf)
+
+[Example 4.8.3 Calculations](examples/4_8_3/Example%204.8.3%20Calculations.pdf)
+
+---
+
+**Example 4.8.4** Suppose that enzyme E catalyzes the conversion of substrate S to product P, but if the reagent I is present in the system, it inhibits the enzyme. The apparent reaction is shown in equation (1), and the proposed mechanism consists of reactions (2) through (4). Assume that step (4) is effectively irreversible and the concentration of the free inhibitor is easily measured. Derive a Michaelis-Menten type of rate expression for the apparent rate of reaction (1) in terms of easily quantifiable reagents.
+
+[*Apparent Reaction:*]{.underline}
+
+$$
+S \rightleftarrows P \tag{1}
+$$
+
+[*Proposed Mechanism:*]{.underline}
+
+$$
+E + S \rightleftarrows E\!\!-\!\!S \tag{2}
+$$
+
+$$
+E + I \rightleftarrows E\!\!-\!\!I \tag{3}
+$$
+
+$$
+E\!\!-\!\!S \rightleftarrows E + P \tag{4}
+$$
+
+[Example 4.8.4 Solution](examples/4_8_4/Example%204.8.4.pdf)
+
+[Example 4.8.4 Calculations](examples/4_8_4/Example%204.8.4%20Calculations.pdf)
+
+---
+
+**Example 4.8.5** Suppose the non-elementary reaction (1) is heterogeneously catalyzed, and the corresponding reaction mechanism is given by equations (2) through (6). Assume step (4) is rate-determining and derive an expression for the apparent rate of reaction (1) that does not include fractional coverages.
+
+$$
+A + B \rightleftarrows C + D \tag{1}
+$$
+
+$$
+A + \ast \rightleftarrows A\!-\!\ast \tag{2}
+$$
+
+$$
+B + \ast \rightleftarrows B\!-\!\ast \tag{3}
+$$
+
+$$
+A\!-\!\ast + B\!-\!\ast \rightarrow C\!-\!\ast + D\!-\!\ast \tag{4}
+$$
+
+$$
+C\!-\!\ast \rightleftarrows C + \ast \tag{5}
+$$
+
+$$
+D\!-\!\ast \rightleftarrows D + \ast \tag{6}
+$$
+
+[Example 4.8.5 Solution](examples/4_8_5/Example%204.8.5.pdf)
+
+[Example 4.8.5 Calculations](examples/4_8_5/Example%204.8.5%20Calculations.pdf)
+
+---
+
+**Example 4.8.6** The oxidation of carbon monoxide, reaction (1) is heterogeneously catalyzed. A proposed reaction mechanism is shown in reactions (2) through (6). Assume that step (6) is rate-limiting and derive an expression for the apparent rate of reaction (1) that contains only partial pressures, rate coefficients and equilibrium constants. How does the apparent rate expression change if $O\!-\!\ast$ is the most abundant surface intermediate?
+
+[*Overall Reaction:*]{.underline}
+
+$$
+2 CO + O_2 \rightleftarrows 2 CO_2 \tag{1}
+$$
+
+[*Proposed Mechanism:*]{.underline}
+$$
+O_2 + \ast \rightleftarrows O_2\!-\!\ast \tag{2}
+$$
+
+$$
+CO + O_2\!-\!\ast \rightleftarrows CO_3\!-\!\ast \tag{3}
+$$
+
+$$
+CO_3\!-\!\ast \rightleftarrows CO_2 + O\!-\!\ast \tag{4}
+$$
+
+$$
+CO + O\!-\!\ast \rightleftarrows CO_2\!-\!\ast \tag{5}
+$$
+
+$$
+CO_2\!-\!\ast \rightleftarrows CO_2 + \ast \tag{6}
+$$
+
+[Example 4.8.6 Solution](examples/4_8_6/Example%204.8.6.pdf)
+
+[Example 4.8.6 Calculations](examples/4_8_6/Example%204.8.6%20Calculations.pdf)
+
+---
+
 ## Learning Activities from *REB, The Course* {.ch}
+
+**Learning Activity 4** In the mechanism for synthesis of HBr given below, assume step (4) is effectively irreversible and step (5) is kinetically insignificant. Use the Bodenstein steady-state approximation to derive a mechanistic rate expression for the apparent rate of generation of HBr via non-elementary reaction (1). Simplify the mechanism so that it contains only partial pressures of stable species and not those of reactive intermediates. Group and rename combinations of true rate coefficients to minimize the number of apparent rate coefficients in the rate expression.
+
+[Apparent, Non-Elementary Reaction:]{.underline}
+
+$$
+H_2 + Br_2 \rightleftarrows 2 H\!Br \tag{1}
+$$
+
+[Mechanism:]{.underline}
+
+$$
+Br_2 \rightleftarrows 2 Br \!\cdot\! \tag{2}
+$$
+
+$$
+Br \!\cdot\! + H_2 \rightleftarrows H\!Br + H \!\cdot\! \tag{3}
+$$
+
+$$
+H \!\cdot\! + Br_2 \rightleftarrows H\!Br + Br \!\cdot\! \tag{4}
+$$
+
+$$
+2 H \!\cdot\! \rightleftarrows H_2 \tag{5}
+$$
+
+[Learning Activity 4 Solution](activities/class_4/Activity%204.pdf)
+
+[Learning Activity 4 Calculations](activities/class_4/Activity%204%20Calculations.pdf)
+
+---
+
+**Learning Activity 5** At high temperatures nitric oxide can be reduced by molecular hydrogen. Macroscopically, the reaction appears to occur as written in reaction (1), but it is actually non-elementary. Suppose that the mechanism presented in reactions (2) through (4) is being evaluated to determine whether it is consistent with experimental kinetics. Compare the rate expression for the apparent rate of reaction (1) assuming step (3) to be rate-determining to the rate expression assuming step (3) to be effectively irreversible, but not rate-determining. In both cases, eliminate concentrations of reactive intermediates from the rate expression, and group true rate and equilibrium constants into the minimum number of apparent rate coefficients.
+
+$$
+2 NO + 2 H_2 \rightleftarrows N_2 + 2 H_2O \tag{1}
+$$
+
+$$
+2 NO \rightleftarrows N_2O_2 \tag{2}
+$$
+
+$$
+H_2 + N_2O_2 \rightleftarrows N_2 + H_2O_2 \tag{3}
+$$
+
+$$
+H_2 + H_2O_2 \rightleftarrows 2 H_2O \tag{4}
+$$
+
+[Learning Activity 5 Solution](activities/class_5/Activity%205.pdf)
+
+[Learning Activity 5 Calculations](activities/class_5/Activity%205%20Calculations.pdf)
+
+---
+
+**Learning Activity 6** The hydrogenation of the alpha-olefin RCHCH~2~, reaction (1), is homogeneously catalyzed by Ni. The mechanism is given by reactions (2) through (4). Let [Ni]~0~ represent the total amount of Ni initially added to the system, expressed as a concentration. Generate an expression for the apparent rate of production of RCH~2~CH~3~ via reaction (1) that does not contain concentrations of reactive intermediates. Reactions (2) and (4) are reversible, while reaction (3) is effectively irreversible.
+
+$$
+RCHCH_2 + H_2 \rightleftarrows RCH_2CH_3 \tag{1}
+$$
+
+$$
+RCHCH_2 + Ni \rightleftarrows RCHCH_2\!\!-\!\!Ni \tag{2}
+$$
+
+$$
+RCHCH_2\!\!-\!\!Ni + H_2 \rightarrow RCH_2CH_3\!\!-\!\!Ni \tag{3}
+$$
+
+$$
+RCH_2CH_3\!\!-\!\!Ni \rightleftarrows RCH_2CH_3 + Ni \tag{4}
+$$
+
+[Learning Activity 6 Solution](activities/class_6/Activity%206.pdf)
+
+[Learning Activity 6 Calculations](activities/class_6/Activity%206%20Calculations.pdf)
+
+---
+
+**Learning Activity 7** Suppose that the chlorination of toluene, reaction (1) proceeds according to mechanistic steps (2) through (6). Assume step (4) is rate-determining and effectively irreversible, AlCl~3~ is the most abundant intermediate, and the amount of Al~2~Cl~6~ initially added to the system is known. Derive a mechanistic expression for the rate of reaction (1) that includes the minimum number of apparent rate coefficients and only concentrations of easily quantifiable reagents.
+
+$$
+Cl_2 + C_7H_8 \rightarrow C_7H_8Cl + HCl \tag{1}
+$$
+
+$$
+Al_2Cl_6 \rightarrow AlCl_3 + AlCl_5 \tag{2}
+$$
+
+$$
+AlCl_3 + Cl_2 \rightleftarrows AlCl_5 \tag{3}
+$$
+
+$$
+AlCl_5 + C_7H_8 \rightarrow C_7H_8\!\!-\!\!AlCl_5 \tag{4}
+$$
+
+$$
+C_7H_8\!\!-\!\!AlCl_5 \rightleftarrows C_7H_8Cl_2 + AlCl_3 \tag{5}
+$$
+
+$$
+C_7H_8Cl_2 \rightleftarrows C_7H_7Cl + HCl \tag{6}
+$$
+
+[Learning Activity 7 Solution](activities/class_7/Activity%207.pdf)
 
 ## Practice Assignments from *REB, The Course* {.ch}
 
+**Practice Assignment 4** The formation of phosgene appears macroscopically to take place according to reaction (1) below. It has been suggested that this reaction is non-elementary, and that the actual events taking place are given by reactions (2), (3) and (4). Supposing that reactions (2) and (3) are reversible, but reaction (4) is irreversible, derive an expression for the apparent rate of reaction (1). Eliminate concentrations of reactive intermediates from the rate expression, and group and re-name products of powers of the true rate coefficients to minimize the number of apparent rate coefficients in the rate expression.
+
+$$
+CO + Cl_2 \rightleftarrows COCl_2 \tag{1}
+$$
+
+$$
+Cl_2 \rightleftarrows 2 Cl  \tag{2}
+$$
+
+$$
+Cl + Cl_2 \rightleftarrows Cl_3 \tag{3}
+$$
+
+$$
+CO + Cl_3 \rightarrow COCl_2 + Cl \tag{4}
+$$
+
+[Practice Assignment 4 Solution](practice/class_4/Practice%20Assignment%204.pdf)
+
+[Practice Assignment 4 Calculations](practice/class_4/Practice%20Assignment%204%20Calculations.pdf)
+
+---
+
+**Practice Assignment 5** N~2~O~5~ can decompose into N~2~O~4~ and O~2~, as indicated in reaction (1), but that reaction is not elementary. One possible mechanism for it is given in reactions (2) through (5). Derive an expression for the apparent rate of reaction (1) assuming step (3) to be rate-determining. Eliminate concentrations of reactive intermediates from the rate expression, and group and re-name products of powers of the true rate coefficients to minimize the number of apparent rate coefficients in the rate expression.
+
+$$
+2 N_2O_5 \rightleftarrows 2 N_2O_4 + O_2 \tag{1}
+$$
+
+$$
+N_2O_5 \rightleftarrows NO_2 + NO_3 \tag{2}
+$$
+
+$$
+NO_2 + NO_3 \rightarrow NO_2 + O_2 + NO \tag{3}
+$$
+
+$$
+NO + N_2O_5 \rightleftarrows NO_2 + N_2O_4 \tag{4}
+$$
+
+$$
+2 NO_2 \rightleftarrows N_2O_4 \tag{5}
+$$
+
+[Practice Assignment 5 Solution](practice/class_5/Practice%20Assignment%205.pdf)
+
+[Practice Assignment 5 Calculations](practice/class_5/Practice%20Assignment%205%20Calculations.pdf)
+
+---
+
+**Practice Assignment 6** Suppose that substrate S can be converted to product P in the presence of the enzyme, E. The conversion, reaction (1), is non-elementary. Suppose reactions (2) through (4) are the reaction mechanism, that reaction (3) is effectively irreversible, and that reactions (2) and (4) are reversible. Derive an expression for the apparent rate of reaction (1) if reaction (3) is effectively irreversible. Eliminate concentrations of intermediates from the rate expression and group and rename products of powers of the true rate coefficients to minimize the number of apparent rate coefficients in the rate expression.
+
+$$
+S \rightarrow P \tag{1}
+$$
+
+$$
+E + S \rightleftarrows E\!\!-\!\!S \tag{2}
+$$
+
+$$
+E\!\!-\!\!S \rightarrow E\!\!-\!\!P \tag{3}
+$$
+
+$$
+E\!\!-\!\!P \rightleftarrows E + P \tag{4}
+$$
+
+[Practice Assignment 6 Solution](practice/class_6/Practice%20Assignment%206.pdf)
+
+[Practice Assignment 6 Calculations](practice/class_6/Practice%20Assignment%206%20Calculations.pdf)
+
+---
+
+**Practice Assignment 7** Suppose that the non-elementary conversion of substrate to product, equation (1) is enzymatic and requires a cofactor, C. The concentration of the cofactor is easy to measure. The mechanism of the reaction is given by equations (2) through (4), where step (4) is effectively irreversible. Derive an expression for the apparent rate of enzymatic conversion of substrate to product, and show how the apparent rate expression changes if the enzyme-cofactor complex (E-C) is the most abundant intermediate.
+
+$$
+S \rightarrow P \tag{1}
+$$
+
+$$
+E + C \rightleftarrows E\!\!-\!\!C \tag{2}
+$$
+
+$$
+E\!\!-\!\!C + S \rightleftarrows E\!\!-\!\!C\!\!-\!\!S \tag{3}
+$$
+
+$$
+E\!\!-\!\!C\!\!-\!\!S \rightarrow E\!\!-\!\!C + P \tag{4}
+$$
+
+[Practice Assignment 7 Solution](practice/class_7/Practice%20Assignment%207.pdf)
+
+[Practice Assignment 7 Calculations](practice/class_7/Practice%20Assignment%207%20Calculations.pdf)
+
 ## Additional Assignments for Extra Practice {.ch}
+
+Additional assignments will be added as they become available.

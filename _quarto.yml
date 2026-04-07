@@ -138,6 +138,8 @@ website:
           href: nm_videos.qmd
         - section: "*Assignments by Topic*"
           contents:
+          - text: "Reactions, Rates, and Rate Expressions"
+            href: reaction_rate_expression_examples.qmd
           - text: "Mechansitic Rate Expressions"
             href: mechanism_examples.qmd
           - text: "CSTR Analysis"
