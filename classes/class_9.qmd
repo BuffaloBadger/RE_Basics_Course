@@ -33,6 +33,6 @@ After completing Class 9 you should...
 ## Practice {.ch}
 
 * Complete the Class 9 Practice Assignment.
-* [Examples that can be used for additional practice](../examples/class_9/narratives_9.qmd).
+
 
 {{< include ../includes/_bottom_license.qmd >}}
