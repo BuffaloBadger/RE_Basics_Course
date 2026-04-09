@@ -65,7 +65,7 @@ $$
 | H~2~ | 0.0 | 6.483 + 2.215 x 10^-3^ T - 3.298 x 10^-6^ T^2^ + 1.826 x 10^-9^ T^3^ |
 | CO~2~ | -94.05 | 4.728 + 1.754 x 10^-2^ T - 1.338 x 10^-5^ T^2^ + 4.097 x 10^-9^ T^3^ |
 
-: Ideal gas standard heats of formation^1^ and heat capacities^2^ from @reid_properties_1977. {#tbl-ch2_example4 tbl-colwidths="[10,10,80]"}
+: Ideal gas standard heats of formation^1^ and heat capacities^2^ from Reid, Robert C., J. M. Prausnitz, and Thomas Kilgore Sherwood. 1977. The Properties of Gases and Liquids. McGraw-Hill. {#tbl-ch2_example4 tbl-colwidths="[10,10,80]"}
 
 ^1^ kcal mol^-1^  
 ^2^ cal mol^-1^ K^-1^ for T in K
@@ -74,7 +74,7 @@ $$
 
 ---
 
-**Example 3.6.1** The synthesis of ammonia, reaction (1), is one of the highest production chemical processes in the world. (One reason for this is that ammonia is used to make fertilizer.) It is a heterogeneous catalytic reaction. The ammonia synthesis catalyst takes the form of pellets that pack into the the reactor with an apparent density of 155 lb~m~ ft^-3^. Rase [-@rase_h_f_chemical_1977] provides the expression in equation (2) for the rate of generation of ammonia via reaction (1). In that expression, $E_1$ is the activation energy, $K_{1,eq}$ is the equilibrium constant and $a_i$ represents the thermodynamic activity of reagent $i$.
+**Example 3.6.1** The synthesis of ammonia, reaction (1), is one of the highest production chemical processes in the world. (One reason for this is that ammonia is used to make fertilizer.) It is a heterogeneous catalytic reaction. The ammonia synthesis catalyst takes the form of pellets that pack into the the reactor with an apparent density of 155 lb~m~ ft^-3^. Rase (1977. Chemical Reactor Design for Process Plants. Vol. 2. New York: John Wiley.) provides the expression in equation (2) for the rate of generation of ammonia via reaction (1). In that expression, $E_1$ is the activation energy, $K_{1,eq}$ is the equilibrium constant and $a_i$ represents the thermodynamic activity of reagent $i$.
 
 $$
 3 H_2 + N_2 \rightleftarrows 2 NH_3 \tag{1}
@@ -307,4 +307,4 @@ $$
 
 Additional assignments will be added as they become available.
 
-## References
+{{< include includes/_bottom_license.qmd >}}
