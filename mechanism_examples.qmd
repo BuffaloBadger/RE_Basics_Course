@@ -382,3 +382,5 @@ $$
 ## Additional Assignments for Extra Practice {.ch}
 
 Additional assignments will be added as they become available.
+
+{{< include includes/_bottom_license.qmd >}}

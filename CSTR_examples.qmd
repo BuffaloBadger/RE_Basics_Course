@@ -2,8 +2,78 @@
 
 ## Examples from *REB, The Book* {.ch}
 
+**Example 6.6.1**
+
+---
+
+**Example 6.6.2**
+
+---
+
+**Example 6.6.3**
+
+---
+
+**Example 6.6.4**
+
+---
+
+**Example 6.6.5**
+
+---
+
+**Example 6.6.6**
+
 ## Learning Activities from *REB, The Course* {.ch}
+
+**Learning Activity 8**
+
+---
+
+**Learning Activity 9**
+
+---
+
+**Learning Activity 10**
+
+---
+
+**Learning Activity 11**
+
+---
+
+**Learning Activity 12**
+
+---
+
+**Learning Activity 13**
 
 ## Practice Assignments from *REB, The Course* {.ch}
 
+**Practice Assignment 8**
+
+---
+
+**Practice Assignment 9**
+
+---
+
+**Practice Assignment 10**
+
+---
+
+**Practice Assignment 11**
+
+---
+
+**Practice Assignment 12**
+
+---
+
+**Practice Assignment 13**
+
 ## Additional Assignments for Extra Practice {.ch}
+
+Additional assignments will be added as they become available.
+
+{{< include includes/_bottom_license.qmd >}}
