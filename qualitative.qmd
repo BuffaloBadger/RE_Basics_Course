@@ -1,0 +1,19 @@
+# Assignments Requiring Qualitative Analysis
+
+## Examples from *REB, The Book* {.ch}
+
+**Example 5.5.1** Consider the typical reaction, A → Z, which is irreversible and exothermic. Suppose that reaction is run in an adiabatic reactor starting with pure A. Sketch the concentration of A, the temperature, and the net rate of reaction versus reaction time. Describe the shape of each graph noting slopes, curvature, inflection points, etc. Then explain the shape on a physical basis.
+
+[Example 5.5.1 Solution](examples/5_5_1/Example%205.5.1.pdf)
+
+---
+
+## Learning Activities from *REB, The Course* {.ch}
+
+## Practice Assignments from *REB, The Course* {.ch}
+
+## Additional Assignments for Extra Practice {.ch}
+
+Additional assignments will be added as they become available.
+
+{{< include includes/_bottom_license.qmd >}}

@@ -142,6 +142,8 @@ website:
             href: reaction_rate_expression_examples.qmd
           - text: "Mechansitic Rate Expressions"
             href: mechanism_examples.qmd
+          - text: "Qualitative Analysis"
+            href: qualitative.qmd
           - text: "CSTR Analysis"
             href: CSTR_examples.qmd
           - text: "BSTR Analysis"
