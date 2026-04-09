@@ -54,11 +54,12 @@ def solve_ivodes(ind_0, dep_0, stop_var, stop_val, derivs_fcn, odes_are_stiff,
     if stop_var == 0:
         # do not use the event
         ind = (ind_0, stop_val)
+        t_eval = np.linspace(ind_0, stop_val, 100)
         if odes_are_stiff:
-            soln = solve_ivp(derivs_fcn, ind, dep_0, method='LSODA'
+            soln = solve_ivp(derivs_fcn, ind, dep_0, method='LSODA', t_eval = t_eval
                              , rtol = rel_tol, atol = abs_tol)
         else:
-            soln = solve_ivp(derivs_fcn, ind, dep_0, method='RK45'
+            soln = solve_ivp(derivs_fcn, ind, dep_0, method='RK45', t_eval = t_eval
                              , rtol = rel_tol, atol = abs_tol)
         success = soln.success
         message = soln.message
@@ -69,12 +70,13 @@ def solve_ivodes(ind_0, dep_0, stop_var, stop_val, derivs_fcn, odes_are_stiff,
         ind_f = ind_0 + 1.0
         while (count < 10 and not success):
             ind = (ind_0, ind_f)
+            t_eval = np.linspace(ind_0, stop_val, 100)
             count +=1
             if odes_are_stiff:
-                soln = solve_ivp(derivs_fcn, ind, dep_0, method='LSODA'
+                soln = solve_ivp(derivs_fcn, ind, dep_0, method='LSODA', t_eval = t_eval
                                  , events=event, rtol = rel_tol, atol = abs_tol)
             else:
-                soln = solve_ivp(derivs_fcn, ind, dep_0, method='RK45'
+                soln = solve_ivp(derivs_fcn, ind, dep_0, method='RK45', t_eval = t_eval
                                  , events=event, rtol = rel_tol, atol = abs_tol)
             if soln.t[-1] == ind_f: # ind_f was not large enough
                 ind_f = (ind_0 + 1.0)*10**count
