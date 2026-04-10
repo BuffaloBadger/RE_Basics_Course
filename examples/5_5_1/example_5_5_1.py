@@ -88,9 +88,9 @@ def deliverables():
     plt.ylim(bottom=0)
     plt.xticks([])
     plt.yticks([])
-    plt.savefig("example_5_5_1_concentration_profile.png")
-    plt.savefig("../../../RE_Basics/solutions/ch5_ex1/example_5_5_1_concentration_profile.png")
-    plt.show()
+    plt.savefig("example_5_5_1_full_conc_profile.png")
+    plt.savefig("../../../RE_Basics/solutions/ch5_ex1/example_5_5_1_full_conc_profile.png")
+    plt.show(block=False)
 
     # graph the temperature profile
     plt.figure(2)
@@ -100,9 +100,9 @@ def deliverables():
     plt.xlim(left=0)
     plt.xticks([])
     plt.yticks([])
-    plt.savefig("example_5_5_1_temperature_profile.png")
-    plt.savefig("../../../RE_Basics/solutions/ch5_ex1/example_5_5_1_temperature_profile.png")
-    plt.show()
+    plt.savefig("example_5_5_1_full_temp_profile.png")
+    plt.savefig("../../../RE_Basics/solutions/ch5_ex1/example_5_5_1_full_temp_profile.png")
+    plt.show(block=False)
 
     # graph the rate profile
     plt.figure(3)
@@ -113,8 +113,50 @@ def deliverables():
     plt.ylim(bottom=0)
     plt.xticks([])
     plt.yticks([])
-    plt.savefig("example_5_5_1_rate_profile.png")
-    plt.savefig("../../../RE_Basics/solutions/ch5_ex1/example_5_5_1_rate_profile.png")
+    plt.savefig("example_5_5_1_full_rate_profile.png")
+    plt.savefig("../../../RE_Basics/solutions/ch5_ex1/example_5_5_1_full_rate_profile.png")
+    plt.show(block=False)
+
+    # graph the concentration profile only where the rate is decreasing
+    i_opt = np.argmax(r)
+    plt.figure(4)
+    plt.plot(t[i_opt:-1], CA[i_opt:-1])
+    plt.xlabel("Time")
+    plt.ylabel("Concentration of A")
+    plt.xlim(left=t[i_opt])
+    plt.ylim(bottom=0)
+    plt.xticks([])
+    plt.yticks([])
+    plt.savefig("example_5_5_1_conc_profile_when_r_decreasing.png")
+    plt.savefig("../../../RE_Basics/solutions/ch5_ex1/example_5_5_1_conc_profile_when_r_decreasing.png")
+    plt.show(block=False)
+
+    # graph the temperature profile only where the rate is decreasing
+    plt.figure(5)
+    plt.plot(t[i_opt:-1], T[i_opt:-1])
+    plt.xlabel("Time")
+    plt.ylabel("Temperature")
+    plt.xlim(left=t[i_opt])
+    plt.xticks([])
+    plt.yticks([])
+    plt.savefig("example_5_5_1_temp_profile_when_r_decreasing.png")
+    plt.savefig("../../../RE_Basics/solutions/ch5_ex1/example_5_5_1_temp_profile_when_r_decreasing.png")
+    plt.show(block=False)
+
+    # graph approach to equilibrium
+    plt.figure(6)
+    plt.rcParams['axes.spines.left'] = False
+    plt.rcParams['axes.spines.right'] = False
+    plt.rcParams['axes.spines.top'] = False
+    plt.rcParams['axes.spines.bottom'] = False
+    plt.plot(t[i_opt:-1], CA[i_opt:-1], label="decreasing concave upward")
+    plt.plot(t[i_opt:-1], -CA[i_opt:-1], label="increasing concave downward")
+    plt.xlabel("Time")
+    plt.ylabel("Concentration or Temperature")
+    plt.xticks([])
+    plt.yticks([])
+    plt.savefig("concave_up_and_down.png")
+    plt.savefig("../../../RE_Basics/figures/concave_up_and_down.png")
     plt.show()
 
 # execution command
