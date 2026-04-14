@@ -8,15 +8,29 @@
 
 ---
 
-**Example 5.5.2** 
+**Example 5.5.2** Suppose the irreversible series reactions given in equations (1) and (2) take place in the liquid phase in an isothermal reactor. Only reagent A is present initially, and the kinetics of both reactions are typical. On a single set of axes, sketch the concentrations of A, D, and U versus reaction time. Describe the shape of each curve noting slopes, curvature, inflection points, etc. Then interpret the results in physical terms.
+
+$$
+A \rightarrow D \tag{1}
+$$
+
+$$
+D \rightarrow U \tag{2}
+$$
+
+[Example 5.5.2 Solution](examples/5_5_2/Example%205.5.2.pdf)
 
 ## Learning Activities from *REB, The Course* {.ch}
 
-**Learning Activity 8**
+**Learning Activity 8** Consider the reaction, A → Z, which is irreversible, autocatalytic and endothermic. Suppose that reaction occurs isothermally and sketch the concentration of A as a function of reaction time. Assuming the system initially contains only A, describe the shape of the curve noting slope, curvature, inflection points, etc and explain them on a physical basis. Then discuss the differences you would expect if the reaction occurred adiabatically.
+
+[Learning Activity 8 Solution](activities/class_8/Activity%208.pdf)
 
 ## Practice Assignments from *REB, The Course* {.ch}
 
-**Practice Assignment 8** 
+**Practice Assignment 8** Example 5.1.1 considered the irreversible, exothermic reaction, A → Z, taking place adiabatically starting with only A present. Suppose instead that the reaction is endothermic. Sketch the concentration of A, and the temperature versus reaction time for isothermal operation and for adiabatic operation. Describe the shape of each graph noting slopes, curvature, inflection points, etc. Then explain the shapes and the differences between the adiabatic and isothermal plots on a physical basis.
+
+[Practice Assignment 8 Solution](practice/class_8/Practice%20Assignment%208.pdf)
 
 ## Additional Assignments for Extra Practice {.ch}
 
