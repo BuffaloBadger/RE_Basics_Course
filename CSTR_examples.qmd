@@ -2,33 +2,137 @@
 
 ## Examples from *REB, The Book* {.ch}
 
-**Example 6.6.1**
+**Example 6.6.1** Reactants A and B can react irreversibly to produce either a desired product, D, or an undesired product, U, as shown in equations (1) and (2). The rate expressions for reactions (1) and (2) are given in equations (3) and (4), respectively. In those rate expressions, the pre-exponential factors for $k_1$ and $k_2$ are 10.2 gal mol^-1^ min^-1^ and 17.0 gal mol^-1^ min^-1^, respectively, and the activation energies are 15.3 kJ mol^-1^ and 23.7 kJ mol^-1^, respectively. A liquid mixture containing 10 mol A gal^-1^ and 12 mol B gal^-1^ at 350 K is fed to an adiabatic 25 gal CSTR at a rate of 12.5 gal min^-1^. If the standard heats of reactions (1) and (2) at 298 K are -12.0 and -21.3 kJ mol^-1^, respectively, and if the reagents form an ideal liquid mixture with the temperature-independent heat capacities of A, B, D and U equal to 85, 125, 200 and 170 J mol^-1^ K^-1^, what are the conversion of the limiting reagent, the outlet selectivity (in mol D per mol U) and the outlet temperature?
+
+$$
+A + B \rightarrow D \tag{1}
+$$
+
+$$
+A + B \rightarrow U \tag{2}
+$$
+
+$$
+r_1 = k_1 C_AC_B \tag{3}
+$$
+
+$$
+r_2 = k_2 C_AC_B \tag{4}
+$$
+
+[Example 6.6.1 Solution](examples/6_6_1/Example%206.6.1.pdf)
+
+[Example 6.6.1 Calculations](examples/6_6_1/example_6_6_1.py)
 
 ---
 
-**Example 6.6.2**
+**Example 6.6.2** The amount of A, (10%), in a gas mixture with B (65%), and inert, I, (25%) at 165 °C and 5 atm needs to be reduced to 0.1%. This is going to be accomplished by converting the A into Z according to reaction (1). An adiabatic CSTR is going to be used. The rate expression is given in equation (2) where the pre-exponential factor is 1.37 x 10^5^ m^3^ mol^-1^ min^-1^ and the activation energy is 11,100 cal mol^-1^. The heat of reaction is constant and equal to -7200 cal mol^-1^, and the heat capacities of A, B, I, and Z are equal to 7.6, 8.2, 4.3, and 13.8 cal mol^-1^ K^-1^, respectively. What space time is required, and what temperature will result?
+
+$$
+A + B \rightarrow Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{2}
+$$
+
+[Example 6.6.2 Solution](examples/6_6_2/Example%206.6.2.pdf)
+
+[Example 6.6.2 Calculations](examples/6_6_2/example_6_6_2.py)
 
 ---
 
-**Example 6.6.3**
+**Example 6.6.3** To produce Z via reaction (1), reagent A will be fed to an adiabatic 0.5 m^3^ CSTR at 70 mol min^-1^, and B will be fed at 1500 mol min^-1^ giving a total liquid feed rate of 40 L min^-1^. The rate expression for reaction (1) is given in equation (2), where the pre-exponential factor for the rate coefficient is 1.2 x 10^9^ m^3^ mol^-1^ min^-1^ and the activation energy is 25.8 kcal mol^-1^. The equilibrium constant appearing in the rate expression can be calculated using equation (3), where the pre-exponential factor is 4.2 x 10^-18^ m^3^ mol^-1^ and the heat of reaction is -22.4 kcal mol^-1^. The heat capacities of A, B, and Z are 412, 75.5, and 512 J mol^-1^ K^-1^, respectively, and may be taken to be independent of temperature. What feed temperature will maximize the conversion of A?
+
+$$
+A + B \rightarrow Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_AC_B\left( 1 - \frac{C_Z}{K_1C_AC_B}\right) \tag{2}
+$$
+
+$$
+K_1 = K_{0,1}\exp{\frac{-\Delta H_1}{RT}} \tag{3}
+$$
+
+[Example 6.6.3 Solution](examples/6_6_3/Example%206.6.3.pdf)
+
+[Example 6.6.3 Calculations](examples/6_6_3/example_6_6_3.py)
 
 ---
 
-**Example 6.6.4**
+**Example 6.6.4** An adiabatic, steady-state CSTR with a volume of 500 cm^3^ is going to be used to convert A and B into Y and Z according to reaction (1). A liquid solution flowing at 1.0 cm^3^ s^-1^ and containing equal amounts of A and B (0.015 mol cm^-3^) at 50 °C will be used. The heat capacity of the fluid is essentially equal to that of the solvent, 0.35 cal g^-1^ K^-1^ and can be considered to be constant. The density of the fluid, also constant, is 0.93 gm cm^-3^. The rate expression for reaction (1) is given in equation (2), and the heat of reaction (1) may be assumed to be constant and equal to -20 kJ mol^-1^. The rate coefficient displays Arrhenius temperature dependence with a pre-exponential factor equal to 3.24 x 10^12^ cm^3^ mol^-1^ s^-1^, and an activation energy of 105.0 kJ mol^-1^. How many steady states are possible at these conditions, and what are the conversion and outlet temperature for each of them?
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{2}
+$$
+
+[Example 6.6.4 Solution](examples/6_6_4/Example%206.6.4.pdf)
+
+[Example 6.6.4 Calculations for Multiplicity Plot](examples/6_6_4/example_6_6_4_part_A.py)
+
+[Example 6.6.4 Calculations for Steady States](examples/6_6_4/example_6_6_4_part_B.py)
 
 ---
 
-**Example 6.6.5**
+**Example 6.6.5** A 10 gal CSTR with a 1.25 gal shell is going to be used for the conversion of A and B according to reactions (1), (2), and (3). Both the reactor and the shell are perfectly mixed. Before flow into the reactor begins, it is full and contains a solution containing only B at a concentration of 3 mol gal^-1^ and a temperature of 20 °C, while the shell contains cooling water at 20 °C. To start up the reactor, 0.5 gal min^-1^ of a feed consisting of a liquid solution of A (7.5 mol gal^-1^) and B (3 mol gal^-1^) at 50 °C starts flowing into the reactor and simultaneously cooling water at 20 °C starts flowing into the shell at a rate of 250 g min^-1^. The heat transfer coefficient between the reactor and the shell is 190 cal ft^-2^ min^-1^ K^-1^ and the heat transfer area is 4 ft^2^. The entire process operates at a constant pressure of 1 atm.
+
+$$
+A + B \rightarrow W + Z \tag{1}
+$$
+
+$$
+A + B \rightarrow X + Z \tag{2}
+$$
+
+$$
+A + B \rightarrow Y + Z \tag{3}
+$$
+
+Each of the reactions is first order in the concentration of A and first order in the concentration of B. The pre-exponential factors, activation energies and heats of reaction are listed in the table below. The heats of reaction may be taken to be constant. The cooling water has a constant density of 1 g cm^-3^ and a constant heat capacity of 1 cal g^-1^ K^-1^. The reacting fluid may be assumed to have a constant heat capacity of 1600 cal gal^-1^ K^-1^.
+
+Plot the temperature of the reacting fluid, the temperature of the cooling water in the jacket, and the concentration of B in the reactor during the first 30 minutes of the start-up process.
+
+| Reaction | k~0~ (gal mol^-1^ min^-1^) | E (kcal mol^-1^) | $\Delta H$ (kcal mol^-1^) |
+|:----:|:----:|:----:|:----:|
+| 1 | 4.3 x 10^8^ | 14.2 | -11.0 |
+| 2 | 2.7 x 10^8^ | 16.1 | -11.6 |
+| 3 | 3.9 x 10^8^ | 14.8 | -12.1 |
+
+: Reaction Data {#tbl-ch6_ex5_data}
+
+[Example 6.6.5 Solution](examples/6_6_5/Example%206.6.5.pdf)
+
+[Example 6.6.5 Calculations](examples/6_6_5/example_6_6_5.py)
 
 ---
 
-**Example 6.6.6**
+**Example 6.6.6** Example 6.6.4 showed conditions where three steady states are possible when reaction (1) takes place in an adiabatic CSTR. Specifically, the reactor volume is 500 cm^3^ and the feed is 1.0 cm^3^ s^-1^ of a solution containing 0.015 mol cm^-3^ each of A and B at 50 °C. The heat capacity is 0.35 cal g^-1^ K^-1^, and the density is 0.93 gm cm^-3^. The heat of reaction is -20 kJ mol^-1^, and the rate is given by equation (2) with the pre-exponential factor equal to 3.24 x 10^12^ cm^3^ mol^-1^ s^-1^ and the activation energy equal to 105.0 kJ mol^-1^. The steady-state conversions were 0.03, 39.9, and 97.5%, and the corresponding outlet temperatures were 50, 183, and 265 °C.
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{2}
+$$
+
+The outlet temperature for this reactor was plotted as a function of the feed temperature , and that graph is reproduced here as @fig-ch6_ex6_initial_steady_states, with three steady states labeled "S~high~," "U~mid~," and "S~low~" Steady states S~high~ (97.5% conversion) and S~low~ (0.03% conversion) are stable while steady state U~mid~ (39.3% conversion) is unstable. 
+
+![Steady-state temperatures prior to perturbation.](examples/6_6_6/example_6_6_6_multiplicity.png){#fig-ch6_ex6_initial_steady_states width="80%"}
+
+To show that steady state U~mid~ is unstable, plot the outlet temperature *vs*. time if the temperature of a CSTR at steady state U~mid~ is perturbed +1 °C, and by -1 °C holding all of the inputs constant. To show the two other steady states are stable, plot the outlet temperature *vs*. time if the temperature of a CSTR at each of those steady states is perturbed +20 °C, and by -20 °C holding all of the inputs constant.
+
+[Example 6.6.6 Solution](examples/6_6_6/Example%206.6.6.pdf)
+
+[Example 6.6.6 Calculations](examples/6_6_6/example_6_6_6.py)
 
 ## Learning Activities from *REB, The Course* {.ch}
-
-**Learning Activity 8**
-
----
 
 **Learning Activity 9**
 
@@ -49,10 +153,6 @@
 **Learning Activity 13**
 
 ## Practice Assignments from *REB, The Course* {.ch}
-
-**Practice Assignment 8**
-
----
 
 **Practice Assignment 9**
 

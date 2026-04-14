@@ -15,7 +15,7 @@ k2_0 = 4.61e17 # 1/min
 E2overR = 15000 # K
 T = 350 # K
 CA0 = 1 # mol/L
-tf = 30 # min
+tf = 45 # min
 
 # BSTR model function
 def bstr_model_variables():
@@ -33,7 +33,7 @@ def bstr_model_variables():
 
     # check that a solution was found
     if not(success):
-        print(f"An IVODE solution was NOT obtained: {message}")
+        print(f"  Error in BSTR Model: {message}")
 
     # return the reactor_model_variables
     return t, dep[0,:], dep[1,:], dep[2,:]
@@ -44,7 +44,6 @@ def bstr_derivatives(ind, dep):
     # extract the individual dependent variables
     CA = dep[0]
     CD = dep[1]
-    CU = dep[2]
 
     # calculate the rates
     r1 = k1_0 * np.exp(-E1overR / T) * CA
@@ -74,11 +73,12 @@ def deliverables():
     plt.ylabel("Concentration")
     plt.xticks([])
     plt.yticks([])
+    plt.xlim(left=0)
     plt.ylim(bottom=0)
     plt.legend()
     plt.savefig("example_5_5_2_concentration_profiles.png")
     plt.savefig("../../../RE_Basics/solutions/ch5_ex2/example_5_5_2_concentration_profiles.png")
-    plt.show()
+    plt.show(block = False)
 
     plt.figure(2)
     plt.plot(t, r1, label="Reaction 1")
@@ -87,6 +87,7 @@ def deliverables():
     plt.ylabel("Rate")
     plt.xticks([])
     plt.yticks([])
+    plt.xlim(left=0)
     plt.ylim(bottom=0)
     plt.legend()
     plt.savefig("example_5_5_2_rate_profiles.png")

@@ -123,6 +123,7 @@ def deliverables():
     plt.xlabel("Inlet CSTR Temperature")
     plt.ylabel("Outlet CSTR Temperature")
     plt.savefig('example_6_6_6_multiplicity.png')
+    plt.savefig('example_6_6_6_multiplicity.pdf')
     plt.savefig('../../../RE_Basics/solutions/ch6_ex6/example_6_6_6_multiplicity.png')
     plt.show()
     return

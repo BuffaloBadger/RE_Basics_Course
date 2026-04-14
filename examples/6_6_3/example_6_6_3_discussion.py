@@ -12,10 +12,10 @@ plt.rc("savefig", dpi=300)
 # constants available to all functions
 # given
 V = 0.5 # m^3
-nA_in = 70 # mol /s
-nB_in = 1500 # mol /s
-Vdot_in = 40E-3 # m^3 /s
-k0 = 1.2E9 # m^3 /mol /s
+nA_in = 70 # mol /min
+nB_in = 1500 # mol /min
+Vdot_in = 40E-3 # m^3 /min
+k0 = 1.2E9 # m^3 /mol /min
 E = 25800*4.184 # J /mol
 K0 = 4.2E-18 # m^3 /mol
 dH = -22400*4.184 # J /mol
@@ -32,7 +32,7 @@ def reactor_model_variables(init_guess):
 
     # check that the solution is converged
     if not(success):
-        print(f"The initial temperature was NOT found: {message}")
+        print(f"  CSTR model function error: {message}")
 
     # return the solution
     return soln
