@@ -152,7 +152,27 @@ $$
 
 ---
 
-**Learning Activity 10**
+**Learning Activity 10** An ideal, 50 gal CSTR is fed a liquid solution containing 0.014 lbmol A gal^−1^ and 0.020 lbmol B gal^−1^ at a temperature of 70 °F. The heat capacity of the reacting liquid is constant and equal to 65 BTU ft^−3^ °R^−1^. A jacket surrounding the reactor is supplied with saturated steam at 220 °F. The steam condenses in the jacket, leaving as a saturated liquid. The overall heat transfer coefficient is 60 BTU ft^−2^ °R^−1^ h^−1^, and the heat transfer area is 13 ft^2^. Reactions (1) and (2) take place within the steady-state CSTR. The heat of reaction (1) is 45,000 BTU lbmol^−1^, and the heat of reaction (2) is 39,500 BTU lbmol^−1^. The rate expressions for reactions (1) and (2) are given in equations (3) and (4). The rate coefficients obey the Arrhenius expression. For reaction (1) the pre-exponential factor is 1.6 × 10^18^ gal lbmol^−1^ h^−1^, and the activation energy is 46,000 BTU lbmol^−1^. For reaction (2) the pre-exponential factor is 4.5 × 10^18^ gal lbmol^−1^ h^−1^, and the activation energy is 54,000 BTU lbmol^−1^. What volumetric feed rate will maximize the rate of production of reagent D? At that feed rate, what is the conversion of A and the reactor temperature?
+
+$$
+A + B \rightarrow D + Z \tag{1}
+$$
+
+$$
+D + B \rightarrow U + Z \tag{2}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{3}
+$$
+
+$$
+r_2 = k_2C_DC_B \tag{4}
+$$
+
+[Learning Activity 10 Solution](activities/class_10/Activity%2010.pdf)
+
+[Learning Activity 10 Calculations](activities/class_10/activity_10.py)
 
 ---
 
