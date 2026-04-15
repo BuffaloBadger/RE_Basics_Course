@@ -3,7 +3,6 @@
 # import libraries
 import numpy as np
 from reb_utils import solve_ates
-import scipy as sp
 import pandas as pd
 
 # constants available to all functions
@@ -29,20 +28,20 @@ R = 8.314 # J /mol /K
 nA_in = CA_in*Vdot_in
 nB_in = CB_in*Vdot_in
 
-# reactor model function
-def reactor_model_variables(init_guess):
+# cstr model function
+def cstr_model_variables(init_guess):
 	# solve the ATEs
-    soln, success, message = solve_ates(residuals,init_guess)
+    soln, success, message = solve_ates(cstr_residuals,init_guess)
 
     # check that the solution is converged
     if not(success):
-        print(f"The initial temperature was NOT found: {message}")
+        print(f"  CSTR model function error: {message}")
 
     # return the solution
     return soln
 
-# residuals function
-def residuals(guess):
+# cstr residuals function
+def cstr_residuals(guess):
     # extract the individual guesses
     nA = guess[0]
     nB = guess[1]
@@ -83,7 +82,7 @@ def deliverables():
 #    init_guess[4] = T_in + 100
     
     # solve the reactor design equations
-    solution = reactor_model_variables(init_guess)
+    solution = cstr_model_variables(init_guess)
 
     # extract individual unknowns
     nA = solution[0]

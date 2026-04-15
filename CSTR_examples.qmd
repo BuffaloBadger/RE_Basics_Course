@@ -134,7 +134,21 @@ To show that steady state U~mid~ is unstable, plot the outlet temperature *vs*. 
 
 ## Learning Activities from *REB, The Course* {.ch}
 
-**Learning Activity 9**
+**Learning Activity 9** The rate of liquid-phase reaction (1) is adequately described by the rate expression given in equation (2). The rate coefficient exhibits Arrhenius temperature dependence with a pre-exponential factor of 1.2 x 10^14^ ft^3^ lbmol^–1^ min^–1^ and an activation energy of 45,700 BTU lbmol^–1^. The equilibrium constant also displays Arrhenius temperature dependence with a pre-exponential factor of 6.5 x 10^–13^ ft^3^ lbmol^–1^ and a heat of reaction of 39,700 BTU lbmol^–1^.
+
+Reactant A is fed to a steady state CSTR at a rate of 0.01 lbmol min^–1^, and reactant B is fed at a rate of 0.25 lbmol min^–1^. This corresponds to an inlet volumetric flow rate of 0.08 ft^3^ min^–1^. The CSTR has a fluid volume of 18 ft^3^, and it operates adiabatically. The heat capacities of A, B and Z are equal to 1000, 180 and 1200 BTU lbmol^–1^ °R^–1^, respectively, and they may be considered to be independent of temperature. What will the conversion and outlet temperatures equal if the combined feed enters at 600, 650 or 700 °R.
+
+$$
+A + B \rightleftarrows Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_AC_B\left( 1 - \frac{C_Z}{K_1C_AC_B}\right) \tag{2}
+$$
+
+[Learning Activity 9 Solution](activities/class_9/Activity%209.pdf)
+
+[Learning Activity 9 Calculations](activities/class_9/activity_9.py)
 
 ---
 
@@ -154,7 +168,19 @@ To show that steady state U~mid~ is unstable, plot the outlet temperature *vs*. 
 
 ## Practice Assignments from *REB, The Course* {.ch}
 
-**Practice Assignment 9**
+**Practice Assignment 9** A 150°C solution containing 2 mol L^–1^ of A is being fed to a 500 L CSTR at a rate of 250 L h^–1^. A jacket surrounding the CSTR contains molten salt at a constant temperature of 180 °C. The contact area between the CSTR contents and the jacket is 2 m^2^ and the overall heat transfer coefficient is equal to 500 kcal m^–2^ h^–1^ K^–1^. Within the reactor reaction (1) occurs at a rate given by equation (2). The pre–exponential factor for the rate coefficient in equation (2) is 1.14 × 10^9^ L mol^–1^ h^–1^ and the activation energy is 16.2 kcal mol^–1^. The reacting solution has a constant density and a constant heat capacity of 1.17 cal ml^–1^ K^–1^. The heat of reaction is 18.2 kcal mol^–1^ and is independent of temperature. At steady state, what are the outlet temperature and conversion of A?
+
+$$
+A \rightarrow Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_A^2 \tag{2}
+$$
+
+[Practice Assignment 9 Solution](practice/class_9/Practice%20Assignment%209.pdf)
+
+[Practice Assignment 9 Calculations](practice/class_9/practice_9.py)
 
 ---
 

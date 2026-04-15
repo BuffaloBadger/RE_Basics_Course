@@ -32,8 +32,8 @@ R = 8.314 # J /mol /K
 nA_in = CA_in*Vdot_in
 nB_in = CB_in*Vdot_in
 
-# reactor model function
-def reactor_model_variables(T_0, fA_0, t_f):
+# cstr model function
+def cstr_model_variables(T_0, fA_0, t_f):
 	# set the initial values
     ind_0 = 0.0
     extent = fA_0*nA_in
@@ -45,24 +45,24 @@ def reactor_model_variables(T_0, fA_0, t_f):
      
 	# solve the IVODEs
     t, dep, success, message = solve_ivodes(ind_0, dep_0, f_var, f_val
-                                        , derivatives, True)
+                                        , cstr_derivatives, True)
 
     # check that a solution was found
     if not(success):
-        print(f"solve_ivodes was unsuccessful: {message}")
+        print(f"  CSTR model function error: {message}")
 
-    # extract the dependent variable reactor_model_variables
+    # extract the dependent variable cstr_model_variables
     nA = dep[0,:]
     nB = dep[1,:]
     nY = dep[2,:]
     nZ = dep[3,:]
     T = dep[4,:]
 
-    # return all reactor_model_variables
+    # return all cstr_model_variables
     return t, nA, nB, nY, nZ, T
 
-# derivatives function
-def derivatives(ind, dep):
+# cstr derivatives function
+def cstr_derivatives(ind, dep):
 	# extract the dependent variables for this integration step
     nA = dep[0]
     nB = dep[1]
@@ -94,23 +94,23 @@ def deliverables():
 
     # analyze a positive perturbation from the unsteady state
     dT = 1.0 # K
-    [t_u_pos, nA, nB, nY, nZ, T_u_pos] = reactor_model_variables(T_u + dT, fA_u, t_f)
+    [t_u_pos, nA, nB, nY, nZ, T_u_pos] = cstr_model_variables(T_u + dT, fA_u, t_f)
 
     # analyze a negative perturbation from the unsteady state
-    [t_u_neg, nA, nB, nY, nZ, T_u_neg] = reactor_model_variables(T_u - dT, fA_u, t_f)
+    [t_u_neg, nA, nB, nY, nZ, T_u_neg] = cstr_model_variables(T_u - dT, fA_u, t_f)
 
     # analyze a positive perturbation from the high temperature steady state
     dT = 20.0 # K
-    [t_h_pos, nA, nB, nY, nZ, T_high_pos] = reactor_model_variables(T_high + dT, fA_high, t_f)
+    [t_h_pos, nA, nB, nY, nZ, T_high_pos] = cstr_model_variables(T_high + dT, fA_high, t_f)
 
     # analyze a negative perturbation from the high temperature steady state
-    [t_h_neg, nA, nB, nY, nZ, T_high_neg] = reactor_model_variables(T_high - dT, fA_high, t_f)
+    [t_h_neg, nA, nB, nY, nZ, T_high_neg] = cstr_model_variables(T_high - dT, fA_high, t_f)
 
     # analyze a positive perturbation from the low temperature steady state
-    [t_l_pos, nA, nB, nY, nZ, T_low_pos] = reactor_model_variables(T_low + dT, fA_low, t_f)
+    [t_l_pos, nA, nB, nY, nZ, T_low_pos] = cstr_model_variables(T_low + dT, fA_low, t_f)
 
     # analyze a negative perturbation from the low temperature steady state
-    [t_l_neg, nA, nB, nY, nZ, T_low_neg] = reactor_model_variables(T_low - dT, fA_low, t_f)
+    [t_l_neg, nA, nB, nY, nZ, T_low_neg] = cstr_model_variables(T_low - dT, fA_low, t_f)
 
     # create, display and save the graphs
     plt.figure(1) # perturbations from the unsteady state

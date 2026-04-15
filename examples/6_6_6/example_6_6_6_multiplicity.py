@@ -33,21 +33,21 @@ nB_in = Vdot_in*CB_in
 # make T available to all functions
 T = float('NaN')
 
-# reactor model function
-def reactor_model_variables(init_guess):
+# cstr model function
+def cstr_model_variables(init_guess):
      
 	# solve the ATEs
-    soln, success, message = solve_ates(residuals,init_guess)
+    soln, success, message = solve_ates(cstr_residuals,init_guess)
 
     # check that the solution is converged
     if not(success):
-        print(f"solve_ates was unsuccessful: {message}")
+        print(f"  CSTR model function error: {message}")
 
     # return the solution
     return soln
 
-# residuals function
-def residuals(guess):
+# cstr residuals function
+def cstr_residuals(guess):
     # extract the individual guesses
     nA = guess[0]
     nB = guess[1]
@@ -96,7 +96,7 @@ def deliverables():
         T = T_range[i]
 
         # solve the design equations
-        solution = reactor_model_variables(init_guess)
+        solution = cstr_model_variables(init_guess)
 
         # save the conversion and inlet temperature
         nA = solution[0]

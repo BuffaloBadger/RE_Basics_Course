@@ -43,8 +43,8 @@ nB0 = VFR*CB0
 nAin = CAin*VFR
 nBin = CBin*VFR
 
-# reactor model function
-def reactor_model_variables():
+# cstr model function
+def cstr_model_variables():
 	# set the initial values
     ind_0 = 0.0
     dep_0 = np.array([0.0, nB0, 0.0, 0.0, 0.0, 0.0, T0, Tex0])
@@ -55,18 +55,18 @@ def reactor_model_variables():
      
 	# solve the IVODEs
     t, dep, success, message = solve_ivodes(ind_0, dep_0, f_var, f_val
-                                        , derivatives, True)
+                                        , cstr_derivatives, True)
 
     # check that a solution was found
     if not(success):
-        print(f"An IVODE solution was NOT obtained: {message}")
+        print(f"  CSTR model function error: {message}")
 
-    # return the reactor_model_variables
+    # return the cstr_model_variables
     return t, dep[0,:], dep[1,:], dep[2,:], dep[3,:], dep[4,:], dep[5,:]\
             , dep[6,:], dep[7,:]
 
-# derivatives function
-def derivatives(ind, dep):
+# cstr derivatives function
+def cstr_derivatives(ind, dep):
 	# extract the individual dependent variables
     nA = dep[0]
     nB = dep[1]
@@ -100,7 +100,7 @@ def derivatives(ind, dep):
 def deliverables():
 
     # solve the reactor design equations
-    [t, nA, nB, nW, nX, nY, nZ, T, Tex] = reactor_model_variables()
+    [t, nA, nB, nW, nX, nY, nZ, T, Tex] = cstr_model_variables()
 
     # calculate the quantities of interest
     CB = nB/VFR

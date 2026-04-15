@@ -27,14 +27,14 @@ R = 8.314 # J /mol /K
 # make T_in globally available
 T_in = float('NaN')
 
-# reactor model function
-def reactor_model_variables(current_T_in, init_guess):
+# cstr model function
+def cstr_model_variables(current_T_in, init_guess):
     # set T_in
     global T_in
     T_in = current_T_in
      
 	# solve the ATEs
-    soln, success, message = solve_ates(residuals,init_guess)
+    soln, success, message = solve_ates(cstr_residuals,init_guess)
 
     # check that the solution is converged
     if not(success):
@@ -43,8 +43,8 @@ def reactor_model_variables(current_T_in, init_guess):
     # return the solution
     return soln
 
-# residuals function
-def residuals(guess):
+# cstr residuals function
+def cstr_residuals(guess):
     # extract the individual guesses
     nA = guess[0]
     nB = guess[1]
@@ -84,7 +84,7 @@ def deliverables():
     for iT in range(0,100):
 
         # solve the reactor design equations
-        solution = reactor_model_variables(T_in_range[iT], init_guess)
+        solution = cstr_model_variables(T_in_range[iT], init_guess)
 
         # calculate the conversion
         fA_range[iT] = 100*(nA_in - solution[0])/nA_in
@@ -125,7 +125,7 @@ def deliverables():
 
     # check for a high temperature steady state at the lowest T_in
     init_guess = np.array([nA_in, nB_in, 0.0, T_in_range[0] + 400.0])
-    solution = reactor_model_variables(T_in_range[0], init_guess)
+    solution = cstr_model_variables(T_in_range[0], init_guess)
     print(f"Outlet T at start of range with low guess: {T_range[0]} K")
     print(f"Outlet T at start of range with high guess: {solution[3]} K")
 

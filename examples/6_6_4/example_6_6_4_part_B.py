@@ -24,21 +24,21 @@ R = 8.314 # J /mol /K
 nA_in = Vdot_in*CA_in
 nB_in = Vdot_in*CB_in
 
-# reactor model function
-def reactor_model_variables(init_guess):
+# cstr model function
+def cstr_model_variables(init_guess):
      
 	# solve the ATEs
-    soln, success, message = solve_ates(residuals,init_guess)
+    soln, success, message = solve_ates(cstr_residuals,init_guess)
 
     # check that the solution is converged
     if not(success):
-        print(f"solve_ates was unsuccessful: {message}")
+        print(f"  CSTR model function error: {message}")
 
     # return the solution as an array
     return soln
 
-# residuals function
-def residuals(guess):
+# cstr residuals function
+def cstr_residuals(guess):
     # extract the individual guesses
     nA = guess[0]
     nB = guess[1]
@@ -74,7 +74,7 @@ def deliverables():
     init_guess = np.array([nA_in, nB_in, 0.0, 0.0, 50.0 + 273.15])
 
     # solve the reactor design equations
-    soln = reactor_model_variables(init_guess)
+    soln = cstr_model_variables(init_guess)
 
     # save the results
     nA = soln[0]
@@ -85,7 +85,7 @@ def deliverables():
     init_guess = np.array([nA_in, nB_in, 0.0, 0.0, 140.0 + 273.15])
 
     # solve the reactor design equations
-    soln = reactor_model_variables(init_guess)
+    soln = cstr_model_variables(init_guess)
 
     # save the results
     nA = soln[0]
@@ -97,7 +97,7 @@ def deliverables():
     init_guess = np.array([nA_in, nB_in, 0.0, 0.0, 240.0 + 273.15])
 
     # solve the reactor design equations
-    soln = reactor_model_variables(init_guess)
+    soln = cstr_model_variables(init_guess)
 
     # save the results
     nA = soln[0]

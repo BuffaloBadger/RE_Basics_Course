@@ -30,22 +30,22 @@ nA_in = yA_in*P*Vdot_in/Rw/T_in
 nB_in = yB_in*P*Vdot_in/Rw/T_in
 nI_in = yI_in*P*Vdot_in/Rw/T_in
 
-# reactor model function
-def reactor_model_variables(init_guess):
+# cstr model function
+def cstr_model_variables(init_guess):
      
 	# solve the ATEs
-    soln, success, message = solve_ates(residuals,init_guess)
+    soln, success, message = solve_ates(cstr_residuals,init_guess)
 
     # check that the solution is converged
     if not(success):
         print("")
-        print(f"The solver did NOT converge: {message}")
+        print(f"  cstr model function error: {message}")
 
     # return the solution
     return soln
 
-# residuals function
-def residuals(guess):
+# cstr residuals function
+def cstr_residuals(guess):
     # extract the individual guesses
     V = guess[0]
     nB = guess[1]
@@ -78,7 +78,7 @@ def deliverables():
     init_guess = np.array([1.0, nB_in, nI_in, 0.0, T_in + 5.0])
 
     # solve the reactor design equations
-    solution = reactor_model_variables(init_guess)
+    solution = cstr_model_variables(init_guess)
 
     # extract the individual results of interest
     V = solution[0]
