@@ -152,22 +152,16 @@ $$
 
 ---
 
-**Learning Activity 10** An ideal, 50 gal CSTR is fed a liquid solution containing 0.014 lbmol A gal^−1^ and 0.020 lbmol B gal^−1^ at a temperature of 70 °F. The heat capacity of the reacting liquid is constant and equal to 65 BTU ft^−3^ °R^−1^. A jacket surrounding the reactor is supplied with saturated steam at 220 °F. The steam condenses in the jacket, leaving as a saturated liquid. The overall heat transfer coefficient is 60 BTU ft^−2^ °R^−1^ h^−1^, and the heat transfer area is 13 ft^2^. Reactions (1) and (2) take place within the steady-state CSTR. The heat of reaction (1) is 45,000 BTU lbmol^−1^, and the heat of reaction (2) is 39,500 BTU lbmol^−1^. The rate expressions for reactions (1) and (2) are given in equations (3) and (4). The rate coefficients obey the Arrhenius expression. For reaction (1) the pre-exponential factor is 1.6 × 10^18^ gal lbmol^−1^ h^−1^, and the activation energy is 46,000 BTU lbmol^−1^. For reaction (2) the pre-exponential factor is 4.5 × 10^18^ gal lbmol^−1^ h^−1^, and the activation energy is 54,000 BTU lbmol^−1^. What volumetric feed rate will maximize the rate of production of reagent D? At that feed rate, what is the conversion of A and the reactor temperature?
+**Learning Activity 10** A 4 L CSTR is being used to convert A to Z according to reaction (1). The rate expression for reaction (1) is given in equation (2). The rate coefficient obeys the Arrhenius expression with a pre-exponential factor equal to 2.59 x 10^9^ min^–1^ and an activation energy equal to 16,500 cal mol^–1^. The heat of reaction (1) may be taken to be constant and equal to –22,200 cal mol^–1^. The heat capacity of the reacting solution is approximately constant and equal to 440 cal L^–1^ K^–1^, and its density is constant. The reactor has a jacket with a volume of 0.5 L, a heat transfer area of 0.6 ft^2^ and a heat transfer coefficient of 5.65 x 10^3^ cal ft^–2^ h^–1^ K^–1^. The cooling water may be taken to have a constant density of 1 g cm^–3^ and a constant heat capacity of 1 cal g^–1^ K^–1^.
+
+The feed is a solution containing only A at a concentration of 2M and a temperature of 60 °C, and cooling water at 20 °C flows into the jacket at 0.2 kg min^–1^. Compare the conversion, outlet temperature, and outlet coolant temperature for space times of 50 and 60 min.
 
 $$
-A + B \rightarrow D + Z \tag{1}
-$$
-
-$$
-D + B \rightarrow U + Z \tag{2}
-$$
-
-$$
-r_1 = k_1C_AC_B \tag{3}
+A \rightarrow Z \tag{1}
 $$
 
 $$
-r_2 = k_2C_DC_B \tag{4}
+r_1 = k_1C_A \tag{2}
 $$
 
 [Learning Activity 10 Solution](activities/class_10/Activity%2010.pdf)
@@ -176,15 +170,57 @@ $$
 
 ---
 
-**Learning Activity 11**
+**Learning Activity 11** Equal molar amounts of gases A and B flow into an adiabatic CSTR at 260 °C and 3 atm. The space time is 80 s. Reagent Z is generated according to reaction (1) which obeys the rate expression shown in equation (2). The rate coefficient exhibits Arrhenius temperature dependence. The pre-exponential factor is 1.26 x 10^6^ L mol^–1^ s^–1^ and the activation energy is 19 kcal mol^–1^. The heat of reaction (1) is –10.5 kcal mol^–1^, and the heat capacities of A, B, and Z are 42, 122, and 173 J mol^–1^ K^–1^. How many steady states are possible, and what are the conversion and outlet temperature for each of them?
+
+$$
+A + B \rightarrow Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{2}
+$$
+
+[Learning Activity 11 Solution](activities/class_11/Activity%2011.pdf)
+
+[Learning Activity 11 Calculations for Multiplicity Plot](activities/class_11/activity_11_multiplicity.py)
+
+[Learning Activity 11 Calculations for Steady States](activities/class_11/activity_11_steady_states.py)
 
 ---
 
-**Learning Activity 12**
+**Learning Activity 12** Examples 6.6.4 and 6.6.6 from REB, The Book analyzed an adiabatic, steady-state CSTR with a volume of 500 cm^3^ that was going to be used to convert A and B into Y and Z according to reaction (1). A liquid solution flowing at 1.0 cm^3^ s^–1^ and containing equal amounts of A and B (0.015 mol cm^–3^) at 50 °C was going be used. The heat capacity of the fluid is essentially equal to that of the solvent, and can be considered to be constant and equal to 0.35 cal g^–1^ K^–1^. The density of the fluid, also constant, is 0.93 g cm^–3^. The rate expression for reaction (1) is given in equation (2), and the heat of reaction (1) may be assumed to be constant and equal to –20 kJ mol^–1^. The rate coefficient displays Arrhenius temperature dependence with a pre-exponential factor equal to 3.24 x 10^12^ cm^3^ mol^–1^ s^–1^, and an activation energy of 105.0 kJ mol^–1^. 
+
+Example 6.6.4 showed that three steady states are possible for this reactor, and Example 6.6.6 showed that the high temperature (265 °C) and low temperature (50.1 °C) steady states are stable while the steady state at 138 °C is unstable. One possible startup procedure for this reactor is to fill it with pure solvent, heat the solvent to some initial temperature, and then initiate the feed flow. Compare the transient outlet temperature vs. time for initial temperatures of 180 °C and 190 °C.
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{2}
+$$
+
+[Learning Activity 12 Solution](activities/class_12/Activity%2012.pdf)
+
+[Learning Activity 12 Calculations](activities/class_12/activity_12.py)
 
 ---
 
-**Learning Activity 13**
+**Learning Activity 13** Cells are growing in an isothermal, steady-state CSTR. The effective reaction, in mass units, is given in equation (1). The reaction is auto-catalytic, and the rate is accurately described by the Monod equation, equation (2), with  equal to 0.014 min^–1^ and  equal to 0.001 g cm^–3^. Through an appropriate startup process, the 4.43 L reactor can operate at steady-state with no cell mass in the feed. Specifically, if 60 cm^3^ min^–1^ of feed containing only substrate at a concentration of 0.04 g cm^-3^, the steady-state product stream contains substrate at a concentration of 2.97 x 10^–2^ g cm^–3^ and cell mass at at concentration of 4.68 x 10^–3^ g cm^–3^. However, reactor operation is parametrically sensitive to the volumetric flow rate. Show that to be true by calculating the transient outlet concentration of cell mass as a function of time if the inlet volumetric flow rate changes from 60 to 61 cm^3^ min^–1^.
+
+$$
+2.2 \, S \rightarrow X \tag{1}
+$$
+
+$$
+r_1 = \frac{V_{max}\left[S\right]\left[X\right]}{K_m + \left[S\right]} \tag{2}
+$$
+
+[Learning Activity 13 Solution](activities/class_13/Activity%2013.pdf)
+
+[Learning Activity 13 Steady-State Calculations](activities/class_13/activity_13_ss.py)
+
+[Learning Activity 13 Transient Calculations](activities/class_13/activity_13.py)
 
 ## Practice Assignments from *REB, The Course* {.ch}
 
@@ -204,19 +240,77 @@ $$
 
 ---
 
-**Practice Assignment 10**
+**Practice Assignment 10** An ideal, 50 gal CSTR is fed a liquid solution containing 0.014 lbmol A gal^−1^ and 0.020 lbmol B gal^−1^ at a temperature of 70 °F. The heat capacity of the reacting liquid is constant and equal to 65 BTU ft^−3^ °R^−1^. A jacket surrounding the reactor is supplied with saturated steam at 220 °F. The steam condenses in the jacket, leaving as a saturated liquid. The overall heat transfer coefficient is 60 BTU ft^−2^ °R^−1^ h^−1^, and the heat transfer area is 13 ft^2^. Reactions (1) and (2) take place within the steady-state CSTR. The heat of reaction (1) is 45,000 BTU lbmol^−1^, and the heat of reaction (2) is 39,500 BTU lbmol^−1^. The rate expressions for reactions (1) and (2) are given in equations (3) and (4). The rate coefficients obey the Arrhenius expression. For reaction (1) the pre-exponential factor is 1.6 × 10^18^ gal lbmol^−1^ h^−1^, and the activation energy is 46,000 BTU lbmol^−1^. For reaction (2) the pre-exponential factor is 4.5 × 10^18^ gal lbmol^−1^ h^−1^, and the activation energy is 54,000 BTU lbmol^−1^. What volumetric feed rate will maximize the rate of production of reagent D? At that feed rate, what is the conversion of A and the reactor temperature?
+
+$$
+A + B \rightarrow D + Z \tag{1}
+$$
+
+$$
+D + B \rightarrow U + Z \tag{2}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{3}
+$$
+
+$$
+r_2 = k_2C_DC_B \tag{4}
+$$
+
+[Practice Assignment 10 Solution](practice/class_10/Practice%20Assignment%2010.pdf)
+
+[Practice Assignment 10 Calculations](practice/class_10/practice_10.py)
 
 ---
 
-**Practice Assignment 11**
+**Practice Assignment 11** Suppose a steady state, 500 ml CSTR operates adiabatically at a space time of 0.4 min. The liquid feed concentration is 5 M, and the feed temperature is 60 ºC. The fluid heat capacity is constant and equal to 1 cal ml^–1^ K^–1^. In the reactor the feed, A, is converted to Z, reaction (1). The heat released by the reaction is 30 kcal mol^–1^. The reaction rate is first order in A, equation (2), with a pre-exponential factor of 4.75 x 10^13^ min^–1^ and an activation energy of 25 kcal mol^–1^. Determine how many steady states are possible at these conditions and the conversion and outlet temperature for each of them.
+
+$$
+A \rightarrow Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_A \tag{2}
+$$
+
+[Practice Assignment 11 Solution](practice/class_11/Practice%20Assignment%2011.pdf)
+
+[Practice Assignment 11 Multiplicity Calculations](practice/class_11/practice_11_multiplicity.py)
+
+[Practice Assignment 11 Steady-State Calculations](practice/class_11/practice_11.py)
 
 ---
 
-**Practice Assignment 12**
+**Practice Assignment 12** Liquid phase reaction (1) takes place in an adiabatic CSTR with a volume of 1.5 L operating at atmospheric pressure. The 50 °C feed to the reactor is 1.5 M in A and 2.5 M in B. The kinetics are given by equation (2) with k~0,1~ = 1.4 x 10^14^ min^–1^ and E~1~ = 22 kcal mol^–1^. The heat of reaction is –211 kJ mol^–1^, and the heat capacity of the fluid is 1.3 cal cm^–3^ K^–1^. The reactor is going to be started up at a space time of 10 min by initially filling it with solvent (no reactants or products) at 50 °C and then starting the feed flow. Calculate and plot the outlet molar flow of Y and the outlet temperature as functions of time.
+
+$$
+2 \, A + B \rightleftarrows 2 \, Y + 2 \, Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_A \tag{2}
+$$
+
+[Practice Assignment 12 Solution](practice/class_12/Practice%20Assignment%2012.pdf)
+
+[Practice Assignment 12 Calculations](practice/class_12/practice_12.py)
 
 ---
 
-**Practice Assignment 13**
+**Practice Assignment 13** A jacketed, 17.7 ft^3^ CSTR is operating at steady state. A liquid solution containing only reagent A at a concentration of 0.125 lbmol ft^–3^ is flowing into the reactor at 0.15 ft^3^ min^–1^, 300 °F, and 1 atm. The reacting solution is incompressible and has a constant heat capacity of 73.1 BTU ft^–3^ °F^–1^. Reaction (1) is taking place within the CSTR at a rate given by equation (2) where the rate coefficient pre-exponential factor is 3.04 × 10^8^ ft^3^ lbmol^–1^ min^–1^ and the activation energy is 29,100 BTU lbmol^–1^. The heat of reaction is 32,800 BTU lbmol^–1^ and is independent of temperature. A heat exchange fluid with a density of 81.2 lb~m~ ft^–3^ and a heat capacity of 1.06 BTU lb~m~^–1^ °F^–1^ flows into the jacket at 15 lb~m~ min^–1^ and 410 °F. The heat exchange fluid leaves the jacket at 355 °F. The jacket volume is 7 ft^3^, the heat transfer area is 21.5 ft^2^ and the overall heat transfer coefficient is equal to 1.71 BTU ft^–2^ min^–1^ °F^–1^. The steady-state conversion of A is 85.3% and the steady-state outlet temperature is 332 °F. Suppose that an equipment failure elsewhere in the chemical plant caused the exchange fluid flow rate to instantaneously drop to a constant value of 5 lb~m~ min^–1^. Plot the outlet concentration of Z and the reacting fluid temperature over the next 10 h assuming all other reactor inputs are unaffected.
+
+$$
+A \rightarrow Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_A^2 \tag{2}
+$$
+
+[Practice Assignment 13 Solution](practice/class_13/Practice%20Assignment%2013.pdf)
+
+[Practice Assignment 13 Calculations](practice/class_13/practice_13.py)
 
 ## Additional Assignments for Extra Practice {.ch}
 
