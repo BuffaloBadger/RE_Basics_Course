@@ -44,7 +44,7 @@ def Arrhenius_parameters(k,T,R):
 
 def solve_ivodes(ind_0, dep_0, stop_var, stop_val, derivs_fcn, odes_are_stiff,
                  rel_tol = 1.0E-3, abs_tol = 1.0E-6):
-    # revised 9/22/25
+    # revised 4/24/26
     
     # define an event for when the final value of a dependent variable is known
     def event(ind, dep):
@@ -70,23 +70,30 @@ def solve_ivodes(ind_0, dep_0, stop_var, stop_val, derivs_fcn, odes_are_stiff,
         ind_f = ind_0 + 1.0
         while (count < 10 and not success):
             ind = (ind_0, ind_f)
-            t_eval = np.linspace(ind_0, stop_val, 100)
             count +=1
             if odes_are_stiff:
-                soln = solve_ivp(derivs_fcn, ind, dep_0, method='LSODA', t_eval = t_eval
+                soln = solve_ivp(derivs_fcn, ind, dep_0, method='LSODA'
                                  , events=event, rtol = rel_tol, atol = abs_tol)
             else:
-                soln = solve_ivp(derivs_fcn, ind, dep_0, method='RK45', t_eval = t_eval
+                soln = solve_ivp(derivs_fcn, ind, dep_0, method='RK45'
                                  , events=event, rtol = rel_tol, atol = abs_tol)
-            if soln.t[-1] == ind_f: # ind_f was not large enough
+            if soln.status == 0: # ind_f was not large enough
                 ind_f = (ind_0 + 1.0)*10**count
                 message = 'The ivode stopping criterion was not reached.'
-            elif soln.t[-1] < 0.1*ind_f: # ind_f was too large
-                ind_f = (ind_0 + 1.0)/10**count
-                message = 'The ivode integration results could be inaccurate.'
             else:
                 success = soln.success
                 message = soln.message
+        # re-solve with 100 interior points
+        ind = (ind_0, soln.t[-1])
+        t_eval = np.linspace(ind_0, soln.t[-1], 100)
+        if odes_are_stiff:
+            soln = solve_ivp(derivs_fcn, ind, dep_0, method='LSODA', t_eval = t_eval
+                             , rtol = rel_tol, atol = abs_tol)
+        else:
+            soln = solve_ivp(derivs_fcn, ind, dep_0, method='RK45', t_eval = t_eval
+                             , rtol = rel_tol, atol = abs_tol)
+        success = soln.success
+        message = soln.message
     return soln.t, soln.y, success, message
 
 def fit_to_SR_data(beta_guess, x, y_meas, pred_resp_fcn, use_rel_error):

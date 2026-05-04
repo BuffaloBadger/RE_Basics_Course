@@ -2,63 +2,269 @@
 
 ## Examples from *REB, The Book* {.ch}
 
-**Example 7.4.1** 
+**Example 7.4.1** The liquid-phase reaction between A and B, equation (1), is irreversible. At the conditions of interest, the heat of reaction is constant and equal to -101.2 kJ mol^-1^. The rate expression is given in equation (2), where the rate coefficient exhibits Arrhenius temperature dependence with a pre-exponential factor of 5.11 x 10^4^ L mol^-1^ s^-1^ and an activation energy of 74.8 kJ mol^-1^.
+
+Two solutions, one containing only reagent A at 180 °C and one containing only reagent B at 180 °C, are charged to an adiabatic BSTR producing 1900 L of solution initially containing 2.9 mol A L^-1^ and 3.2 mol B L^-1^ at 180 °C. The solution is ideal and has a constant heat capacity of 1.23 cal g^-1^ K^-1^ and a constant density of 1.02 g cm^-3^. Plot the concentrations of A, B, Y, and Z, the reacting fluid temperature, and the instantaneous reaction rate for the first 2 h of reaction, and comment upon the shapes of the graphs.
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r = kC_AC_B \tag{2}
+$$
+
+[Example 7.4.1 Solution](examples/7_4_1/Example%207.4.1.pdf)
+
+[Example 7.4.1 Calculations](examples/7_4_1/example_7_4_1.py)
 
 ---
 
-**Example 7.4.2**
+**Example 7.4.2** A jacketed, 10 L BSTR is going to be used to process an aqueous solution of A and B. The reactor jacket is perfectly mixed with a volume of 1400 cm^3^, a heat transfer coefficient of 138 cal ft^−2^ min^−1^ K^−1^ and a heat transfer area of 1200 cm^2^. Cooling water at 40 °C flows into the jacket at a rate of 100 g min^-1^. Both the reacting fluid and the cooling water may be taken to have a density of 1 g cm^−3^ and a heat capacity of 1 cal g^−1^ K^−1^. 
+
+Solutions containing A, B, X, Y, and Z are ideal, and there is no heat of mixing. The reactor will be charged by mixing two separate solutions, one containing only reagent A and the other containing only reagent B, giving a 10 L charge with initial concentrations of 5 mol A L^-1^ and 7 mol B L^-1^. At the time the reactor is charged, the cooling water temperature is 40 °C. Reactions (1) and (2) will occur in the reactor. The heat of reaction (1) is −16.7 kcal mol^−1^, and that for reaction (2) is −14.3 kcal mol^−1^. The rate expression for reaction (1) is given in equation (3) where the pre-exponential factor for the rate coefficient is 9.74 x 10^9^ L mol^−1^ min^−1^ and the activation energy is 20.1 kcal mol^−1^. The rate expression for reaction (2) is given in equation (4) where the pre-exponential factor for the rate coefficient is 2.38 x 10^13^ min^−1^ and the activation energy is 25.3 kcal mol^−1^.
+
+What initial temperature is needed in order to convert 45% of the A in 30 min, and with that initial temperature what will the final temperature, the outlet exchange fluid temperature, and the selectivity for X over Z equal? Discuss ways to increase the selectivity.
+
+$$
+A + B \rightarrow X + Y \tag{1}
+$$
+
+$$
+A \rightarrow Z \tag{2}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{3}
+$$
+
+$$
+r_2 = k_2C_A \tag{4}
+$$
+
+[Example 7.4.2 Solution](examples/7_4_2/Example%207.4.2.pdf)
+
+[Example 7.4.2 Calculations](examples/7_4_2/example_7_4_2.py)
 
 ---
 
-**Example 7.4.3**
+**Example 7.4.3** A BSTR will be charged with 1 atm of A and 2 atm of B at 25 °C. The reactor volume is 2 L, and it has a jacket with an area of 600 cm^2^ and an overall heat transfer coefficient of 0.6 cal cm^-2^ min^-1^ K^-1^. The temperature of the coolant in the perfectly-mixed jacket is maintained at 30°C by a temperature controller. Gas phase reactions (1) and (2) take place within the reactor; the corresponding rate expressions are given in equations (3) and (4). The rate coefficients display Arrhenius temperature dependence with pre-exponental factors of 3.34 x 10^9^ and 1.47 x 10^10^ mol cm^-3^ min^-1^ atm^-2^ for reactions (1) and (2), respectively, and activation energies of 20.5 and 21.8 kcal mol^-1^. The heat of reaction (1) is constant and equal to -6,300 cal mol^-1^; that of reaction (2) is constant and equal to -6,900 cal mol^-1^. The heat capacities of A, B, D, Z and U are constant and equal to 7.4, 8.6, 10.7, 5.2 and 10.3 cal mol^-1^ K^-1^, respectively.
+
+What reaction time will maximize the yield (moles of D per initial mole of A), and what will the yield and the conversion of A equal at that reaction time?
+
+$$
+A + B \rightarrow D + Z \tag{1}
+$$
+
+$$
+D + B \rightarrow U + Z \tag{2}
+$$
+
+$$
+r_1 = k_{0,1} \exp{\left(\frac{-E_1}{RT}\right)}P_AP_B \tag{3}
+$$
+
+$$
+r_2 = k_{0,2} \exp{\left(\frac{-E_2}{RT}\right)}P_DP_B \tag{4}
+$$
+
+[Example 7.4.3 Solution](examples/7_4_3/Example%207.4.3.pdf)
+
+[Example 7.4.3 Calculations](examples/7_4_3/example_7_4_3.py)
 
 ---
 
-**Example 7.4.4**
+**Example 7.4.4** The rate expression for liquid-phase reaction (1) is given in equation (2). The rate coefficient displays Arrhenius temperature dependence with a pre-exponential factor of 2.59 x 10^9^ min^-1^ and an activation energy of 16.5 kcal mol^-1^. The heat of reaction (1) may be taken to be constant and equal to -22,200 cal mol^-1^. A solution containing only A at a concentration of 2 M and a temperature of 23 °C is going to be processed in a BSTR. The heat capacity of the solution is approximately constant and equal to 440 cal L^-1^ K^-1^, and its density is constant.
+
+$$
+A \rightarrow Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_A \tag{2}
+$$
+
+The 4.0 L BSTR has a perfectly mixed jacket with a volume of 0.5 L, a heat transfer area of 0.6 ft^2^, and a heat transfer coefficient of 1.13 x 10^4^ cal ft^-2^ h^-1^ K^-1^. Cooling water at 20 °C can be fed to the jacket. The water may be taken to have a constant density of 1 g cm^-3^ and a constant heat capacity of 1 cal g^-1^ K^-1^. A heating coil with a heat transfer coefficient of 3.8 x 10^4^ cal ft^-2^ h^-1^ K^-1^ and a heat transfer area of 0.23 ft^2^ can be submerged in and extracted from the reacting solution. Saturated steam at 120 °C can admitted to the coil.
+
+The BSTR is charged with 4 L of a 2 M solution of A at 23 °C. Initially there is no flow to the jacket, but it is filled with water, also at 23 °C. To start the batch process, the steam is admitted to the coil, and the coil is immersed in the solution. When the reacting fluid reaches 50 °C, the coil is extracted from the reacting fluid and cooling water flow to the jacket is started. When the reacting fluid reaches a temperature of 25 °C the cooling water flow is stopped, the reactor is drained and preparations for processing the next batch begin. The BSTR pressure is constant throughout all stages of processing. If the turnaround time for the reactor is 25 min, what coolant flow rate will maximize the net rate of production of Z? Plot the conversion of A and the reacting fluid temperature *vs*. reaction time corresponding to the coolant flow rate that maximizes the net rate and comment on the results.
+
+[Example 7.4.4 Solution](examples/7_4_4/Example%207.4.4.pdf)
+
+[Example 7.4.4 Calculations](examples/7_4_4/example_7_4_4.py)
 
 ---
 
-**Example 7.4.5**
+**Example 7.4.5** Liquid phase reactions (1) and (2) take place in a batch stirred-tank reactor; the reaction rate expressions are given in equations (3) and (4). The rate coefficients for reactions (1) and (2) obey the Arrhenius expression. For reaction (1) the pre-exponential factor is 1.6 × 10^18^ gal lbmol^−1^ h^−1^, and the activation energy is 46,000 BTU lbmol^−1^. For reaction (2) the pre-exponential factor is 4.5 × 10^18^ gal lbmol^−1^ h^−1^, and the activation energy is 48,000 BTU lbmol^−1^. The heat capacity of the reacting liquid is constant and equal to 65 BTU ft^−3^ °R^−1^. The heat of reaction (1) is constant and equal to 45,000 BTU lbmol^−1^, and the heat of reaction (2) is constant and equal to 39,500 BTU lbmol^−1^. The 50 gal reactor initially contains only A and B at concentrations of 0.014 lbmol A gal^−1^ and 0.020 lbmol B gal^−1^. The initial temperature of the reacting fluid is 70 °F. The reactor is jacketed with an overall heat transfer coefficient of 60 BTU ft^−2^ °R^−1^ h^−1^ and a heat transfer area of 13 ft^2^. Saturated steam at 220 °F condenses in the jacket, leaving as a saturated liquid. (The heat of vaporization of steam at 220 °F is 966 BTU lb~m~^–1^.) Plot the yield of D (moles of D per initial mole of A), the temperature and the mass flow rate of water leaving the jacket as a function of the conversion of B.
+
+$$
+A + B \rightarrow D + Z \tag{1}
+$$
+
+$$
+D + B \rightarrow U + Z \tag{2}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{3}
+$$
+
+$$
+r_2=k_2C_DC_B \tag{4}
+$$
+
+[Example 7.4.5 Solution](examples/7_4_5/Example%207.4.5.pdf)
+
+[Example 7.4.5 Calculations](examples/7_4_5/example_7_4_5.py)
 
 ## Learning Activities from *REB, The Course* {.ch}
 
-**Learning Activity 14**
+**Learning Activity 14** Liquid phase reaction (1) takes place in an adiabatic batch reactor with a volume of 1200 L. The reactor initially contains 2500 mol of A and 50,000 moles of B at a temperature of 300K. The reaction is allowed to proceed until half of the A has been consumed. The rate expression is given in equation (2) where the pre-exponential factor equals 6 x 10^5^ min–1 and the activation energy is 42 kJ mol^–1^. If the heat capacities of A, B and Z are constant and equal to 180, 70 and 225 J mol^–1^ K^–1^, respectively, and the heat of reaction at 298 K is equal to –16.5 kJ mol^–1^, how long will the reaction run and what will be the final temperature?
+
+$$
+A + B \rightarrow Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_A \tag{2}
+$$
+
+[Learning Activity 14 Solution](activities/class_14/Activity%2014.pdf)
+
+[Learning Activity 14 Calculations](activities/class_14/activity_14.py)
 
 ---
 
-**Learning Activity 15**
+**Learning Activity 15** A two-stage operating protocol is used to produce Z according to reaction (1) in a A jacketed, perfectly mixed batch reactor. The rate expression for reaction (1) is given in equation (2). The rate coefficient exhibits Arrhenius temperature dependence with a pre-exponential factor of 2.59 x 10^9^ min^–1^ and an activation energy of 16.5 kcal mol^–1^. The heat of reaction (1) may be taken to be constant and equal to -22,200 cal mol^-1^. The heat capacity of the solution is approximately constant and equal to 440 cal L^-1^ K^-1^, and its density is constant.
+
+In the first stage of the protocol the reactor is charged with 4 L of a 2 M solution of A and heated. At the end of the first stage, both the reacting fluid and the exchange fluid are at 60°C, and 18% of the A has been converted. To begin the second stage, 20 ºC cooling water flow to the perfectly mixed jacket is initiated at a rate of 1.5 kg min^-1^. The cooling water may be taken to have a constant density of 1 g cm^-3^ and a constant heat capacity of 1 cal g^-1^ K^-1^.
+
+The pressure in the reactor headspace is held constant during processing. The second stage of the protocol continues until the concentration of A reaches 0.2 M. The jacket volume is 0.5 L and the heat transfer coefficient is 1.13 x 10^4^ cal ft^-2^ h^-1^ K^-1^. What heat transfer area is necessary so that the second stage of the protocol ends in 20 min, and what is the reacting fluid temperature at the end of the second stage?
+
+$$
+A \rightarrow Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_A \tag{2}
+$$
+
+[Learning Activity 15 Solution](activities/class_15/Activity%2015.pdf)
+
+[Learning Activity 15 Calculations](activities/class_15/activity_15.py)
 
 ---
 
-**Learning Activity 16**
+**Learning Activity 16** The rate of gas phase reaction (1) is given by the rate expression, equation (2). The pre-exponential factor, $k_{01}$, is equal to 265 L mol^-1^ min^-1^, and the activation energy, $E_1$, is equal to 73 kJ mol^-1^. The standard heat of reaction (1) at 298 K is equal to -165 kJ mol^-1^. The heat capacities of A, Y and Z are given by equations (3) through (5), where the temperature must be substituted in K, and the resulting heat capacity will have units of J mol^-1^ K^-1^.
+
+If the reaction takes place in a constant volume, adiabatic batch reactor that is initially charged with pure A at 1000 Torr and 1225 K, how long will it take for the temperature to increase by 10 K and at that point what percentage of the original A will have been converted? How long will it take for the temperature to increase by 100 K and at that point what percentage of the original A will have been converted?
+
+$$
+2A \rightarrow 2Y + Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_A^2 \tag{2}
+$$
+
+$$
+\hat{C}_{p,A}= 28 + 0.05T \tag{3}
+$$
+
+$$
+\hat{C}_{p,Y}= 26 + 0.01T \tag{4}
+$$
+
+$$
+\hat{C}_{p,Z}= 30 + 0.005T \tag{5}
+$$
+
+[Learning Activity 16 Solution](activities/class_16/Activity%2016.pdf)
+
+[Learning Activity 16 Calculations](activities/class_16/activity_16.py)
 
 ---
 
-**Learning Activity 17**
+**Learning Activity 17** Suppose gas-phase reaction (1) takes place in an adiabatic batch reactor with a volume of 2 m^3^. Initially the reactor contains equal amounts of A and B at 450 K and 7 atm total pressure, and nothing else. Reaction (1) is exothermic with a standard heat of reaction at 298 K of –6870 cal mol^–1^. The heat capacities of A, B, Y and Z are 7.5, 8.5, 12.1 and 5.7 cal mol^–1^ K^–1^, respectively. The reaction is irreversible with a rate given by equation (2). The rate coefficient displays Arrhenius temperature dependence with the pre-exponential factor equal to 83.0 m^3^ mol^–1^ h^–1^ and the activation energy equal to 10.2 kcal mol^–1^. If the turnaround time is 20 min, what reaction time will maximize the net rate of production of Y, and at that maximum net rate, what will the conversion and temperature equal?
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{2}
+$$
+
+[Learning Activity 17 Solution](activities/class_17/Activity%2017.pdf)
+
+[Learning Activity 17 Calculations](activities/class_17/activity_17.py)
 
 ---
 
-**Learning Activity 18**
+**Learning Activity 18** 
 
 ## Practice Assignments from *REB, The Course* {.ch}
 
-**Practice Assignment 14**
+**Practice Assignment 14** Acid A is to be neutralized using base B, reaction (1), by mixing a 4 M solution of the base with a 10 M solution of the acid. The neutralization reaction is irreversible with a heat of reaction equal to -44 kcal mol^-1^. The reaction is first order in both acid and base with a pre-exponential factor of 8.11 x 10^12^ L mol^-1^ s^-1^ and an activation energy of 17.7 kcal mol^-1^. A jacketed, perfectly mixed, 25 L batch reactor will be charged with 4 L of the 10 M solution of A at 20 °C, while cooling water at 20 °C flows at 1.0 kg min^-1^ to the perfectly mixed, 0.5 L jacket. To start the reaction, 10 L of the 4 M solution of B at 20 °C will then added all at once. The heat transfer area is 0.6 ft^2^ and the heat transfer coefficient is 1.13 x 10^4^ cal ft^-2^ h^-1^ K^-1^. The cooling water and the solutions of A and B may be taken to have a constant density of 1 g cm^-3^ and a constant heat capacity of 1 cal g^-1^ K^-1^. The pressure in the reactor will be constant and equal to 1 atm. Plot the acid concentration, the reactor temperature, and the exchange fluid temperature as functions of time after the addition of the base solution.
+
+$$
+A + B \rightarrow S + H_2O \tag{1}
+$$
+
+[Practice Assignment 14 Solution](practice/class_14/Practice%20Assignment%2014.pdf)
+
+[Practice Assignment 14 Calculations](practice/class_14/practice_14.py)
 
 ---
 
-**Practice Assignment 15**
+**Practice Assignment 15** A batch stirred tank reactor is being used for the production of Z according to reaction (1). Reactants A and B are available in separate 3 M solutions at 50 °C. To avoid undesirable side reactions, the reacting fluid must remain at or below 90 °C at all times. To facilitate doing so, the reactor has a cooling jacket with an area of 66 cm^2^, a volume of 40 cm^3^ and a heat transfer coefficient of 35 BTU ft^–2^ h^–1^ °F^–1^. Cooling water is available at 40 °C. Turnaround time for the reactor is 30 min.
+
+The heat capacity of all solutions containing A, B, Y and/or Z is essentially constant and equal to that of the solvent, 0.35 cal g^–1^ K^–1^, and the density of all solutions is constant and equal to 0.93 g cm^–3^. The rate expression for reaction (1) is given in equation (2) where the pre-exponential factor equals 1.24 x 1013 cm3 mol–1 s–1 and the activation energy equals 20 kcal mol^–1^. The heat of reaction (1) may be assumed to be constant and equal to -80 kJ mol^–1^. The cooling water density and heat capacity may be assumed to equal 1 g cm^–3^ and 1 cal g^–1^ K^–1^, respectively.
+
+At the start of each batch, the reactor contains 250 cm^3^ of the solution containing A and the jacket is full of water at 40 °C. To begin processing, 250 cm^3^ of the solution containing B is instantaneously added, and cooling water flow is initiated. Processing ends when the conversion reaches 90%. Calculate the coolant flow rate at which the maximum reacting fluid temperature equals 90 °C. Then plot the net rate of production of Z as a function of reaction time when that cooling rate is used.
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{2}
+$$
+
+[Practice Assignment 15 Solution](practice/class_15/Practice%20Assignment%2015.pdf)
+
+[Practice Assignment 15 Calculations](practice/class_15/practice_15.py)
 
 ---
 
-**Practice Assignment 16**
+**Practice Assignment 16** Irreversible gas phase reaction (1) is exothermic with a heat of reaction equal to –12.9 kcal mol^–1^. The rate expression is presented in equation (2), where the pre-exponential factor equals 1.75 x 10^9^ L^0.5^ mol^–0.5^ s^–1^ and the activation energy is 35.7 kcal mol^–1^. The heat capacities of A, B, Y, and Z are 37, 34, 36, and 38 cal mol^–1^ K^–1^, respectively. If an adiabatic 5.0 L BSTR is charged with equal molar amounts of A and B at 400 °C and 1 atm, how long will it take to convert 50% of reagent A and what will the temperature equal?
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_A\sqrt{C_B} \tag{2}
+$$
+
+[Practice Assignment 16 Solution](practice/class_16/Practice%20Assignment%2016.pdf)
+
+[Practice Assignment 16 Calculations](practice/class_16/practice_16.py)
 
 ---
 
-**Practice Assignment 17**
+**Practice Assignment 17** The liquid phase reaction A + B → Z takes place in an adiabatic batch reactor with a volume of 1200 L. The reactor initially contains 2500 mol of A and 5000 moles of B at a temperature of 300K. The reaction is allowed to proceed until half of the A has been consumed. The rate expression is given in equation (1), and the rate coefficient exhibits Arrhenius temperature dependence with a pre-exponential factor of 6.0 x 10^5^ min^–1^ and an activation energy of 42 kJ mol^–1^. If the heat capacities of A, B and Z are constant and equal to 180, 70 and 225 J mol^–1^ K^–1^, respectively, and the heat of reaction at 298 K is equal to –16.5 kJ mol^-1^, how long will the reaction run, what will the final temperature equal, and what will the net rate of generation of Z be?
+
+$$
+-r_A = k_1C_A \tag{1}
+$$
+
+[Practice Assignment 17 Solution](practice/class_17/Practice%20Assignment%2017.pdf)
+
+[Practice Assignment 17 Calculations](practice/class_17/practice_17.py)
 
 ---
 
-**Practice Assignment 18**
+**Practice Assignment 18** modify 2024 eval 2
 
 ## Additional Assignments for Extra Practice {.ch}
 
