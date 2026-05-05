@@ -4,20 +4,24 @@
 
 ## Conservation of Catalyst and Charge {.cc}
 
-to be added
+Class 6 describes how the conservation of electric charge and catalytic centers impacts the generation of mechanistic rate expressions. Enzymes, homogeneous catalysts, and heterogeneous catalysts are defined.
 
 ## Learning Outcomes {.ch}
 
 After completing Class 6 you should...
 
-* Know the definition/defining equation for enzyme, homogeneous/heterogeneous catalyst, catalytic site, surface coverage, adsorption/desorption, and adsorbed species
+* Know 
+    * the definition of an enzyme, homogeneous catalyst, heterogeneous catalyst, catalytic site, adsorption, desorption, and adsorbed species
+    * the defining equations for charge conservation, enzyme conservation, homogeneous catalyst conservation, heterogeneous catalytic site conservation, and surface coverage
 * Understand
-    * when a mechanism involves charged reagents, enzymes, or catalysts, a catalyst/charge conservation equation must replace one of the Bodenstein steady-state approximations because the Bodenstein steady-state approximations are not mathematically independent
-    * it is acceptable for the concentration of a quantifiable reagent to appear in a mechanistic rate expression, but the concentration of complexes it forms with catalysts/enzymes/sites should be treated like reactive intermediates
-    * the total amount of catalyst or enzyme present in the system is constant and equal to the amount initially added
+    * when a mechanism involves charged reagents or a catalytic entity, a conservation equation must be used when generating a mechanistic rate expression
+    * when a conservation equation is used, the full set of Bodenstein steady-state approximations is not mathematically independent, and one approximation must be eliminated
+    * in a mechanism, any reagent that is charged or includes a catalytic entity should be treated like a reactive intermediate
+    * easily quantifiable concentrations of reagents that are not charged and do not include catalytic entities are acceptable in mechanistic rate expressions
+    * the total amount of a catalytic entity is acceptable in mechanistic rate expressions
 * Be able to
-    * write an expression for the conservation of catalyst, enzyme, catalytic sites or charge
-    * eliminate concentrations of reagent-catalyst complexes from mechanistic rate expressions when catalysts, enzymes, or charged species participate in the mechanism
+    * write conservation equations for charge or catalytic entities
+    * generate mechanistic rate expressions that do not include concentrations of charged reagents or reagents that include catalytic entities
 
 ## Prepare {.ch}
 

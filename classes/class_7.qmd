@@ -4,14 +4,19 @@
 
 ## Most Abundant Intermediate {.cc}
 
-to be added
+Class 7 describes the simplification of mechanistic rate expressions when one of the intermediates is present in much greater concentration that all others.
 
 ## Learning Outcomes {.ch}
 
 After completing Class 7 you should...
 
-* Know the definition/defining equation for most abundant intermediate
-* Be able to identify terms in a mechanistic rate expression that can be eliminated when there is a most abundant intermediate and simplify the mechanistic rate expression accordingly
+* Know 
+    * the definition of a most abundant intermediate
+    * the inequality that applies to most abundant intermediates
+* Understand
+    * Some mechanisms do not include a most abundant intermediate
+* Be able to
+    * identify terms in a mechanistic rate expression that can be eliminated when there is a most abundant intermediate and simplify the mechanistic rate expression accordingly
 
 ## Prepare {.ch}
 

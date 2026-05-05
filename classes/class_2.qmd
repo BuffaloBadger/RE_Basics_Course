@@ -4,15 +4,17 @@
 
 ## Reactions and Stoichiometry {.cc}
 
-to be added
+Class 2 reviews chemical reactions and their stoichiometry. Relationships between stoichiometry and chemical composition, heats of reaction, and associated concepts are presented.
 
 ## Learning Outcomes {.ch}
 
 After completing Class 2 you should...
 
-* Know the definition/defining equation for elementary/non-elementary reaction, reactive intermediates, balanced reaction, stoichiometric coefficient, true/apparent extent of reaction, mathematically independent reaction/equation, stoichiometric coefficient matrix, heat of reaction, exothermic/endothermic reaction, equilibrium, reversible/irreversible reaction, conversion, limiting reactant, overall yield, overall selectivity, and parallel/series/series-parallel reaction networks
-* Understand that
-    * in REB, the stoichiometric coefficients of reactants are negative and those of products are positive
+* Know 
+    * the definition of an elementary reaction, reactive intermediate, balanced reaction, stoichiometric coefficient, mathematically independent reaction or equation, heat of reaction, exothermic and endothermic reaction, equilibrium, reversible and irreversible reaction, limiting reactant, and parallel, series, and series-parallel reaction networks
+    * the defining equations for true and apparent extent of reaction, stoichiometric coefficient matrix, heat of reaction at 298 K, heat of reaction at any temperature, conversion, limiting reactant, overall yield, and overall selectivity
+* Understand
+    * in *Reaction Engineering Basics*, the stoichiometric coefficients of reactants are negative and those of products are positive
     * the number of mathematically independent reactions equals the rank of the stoichiometric coefficient matrix
 * Be able to
     * identify a set of mathematically independent reactions/equations

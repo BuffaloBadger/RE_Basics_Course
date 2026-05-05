@@ -10,10 +10,13 @@ Class 1 defines reaction engineering. Codes of engineering ethics are presented 
 
 After completing Class 1 you should...
 
-* Know the definition/defining equation for reaction engineering
+* Know 
+    * the kinds of activities reaction engineers engage in
+    * reactive processes can be dangerous if they are designed or operated improperly
 * Understand
     * the AIChE Code of Ethics
-    * process safety is paramount in the practice of reaction engineering
+    * reaction engineers are responsible for the systems they work on
+    * safety must be paramount in the practice of reaction engineering
 
 ## Prepare {.ch} 
 

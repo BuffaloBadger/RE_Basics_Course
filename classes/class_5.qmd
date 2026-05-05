@@ -4,17 +4,21 @@
 
 ## Rate-Determining Steps and Quasi-Equilibrium {.cc}
 
-to be added
+Class 5 examines the generation of a mechanistic rate expression from a mechanism involving a rate-determining step. The concept and consequences of quasi-equilibrated mechanistic steps are explained.
 
 ## Learning Outcomes {.ch}
 
 After completing Class 5 you should...
 
-* Know the definition/defining equation for rate-determining step and quasi-equilibrium
+* Know
+    * the definition of a rate-determining step
+    * the defining equations for the apparent net rate of a non-elementary reaction in terms of the rate of the rate-determining step in its mechanism and quasi-equilibrium
 * Understand
+    * some mechanisms do not have a rate-determining step
     * when one step in a reaction mechanism is rate-determining, all other steps are quasi-equilibrated
 * Be able to
-    * liminate concentrations of reactive intermediates from mechanistic rate expressions using quasi-equilibrium expressions, when appropriate
+    * generate a mechanistic rate expression from a mechanism that includes a rate-determining step
+    * eliminate concentrations of reactive intermediates from mechanistic rate expressions using quasi-equilibrium expressions, when appropriate
 
 ## Prepare {.ch}
 

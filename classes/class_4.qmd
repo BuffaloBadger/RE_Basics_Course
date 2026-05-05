@@ -4,13 +4,15 @@
 
 ## The Bodenstein Steady-State Approximation {.cc}
 
-to be added
+Class 4 examines the use of the Bodenstein steady-state approximation for generating mechanistic rate expressions. It explains the relationship between the rate of mechanistic steps and the apparent rate of non-elementary reactions. Apparent rate coefficients and limiting forms of rate expressions are introduced.
 
 ## Learning Outcomes {.ch}
 
 After completing Class 4 you should...
 
-* Know the definition/defining equation for reaction mechanism, mechanistic rate expression, reactive intermediate, Bodenstein steady-state approximation, and apparent rate coefficient
+* Know
+    * the definition of a reactive intermediate, kinetically insignificant step, effectively irreversible step, apparent rate coefficient, and limiting form of a rate expression
+    * the defining equations for the net rate of generation of a species in terms of the rates of mechanistic steps, and the Bodenstein steady-state approximation
 * Understand
     * mechanistic steps are elementary reactions
     * there must be a linear combination of the mechanistic steps that equals the apparent, non-elementary reaction
@@ -22,6 +24,7 @@ After completing Class 4 you should...
     * write Bodenstein steady-state approximation for a reactive intermediate
     * eliminate concentrations of reactive intermediates from mechanistic rate expressions using the Bodenstein steady-state approximation
     * define the minimum number of apparent rate coefficients in a mechanistic rate expression
+    * generate limiting forms of mechanistic rate expressions
 
 ## Prepare {.ch}
 

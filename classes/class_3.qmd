@@ -4,13 +4,15 @@
 
 ## Rates and Rate Expressions {.cc}
 
-to be added
+Class 3 describes and defines reaction rates and empirical, theoretical, and mechanistic rate expressions. Rate coefficients and Arrhenius temperature dependence are introduced and explained.
 
 ## Learning Outcomes {.ch}
 
 After completing Class 3 you should...
 
-* Know the definition/defining equation for reaction rate, species generation rate, net rate, forward rate, reverse rate, empirical/theoretical/mechanistic rate expression, Arrhenius expression, pre-exponential factor, activation energy, typical/auto-catalytic/product-inhibited/reactant-inhibited reactions
+* Know
+    * the definition of net rate, forward rate, reverse rate, reaction mechanism, empirical, theoretical, and mechanistic rate expressions, pre-exponential factor, activation energy, and typical, auto-catalytic, product-inhibited, and reactant-inhibited reactions
+    * the defining equations for reaction rate, species generation rate, the Arrhenius expression, instantaneous yield, and instantaneous selectivity
 * Understand
     * the functional form of rate expressions is only known a priori for elementary reactions
     * rate expressions must be experimentally validated
@@ -21,7 +23,7 @@ After completing Class 3 you should...
     * write a power-law rate expression
     * modify a rate expression so that the rate it predicts goes to zero as equilibrium is approached
     * estimate Arrhenius expression parameters using experimental data
-    * test whether a quantity displays Arrhenius temperature dependence given either data or an expression for its dependence on temperature
+    * assess whether a quantity displays Arrhenius temperature dependence given either data or an expression for its dependence on temperature
 
 ## Prepare {.ch}
 
