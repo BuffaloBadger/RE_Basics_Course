@@ -4,20 +4,23 @@
 
 ## Selectivity in Steady-State CSTRs {.cc}
 
-to be added
+Class 10 examines selectivity and heat transfer in steady-state CSTRs. It also illustrates a numerical procedure for completing optimization tasks.
 
 ## Learning Outcomes {.ch}
 
 After completing Class 10 you should...
 
-* Know the definition/defining equation for instantaneous yield/selectivity
+* Know the definitions and defining equations for instantaneous yield and instantaneous selectivity
+* Understand
+    * that typically the selectivity of parallel reactions is more strongly affected by temperature and composition than by reaction time
+    * that typically the selectivity of series reactions is more strongly affected by reaction time than by temperature and composition
 * Be able to
     * use instantaneous selectivity to assess how temperature and composition affect overall selectivity in reaction networks
     * use the REB assignment workflow to complete reaction engineering assignments involving optimization tasks
 
 ## Prepare {.ch}
 
-to be added.
+to be added; review example 5.5.2, read example example 6.6.2 (after switching with 6.6.1)
 
 ## Participate {.ch}
 

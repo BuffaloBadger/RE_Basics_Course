@@ -4,24 +4,24 @@
 
 ## Multiplicity of CSTR Steady States {.cc}
 
-to be added
+Class 11 examines the phenomenon of multiple CSTR steady states. It illustrates the graphical determination of the number of steady states and the numerical solution of the design equations to find the CSTR model variables for each steady state.
 
 ## Learning Outcomes {.ch}
 
 After completing Class 11 you should...
 
-* Know the definition/defining equation for steady-state multiplicity
+* Know the definition of steady-state multiplicity
 * Understand
     * there may be more than one physically realizable solution of the steady-state CSTR design equations
     * numerical ATE solvers only find one solution of the ATEs
     * there is only one inlet CSTR temperature for each outlet temperature
 * Be able to
-    * determine whether multiple steady states are possible for a given CSTR
-    * obtain solutions of the CSTR design equations for each steady state
+    * generate a multiplicity plot to determine the number of steady states for a given CSTR
+    * solve the CSTR design equations numerically for each steady state
 
 ## Prepare {.ch}
 
-to be added.
+to be added. Chapter 6.4, Example 6.6.4
 
 ## Participate {.ch}
 

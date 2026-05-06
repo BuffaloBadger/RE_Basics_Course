@@ -4,23 +4,32 @@
 
 ## CSTR Startup and Shut Down {.cc}
 
-to be added
+Class 12 describes the analysis of transient CSTRs. It considers CSTR startup and shutdown, and also illustrates the numerical solution of sets of initial-value, ordinary differential equations (IVODEs)
 
 ## Learning Outcomes {.ch}
 
 After completing Class 12 you should...
 
-* Know the definition/defining equation for initial-value, ordinary differential equations (IVODEs) and derivative expression
+* Know
+    * the definition of startup, shutdown, initial value ordinary differential equations, initial values, stopping criterion, and derivative expression
+    * the equations for transient CSTR mole balances and transient CSTR reacting fluid energy balance
 * Understand
-    * how a numerical IVODE solver works and how to use one
+    * how a numerical IVODE solver works
+    * that an IVODE solver must be provided with initial values for all of the variables, a stopping criterion, and a derivatives function
+    * that the engineer solving IVODEs must write the derivatives function
+    * that the only arguments fo a derivatives function are the values of the independent and dependent variables at the start of an integration step, and the only thing it returns are the values of the derivatives of the dependent variables with respect to the independent variable
+    * that solving IVODEs gives sets corresponding sets of values of the independent and depandent variables over a range defined by the initial values and stopping criterion
     * when multiple steady states are possible, the procedure used to start a CSTR up determines which steady state it reaches
 * Be able to
     * determine whether a reaction engineering assignment involves a steady-state CSTR or a transient CSTR
+    * select and simplify the design equations for modeling a given transient CSTR
+    * identify additional unknowns appearing in the design equations and write equations for calculating them using known constants, the independent variable and the dependent variables
     * solve a set of IVODEs numerically
+    * use the results from solving the design equations to deliver the items requested in an assignment
 
 ## Prepare {.ch}
 
-to be added.
+to be added. Chapter 6.3.1, Example 6.6.5
 
 ## Participate {.ch}
 

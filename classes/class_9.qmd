@@ -10,18 +10,25 @@ Class 9 introduces continuous stirred-tank reactors (CSTRs) and the quantitative
 
 After completing Class 9 you should...
 
-* Know the definition/defining equation for CSTR mole and reacting fluid energy balances, algebraic-transcendental equations (ATEs) and residual expressions.
-* Understand how a numerical ATE solver works and how to use one
+* Know 
+    * the definition of algebraic-transcendental equations (ATEs) and residual expression
+    * the equations for CSTR mole and reacting fluid energy balances 
+* Understand
+    * how a numerical ATE solver works
+    * that an ATE solver must be provided with a guess for the ATE variables and a residuals function
+    * that the engineer solving ATEs must write the residuals function
+    * that the only argument to a residuals function is a guess for the ATE variables, and the only thing it returns are the corresponding residuals for the equations being solved
 * Be able to
-    * select and simplify the design equations for modeling a steady-state CSTR
-    * select the reactor model variables to be found by solving the steady-state CSTR design equations
-    * identify additional unknowns appearing in the design equations and write equations for calculating them
+    * select and simplify the design equations for modeling a given steady-state CSTR
+    * modify the sensible heat terms in the design equations to use available heat capacities
+    * select the CSTR model variables to be found by solving the steady-state design equations
+    * identify additional unknowns appearing in the design equations and write equations for calculating them using known constants and the CSTR model variables
     * solve a set of ATEs numerically
-    * write and solve any equations for calculating quantities of interest other than the reactor model variables
+    * use the results from solving the design equations to deliver the items requested in an assignment
 
 ## Prepare {.ch}
 
-* Read Sections 6.1 - 6.3, 6.6, Appendix D.2 and Example 6.6.2 in *REB, The Book*.
+* Read Sections 6.1 - 6.3, 6.6, Appendix D.2 and Example 6.6.1 in *REB, The Book*. (need to switch examples 6.6.1 and 6.6.2)
 * Watch the Class 9 Preparation Video.
 * Watch the Solving ATEs Video.
 * Complete the Class 9 Preparation Assignment.
