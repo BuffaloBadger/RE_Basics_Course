@@ -158,27 +158,17 @@ Use equation (2) to calculate the rate coefficient at several temperatures betwe
 
 ## Learning Activities from *REB, The Course* {.ch}
 
-**Learning Activity 2.1** A gas phase system initially contains 0.5 mol of N~2~O~5~ and 0.5 mol of NO~2~ at 600 K and 5 MPa. The N~2~O~5~ decomposes according to reaction (1). Write an expression for the amount of NO~2~ in terms of the amount of N~2~O~5~.
+**Learning Activity 2.1** The gas phase reaction synthesis of ammonia from NO, reaction (1), takes place in a system that initially contained 2 moles of H~2~ and 1 mole of NO. If 50% of the limiting reactant was converted, what was the final mole fraction of ammonia?
 
 $$
-2 N_2O_5 \leftrightarrows 4 NO_2 + O_2 \tag{1}
+2 NO + 5 H_2 \leftrightarrows 2 NH_3 + 2 H_2O \tag{1}
 $$
 
 [Activity 2.1 Solution](activities/class_2/Activity%202.1.pdf)
 
 ---
 
-**Learning Activity 2.2** The gas phase reaction synthesis of ammonia from NO, reaction (1), takes place in a system that initially contained 2 moles of H~2~ and 1 mole of NO. If 50% of the limiting reactant was converted, what was the final mole fraction of ammonia?
-
-$$
-2 NO + 5 H_2 \leftrightarrows 2 NH_3 + 2 H_2O \tag{1}
-$$
-
-[Activity 2.2 Solution](activities/class_2/Activity%202.2.pdf)
-
----
-
-**Learning Activity 2.3** The charge to a reactor consisted of 66 mol H~2~ and 34 mol CO. Reactions (1) through (6) occurred, after which 40% of the CO had been converted. The final ratio of H~2~ to CO was 1.5, and the selectivity for methanol over carbon dioxide was 8.3. Calculate the final molar amount of each reagent in the system.
+**Learning Activity 2.2** The charge to a reactor consisted of 66 mol H~2~ and 34 mol CO. Reactions (1) through (6) occurred, after which 40% of the CO had been converted. The final ratio of H~2~ to CO was 1.5, and the selectivity for methanol over carbon dioxide was 8.3. Calculate the final molar amount of each reagent in the system.
 
 $$
 CO + 2 H_2 \rightleftarrows CH_3OH \tag{1}
@@ -204,11 +194,13 @@ $$
 CH_4 + H_2O \rightleftarrows CH_3OH + H_2 \tag{6}
 $$
 
-[Activity 2.3 Solution](activities/class_2/Activity%202.3.pdf)
+[Activity 2.2 Solution](activities/class_2/Activity%202.2.pdf)
+
+[Calculations for Activity 2.2](activities/class_2/activity_2_2.py)
 
 ---
 
-**Learning Activity 2.4** The vapor phase synthesis of methanol is given in reaction (1). The gas phase heat capacity of reagent $i$, $\hat{C}_{p,i}$, in J mol^-1^ K^-1^ can be calculated using equation (2) where $t$ is the temperature in K divided by 1000. The constants for use in equation (2), $A_i$ through $E_i$, are given in @tbl-ch2_activity4, which also includes the standard heat of formation at 298 K, the standard change in Gibbs free energy for formation, and the standard entropy of the reagents in kJ mol^-1^, kJ mol^-1^, and J mol^-1^ K^-1^, respectively. Generate an expression for the heat of reaction (1) as a function of temperature.
+**Learning Activity 2.3** The vapor phase synthesis of methanol is given in reaction (1). The gas phase heat capacity of reagent $i$, $\hat{C}_{p,i}$, in J mol^-1^ K^-1^ can be calculated using equation (2) where $t$ is the temperature in K divided by 1000. The constants for use in equation (2), $A_i$ through $E_i$, are given in @tbl-ch2_activity4, which also includes the standard heat of formation at 298 K, the standard change in Gibbs free energy for formation, and the standard entropy of the reagents in kJ mol^-1^, kJ mol^-1^, and J mol^-1^ K^-1^, respectively. Generate an expression for the heat of reaction (1) as a function of temperature.
 
 $$
 CO + 2 H_2 \rightleftarrows CH_3OH \tag{1}
@@ -231,7 +223,7 @@ $$
 
 : Thermodynamic data for Activity 4 from Chase, M. W., Jr., C. A. Davies, J. R. Downey, Jr., D. J. Frurip, R. A. McDonald and A. N. Syverud, “JANAF Thermochemical Tables,” 3rd ed. American Chemical Society and American Institute of Physics, New York, 1986. {#tbl-ch2_activity4}
 
-[Activity 2.4 Solution](activities/class_2/Activity%202.4.pdf)
+[Activity 2.3 Solution](activities/class_2/Activity%202.3.pdf)
 
 ---
 

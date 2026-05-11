@@ -1,4 +1,4 @@
-"""Calculations for the Third Class 2 Activity in REB, The Course"""
+"""Calculations for the Second Class 2 Activity in REB, The Course"""
 # import libraries
 import numpy as np
 
