@@ -7,39 +7,35 @@ import pandas as pd
 
 # constants available to all functions
 # given
-yA_in = 0.1
-yB_in = 0.65
-yI_in = 0.25
-T_in = 165 + 273.15 # K
-P = 5.0 # atm
-yA = 0.001
-yA_max = 0.001
-k0 = 1.37E5 # m^3 /mol /min
-E = 11100.0 # cal /mol
-dH = -7200.0 # cal /mol
-Cp_A = 7.6 # cal /mol /K
-Cp_B = 8.2 # cal /mol /K
-Cp_I = 4.3 # cal /mol /K
+k0_1 = 10.2 # gal /mol /min
+k0_2 = 17.0 # gal /mol /min
+E_1 = 15300 # J /mol
+E_2 = 23700 # J /mol
+CA_in = 10 # mol /gal
+CB_in = 12 # mol /gal
+T_in = 350 # K
+V = 25 # gal
+Vdot_in = 12.5 # gal /min
+dH_1_298 = -12000 # J /mol
+dH_2_298 = -21300 # J /mol
+Cp_A = 85 # J /mol /K
+Cp_B = 125 # J /mol /K
+Cp_D = 200 # J /mol /K
+Cp_U = 170 # J /mol /K
 # known
-Re = 1.987 # cal /mol /K
-Rw = 8.206E-5 # m^3 atm /mol /K
-# basis
-Vdot_in = 1.0 # m^3 /min
+R = 8.314 # J /mol /K
 # calculated
-nA_in = yA_in*P*Vdot_in/Rw/T_in
-nB_in = yB_in*P*Vdot_in/Rw/T_in
-nI_in = yI_in*P*Vdot_in/Rw/T_in
+nA_in = CA_in*Vdot_in
+nB_in = CB_in*Vdot_in
 
 # cstr model function
 def cstr_model_variables(init_guess):
-     
 	# solve the ATEs
     soln, success, message = solve_ates(cstr_residuals,init_guess)
 
     # check that the solution is converged
     if not(success):
-        print("")
-        print(f"  cstr model function error: {message}")
+        print(f"  CSTR model function error: {message}")
 
     # return the solution
     return soln
@@ -47,57 +43,71 @@ def cstr_model_variables(init_guess):
 # cstr residuals function
 def cstr_residuals(guess):
     # extract the individual guesses
-    V = guess[0]
+    nA = guess[0]
     nB = guess[1]
-    nI = guess[2]
-    nZ = guess[3]
+    nD = guess[2]
+    nU = guess[3]
     T = guess[4]
 
-    # calculate nA
-    nA = yA*(nB + nI + nZ)/(1 - yA)
+    # calculate the rates
+    k_1 = k0_1*np.exp(-E_1/R/T)
+    k_2 = k0_2*np.exp(-E_2/R/T)
+    CA = nA/Vdot_in
+    CB = nB/Vdot_in
+    r_1 = k_1*CA*CB
+    r_2 = k_2*CA*CB
 
-    # calculate the rate
-    k = k0*np.exp(-E/Re/T)
-    CA = nA/(nA + nB + nI + nZ)*P/Rw/T
-    CB = nB/(nA + nB + nI + nZ)*P/Rw/T
-    r = k*CA*CB
+    # heats of reaction
+    dH_1 = dH_1_298 + (Cp_D - Cp_A - Cp_B)*(T - 298)
+    dH_2 = dH_2_298 + (Cp_U - Cp_A - Cp_B)*(T - 298)
 
     # evaluate the residuals
-    residual_1 = nA_in - nA - V*r
-    residual_2 = nB_in - nB - V*r
-    residual_3 = nI_in - nI
-    residual_4 = -nZ + V*r
-    residual_5 = -(nA_in*Cp_A + nB_in*Cp_B + nI_in*Cp_I)*(T - T_in) - V*r*dH
+    residual_1 = nA_in - nA - V*(r_1 + r_2)
+    residual_2 = nB_in - nB - V*(r_1 + r_2)
+    residual_3 = -nD + V*r_1
+    residual_4 = -nU + V*r_2
+    residual_5 = (nA_in*Cp_A + nB_in*Cp_B)*(T-T_in) + V*(r_1*dH_1 + r_2*dH_2)
 
     # return the residuals
-    return np.array([residual_1, residual_2, residual_3, residual_4, residual_5])
+    return np.array([residual_1, residual_2, residual_3, residual_4 
+                     , residual_5])
 
 # perform the analysis
 def deliverables():
 	# set the initial guess
-    init_guess = np.array([1.0, nB_in, nI_in, 0.0, T_in + 5.0])
+    init_guess = np.array([nA_in, nB_in, 0.0, 0.0, T_in + 5.0])
 
+    # the next two lines were used to check for other steady states
+#    init_guess[4] = T_in + 0.01
+#    init_guess[4] = T_in + 100
+    
     # solve the reactor design equations
     solution = cstr_model_variables(init_guess)
 
-    # extract the individual results of interest
-    V = solution[0]
-    T = solution[4] - 273.15
+    # extract individual unknowns
+    nA = solution[0]
+    nD = solution[2]
+    nU = solution[3]
+    T = solution[4]
 
-    # calculate the space time
-    tau = V/Vdot_in
+    # calculate the other quantities of interest
+    fA = 100*(nA_in - nA)/nA_in
+    S_D_U = nD/nU
 
     # tabulate the results
-    data = [['tau',f'{tau}','min'],['T',f'{T}','°C']]
+    data = [["Conversion",f"{fA}","%"]
+            ,["Selectivity",f"{S_D_U}","mol D per mol U"]
+            ,["Temperature",f"{T}","K"]]
     results_df = pd.DataFrame(data, columns=['item','value','units'])
 
     # display the results
     print(results_df)
 
     # save the results
-    results_df.to_csv('example_6_6_2_results.csv',index=False)
+    results_df.to_csv('example_6_6_2_results.csv',index = False)
+    # display and save the graphs
     return
 
-# calculate the deliverables
+# call the deliverables function
 if __name__=="__main__":
     deliverables()

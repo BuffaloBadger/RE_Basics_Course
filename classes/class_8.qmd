@@ -2,7 +2,7 @@
 
 ![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
-## Qualitative and Quantitative Analysis of Ideal Reactors {.cc}
+## Analysis of Ideal Reactors {.cc}
 
 Class 8 provides an overview of the modeling of a single, ideal reactor. Selection of reactor design equations, common tasks that require them, and a workflow for completing them are introduced. A procedure for qualitative prediction of reactor performance is also presented.
 

@@ -2,7 +2,23 @@
 
 ## Examples from *REB, The Book* {.ch}
 
-**Example 6.6.1** Reactants A and B can react irreversibly to produce either a desired product, D, or an undesired product, U, as shown in equations (1) and (2). The rate expressions for reactions (1) and (2) are given in equations (3) and (4), respectively. In those rate expressions, the pre-exponential factors for $k_1$ and $k_2$ are 10.2 gal mol^-1^ min^-1^ and 17.0 gal mol^-1^ min^-1^, respectively, and the activation energies are 15.3 kJ mol^-1^ and 23.7 kJ mol^-1^, respectively. A liquid mixture containing 10 mol A gal^-1^ and 12 mol B gal^-1^ at 350 K is fed to an adiabatic 25 gal CSTR at a rate of 12.5 gal min^-1^. If the standard heats of reactions (1) and (2) at 298 K are -12.0 and -21.3 kJ mol^-1^, respectively, and if the reagents form an ideal liquid mixture with the temperature-independent heat capacities of A, B, D and U equal to 85, 125, 200 and 170 J mol^-1^ K^-1^, what are the conversion of the limiting reagent, the outlet selectivity (in mol D per mol U) and the outlet temperature?
+**Example 6.6.1** The amount of A, (10%), in a gas mixture with B (65%), and inert, I, (25%) at 165 °C and 5 atm needs to be reduced to 0.1%. This is going to be accomplished by converting the A into Z according to reaction (1). An adiabatic CSTR is going to be used. The rate expression is given in equation (2) where the pre-exponential factor is 1.37 x 10^5^ m^3^ mol^-1^ min^-1^ and the activation energy is 11,100 cal mol^-1^. The heat of reaction is constant and equal to -7200 cal mol^-1^, and the heat capacities of A, B, I, and Z are equal to 7.6, 8.2, 4.3, and 13.8 cal mol^-1^ K^-1^, respectively. What space time is required, and what temperature will result?
+
+$$
+A + B \rightarrow Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{2}
+$$
+
+[Example 6.6.1 Solution](examples/6_6_1/Example%206.6.1.pdf)
+
+[Example 6.6.1 Calculations](examples/6_6_1/example_6_6_1.py)
+
+---
+
+**Example 6.6.2** Reactants A and B can react irreversibly to produce either a desired product, D, or an undesired product, U, as shown in equations (1) and (2). The rate expressions for reactions (1) and (2) are given in equations (3) and (4), respectively. In those rate expressions, the pre-exponential factors for $k_1$ and $k_2$ are 10.2 gal mol^-1^ min^-1^ and 17.0 gal mol^-1^ min^-1^, respectively, and the activation energies are 15.3 kJ mol^-1^ and 23.7 kJ mol^-1^, respectively. A liquid mixture containing 10 mol A gal^-1^ and 12 mol B gal^-1^ at 350 K is fed to an adiabatic 25 gal CSTR at a rate of 12.5 gal min^-1^. If the standard heats of reactions (1) and (2) at 298 K are -12.0 and -21.3 kJ mol^-1^, respectively, and if the reagents form an ideal liquid mixture with the temperature-independent heat capacities of A, B, D and U equal to 85, 125, 200 and 170 J mol^-1^ K^-1^, what are the conversion of the limiting reagent, the outlet selectivity (in mol D per mol U) and the outlet temperature?
 
 $$
 A + B \rightarrow D \tag{1}
@@ -18,22 +34,6 @@ $$
 
 $$
 r_2 = k_2 C_AC_B \tag{4}
-$$
-
-[Example 6.6.1 Solution](examples/6_6_1/Example%206.6.1.pdf)
-
-[Example 6.6.1 Calculations](examples/6_6_1/example_6_6_1.py)
-
----
-
-**Example 6.6.2** The amount of A, (10%), in a gas mixture with B (65%), and inert, I, (25%) at 165 °C and 5 atm needs to be reduced to 0.1%. This is going to be accomplished by converting the A into Z according to reaction (1). An adiabatic CSTR is going to be used. The rate expression is given in equation (2) where the pre-exponential factor is 1.37 x 10^5^ m^3^ mol^-1^ min^-1^ and the activation energy is 11,100 cal mol^-1^. The heat of reaction is constant and equal to -7200 cal mol^-1^, and the heat capacities of A, B, I, and Z are equal to 7.6, 8.2, 4.3, and 13.8 cal mol^-1^ K^-1^, respectively. What space time is required, and what temperature will result?
-
-$$
-A + B \rightarrow Z \tag{1}
-$$
-
-$$
-r_1 = k_1C_AC_B \tag{2}
 $$
 
 [Example 6.6.2 Solution](examples/6_6_2/Example%206.6.2.pdf)
@@ -134,16 +134,14 @@ To show that steady state U~mid~ is unstable, plot the outlet temperature *vs*. 
 
 ## Learning Activities from *REB, The Course* {.ch}
 
-**Learning Activity 9** The rate of liquid-phase reaction (1) is adequately described by the rate expression given in equation (2). The rate coefficient exhibits Arrhenius temperature dependence with a pre-exponential factor of 1.2 x 10^14^ ft^3^ lbmol^–1^ min^–1^ and an activation energy of 45,700 BTU lbmol^–1^. The equilibrium constant also displays Arrhenius temperature dependence with a pre-exponential factor of 6.5 x 10^–13^ ft^3^ lbmol^–1^ and a heat of reaction of 39,700 BTU lbmol^–1^.
-
-Reactant A is fed to a steady state CSTR at a rate of 0.01 lbmol min^–1^, and reactant B is fed at a rate of 0.25 lbmol min^–1^. This corresponds to an inlet volumetric flow rate of 0.08 ft^3^ min^–1^. The CSTR has a fluid volume of 18 ft^3^, and it operates adiabatically. The heat capacities of A, B and Z are equal to 1000, 180 and 1200 BTU lbmol^–1^ °R^–1^, respectively, and they may be considered to be independent of temperature. What will the conversion and outlet temperatures equal if the combined feed enters at 600, 650 or 700 °R.
+**Learning Activity 9** A 150°C solution containing 2 mol L^–1^ of A is being fed to a 500 L CSTR at a rate of 250 L h^–1^. A jacket surrounding the CSTR contains molten salt at a constant temperature of 180 °C. The contact area between the CSTR contents and the jacket is 2 m^2^ and the overall heat transfer coefficient is equal to 500 kcal m^–2^ h^–1^ K^–1^. Within the reactor reaction (1) occurs at a rate given by equation (2). The pre–exponential factor for the rate coefficient in equation (2) is 1.14 × 10^9^ L mol^–1^ h^–1^ and the activation energy is 16.2 kcal mol^–1^. The reacting solution has a constant density and a constant heat capacity of 1.17 cal ml^–1^ K^–1^. The heat of reaction is 18.2 kcal mol^–1^ and is independent of temperature. At steady state, what are the outlet temperature and conversion of A?
 
 $$
-A + B \rightleftarrows Z \tag{1}
+A \rightarrow Z \tag{1}
 $$
 
 $$
-r_1 = k_1C_AC_B\left( 1 - \frac{C_Z}{K_1C_AC_B}\right) \tag{2}
+r_1 = k_1C_A^2 \tag{2}
 $$
 
 [Learning Activity 9 Solution](activities/class_9/Activity%209.pdf)
@@ -152,16 +150,22 @@ $$
 
 ---
 
-**Learning Activity 10** A 4 L CSTR is being used to convert A to Z according to reaction (1). The rate expression for reaction (1) is given in equation (2). The rate coefficient obeys the Arrhenius expression with a pre-exponential factor equal to 2.59 x 10^9^ min^–1^ and an activation energy equal to 16,500 cal mol^–1^. The heat of reaction (1) may be taken to be constant and equal to –22,200 cal mol^–1^. The heat capacity of the reacting solution is approximately constant and equal to 440 cal L^–1^ K^–1^, and its density is constant. The reactor has a jacket with a volume of 0.5 L, a heat transfer area of 0.6 ft^2^ and a heat transfer coefficient of 5.65 x 10^3^ cal ft^–2^ h^–1^ K^–1^. The cooling water may be taken to have a constant density of 1 g cm^–3^ and a constant heat capacity of 1 cal g^–1^ K^–1^.
-
-The feed is a solution containing only A at a concentration of 2M and a temperature of 60 °C, and cooling water at 20 °C flows into the jacket at 0.2 kg min^–1^. Compare the conversion, outlet temperature, and outlet coolant temperature for space times of 50 and 60 min.
+**Learning Activity 10** An ideal, 50 gal CSTR is fed a liquid solution containing 0.014 lbmol A gal^−1^ and 0.020 lbmol B gal^−1^ at a temperature of 70 °F. The heat capacity of the reacting liquid is constant and equal to 65 BTU ft^−3^ °R^−1^. A jacket surrounding the reactor is supplied with saturated steam at 220 °F. The steam condenses in the jacket, leaving as a saturated liquid. The overall heat transfer coefficient is 60 BTU ft^−2^ °R^−1^ h^−1^, and the heat transfer area is 13 ft^2^. Reactions (1) and (2) take place within the steady-state CSTR. The heat of reaction (1) is 45,000 BTU lbmol^−1^, and the heat of reaction (2) is 39,500 BTU lbmol^−1^. The rate expressions for reactions (1) and (2) are given in equations (3) and (4). The rate coefficients obey the Arrhenius expression. For reaction (1) the pre-exponential factor is 1.6 × 10^18^ gal lbmol^−1^ h^−1^, and the activation energy is 46,000 BTU lbmol^−1^. For reaction (2) the pre-exponential factor is 4.5 × 10^18^ gal lbmol^−1^ h^−1^, and the activation energy is 54,000 BTU lbmol^−1^. What volumetric feed rate will maximize the rate of production of reagent D? At that feed rate, what is the conversion of A and the reactor temperature?
 
 $$
-A \rightarrow Z \tag{1}
+A + B \rightarrow D + Z \tag{1}
 $$
 
 $$
-r_1 = k_1C_A \tag{2}
+D + B \rightarrow U + Z \tag{2}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{3}
+$$
+
+$$
+r_2 = k_2C_DC_B \tag{4}
 $$
 
 [Learning Activity 10 Solution](activities/class_10/Activity%2010.pdf)
@@ -224,14 +228,16 @@ $$
 
 ## Practice Assignments from *REB, The Course* {.ch}
 
-**Practice Assignment 9** A 150°C solution containing 2 mol L^–1^ of A is being fed to a 500 L CSTR at a rate of 250 L h^–1^. A jacket surrounding the CSTR contains molten salt at a constant temperature of 180 °C. The contact area between the CSTR contents and the jacket is 2 m^2^ and the overall heat transfer coefficient is equal to 500 kcal m^–2^ h^–1^ K^–1^. Within the reactor reaction (1) occurs at a rate given by equation (2). The pre–exponential factor for the rate coefficient in equation (2) is 1.14 × 10^9^ L mol^–1^ h^–1^ and the activation energy is 16.2 kcal mol^–1^. The reacting solution has a constant density and a constant heat capacity of 1.17 cal ml^–1^ K^–1^. The heat of reaction is 18.2 kcal mol^–1^ and is independent of temperature. At steady state, what are the outlet temperature and conversion of A?
+**Practice Assignment 9** The rate of liquid-phase reaction (1) is adequately described by the rate expression given in equation (2). The rate coefficients exhibits Arrhenius temperature dependence with a forward pre-exponential factor of 1.93 x 10^13^ ft^3^ lbmol^–1^ min^–1^, a reverse pre-exponential factor of 2.86 x 10^26^ min^–1^, a forward activation energy of 46,400 BTU lbmol^–1^, and a reverse activation energy of 86,700 BTU lbmol^–1^. The heat of reaction (1) is constant and equal to –40,300 BTU lbmol^–1^.
+
+Reactant A is fed to a steady state CSTR at a rate of 0.015 lbmol min^–1^, and reactant B is fed at a rate of 3.3 lbmol min^–1^. This corresponds to an inlet volumetric flow rate of 1.41 ft^3^ min^–1^. The CSTR has a fluid volume of 18 ft^3^, and it operates adiabatically. The heat capacity of reagent A is 100 BTU lbmol^–1^ °R^–1^, that of B is 18 BTU lbmol^–1^ °R^–1^, and the heat capacity of Z is 120 BTU lbmol^–1^ °R^–1^, and they may be considered to be independent of temperature. What will the conversion and outlet temperatures equal if the combined feed enters at 200 °F.
 
 $$
-A \rightarrow Z \tag{1}
+A + B \rightleftarrows Z \tag{1}
 $$
 
 $$
-r_1 = k_1C_A^2 \tag{2}
+r_1 = k_{1,f}C_AC_B\ - k_{1,r}C_Z \tag{2}
 $$
 
 [Practice Assignment 9 Solution](practice/class_9/Practice%20Assignment%209.pdf)
@@ -240,22 +246,16 @@ $$
 
 ---
 
-**Practice Assignment 10** An ideal, 50 gal CSTR is fed a liquid solution containing 0.014 lbmol A gal^−1^ and 0.020 lbmol B gal^−1^ at a temperature of 70 °F. The heat capacity of the reacting liquid is constant and equal to 65 BTU ft^−3^ °R^−1^. A jacket surrounding the reactor is supplied with saturated steam at 220 °F. The steam condenses in the jacket, leaving as a saturated liquid. The overall heat transfer coefficient is 60 BTU ft^−2^ °R^−1^ h^−1^, and the heat transfer area is 13 ft^2^. Reactions (1) and (2) take place within the steady-state CSTR. The heat of reaction (1) is 45,000 BTU lbmol^−1^, and the heat of reaction (2) is 39,500 BTU lbmol^−1^. The rate expressions for reactions (1) and (2) are given in equations (3) and (4). The rate coefficients obey the Arrhenius expression. For reaction (1) the pre-exponential factor is 1.6 × 10^18^ gal lbmol^−1^ h^−1^, and the activation energy is 46,000 BTU lbmol^−1^. For reaction (2) the pre-exponential factor is 4.5 × 10^18^ gal lbmol^−1^ h^−1^, and the activation energy is 54,000 BTU lbmol^−1^. What volumetric feed rate will maximize the rate of production of reagent D? At that feed rate, what is the conversion of A and the reactor temperature?
+**Practice Assignment 10** A 4 L CSTR is being used to convert A to Z according to reaction (1). The rate expression for reaction (1) is given in equation (2). The rate coefficient obeys the Arrhenius expression with a pre-exponential factor equal to 2.59 x 10^9^ min^–1^ and an activation energy equal to 16,500 cal mol^–1^. The heat of reaction (1) may be taken to be constant and equal to –22,200 cal mol^–1^. The heat capacity of the reacting solution is approximately constant and equal to 440 cal L^–1^ K^–1^, and its density is constant. The reactor has a jacket with a volume of 0.5 L, a heat transfer area of 0.6 ft^2^ and a heat transfer coefficient of 5.65 x 10^3^ cal ft^–2^ h^–1^ K^–1^. The cooling water may be taken to have a constant density of 1 g cm^–3^ and a constant heat capacity of 1 cal g^–1^ K^–1^.
+
+The feed is a solution containing only A at a concentration of 2M and a temperature of 60 °C, and cooling water at 20 °C flows into the jacket at 0.2 kg min^–1^. Compare the conversion, outlet temperature, and outlet coolant temperature for space times of 50 and 60 min.
 
 $$
-A + B \rightarrow D + Z \tag{1}
-$$
-
-$$
-D + B \rightarrow U + Z \tag{2}
-$$
-
-$$
-r_1 = k_1C_AC_B \tag{3}
+A \rightarrow Z \tag{1}
 $$
 
 $$
-r_2 = k_2C_DC_B \tag{4}
+r_1 = k_1C_A \tag{2}
 $$
 
 [Practice Assignment 10 Solution](practice/class_10/Practice%20Assignment%2010.pdf)
