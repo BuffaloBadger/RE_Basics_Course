@@ -1,4 +1,4 @@
-"""Calculations for The Class 17 Learning Activity from REB, The Course"""
+"""Calculations for the Class 17 Learning Activity in REB, The Course"""
 
 # import libraries
 import numpy as np
@@ -12,39 +12,39 @@ plt.rc('savefig', dpi=300)
 
 # global constants available to all functions
 # given
-V = 2.0 # m^3
-yA0 = 0.5
-yB0 = 0.5
-T0 = 450 # K
-P0 = 7 # atm
-dH1_298 = -6870 # cal/mol
-CpA = 7.5 # cal/mol/K
-CpB = 8.5 # cal/mol/K
-CpY = 12.1 # cal/mol/K
-CpZ = 5.7 # cal/mol/K
-k01 = 83 # m^3 /mol /h
-E1 = 10200 # cal/mol
-tTurn = 20/60 # h
+k01 = 265 # L /mol /min
+E1 = 73000 # J /mol
+dH298 = -165000 # J /mol
+P0 = 1000 # Torr
+T0 = 1225 # K
+# Constants from heat capacity expressions Cpi = ai + bi*T
+aA = 28
+aY = 26
+aZ = 30
+bA = 0.05
+bY = 0.01
+bZ = 0.005
+V = 1 # basis
+Tf = np.array([1235,1325]) # K
 # known
-R = 1.987 # cal/mol
-Rpv = 8.206E-5 # m^3 atm/mol/K
+Re = 8.314 # J /mol /K
+Rw = 62.36367 # L Torr /mol \K
 # calculated
-nA0 = yA0*P0*V/Rpv/T0
-nB0 = yB0*P0*V/Rpv/T0
+nA0 = P0*V/(Rw*T0)
 
 # BSTR reactor function
-def bstr_model_variables(t_f):
-    # set initial values
+def bstr_model_variables(Tf):
+    # define the initial values
     ind_0 = 0
-    dep_0 = np.array([nA0, nB0, 0, 0, T0, P0])
+    dep_0 = np.array([nA0, 0, 0, T0, P0])
 
-    # set the stopping criterion
-    f_var = 0
-    f_val = t_f
+    # define the stopping criterion
+    f_var = 4
+    f_val = Tf
 
     # solve the design equations
     t, dep, success, message = solve_ivodes(ind_0, dep_0, f_var, f_val
-            , bstr_derivatives, odes_are_stiff=False)
+            ,bstr_derivatives, odes_are_stiff=False)
     
     # check for solver issues
     if not success:
@@ -52,104 +52,80 @@ def bstr_model_variables(t_f):
         print(f"BSTR model function issue: {message}")
         print('')
         input('Press return to continue.')
-    
+
     # return the bstr model variables
-    return t, dep[0,:], dep[1,:], dep[2,:], dep[3,:], dep[4,:], dep[5,:]
+    return t, dep[0,:], dep[1,:], dep[2,:], dep[3,:], dep[4,:]
 
 # BSTR derivatives function
 def bstr_derivatives(t, dep):
     # extract the dependent variables
     nA = dep[0]
-    nB = dep[1]
-    nY = dep[2]
-    nZ = dep[3]
-    T = dep[4]
-    P = dep[5]
+    nY = dep[1]
+    nZ = dep[2]
+    T = dep[3]
+    P = dep[4]
 
     # calculate the additional unknowns
-    k1 = k01*np.exp(-E1/R/T)
-    CA = nA/V
-    CB = nB/V
-    r = k1*CA*CB
-    dH1 = dH1_298 + (CpZ + CpY - CpA - CpB)*(T-298)
+    Cp_A = aA + bA*T
+    Cp_Y = aY + bY*T
+    Cp_Z = aZ + bZ*T
+    dH_1 = dH298 + (aZ + 2*aY - 2*aA)*(T-298) + 0.5*(bZ + 2*bY - 2*bA)*(T**2-298**2)
+    r_1 = k01*np.exp(-E1/Re/T)*(nA/V)**2
 
-    # create the mass matrix
-    massMatrix = np.zeros((6,6))
+	# Create mass matrix, setting all elements to zero
+    mass_matrix = np.zeros((5,5))
 
-    # edit the rows corresponding to the mole balances
-    massMatrix[0,0] = 1
-    massMatrix[1,1] = 1
-    massMatrix[2,2] = 1
-    massMatrix[3,3] = 1
+    # Add 1 on the diagonal for the first 3 rows
+    mass_matrix[0,0] = 1.0
+    mass_matrix[1,1] = 1.0
+    mass_matrix[2,2] = 1.0
 
-    # edit the row corresponding to the energy balance
-    massMatrix[4,4] = nA*CpA + nB*CpB + nY*CpY + nZ*CpZ
-    massMatrix[4,5] = -V*R/Rpv
+    # Add the elements for the energy balance
+    mass_matrix[3,3] = nA*Cp_A + nY*Cp_Y + nZ*Cp_Z
+    mass_matrix[3,4] = -V*Re/Rw
 
-    # edit the row corresponding to the ideal gas law
-    massMatrix[5,0] = Rpv*T
-    massMatrix[5,1] = Rpv*T
-    massMatrix[5,2] = Rpv*T
-    massMatrix[5,3] = Rpv*T
-    massMatrix[5,4] = Rpv*(nA + nB + nY + nZ)
-    massMatrix[5,5] = -V
+    # Add the elements for the ideal gas law equation
+    mass_matrix[4,0] = Rw*T
+    mass_matrix[4,1] = Rw*T
+    mass_matrix[4,2] = Rw*T
+    mass_matrix[4,3] = Rw*(nA + nY + nZ)
+    mass_matrix[4,4] = -V
 
-    # create the right-hand side vector
-    rhs = np.array([-r*V, -r*V, r*V, r*V, -r*dH1*V, 0])
+    # Create right side vector
+    rhs1 = -2*V*r_1
+    rhs2 = 2*V*r_1
+    rhs3 = V*r_1
+    rhs4 = -V*r_1*dH_1
+    rhs5 = 0.0
+    rhs = np.array([rhs1, rhs2, rhs3, rhs4, rhs5])
 
-    # calculate and return the derivatives
-    return sp.linalg.solve(massMatrix, rhs)
+    # Evaluate the derivatives
+    derivs = sp.linalg.solve(mass_matrix, rhs)
+
+    # Return the derivatives
+    return derivs
 
 # deliverables function
 def deliverables():
-    # choose a large reaction time
-    tf = 2 # h
+    # allocate storage for the deliverables
+    tf = np.ones_like(Tf) * float('NaN')
+    fA = np.ones_like(Tf) * float('NaN')
 
-    # solve the BSTR design equations
-    t, nA, nB, nY, nZ, T, P = bstr_model_variables(tf)
+    # loop through the Tf values
+    for n, Tfn in enumerate(Tf):
+        # solve the bstr design equations
+        t, nA, nY, nZ, T, P = bstr_model_variables(Tfn)
 
-    # calculate corresponding conversion and net rate
-    fA = 100*(nA0 - nA)/nA0
-    rNet = nY/(t + tTurn)
-
-    # find the maximum net rate
-    iOpt = np.argmax(rNet)
-
-    # calculate the optimum time and the net rate, conversion and temperature at that time
-    tOpt = t[iOpt]
-    rNetMax = rNet[iOpt]
-    f_at_max = fA[iOpt]
-    T_at_max = T[iOpt]
-
+        # save the final time and the conversion
+        tf[n] = t[-1]
+        fA[n] = 100*(nA0 - nA[-1])/nA0
+    
     # tabulate, show, and save the results
-    data = [["Optimum Reaction time", f"{tOpt*60:.0f}", "min"]
-            ,["Maximum Net Rate", f"{rNetMax:.1f}", "mol/h"]
-            ,["Conversion", f"{f_at_max:.1f}", "%"]
-            ,["Temperature", f"{T_at_max:.0f}", "K"]]
-    results_df = pd.DataFrame(data,columns=("Item", "Value", "Units"))
+    results_df = pd.DataFrame({"Final T (K)" : Tf, "Time (min)" : tf, "Conversion (%)" : fA})
     print('')
     print(results_df)
     print('')
     results_df.to_csv('activity_17_results.csv',index=False)
-
-    # for discussion, plot the net rate vs time
-    plt.figure(1)
-    plt.plot(t*60,rNet)
-    plt.xlabel('Time (min)')
-    plt.xlim(left=0)
-    plt.ylabel('Net Rate (mol h$^{-1}$)')
-    plt.ylim(bottom=0)
-    plt.savefig('activity_17_rNet_vs_t.pdf')
-    plt.show(block=False)
-
-    # for discussion, plot the temperature vs time
-    plt.figure(2)
-    plt.plot(t*60,T)
-    plt.xlabel('Time (min)')
-    plt.xlim(left=0)
-    plt.ylabel('Temperature (K)')
-    plt.savefig('activity_17_T_vs_t.pdf')
-    plt.show()
 
 # execution command
 if __name__ == '__main__':
