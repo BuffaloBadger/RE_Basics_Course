@@ -1,4 +1,4 @@
-"""Calculations for the Class 15 Learning Activity from REB, The Book"""
+"""Calculations for the Class 15 Learning Activity in REB, The Course"""
 
 # import libraries
 import numpy as np
@@ -12,50 +12,55 @@ plt.rc('savefig', dpi=300)
 
 # global constants available to all functions
 # given
-k01 = 2.59e9 # min-1
-E1 = 16500 # cal/mol
-dH1 = -22200 # cal/mol
-Cp = 440 # cal/L/K
-V = 4 # L
-CA_charge = 2 # mol/l
-T0 = 60 + 273.15 #K
-fA0 = 0.18
-Tex0 = 60 + 273.15 #K
-Tex_in = 60 + 273.15 # K
-mDotEx = 1.5 # kg/min
-rhoEx = 1 # kg/L
-Cpex = 1000 # cal/kg/K
-CAf = 0.2 # mol/L
-Vex = 0.5 #L
-U = 1.13e4/60 # cal/ft2/min/K
-tf = 20 # min
+CA_0 = 3.0/1000 # mol/cc
+CB_0 = 3.0/1000 # mol/cc
+T_0 = 50 + 273.15 # K
+T_max = 90 + 273.15 # K
+A = 66 # cm^2
+V_ex = 40 # cc
+U = 35*252.1*0.001076/60*1.8 # cal/cm^2/min/K
+T_ex_in = 40 + 273.15 # K
+t_turn = 30 # min
+Cp = 0.35 # cal/g/K
+rho = 0.93 # g/cc
+k0_1 = 1.24E13*60 # cc/mol/min
+E_1 = 20000 # cal/mol
+dH_1 = -80000/4.184 # cal/mol
+rho_ex = 1 # g/cc
+Cp_ex = 1 # cal/g/K
+VA_0 = 250 # cc
+T_ex_0 = 40 + 273.15 # K
+VB_0 = 250 # cc
+fA = 0.9
 # known
 R = 1.987 # cal/mol/K
 # calculated
-nA0 = CA_charge*V*(1-fA0)
-nZ0 = CA_charge*V*fA0
-nAf = CAf*V
+V = VA_0 + VB_0
+nA_0 = CA_0*VA_0
+nB_0 = CB_0*VB_0
+nA_f = nA_0*(1 - fA)
 
-# Allocate storage to make Aex globally available
-g_Aex = float('NaN')
+# define a global variable for the coolant flow rate
+global g_m_ex
+g_m_ex = float("NaN")
 
-# BSTR reactor function
-def bstr_model_variables(Aex):
-    # make Aex available to the bstr residuals function
-    global g_Aex
-    g_Aex = Aex
+# BSTR reactor model function
+def bstr_model_variables(mDot_ex):
+    # make the coolant flow rate available to the derivatives function
+    global g_m_ex
+    g_m_ex = mDot_ex
 
     # set the initial values
     ind_0 = 0
-    dep_0 = np.array([nA0, nZ0, T0, Tex0])
+    dep_0 = np.array([nA_0, nB_0, 0, 0, T_0, T_ex_0])
 
-    # set the stopping criterion
-    f_var = 0
-    f_val = tf
+    # define the stopping criterion
+    f_var = 1
+    f_val = nA_f
 
     # solve the design equations
-    t, dep, success, message = solve_ivodes(ind_0, dep_0, f_var, f_val
-            ,bstr_derivatives, odes_are_stiff=False)
+    t, dep, success, message = solve_ivodes(ind_0, dep_0, f_var
+            , f_val, bstr_derivatives, odes_are_stiff=False)
     
     # check for solver issues
     if not success:
@@ -63,54 +68,53 @@ def bstr_model_variables(Aex):
         print(f"BSTR model function issue: {message}")
         print('')
         input('Press return to continue.')
-
-    # return the bstr model variables
-    return t, dep[0,:], dep[1,:], dep[2,:], dep[3,:]
+    
+    # return the bstr reactor variables
+    return t, dep[0,:], dep[1,:], dep[2,:], dep[3,:], dep[4,:], dep[5,:]
 
 # BSTR derivatives function
-def bstr_derivatives(ind,dep):
+def bstr_derivatives(t, dep):
     # extract the dependent variables
     nA = dep[0]
-    nZ = dep[1]
-    T = dep[2]
-    Tex = dep[3]
-
+    nB = dep[1]
+    T = dep[4]
+    Tex = dep[5]
+    
     # calculate the additional unknowns
-    k1 = k01*np.exp(-E1/(R*T))
+    k = k0_1*np.exp(-E_1/R/T)
     CA = nA/V
-    r1 = k1*CA
-    Qdot = U*g_Aex*(Tex - T)
+    CB = nB/V
+    r = k*CA*CB
+    Q = U*A*(Tex - T)
 
-    # evaluate the derivatives
-    dnAdt = -r1*V
-    dnZdt = r1*V
-    dTdt = (Qdot -V*r1*dH1)/(V*Cp)
-    dTexdt = (mDotEx*Cpex*(Tex_in - Tex) - Qdot)/(rhoEx*Vex*Cpex)
+    # calc the derivatives
+    dnAdt = -r*V
+    dnBdt = -r*V
+    dnYdt = r*V
+    dnZdt = r*V
+    dTdt = (Q - r*dH_1*V)/(rho*V*Cp)
+    dTexdt = (-Q - g_m_ex*Cp_ex*(Tex - T_ex_in))/(rho_ex*V_ex*Cp_ex)
 
     # return the derivatives
-    return dnAdt, dnZdt, dTdt, dTexdt
+    return np.array([dnAdt, dnBdt, dnYdt, dnZdt, dTdt, dTexdt])
 
 # coupled unknown residual function
-def coupled_unknown_residual(AexGuess):
+def coupled_unknown_residual(m_ex_guess):
+    # solve the BSTR design equations using the guess
+    t, nA, nB, nY, nZ, T, Tex = bstr_model_variables(m_ex_guess)
 
-    # solve the BSTR design equations
-    t, nA, nZ, T, Tex = bstr_model_variables(AexGuess)
-
-    # evaluate the residual
-    CA_fromGuess = nA[-1]/V
-    epsilon = CAf - CA_fromGuess
-
-    # return the residual
+    # evaluate and return the residual
+    epsilon = max(T) - T_max
     return epsilon
 
 # deliverables function
 def deliverables():
-    # guess Aex
-    Aex = 1 # ft^2
+    # guess the coolant flow rate
+    m_ex_guess = 100 # g/min
 
-    # calculate Aex
-    soln, success, message = solve_ates(coupled_unknown_residual,Aex)
-    Aex = soln[0]
+    # calculate the coolant flow rate
+    soln, success, message = solve_ates(coupled_unknown_residual, m_ex_guess)
+    mDot_ex = soln[0]
 
     # check for solver issues
     if not success:
@@ -118,28 +122,59 @@ def deliverables():
         print(f"Issue solving for the coupled unknown: {message}")
         print('')
         input('Press return to continue.')
-
+    
     # solve the BSTR design equations
-    t, nA, nZ, T, Tex = bstr_model_variables(Aex)
+    t, nA, nB, nY, nZ, T, Tex = bstr_model_variables(mDot_ex)
 
-    # tabulate, show, and save the deliverables
-    data = [["Area",f"{Aex:.2f}","square feet"]
-            ,["Reacting Fluid Temperature",f"{T[-1]-273.15:.1f}","°C"]]
-    results_df = pd.DataFrame(data,columns=["Item", "Value", "Units"])
-    print('')
-    print(results_df)
-    print('')
-    results_df.to_csv('activity_15_results.csv',index=False)
+    # calculate the net rate
+    net_rate = nZ/(t + t_turn)
 
-    # for discussion, plot T vs t
+    # generate, show, and save the requested graph
     plt.figure(1)
-    plt.plot(t, T-273.15)
+    plt.plot(t, net_rate)
     plt.xlabel('Time (min)')
     plt.xlim(left=0)
-    plt.ylabel('Reacting Fluid Temperature (°C)')
+    plt.ylabel('Net Rate (mol min$^{-1}$)')
+    plt.title(f"{mDot_ex:.1f} g/min Coolant Flow")
+    plt.savefig('activity_15_r_vs_t.png')
+    plt.savefig('activity_15_r_vs_t.pdf')
+    plt.show(block=False)
+
+    # for discussion, solve using 90% and 110% of the base flow rate
+    t90, nA, nB, nY, nZ, T90, Tex = bstr_model_variables(0.9*mDot_ex)
+    net_rate_90 = nZ/(t90 + t_turn)
+    t110, nA, nB, nY, nZ, T110, Tex = bstr_model_variables(1.1*mDot_ex)
+    net_rate_110 = nZ/(t110 + t_turn)
+
+    # plot, show and save net rate vs t
+    plt.figure(2)
+    plt.plot(t90, net_rate_90, label=f"{0.9*mDot_ex:.1f} g /min")
+    plt.plot(t, net_rate, label=f"{mDot_ex:.1f} g /min")
+    plt.plot(t110,net_rate_110, label=f"{1.19*mDot_ex:.1f} g /min")
+    plt.xlabel('Time (min)')
+    plt.xlim(left=0)
+    plt.ylabel('Net Rate (mol min$^{-1}$)')
+    plt.legend()
+    plt.title("Effect of Coolant Flow Rate (g/min)")
+    plt.savefig('activity_15_r_vs_t_mex.png')
+    plt.savefig('activity_15_r_vs_t_mex.pdf')
+    plt.show(block=False)
+
+    # plot, show and save T vs t
+    plt.figure(3)
+    plt.plot(t90, T90 - 273.15, label=f"{0.9*mDot_ex:.1f} g /min")
+    plt.plot(t, T-273.15, label=f"{mDot_ex:.1f} g /min")
+    plt.plot(t110,T110 - 273.15, label=f"{1.19*mDot_ex:.1f} g /min")
+    plt.xlabel('Time (min)')
+    plt.xlim(left=0)
+    plt.ylabel('Temperature (°C)')
+    plt.legend()
+    plt.title("Effect of Coolant Flow Rate (g/min)")
     plt.savefig('activity_15_T_vs_t.png')
     plt.savefig('activity_15_T_vs_t.pdf')
     plt.show()
+
+    return
 
 # execution command
 if __name__ == '__main__':
