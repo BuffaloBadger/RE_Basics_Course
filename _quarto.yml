@@ -52,11 +52,11 @@ website:
             href: classes/class_6.qmd
           - text: "Class 7: Most Abundant Intermediate"
             href: classes/class_7.qmd
-      - text: "Class 8: Qualitative and Quantitative Analysis of Ideal Reactors"
+      - text: "Class 8: Analysis of Ideal Reactors"
         href: classes/class_8.qmd
       - section: "*CSTR Analysis*"
         contents:
-          - text: "Class 9: Non-Isothermal, Steady-State CSTR Analysis"
+          - text: "Class 9: Steady-State CSTR Analysis"
             href: classes/class_9.qmd
           - text: "Class 10: Selectivity in Steady-State CSTRs"
             href: classes/class_10.qmd
@@ -68,13 +68,13 @@ website:
             href: classes/class_13.qmd
       - section: "*BSTR Analysis*"
         contents:
-          - text: "Class 14: Non-Isothermal BSTR Analysis"
+          - text: "Class 14: BSTR Response Analysis"
             href: classes/class_14.qmd
-          - text: "Class 15: BSTR Properties and Initial Values"
+          - text: "Class 15: BSTR Operation and Sizing Analysis"
             href: classes/class_15.qmd
-          - text: "Class 16: Net Production Rate"
+          - text: "Class 16: Net BSTR Production Rate"
             href: classes/class_16.qmd
-          - text: "Class 17: Selectivity in BSTRs"
+          - text: "Class 17: Gas Phase Reactions in BSTRs"
             href: classes/class_17.qmd
           - text: "Class 18: Variable BSTR Heating or Cooling"
             href: classes/class_18.qmd
