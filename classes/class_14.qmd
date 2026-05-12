@@ -2,23 +2,27 @@
 
 ![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
-## Non-Isothermal BSTR Analysis {.cc}
+## BSTR Response Analysis {.cc}
 
-to be added
+Class 14 introduces batch stirred tank reactors (BSTRs) and the design equations used for modeling them. It also illustrates the opposing effects of temperature and composition changes during a typical exothermic reaction in an adiabatic BSTR.
 
 ## Learning Outcomes {.ch}
 
 After completing Class 14 you should...
 
-* Know the definition/defining equation for differential ideal gas law
+* Know the equations for BSTR mole balances and BSTR reacting fluid energy balances
 * Understand
     * the BSTR model assumptions
-    * when a gas reacts in a BSTR, the differential form of the ideal gas law usually must be added to the design equations
-* Be able to select and simplify the mole and energy balance equations needed for modeling a given BSTR
+    * solving the BSTR design equations yields corresponding sets of values of the reaction time, molar amounts of the reagents, reacting fluid temperature, and exchange fluid temperature (if there is an exchange fluid)
+    * the opposing effects of temperature and composition changes during a typical exothermic reaction in an adiabatic BSTR
+* Be able to 
+    * select and simplify the mole and energy balance equations needed for modeling a given BSTR
+    * solve the design equations for a given BSTR
+    * use the results from solving the BSTR design equations to deliver the items requested in an assignment
 
 ## Prepare {.ch}
 
-to be added.
+to be added. Chapter 7, Example 7.4.1
 
 ## Participate {.ch}
 

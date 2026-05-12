@@ -2,23 +2,28 @@
 
 ![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
-## BSTR Properties and Initial Values {.cc}
+## BSTR Operation and Sizing Analysis {.cc}
 
-to be added
+Class 15 introduces the net rate of production of a reagent in a BSTR. It also describes IVODEs containing an unknown initial value or constant and demonstrates how to solve them numerically.
 
 ## Learning Outcomes {.ch}
 
 After completing Class 15 you should...
 
-* Know the definition/defining equation for implicit ATE and coupled equations
-* Understand when an unknown initial value or constant appears in IVODE reactor design equations, an implicit ATE must be added to the design equations
+* Know
+    * the definition of coupled unknown and an implicit equation
+    * the defining equation for the net rate of production of a reagent
+* Understand
+    * to solve a set of IVODEs that contain an unknown, uncomputable initial value or constant a second final value, in addition to the stopping criterion, is needed
+    * an unknown, uncomputable initial value or constant appearing in a set of IVODEs can be linked to a final value using an implicit ATE.
+    * to solve an implicit ATE for the unknown initial value or constant, the residual function provided to the ATE solver must call an IVODE solver internally
 * Be able to
-    * write an implicit ATE for calculating an unknown initial value or constant in the BSTR design equations
-    * solve design equations consisting of coupled ATEs and IVODEs numerically
+    * write an implicit ATE for calculating an unknown initial value or constant in IVODE design equations
+    * numerically solve design equations consisting of coupled ATEs and IVODEs
 
 ## Prepare {.ch}
 
-to be added.
+to be added. review 7.2, example 7.4.2
 
 ## Participate {.ch}
 
