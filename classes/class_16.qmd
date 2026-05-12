@@ -2,9 +2,9 @@
 
 ![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
-## Net Production Rate {.cc}
+## Net BSTR Production Rate {.cc}
 
-to be added
+Class 16 introduces the net rate of production of a reagent in a BSTR. It also presents BSTRs with operational protocols involving multiple stages.
 
 ## Learning Outcomes {.ch}
 

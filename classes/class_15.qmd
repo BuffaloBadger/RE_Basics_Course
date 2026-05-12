@@ -4,15 +4,13 @@
 
 ## BSTR Operation and Sizing Analysis {.cc}
 
-Class 15 introduces the net rate of production of a reagent in a BSTR. It also describes IVODEs containing an unknown initial value or constant and demonstrates how to solve them numerically.
+Class 15 examines the use of the BSTR design equations to specify reactor size and inlet conditions. It also describes IVODEs containing an unknown initial value or constant and demonstrates how to solve them numerically.
 
 ## Learning Outcomes {.ch}
 
 After completing Class 15 you should...
 
-* Know
-    * the definition of coupled unknown and an implicit equation
-    * the defining equation for the net rate of production of a reagent
+* Know the definition of coupled unknown and an implicit equation
 * Understand
     * to solve a set of IVODEs that contain an unknown, uncomputable initial value or constant a second final value, in addition to the stopping criterion, is needed
     * an unknown, uncomputable initial value or constant appearing in a set of IVODEs can be linked to a final value using an implicit ATE.

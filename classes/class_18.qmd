@@ -4,7 +4,7 @@
 
 ## Variable BSTR Heating or Cooling {.cc}
 
-to be added
+Class 18 examines situations where the rate of heat exchange between the reacting fluid and the exchange fluid is varied over time. 
 
 ## Learning Outcomes {.ch}
 

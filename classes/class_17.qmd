@@ -2,16 +2,19 @@
 
 ![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
-## Selectivity in BSTRs {.cc}
+## Gas Phase Reactions in BSTRs {.cc}
 
-to be added
+Class 17 considers gas phase reactions in BSTRs. It illustrates adding the differential form of the ideal gas law to the BSTR design equations and using linear algebra to evaluate the design equation derivatives.
 
 ## Learning Outcomes {.ch}
 
 After completing Class 17 you should...
 
-* Know the definition/defining equation for instantaneous selectivity
-* Be able to use instantaneous selectivity to identify BSTR operating parameters that may affect selectivity
+* Know the differential form of the ideal gas law
+* Understand that when modeling a gas phase reaction in a BSTR, the ideal gas law must be added to the design equations unless the reactor is isothermal and the total number of moles does not change during reaction
+* Be able to 
+    * write the BSTR design equations in the form of a matrix equation
+    * use linear algebra to evaluate the design equation derivatives
 
 ## Prepare {.ch}
 
