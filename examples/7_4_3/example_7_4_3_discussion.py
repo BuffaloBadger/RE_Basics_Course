@@ -11,21 +11,13 @@ plt.rc('savefig', dpi=300)
 
 # read and set the optimum coolant flow rate
 results_df = pd.read_csv('example_7_4_3_results.csv')
-example_7_4_3.g_Vdot_ex=results_df.iat[0,1]
 
 print("")
 print(f"coolant flow rate: {results_df.iat[0,1]}")
 print('')
 
 # solve the reactor design equations using the optimum coolant flow
-t_1, nA_1, nZ_1, T_1, Tex_1 = example_7_4_3.stage1_bstr_model_variables()
-t_2, nA_2, _, T_2, _ = example_7_4_3.stage2_bstr_model_variables(t_1[-1], nA_1[-1], nZ_1[-1]
-                                            , T_1[-1], Tex_1[-1])
-
-# combine the profiles
-t = np.concatenate((t_1, t_2))
-nA = np.concatenate((nA_1, nA_2))
-T = np.concatenate((T_1, T_2))
+t, nA, nZ, T, Tex = example_7_4_3.bstr_model_variables(results_df.iat[0,1])
 
 # calculate the conversion and instantaneous rate
 r_inst = example_7_4_3.k0_1*np.exp(-example_7_4_3.E_1/example_7_4_3.R/T)\
