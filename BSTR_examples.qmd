@@ -154,7 +154,19 @@ $$
 
 ---
 
-**Learning Activity 16** 
+**Learning Activity 16** A 10 L laboratory BSTR with two separate heat exchange coils is being used to study the endothermic conversion of A to Z, equation (1). Two perfectly mixed coils each can be submerged in the reacting fluid or removed from it. In the heating coil with a heat transfer coefficient, $U_1$, of 76 cal h^–1^ cm^–2^ K^–1^ and a heat transfer area, $A_1$, of 600 cm^2^, saturated steam at 110 °C condenses. In the cooling coil ($U_2$ = 91 cal h^–1^ cm^–2^ K^–1^ and $A_2$ = 375 cm^2^) the temperature of the exchange fluid is maintained at 30 °C by a temperature controller.
+
+$$
+A \rightarrow Z \tag{1}
+$$
+
+The reaction is first order in reagent A, equation (2), with a pre-exponential factor of 2.85 x 10^15^ h^–1^, an activation energy of 25 kcal mol^–1^, and a heat of reaction of 20 kcal mol^–1^. The reacting solution is aqueous, and the heat capacity and density equal those of water. When the reactor is charged, only reagent A is present at a concentration of 5 M and a temperature of 25 °C.
+
+$$
+r_1 = k_1C_A \tag{2}
+$$
+
+To start the process, suppose that the heating coil is submerged in the reacting fluid for 1 h. The heating coil is then extracted and simultaneously the cooling coil is submerged. When the reacting fluid temperature reaches 35 °C, processing ends. The turnaround time is 0.5 h. Calculate the processing time, final conversion and net rate of production of Z, and plot the reacting fluid temperature and the conversion as functions of the processing time. 
 
 [Learning Activity 16 Solution](activities/class_16/Activity%2016.pdf)
 
@@ -192,7 +204,23 @@ $$
 
 ---
 
-**Learning Activity 18** 
+**Learning Activity 18** Liquid-phase reaction (1) is exothermic with a heat of reaction equal to –16.6 kcal mol^–1^. If a solution containing only A at a concentration of 2 M and a temperature of 20 °C reacts adiabatically in a BSTR, the temperature increases to 110 °C. The reaction is first order in the concentration of A as shown in equation (2). The pre-exponential factor is 2.5 x 10^8^ L mol^–1^ min^–1^, and the activation energy is 14.3 kcal mol^–1^.
+
+$$
+A \rightarrow Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_A \tag{2}
+$$
+
+Adiabatic operation has undesirable side effects, making isothermal operation preferable. To do so, using a 0.4 L BSTR with a 0.1 L shell has been proposed. The heat transfer area is 32.5 cm^2^, and the heat transfer coefficient is 0.2 cal min^–1^ cm^–2^ K^–1^. Chilled water at 10 °C would initially fill the shell and be fed to it. The water can be taken to have a density of 1 g cm^–3^ and a heat capacity of 1 cal g^–1^ K^–1^. The reactor temperature will not be close to isothermal if a fixed coolant flow rate is used. Consequently it has been proposed to set the cooling water flow rate to 217 g min^–1^ initially and to linearly decrease it by 212 g min^–1^ over the duration of the 60 min reaction time.
+
+Assuming the reacting fluid density to equal 879 g L^–1^ and its heat capacity to equal 0.42 cal g^–1^ K^–1^, plot the conversion, reacting fluid temperature, and cooling water temperature over the course of the reaction and comment on how closely the operation approaches being isothermal.
+
+[Learning Activity 18 Solution](activities/class_18/Activity%2018.pdf)
+
+[Learning Activity 18 Calculations](activities/class_18/activity_18.py)
 
 ## Practice Assignments from *REB, The Course* {.ch}
 
@@ -229,7 +257,9 @@ $$
 
 ---
 
-**Practice Assignment 16** 
+**Practice Assignment 16** In the Class 16 Learning Activity a BSTR operating protocol with a heating stage and a cooling stage was analyzed, The reaction was endothermic, and the conversion was found to depend mostly on the duration of the heating stage. The net rate was also calculated.
+
+It can be useful to plot the net rate as a function of the conversion for systems like this. On the same graph, plot the net rate of production for the system from the Class 16 Learning activity as a function of conversion for turnaround times of 0.25, 0.5, and 0.75 h. Discuss the shape of the graphs and the trends associated with turnaround time.
 
 [Practice Assignment 16 Solution](practice/class_16/Practice%20Assignment%2016.pdf)
 
