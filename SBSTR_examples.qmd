@@ -2,27 +2,114 @@
 
 ## Examples from *REB, The Book* {.ch}
 
-**Example 8.?.?**
+**Example 8.4.1** A strong acid, A (15 M), at 20 °C is going to be neutralized using a strong base, B (15 M NaOH), also at 20 °C, equation (1). If the acid and the base were simply mixed together, they would react violently, releasing enough energy to raise their temperature to over 225 °C. Instead, a 10 L SBSTR will be used to neutralize 5.0 L of the acid. The acid will initially be present in the reactor, and the base will be added a rate of 0.25 L min^–1^ until 5 L of the base have been added. The reacting fluid will exchange heat with 2.5 L cooling water in a perfectly mixed shell. Chilled water at 20 °C will enter the shell at a rate of 2.5 L min^–1^. The heat transfer area is 2150 cm^2^ and the heat transfer coefficient is 73 cal cm^–2^ h^–1^ K^–1^. At the time the acid is charged to the reactor, the cooling water temperature within the heat exchanger is 20 °C. The density and heat capacity of the acid solution, base solution, and cooling water can all be taken to be those of water, 1 g cm^–3^ and  1 cal g^–1^ K^–1^. The neutralization reaction, equation (1), is irreversible with a heat of reaction equal to –13.7 kcal mol^–1^. The reaction is first order in both acid and base with a pre-exponential factor of 8.11 x 10^12^ L mol^–1^ s^–1^ and an activation energy of 17.7 kcal mol^–1^, equation (2). The pressure in the reactor will be constant and equal to 1 atm. Plot the acid concentration and the reactor temperature as functions of time while the base is being added.
+
+$$
+A + B \rightarrow S + W \tag{1}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{2}
+$$
+
+[Example 8.4.1 Solution](examples/8_4_1/Example%208.4.1.pdf)
+
+[Example 8.4.1 Calculations](examples/8_4_1/example_8_4_1.py)
 
 ---
 
-**Example 8.?.?**
+**Example 8.4.2** The rate expressions for reactions (1) and (2) are shown in equations (3) and (4). The Arrhenius parameters for these reactions are $k_{0,1}$ = 1.83 x 10^12^ L mol^-1^ h^-1^, $E_1$ = 18.0 kcal mol^-1^, $k_{0,2}$ = 5.08 x 10^13^ L mol^-1^ h^-1^, and $E_2$ = 20.5 kcal mol^-1^,  Reagent D is the desired product while reagent U is undesired. The heats of reactions (1) and (2) are -9000 and -7800 cal mol^-1^, respectively, and solutions of A and B have a heat capacity of 863 cal L^-1^ K^-1^.
+
+A 2 M solution of A and a 0.5 M solution of B, both at 40 °C, are going to be used to produce D in an adiabatic semi-batch reactor operating at 1 atm. The reactor will be charged with 2000 L of the A solution, and 8000 L of the B solution will be added at a constant rate over a period of time. If the total reaction time is always 8 h, compare the overall conversion of B, the selectivity for D over U (final moles of D per final moles of U), and the yield of D from B (final moles of D per total moles of B added to the reactor) if the solution of B is added over the first 1, 3, 5, or 7 hours of operation.
+
+$$
+A + B \rightarrow D \tag{1}
+$$
+
+$$
+2 B \rightarrow U \tag{2}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{3}
+$$
+
+$$
+r_2 = k_2C_B^2 \tag{4}
+$$
+
+[Example 8.4.2 Solution](examples/8_4_2/Example%208.4.2.pdf)
+
+[Example 8.4.2 Calculations](examples/8_4_2/example_8_4_2.py)
 
 ---
 
-**Example 8.?.?**
+**Example 8.4.3** The hydrolysis of acetic anhydride, reaction (1), can run away thermally in a batch reactor, but this can be prevented using semi-batch operation. Suppose the rate can be described using the rate expression shown in equation (2) where the reaction is first order in acetic anhydride with a pre-exponential factor of 1.192 x 10^15^ min^-1^ and an activation energy of 97,600 J mol^-1^. The heat of reaction may be taken to be constant and equal to -58,615 J mol^-1^.
+
+$$
+\left(CH_3CO\right)_2O + H_2O \rightarrow 2 CH_3CO_2H \tag{1}
+$$
+
+$$
+r_1 = k_1C_{\left(CH_3CO\right)_2O} \tag{2}
+$$
+
+The reacting fluid is cooled by water that is fed to the perfectly mixed, 300 cm^3^ reactor jacket at 60 °C and 250 cm^3^ min^-1^. The product of the heat transfer area and the heat transfer coefficient, $UA$, equals 260 cal min^-1^ K^-1^. 
+
+The reactor operates at atmospheric pressure and initially contains an ideal liquid mixture of 67 cm^3^ of water, 283 cm^3^ of acetic acid (the solvent and product) and 0.30 cm^3^ of sulfuric acid at 60 °C. Initially the temperature of the water in the jacket is 60 °C, too. The heat capacity of the fluid in the reactor may be taken to be constant and equal to 2.68 J cm^-3^ K^-1^. A total of 350 cm^3^ of acetic anhydride at 21 °C needs to be processed. To do so, it will be fed to the reactor at a constant volumetric flow rate until all of it has been added, after which the reactor will operate in batch mode until the reacting fluid cools to 65 °C. At no time during processing can the reacting fluid temperature exceed 95 °C. What volumetric feed rate will minimize the processing time, and at that feed rate what will the final conversion of A equal? Plot (a) the temperature of the fluid in the reactor and (b) the concentration of acetic anhydride in the reactor as a function of processing time when that feed rate is used.
+
+You may assume the liquid mixture to be ideal, and that the densities of acetic anhydride, acetic acid, and water are constant and equal to 1.082, 1.0, and 1.049 g cm^-3^, respectively. Their molecular weights are 102, 18, and 60 g mol^-1^, respectively, and the heat capacity of acetic anhydride being added to the reactor can be taken to be 168.2 J mol^-1^ K^-1^.
+
+[Example 8.4.3 Solution](examples/8_4_3/Example%208.4.3.pdf)
+
+[Example 8.4.3 Calculations](examples/8_4_3/example_8_4_3.py)
 
 ## Learning Activities from *REB, The Course* {.ch}
 
-**Learning Activity 19**
+**Learning Activity 19** In concentrated aqueous solutions, the irreversible condensation reaction (1) is highly exothermic, Δ𝐻 = –184 kJ mol^–1^. The rate expression is given in equation (2) where the pre–exponential factor equals 4.866 x 10^11^ m^3^ mol^–1^ min^–1^ and the activation energy equals 74.1 kJ mol^–1^. A stirred tank reactor operating at atmospheric pressure will be charged with 4.0 L of a solution containing A at a concentration of 10 mol L^–1^ and 20°C. The reactor is cooled using water at 20 °C flowing into a perfectly mixed, 500 cm^3^ shell with a heat transfer area of 550 cm^2^ and a heat transfer coefficient of 8480 J m^–2^ min^–1^ K^–1^. The cooling water flows at a steady rate of 1.0 L min^–1^, and initially the water in the shell is at 20 °C. The reacting fluid and the cooling water may be assumed to have a heat capacity and density equal to that of water, 1 cal g^–1^ K^–1^ and 1 g cm^–3^, respectively. A 10 M solution of B at 20 °C will be added to the reacting fluid at a constant flow rate. What is the maximum volumetric flow rate at which the base solution at 20 °C can be added to the reactor without causing the reacting fluid temperature to exceed 80 °C?
+
+$$
+A + B \rightarrow 2 Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{2}
+$$
+
+[Learning Activity 19 Solution](activities/class_19/Activity%2019.pdf)
+
+[Learning Activity 19 Calculations](activities/class_19/activity_19.py)
 
 ---
 
-**Learning Activity 20**
+**Learning Activity 20** The desired product, D, can be synthesized from reagents A and B as shown in equation (1), but reagent B also reacts according to equation (2)  to form an undesired product, D. Use of an adiabatic SBSTR has been suggested as a means to improve selectivity. Specifically the SBSTR, operating at 1 atm, will be charged with 550 gal of a 100 °F solution containing the catalyst and reagent A at a concentration of 0.015 lbmol gal^–1^. Two thousand gallons of a 100 °F solution containing only B at a concentration of 0.004 lbmol gal^–1^ will be fed to the reactor at a constant rate. At least 90% of the added B must be converted in the process, so if necessary, the reaction will continue in batch mode until that conversion is attained. What volumetric feed rate will maximize the net rate of production of D if the turnaround time for the reactor is 30 min?
+
+Reaction (1) is first order in each reactant. The rate coefficient pre–exponential factor is 2.193 x 10^12^ gal lbmol^–1^ h^–1^ and the activation energy is 32,400 BTU lbmol^–1^. The heat of reaction is –16,190 BTU lbmol^–1^. Reaction (2) is second order in reagent B, the pre–exponential factor is 6.087 x 10^14^ gal lbmol^–1^ h^–1^ and the activation energy is 36,900 BTU lbmol^–1^. The heat of reaction is –14,030 BTU lbmol^–1^. Solutions containing the reagents have a heat capacity that is essentially equal to that of the solvent, 7.2 BTU gal^–1^ °R^–1^.
+
+$$
+A + B \rightarrow D \tag{1}
+$$
+
+$$
+2\, B \rightarrow U \tag{2}
+$$
+
+[Learning Activity 20 Solution](activities/class_20/Activity%2020.pdf)
+
+[Learning Activity 20 Calculations](activities/class_20/activity_20.py)
+
 
 ## Practice Assignments from *REB, The Course* {.ch}
 
-**Practice Assignment 19**
+**Practice Assignment 19** Acid A is to be neutralized using base B, reaction (1), by slowly adding a 4 M solution of the base to a 10 M solution of the acid. The neutralization reaction, (1) is irreversible with a heat of reaction equal to –44 kcal mol^–1^. The reaction is first order in both acid and base with a pre–exponential factor of 8.11 x 10^12^ L mol^–1^ s^–1^ and an activation energy of 17.7 kcal mol^–1^. A jacketed, perfectly mixed, reactor will be charged with 4 L of the 10 M solution of A at 20 °C, while cooling water at 20 °C flows at 1.0 kg min^–1^ to the perfectly mixed, 0.5 L jacket. The heat transfer area is 0.6 ft^2^ and the heat transfer coefficient is 1.13 x 10^4^ cal ft^–2^ h^–1^ K^–1^. The cooling water and the solutions of A and B may be taken to have a constant density of 1 g cm^–3^ and a constant heat capacity of 1 cal g^–1^ K^–1^. The pressure in the reactor will be constant and equal to 1 atm. Plot the acid concentration and the reactor temperature as a function of time if 10 L of the base solution at 20 °C is added at a rate of 0.05 L min^–1^. Compare the results to those from the Class 14 Practice Assignment where the reactor was operated as a BSTR.
+
+$$
+A + B \rightarrow S + H_2O \tag{1}
+$$
+
+[Practice Assignment 19 Solution](practice/class_19/Practice%20Assignment%2019.pdf)
+
+[Practice Assignment 19 Calculations](practice/class_19/practice_19.py)
 
 ---
 
