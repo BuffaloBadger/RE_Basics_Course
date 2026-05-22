@@ -136,6 +136,20 @@ def deliverables():
     plt.savefig('practice_14_Tex_vs_t.pdf')
     plt.show()
 
+    # repeat the calculations for the first 14 seconds
+    tf = 14/60 # min
+    t, nA, nB, nS, nW, T, Tex = bstr_model_variables(tf)
+    CA = nA/V
+
+    # save the results to a CSV file for future reference
+    results_df = pd.DataFrame({
+        't (s)': t*60,
+        'CA (M)': CA,
+        'T (°C)': T - 273.15,
+        'Tex (°C)': Tex - 273.15
+    })
+    results_df.to_csv('practice_14_results.csv', index=False)
+
 # execution command
 if __name__ == '__main__':
     deliverables()
