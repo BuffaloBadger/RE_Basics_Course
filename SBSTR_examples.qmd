@@ -113,7 +113,31 @@ $$
 
 ---
 
-**Practice Assignment 20**
+**Practice Assignment 20** Example 7.4.2 in REB, the Book, described a cooled, 10 L BSTR wherein reagents A and B reacted to produce X, Y, and Z as in equations (1) and (2). Starting with a 65°C solution containing A at 5 mol L^–1^ and B at 7 mol L^–1^, 45% of the A reacted in 30 min with a selectivity of 4.2 mol X per mol Z. The discussion noted that maintaining a high concentration of B or decreasing the temperature might increase the selectivity. It showed that lowering the temperature did increase the selectivity, but decreased the rate, and hence, the conversion. 
+
+$$
+A + B \rightarrow X + Y \tag{1}
+$$
+
+$$
+A \rightarrow Z \tag{2}
+$$
+
+It has been suggested that one might start with separate 65 °C 5 L solutions, one containing 10 mol A per liter and the other 14 mol B per liter. Mixing 5 L of each of these would give the same 10 L solution used in the BSTR above. The same reactor could be used as an SBSTR that operates at 1 atm and initially contained only the 14 M solution of B. Then the 10 M solution of A could be added at a constant feed rate. The rationale for this suggestion is that this would keep the concentration of B as high as possible and improve the selectivity. Assess this suggestion by simulating the SBSTR process for feed rates of 0.25 L min^–1^ and 0.5 L min^–1^, keeping the conversion the same at 45%. That is, after all of the solution of A has been added, allow the reaction to continue in batch mode until the overall conversion reaches 45%. Compare the differences between the BSTR and SBSTR processes and explain them qualitatively.
+
+Here are relevant data from Example 7.4.2: $V$ = 10 L, $V_{ex}$ = 1.4 L, $U$ = 138 cal ft^−2^ min^−1^ K^−1^, $A_{ex}$ = 1200 cm^2^, $T_{ex}$ = 40 °C, $\dot{m}_{ex}$ = 100 g min^−^1, $\rho$ = 1.0 g cm^−3^, $\rho_{ex}$ = 1.0 g cm^−3^, $\tilde{C}_p$ = 1.0 cal g^−1^ K^−1^, $\tilde{C}_{p,ex}$ = 1.0 cal g^−1^ K^−1^, $C_{A,}$ = 5.0 M, $C_{B,0}$ = 7.0 M, $T_{ex,0}$ = 40 °C, $\Delta H_1$ = –16.7 kcal mol^−1^, $\Delta H_2$ = –14.3 kcal mol^−1^, $k_{0,1}$ = 9.74 x 10^9^ L mol^−1^ min^−1^, $E_1$ = 20.1 kcal mol^−1^, $k_{0,2}$ = 2.38 x 10^13^ min^−1^, $E_2$ = 25.3 kcal mol^−1^, $f_{A,f}$ = 0.45, $t_f$ = 30 min, and $T_0$ = $T_{in}$ = 65 °C.
+
+$$
+r_1 = k_1C_AC_B \tag{3}
+$$
+
+$$
+r_2 = k_2C_A \tag{4}
+$$
+
+[Practice Assignment 20 Solution](practice/class_20/Practice%20Assignment%2020.pdf)
+
+[Practice Assignment 20 Calculations](practice/class_20/practice_20.py)
 
 ## Additional Assignments for Extra Practice {.ch}
 
