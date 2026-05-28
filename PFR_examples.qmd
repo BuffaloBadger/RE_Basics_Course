@@ -2,6 +2,105 @@
 
 ## Examples from *REB, The Book* {.ch}
 
+**Example 9.6.1** The heat of reaction (1) is 44.8 kJ mol^-1^, and the reaction is irreversible. The rate expression is equation (2) where the pre-exponential factor is 7.22 x 10^6^ mol atm^-2^ cm^-3^ s^-1^ and the activation energy is 84.1 kJ mol^-1^. A 10 foot long tubular reactor with a diameter of 1 inch is heated by a vapor condensing at 200 °C on the outside of the tube wall. The overall heat transfer coefficient is 7.48 x 10^4^ J h^-1^ ft^-2^ K^-1^. Pressure drop through the reactor is negligible. If a gas phase mixture of 60% A and 40% B enters the reactor at 282 L min^-1^, 2.5 atm and 175 °C and if the heat capacities of A, B and Z are equal to 18.0, 12.25 and 21.2 cal mol^-1^ K^-1^, what steady state outlet temperature and conversion of B will result?
+
+$$
+A + B \rightarrow Z \tag{1}
+$$
+
+$$
+r_1 = k_1 P_A P_B \tag{2}
+$$
+
+[Example 9.6.1 Solution](examples/9_6_1/Example%209.6.1.pdf)
+
+[Example 9.6.1 Calculations](examples/9_6_1/example_9_6_1.py)
+
+---
+
+**Example 9.6.2** A perfectly insulated tubular reactor with a diameter of 10 cm and a length of 5 m is fed an aqueous solution containing A and B at concentrations of 1.0 and 1.2 M, respectively. This feed stream flows at 75 L min^-1^. Reagents A and B react according to reaction (1) with a rate of reaction that is accurately described by equation (2). The rate coefficient displays Arrhenius temperature dependence with a pre-exponential factor equal to 8.72 x 10^5^ L mol^-1^ min^-1^ and an activation energy of 7200 cal mol^-1^. The heat of reaction (1) is –10,700 cal mol^-1^ and may be assumed to be constant. The heat capacity of the solution and the density of the solution may be taken to be constant and equal to those of water (1.0 cal g^-1^ K^-1^ and 1.0 g cm^-3^). The pressure drop in the reactor is negligible. What feed temperature is needed in order to convert 95% of the A, and what will the outlet temperature be?
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r_1 = k_1 C_A C_B \tag{2}
+$$
+
+[Example 9.6.2 Solution](examples/9_6_2/Example%209.6.2.pdf)
+
+[Example 9.6.2 Calculations](examples/9_6_2/example_9_6_2.py)
+
+---
+
+**Example 9.6.3** The gas-phase decomposition of A according to reaction (1) takes place at steady-state in a PFR. The feed to the reactor is 75% A and 25% inert gas flowing at 100 cm^3^ s^-1^ (0.44 g s^-1^), 3 atm and 400 °C. The reactor diameter is 2.5 cm and its length is 8 m. It is surrounded by a shell containing a molten salt at a constant temperature of 375 °C. The heat transfer coefficient between the reactor and shell is 187 kJ h^-1^ m^-2^ K^-1^. The reaction is catalytic, and the reactor is packed with catalyst particles with a 0.25 cm diameter, a sphericity of 0.7, and a bed porosity of 0.60.
+The rate expression for reaction (1) is given in equation (2) where $k_{0,f}$ = 9.0 x 10^17^ mol cm^3^ s^-1^ atm^-1^, $𝐸_𝑓$ = 285 kJ mol^-1^, $𝑘_{0,𝑟}$ = 4.09 x 10^-4^ mol cm^-3^ s^-1^ atm^-4^, and $𝐸_𝑟$ = 85 kJ mol^-1^. The heat of reaction is constant and equal to 200 kJ mol^-1^. The heat capacities of the reagents are also constant: $\hat{C}_{p,A}$ = 11.7 cal mol^-1^ K^-1^, $\hat{C}_{p,Y}$ = 8.3 cal mol^-1^ K^-1^, $\hat{C}_{p,Z}$ = 4.3 cal mol^-1^ K^-1^, and $\hat{C}_{p,I}$ = 5.8 cal  mol^-1^ K^-1^. The viscosity may be assumed to be constant and equal to 0.027 cP. What are the outlet temperature, pressure and conversion?
+
+$$
+A \leftrightarrows Y + 3 Z \tag{1}
+$$
+
+$$
+r_1 = k_fP_A - k_rP_YP_Z^3 \tag{2}
+$$
+
+[Example 9.6.3 Solution](examples/9_6_3/Example%209.6.3.pdf)
+
+[Example 9.6.3 Calculations](examples/9_6_3/example_9_6_3.py)
+
+---
+
+**Example 9.6.4** The water-gas shift, equation (1), is used to reduce the amount of CO in gas mixtures containing CO, CO~2~, H~2~, H~2~O, and other gases. It is exothermic, $\Delta H$ = –9120 cal mol^-1^, and reversible with the equilibrium constant given by equation (3) with $K_{0,1}$ = 0.132. The heat capacities of CO, H~2~O, CO~2~, H~2~, and inert, I, can be take to be constant and equal to 29.3, 34.3, 41.3, 29.2, and 40.5 J mol^-1^ K^-1^, respectively. Two reactors are often used, one operating at higher temperatures and the other at lower temperatures. The steam to CO feed ratio is often in the range from 3 to 6. Suppose the rate in the first reactor when using a certain catalyst is given by equation (2) with $k_{0.1}$ = 0.0354 mol cm^-3^ min^-1^ atm^-2^ and $E_1$ = 9740 cal mol^-1^. The feed to the adiabatic reactor is at 26 atm and 320 °C, and pressure drop is negligible. Using a feed with 1 mol CO h^-1^, 0.359 mol CO~2~ h^-1^, 4.44 mol H~2~ h^-1^, and 0.180 mol I h^-1^ as a basis, what inlet molar flow of H~2~O will minimize the reactor volume if 55% of the CO must be converted? What will the outlet temperature from a reactor of that volume equal?
+
+$$
+CO + H_2O \rightleftarrows CO_2 + H_2 \tag{1}
+$$
+
+$$
+r_1 = k_1 \left( P_{CO} P_{H_2O} - \frac{P_{CO_2}P_{H_2}}{K_1} \right) \tag{2}
+$$
+
+$$
+K_1 = K_{0,1} \exp{ \left( \frac{-\Delta H}{RT} \right)} \tag{3}
+$$
+
+[Example 9.6.4 Solution](examples/9_6_4/Example%209.6.4.pdf)
+
+[Example 9.6.4 Calculations](examples/9_6_4/example_9_6_4.py)
+
+---
+
+**Example 9.6.5** A perfectly insulated PFR with a diameter of 10 cm and a length of 5 m is going to be used for reaction (1). To start up the reactor, a steady, 75 L min^-1^ flow of pure water at 25 °C is established. A switching valve is then used to instantaneously change the feed to an aqueous solution containing A and B at concentrations of 1.0 and 1.2 M, respectively. This feed stream is at a constant inlet temperature of 30 °C and flows at the same rate as the water it replaces, 75 L min^-1^. Reagents A and B react according to reaction (1) with a rate of reaction that is accurately described by equation (2). The pre-exponential factor in equation (2) is 8.72 x 10^5^ L mol^-1^ min^-1^ and the activation energy is 7200 cal mol^-1^. The heat of reaction (1) is -10,700 cal mol^-1^ and may be assumed to be constant. The heat capacity and density of the solution may be taken to be constant and equal to those of water (1.0 cal g^-1^ K^-1^ and 1.0 g cm^-3^). The pressure drop in the reactor is negligible. Plot the molar flow rate of A and the temperature as a function of axial position within the reactor 0.131 minutes after the feed was switched. Plot the same variables again 0.262 min, 0.393 min and 0.524 min after the feed was switched. (Note: the specified times correspond to one-fourth of the space time, one-half of the space time, three fourths of the space time and the space time.)
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{2}
+$$
+
+[Example 9.6.5 Solution](examples/9_6_5/Example%209.6.5.pdf)
+
+[Example 9.6.5 Calculations](examples/9_6_5/example_9_6_5.py)
+
+---
+
+**Example 9.6.6** The gas-phase conversion of A to Z, equation (1), takes place at steady-state in a packed bed PFR operating isothermally at 400 °C. The reaction rate per unit catalyst particle volume is first order in A, equation (2), and at the operating temperature, the rate coefficient is equal to 0.15 cm^3^~fluid~ cm^–3^~particle~ s^-1^. The void fraction within the packed bed is equal to 0.4. Pure A, flowing at 1.0 cm^3^ s^-1^ (0.054 g s^-1^), 400 °C, and 30 atm is fed to the reactor. There are no temperature gradients anywhere in the reactor or in the catalyst particles, and there are no concentration gradients external to the spherical catalyst particles which have a diameter, $D_p$ of 4 mm. The effective diffusion coefficient of A within the porous catalyst particles is equal to 0.0029 cm^2^ s^-1^ and the gas viscosity may be assumed to be constant and equal to 0.022 cP. If the reactor diameter is 1.5 cm and the conversion of A in the reactor is to equal 85%, what reactor length is required?
+
+$$
+A \rightarrow Z \tag{1}
+$$
+
+$$
+r_1 = k_1 C_A \tag{2}
+$$
+
+[Example 9.6.6 Solution](examples/9_6_6/Example%209.6.6.pdf)
+
+[Example 9.6.6 Calculations](examples/9_6_6/example_9_6_6.py)
+
 ## Learning Activities from *REB, The Course* {.ch}
 
 ## Practice Assignments from *REB, The Course* {.ch}
