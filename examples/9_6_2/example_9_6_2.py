@@ -8,8 +8,7 @@ from reb_utils import solve_ivodes
 
 # global constants available to all functions
 # given
-D = 10 # cm
-L = 500 # cm
+Vpfr = 40E3 # cm^3
 CA_in = 1E-3 # mol /cm^3
 CB_in = 1.2E-3 # mol /cm^3
 Vdot_in = 75E3 # cm^3 /min
@@ -34,10 +33,10 @@ def pfr_model_variables(T_in):
 
 	# define the stopping criterion
     f_var = 0
-    f_val = L
+    f_val = Vpfr
      
 	# solve the IVODEs
-    z, dep, success, message = solve_ivodes(ind_0, dep_0, f_var, f_val
+    V, dep, success, message = solve_ivodes(ind_0, dep_0, f_var, f_val
             , pfr_derivatives, odes_are_stiff=False)
 
     # check for solver issues
@@ -55,7 +54,7 @@ def pfr_model_variables(T_in):
     T = dep[4,:]
 
     # return the PFR model variables
-    return z, nA, nB, nY, nZ, T
+    return V, nA, nB, nY, nZ, T
 
 # PFR derivatives function
 def pfr_derivatives(ind, dep):
@@ -73,14 +72,14 @@ def pfr_derivatives(ind, dep):
     r_1 = k_1*CA*CB
 
 	# evaluate the derivatives
-    dnAdz = -np.pi*D**2/4*r_1
-    dnBdz = -np.pi*D**2/4*r_1
-    dnYdz = np.pi*D**2/4*r_1
-    dnZdz = np.pi*D**2/4*r_1
-    dTdz = -np.pi*D**2/4*r_1*dH_1/(Vdot_in*rho*Cp)
+    dnAdV = -r_1
+    dnBdV = -r_1
+    dnYdV = r_1
+    dnZdV = r_1
+    dTdV = -r_1*dH_1/(Vdot_in*rho*Cp)
 
 	# return the derivatives
-    return dnAdz, dnBdz, dnYdz, dnZdz, dTdz
+    return dnAdV, dnBdV, dnYdV, dnZdV, dTdV
 
 # coupled unknown residual function
 def coupled_unknown_residual(guess):
@@ -88,7 +87,7 @@ def coupled_unknown_residual(guess):
     T_in = guess[0]
 
     # solve the reactor design equations
-    z, nA, nB, nY, nZ, T = pfr_model_variables(T_in)
+    V, nA, nB, nY, nZ, T = pfr_model_variables(T_in)
 
     # extract the calculated final value of nA
     nA_f = nA[-1]
@@ -118,7 +117,7 @@ def deliverables():
     T_in = soln[0]
 
     # solve the reactor design equations
-    z, nA, nB, nY, nZ, T = pfr_model_variables(T_in)
+    V, nA, nB, nY, nZ, T = pfr_model_variables(T_in)
 
     # calculate the other quantities of interest
     T_f = T[-1]
