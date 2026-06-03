@@ -71,10 +71,10 @@ $$
 
 ---
 
-**Example 9.6.5** A perfectly insulated PFR with a diameter of 10 cm and a length of 5 m is going to be used for reaction (1). To start up the reactor, a steady, 75 L min^-1^ flow of pure water at 25 °C is established. A switching valve is then used to instantaneously change the feed to an aqueous solution containing A and B at concentrations of 1.0 and 1.2 M, respectively. This feed stream is at a constant inlet temperature of 30 °C and flows at the same rate as the water it replaces, 75 L min^-1^. Reagents A and B react according to reaction (1) with a rate of reaction that is accurately described by equation (2). The pre-exponential factor in equation (2) is 8.72 x 10^5^ L mol^-1^ min^-1^ and the activation energy is 7200 cal mol^-1^. The heat of reaction (1) is -10,700 cal mol^-1^ and may be assumed to be constant. The heat capacity and density of the solution may be taken to be constant and equal to those of water (1.0 cal g^-1^ K^-1^ and 1.0 g cm^-3^). The pressure drop in the reactor is negligible. Plot the molar flow rate of A and the temperature as a function of axial position within the reactor 0.131 minutes after the feed was switched. Plot the same variables again 0.262 min, 0.393 min and 0.524 min after the feed was switched. (Note: the specified times correspond to one-fourth of the space time, one-half of the space time, three fourths of the space time and the space time.)
+**Example 9.6.5** An adiabatic PFR is used to produce Z via the catalyzed, liquid-phase reaction (1). The rate expression for the reaction is given in equation (2) where the pre-exponential factor is 6.632 x 10^8^ cm^6^ g^–1^ mol^–1^ s^–1^ and the activation energy is 15 kcal mol^–1^. The reactor is 16 m long with a diameter of 2 cm. The catalyst bed density is 2.5 g cm^–3^. The reacting fluid density is 0.65 g cm^–3^, and its heat capacity is 0.5 cal g^–1^ K^–1^. The 0.228 L min^–1^ feed to the reactor contains 7.84 kg-mol m^–3^ of A and 2.32 kg-mol m^–3^ of B at 20 °C. The heat of reaction is –1.75 x 10^7^ cal kg-mol^–1^. What are the conversion of A and the outlet temperature?
 
 $$
-A + B \rightarrow Y + Z \tag{1}
+A + B \rightarrow Z \tag{1}
 $$
 
 $$
@@ -103,7 +103,27 @@ $$
 
 ## Learning Activities from *REB, The Course* {.ch}
 
+{{< include activities/class_21/class_21_activity_narrative.qmd >}}
+
+[Learning Activity 21 Solution](activities/class_21/Activity%2021.pdf)
+
+[Learning Activity 21 Calculations](activities/class_21/activity_21.py)
+
+---
+
+{{< include activities/class_22/activity_22_narrative.qmd >}}
+
+[Learning Activity 22 Solution](activities/class_22/Activity%2022.pdf)
+
+[Learning Activity 22 Calculations](activities/class_22/activity_22.py)
+
 ## Practice Assignments from *REB, The Course* {.ch}
+
+{{< include practice/class_21/practice_21_narrative.qmd >}}
+
+[Class 21 Practice Assignment Solution](practice/class_21/Practice%20Assignment%2021.pdf)
+
+[Class 21 Practice Assignment Calculations](practice/class_21/practice_21.py)
 
 ## Additional Assignments for Extra Practice {.ch}
 

@@ -10,19 +10,42 @@ to be added
 
 After completing Class 22 you should...
 
-* Know the definition/defining equation for packed-bed PFR
-* Understand different momentum balances are used when modeling open tube PFRs and packed-bed PFRs
+* Know the definition and/or defining equation for open-tube momentum balance, packed-bed PFR, and packed-bed momentum balance
+* Understand that
+    * different momentum balances are used when modeling open tube PFRs and packed-bed PFRs
+    * when the open-tube momentum balance is used to model a PFR, the differential form of the ideal gas law must be added to the design equations
+* Be able to
+    * select, modify, and simplify the mole, energy, and momentum balance equations needed for modeling a given PFR using either the axial position or the cumulative volume as the independent variable
+    * use the PFR design equations, together with any other necessary equations, to complete a reaction engineering assignment involving pressure drop
+    * use qualitative analysis to assess and explain results from a quantitative analysis
 
 ## Prepare {.ch}
 
-to be added.
+* Review Sections 9.1 through 9.4, and read Examples 9.6.3 and 9.6.4 from *REB, The Book.*
+* Watch ...
+* Write a concise summary of the learning activity assignment below to use in class.
 
 ## Participate {.ch}
 
-to be added
+* Attend Class 22 virtually using the Class 22 Video, and engage in completing the following Learning Activity.
+
+{{< include ../activities/class_22/activity_22_narrative.qmd >}}
+
+[Learning Activity 22 Solution](../activities/class_22/Activity%2022.pdf)
+
+[Learning Activity 22 Calculations](../activities/class_22/activity_22.py)
 
 ## Practice {.ch}
 
-to be added
+1. Attempt to complete the assignment below using only the REB Equation Summary, and if you get stuck, each time
+    a. note whether you didn't know what to do or you knew what to do, but not how to do it
+    b. refer to just enough of the provided solution to get un-stuck
+2. Check your solution against the provided one and if you find mistakes note whether they were due to
+    a. a conceptual misunderstanding
+    b. improper simplification of a design equation or substitution into it
+    c. computational errors
+3. Make sure you have corrected knowledge gaps and misunderstanding revealed in steps 1 and 2, and think about how you might modify your study methods to avoid similar issues in the future.
+
+[include practice assignment narrative]
 
 {{< include ../includes/_bottom_license.qmd >}}

@@ -1,0 +1,9 @@
+**Class 22 Learning Activity** A PFR surrounded by a perfectly mixed jacket is going to be used to produce Z according to liquid-phase reaction (1). The feed to the reactor is at 45 psi and flows at 120 ft^3^ h^–1^. It contains only A at a concentration of 0.025 lbmol ft^–3^ and a temperature of 120 °F. Water at 75 °F flows into the shell at 2000 lb h^–1^. The reactor tubes have a diameter of 1 in,  a length of 125 ft, a heat transfer coefficient of 150 BTU ft^–2^ h^–1^ °F^–1^, and a Darcy friction factor of 0.018.
+
+$$
+A \rightarrow Z \tag{1}
+$$
+
+The reacting fluid heat capacity is 8 BTU lbmol^–1^ °F^–1^.  Its viscosity is 1 lb ft^–1^ h^–1^, and its density is 57 lb ft^–3^. The cooling water heat capacity is 1 BTU lb^–1^ °F^–1^. The reaction is exothermic with a heat of reaction of –30,500 BTU lbmol^–1^. The rate coefficient equals 0.059 s^–1^ at 120 °F, and the activation energy is 14,000 BTU lbmol^–1^.
+
+Plot the conversion, reacting fluid temperature and pressure along the length of the PFR.
