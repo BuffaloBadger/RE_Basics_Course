@@ -10,20 +10,42 @@ to be added
 
 After completing Class 23 you should...
 
-* Know the definition/defining equation for bulk fluid, porous solid, boundary layer, porosity, tortuosity, Thiele modulus, and effectiveness factor
-* Understand when two phases are present in a packed bed reactor, temperature and concentration gradients exist between the bulk fluid and the surface and within the solid packing if it is porous
-* Be able to use the effectiveness factor to account for temperature and concentration gradients when modeling a packed bed PFR
+* Know the definition/defining equation for boundary layer, internal and external gradients, porosity, tortuosity, Thiele modulus, and effectiveness factor
+* Understand that
+    * when using the pseudo-homogeneous approximation, the rate must be normalized per bed volume
+	* when solid catalyst particles are present in a packed-bed PFR, temperature and concentration gradients exist between the bulk fluid and the particle surface, and within the solid packing if it is porous
+* Be able to
+    * select, modify, and simplify the mole, energy, and momentum balance equations needed for modeling a given PFR using either the axial position or the cumulative volume as the independent variable
+    * use the PFR design equations, together with any other necessary equations, to complete a reaction engineering assignment involving packed bed PFRs and concentration gradients
+    * use qualitative analysis to assess and explain results from a quantitative analysis
 
 ## Prepare {.ch}
 
-to be added.
+* Review Section 9.5, and read Examples 9.6.5 and 9.6.6 from *REB, The Book.*
+* Watch ...
+* Write a concise summary of the learning activity assignment below to use in class.
 
 ## Participate {.ch}
 
-to be added
+* Attend Class 23 virtually using the Class 23 Video, and engage in completing the following Learning Activity.
+
+[include learning activity narrative]
 
 ## Practice {.ch}
 
-to be added
+1. Attempt to complete the assignment below using only the REB Equation Summary, and if you get stuck, each time
+    a. note whether you didn't know what to do or you knew what to do, but not how to do it
+    b. refer to just enough of the provided solution to get un-stuck
+2. Check your solution against the provided one and if you find mistakes note whether they were due to
+    a. a conceptual misunderstanding
+    b. improper simplification of a design equation or substitution into it
+    c. computational errors
+3. Make sure you have corrected knowledge gaps and misunderstanding revealed in steps 1 and 2, and think about how you might modify your study methods to avoid similar issues in the future.
+
+{{< include ../practice/class_23/practice_23_narrative.qmd >}}
+
+[Class 23 Practice Assignment Solution](../practice/class_23/Practice%20Assignment%2023.pdf)
+
+[Class 23 Practice Assignment Calculations](../practice/class_23/practice_23.py)
 
 {{< include ../includes/_bottom_license.qmd >}}

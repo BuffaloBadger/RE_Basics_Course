@@ -46,6 +46,10 @@ After completing Class 22 you should...
     c. computational errors
 3. Make sure you have corrected knowledge gaps and misunderstanding revealed in steps 1 and 2, and think about how you might modify your study methods to avoid similar issues in the future.
 
-[include practice assignment narrative]
+{{< include ../practice/class_22/practice_22_narrative.qmd >}}
+
+[Class 22 Practice Assignment Solution](../practice/class_22/Practice%20Assignment%2022.pdf)
+
+[Class 22 Practice Assignment Calculations](../practice/class_22/practice_22.py)
 
 {{< include ../includes/_bottom_license.qmd >}}

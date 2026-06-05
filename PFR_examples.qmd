@@ -125,6 +125,22 @@ $$
 
 [Class 21 Practice Assignment Calculations](practice/class_21/practice_21.py)
 
+---
+
+{{< include practice/class_22/practice_22_narrative.qmd >}}
+
+[Class 22 Practice Assignment Solution](practice/class_22/Practice%20Assignment%2022.pdf)
+
+[Class 22 Practice Assignment Calculations](practice/class_22/practice_22.py)
+
+---
+
+{{< include practice/class_23/practice_23_narrative.qmd >}}
+
+[Class 23 Practice Assignment Solution](practice/class_23/Practice%20Assignment%2023.pdf)
+
+[Class 23 Practice Assignment Calculations](practice/class_23/practice_23.py)
+
 ## Additional Assignments for Extra Practice {.ch}
 
 Additional assignments will be added as they become available.

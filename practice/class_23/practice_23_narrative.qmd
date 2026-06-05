@@ -1,0 +1,5 @@
+**Class 23 Practice Assignment** Suppose reaction (1) is taking place in an isothermal, steady-state PFR. The reaction is catalyzed by porous spherical catalyst particles wherein the effective diffusion coefficient is 2.7 x 10^–7^ cm^2^ s^–1^. The rate, normalized with respect to the bed volume, is first order in A, and the rate coefficient is 0.019 s^–1^. The flow rate of the feed is 1 L min^–1^, and there are no external concentration gradients and no pressure drop in the reactor. Calculate the catalyst bed volume necessary to achieve 90% conversion of a 1 M feed of A for pellet diameters of 0.04, 0.27, 0.55, and 0.77 mm.
+
+$$
+A \rightarrow Z \tag{1}
+$$

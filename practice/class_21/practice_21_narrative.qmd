@@ -17,3 +17,5 @@ $$
 $$
 r_2 = k_2 P_D P_B \tag{4}
 $$
+
+What are the conversion of A, the selectivity for D over U, the outlet temperature, and the outlet exchange fluid temperature?
