@@ -1,4 +1,4 @@
-"""Calculations for the Class 22 Practice Assignment from REB, The Book"""
+"""Calculations for discussion of the Class 22 Learning Activity from REB, The Book"""
 
 # import libraries
 import numpy as np
@@ -164,7 +164,7 @@ def deliverables():
     print('')
     print(results_df)
     print('')
-    results_df.to_csv('practice_22_discussion_results.csv',index=False)
+    results_df.to_csv('activity_22_discussion_results.csv',index=False)
 
 # execution command
 if __name__ == '__main__':

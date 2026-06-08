@@ -17,11 +17,11 @@ yC_in = 0.25
 yI_in = 0.1
 T_in = 220 + 273.15 # K
 P_in = 3 # atm
-Vdot_in = 1000 # cm^3 /min
+Vdot_in = 1.0E6 # cm^3 /min
 D = 5 # cm
 L = 1000 # cm
 Tex = 185 + 273.15 # K
-U = 1500 * 10E-4 # cal /cm^2 /min /K
+U = 850 * 10E-4 # cal /cm^2 /min /K
 CpA = 12.7 # cal /mol /K
 CpB = 8.6
 CpC = 11.3
@@ -29,12 +29,13 @@ CpX = 6.3
 CpY = 14.4
 CpZ = 10.8
 CpI = 15.6
-k0_1 = 1.0E5 # mol cm^-3 atm^-2
-k0_2 = 5.0E5
+rho_bed = 2.3 # g /cm^3
+k0_1 = 4.35E5 # mol /g /atm^2 /min
+k0_2 = 2.17E6 # mol /g /atm^2 /min
 E_1 = 19700 # cal /mol
 E_2 = 21300
-dH_1 = -28300
-dH_2 = -29800
+dH_1 = 28300
+dH_2 = 29800
 # known
 Re = 1.987 # cal /mol /K
 Rpv = 82.06 # cm^3 atm /mol /K
@@ -61,7 +62,7 @@ def pfr_model_variables():
 
     # solve the design equations
     z, dep, success, message = solve_ivodes(ind_0, dep_0, f_var, f_val
-            , pfr_derivatives, odes_are_stiff=False)
+            , pfr_derivatives, odes_are_stiff=True)
     
     # check for solver issues
     if not success:
@@ -97,16 +98,16 @@ def pfr_derivatives(ind,dep):
     r_2 = k_2*PB*PC
 
     # evaluate the derivatives
-    dnAdz = np.pi*D**2/4*(-r_1)
-    dnBdz = np.pi*D**2/4*(-r_1 - r_2)
-    dnCdz = np.pi*D**2/4*(-r_2)
-    dnXdz = np.pi*D**2/4*(r_1 + r_2)
-    dnYdz = np.pi*D**2/4*(r_1)
-    dnZdz = np.pi*D**2/4*(r_2)
+    dnAdz = rho_bed*np.pi*D**2/4*(-r_1)
+    dnBdz = rho_bed*np.pi*D**2/4*(-r_1 - r_2)
+    dnCdz = rho_bed*np.pi*D**2/4*(-r_2)
+    dnXdz = rho_bed*np.pi*D**2/4*(r_1 + r_2)
+    dnYdz = rho_bed*np.pi*D**2/4*(r_1)
+    dnZdz = rho_bed*np.pi*D**2/4*(r_2)
     dnIdz = 0
     denominator = nDotA*CpA + nDotB*CpB + nDotC*CpC + nDotX*CpX + nDotY*CpY\
         + nDotZ*CpZ + nDotI*CpI
-    dTdz = (np.pi*D*U*(Tex - T) - np.pi*D**2/4*(r_1*dH_1 + r_2*dH_2))/denominator
+    dTdz = (np.pi*D*U*(Tex - T) - rho_bed*np.pi*D**2/4*(r_1*dH_1 + r_2*dH_2))/denominator
 
     # return the design equation derivatives
     return [dnAdz, dnBdz, dnCdz, dnXdz, dnYdz, dnZdz, dnIdz, dTdz]
@@ -122,16 +123,32 @@ def deliverables():
     T_out = T[-1] - 273.15
 
     # report the results
+    results =[['Conversion', f'{fB:.1f}', '%']
+              ,['Selectivity', f'{selectivity:.2f}','mol Y per mol Z']
+              ,['Outlet Temperature', f'{T_out:.0f}', '°C']]
+    results_df = pd.DataFrame(results, columns=('Quantity', 'Value', 'Units'))
     print('')
-    print(f'conversion: {fB:.2f}')
-    print(f'selectivity: {selectivity:.2f}')
-    print(f'T out: {T_out:.1f} °C')
+    print(results_df)
+    print('')
+    results_df.to_csv('activity_23_results.csv', index=False)
 
+    # for discussion
     plt.figure(1)
     plt.plot(z,T-273.15)
     plt.xlabel('axial position, z')
+    plt.xlim(left=0)
     plt.ylabel('Temperature (°C)')
+    plt.savefig('activity_23_T_vs_z.pdf')
+    plt.show(block=False)
+
+    plt.figure(2)
+    plt.plot(z, nB)
+    plt.xlabel('Axial Position, z (cm)')
+    plt.xlim(left=0)
+    plt.ylabel('Flow of B (mol/min)')
+    plt.savefig('activity_23_nB_vs_z.pdf')
     plt.show()
+
 
 # execution command
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-"""Calculations for modification of the 2021 Assessment #5 for use as the class 21 practice assignment."""
+"""Calculations for modification of the 2021 Assessment #5 for use as the class 21 learning activity."""
 
 # import libraries
 import numpy as np

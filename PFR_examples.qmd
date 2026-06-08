@@ -103,9 +103,9 @@ $$
 
 ## Learning Activities from *REB, The Course* {.ch}
 
-{{< include activities/class_21/class_21_activity_narrative.qmd >}}
+{{< include activities/class_21/activity_21_narrative.qmd >}}
 
-[Learning Activity 21 Solution](activities/class_21/Activity%2021.pdf)
+[Learning Activity 21 Solution](activities/class_21/Activiity%2021.pdf)
 
 [Learning Activity 21 Calculations](activities/class_21/activity_21.py)
 
@@ -116,6 +116,14 @@ $$
 [Learning Activity 22 Solution](activities/class_22/Activity%2022.pdf)
 
 [Learning Activity 22 Calculations](activities/class_22/activity_22.py)
+
+---
+
+{{< include activities/class_23/activity_23_narrative.qmd >}}
+
+[Learning Activity 23 Solution](activities/class_23/Activity%2023.pdf)
+
+[Learning Activity 23 Calculations](activities/class_23/activity_23.py)
 
 ## Practice Assignments from *REB, The Course* {.ch}
 

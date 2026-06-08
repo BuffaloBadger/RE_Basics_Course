@@ -3,7 +3,11 @@
 # import libraries
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 from reb_utils import solve_ivodes
+
+# set resolution for graphs
+plt.rc('savefig', dpi=300)
 
 # global constants available to all functions
 # given
@@ -17,7 +21,7 @@ Cp = 0.5 # cal /g /K
 Vdot_in = 0.228E3/60.0 # cm^3/s
 CA_in = 7.84E-3 # mol/cm^3
 CB_in = 2.32E-3 # mol/cm^3
-T_in = 20 + 273.15 # K
+T_in_range = np.array([20, 100]) + 273.15 # K
 dH1 = -17500 # cal/mol
 # known
 R = 1.987 # cal/mol/K
@@ -26,7 +30,7 @@ nA_in = Vdot_in*CA_in
 nB_in = Vdot_in*CB_in
 
 # PFR reactor function
-def pfr_model_variables():
+def pfr_model_variables(T_in):
 	# set the initial values
     ind_0 = 0.0
     dep_0 = np.array([nA_in, nB_in, 0.0, T_in])
@@ -81,20 +85,34 @@ def pfr_derivatives(ind, dep):
 
 # deliverables function
 def deliverables():
-    # solve the PFR design equations
-    z, nA, nB, nZ, T = pfr_model_variables()
+    # allocate storage for the conversion and temperature
+    fA = np.ones_like(T_in_range)*float('nan')
+    T_out = np.ones_like(T_in_range)*float('nan')
 
-    # calculate the quantities of interest
-    fA = 100*(nA_in - nA[-1])/nA_in
+    # loop over the inlet temperature range
+    for i, T_in in enumerate(T_in_range):
+        # solve the PFR design equations
+        z, nA, nB, nZ, T = pfr_model_variables(T_in)
 
-    # tabulate, show, and save the results
-    results = [['Conversion', f'{fA:.1f}', '%']
-               ,['Temperature', f'{T[-1] - 273.15:.2f}', '°C']]
-    results_df = pd.DataFrame(results, columns=['Item', 'Value', 'Units'])
-    print('')
-    print(results_df)
-    print('')
-    results_df.to_csv('example_9_6_5_results.csv', index=False)
+        # calculate the quantities of interest
+        fA[i] = 100*(nA_in - nA[-1])/nA_in
+        T_out[i] = T[-1] - 273.15
+
+    # plot the conversion and temperature
+    plt.figure(1)
+    plt.plot(T_in_range - 273.15, fA)
+    plt.xlabel('Inlet Temperature (°C)')
+    plt.ylabel('Conversion of A (%)')
+    plt.ylim(bottom=0)
+    plt.savefig('example_9_6_5_f_vs_Tin.pdf')
+    plt.show(block=False)
+
+    plt.figure(2)
+    plt.plot(T_in_range - 273.15, T_out)
+    plt.xlabel('Inlet Temperature (°C)')
+    plt.ylabel('Outlet Temperature (°C)')
+    plt.savefig('example_9_6_5_Tout_vs_Tin.pdf')
+    plt.show()
 
 # execution command
 if __name__ == '__main__':

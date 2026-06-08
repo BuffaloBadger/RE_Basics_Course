@@ -2,61 +2,88 @@
 
 # import libraries
 import numpy as np
-import scipy.integrate as sp
+import pandas as pd
 import matplotlib.pyplot as plt
 from reb_utils import solve_ivodes
-from reb_utils import solve_ates
 
 # set resolution for graphs
 plt.rc('savefig', dpi=300)
 
 # global constants available to all functions
 # given
-P_in = 45 # psi
-Vdot_in = 120 # ft^3 /h
-CA_in = 0.025 # lbmol / ft^3
-T_in = 120 + 459.67 # R
-Tex_in = 75 + 459.67 # R
-mDot = 2000 # lb / h
-D = 1/12 # ft
-L = 125 # ft
-U = 150 # BTU /ft^2 / h / R
-fD = 0.018
-Cp = 8 # BTU /lbmol / R
-mu = 1 # lb / ft / h
-rho = 57 # lb / ft^3
-Cp_ex = 1 # BTU / lb / R
-dH_1 = -30500 # BTU / lbmol
-k_1_120 = 0.059*3600 # 1 / h
-E_1 = 14000 # BTU / lbmol
+y_D_in = 0.08
+y_O_in = 0.13
+y_I_in = 0.79
+P_in = 1.0 # atm
+T_in = 370.0 # °C
+T_in = (T_in + 273.15) * 1.8 # °R
+nDot_in = 0.149 # lbmol /s
+nDot_in = nDot_in * 3600 # lbmol /h
+mu = 0.09 # lb /h /ft
+Dp = 0.25 # in
+Dp = Dp / 12 # ft
+eps = 0.4
+rho_bed = 0.6 # g /cm^3
+rho_bed = rho_bed / 453.6 *28317 # lb /ft^3
+D = 6.0 # ft
+f_D = 0.81 
+k0_f = 1.745E5 # mol /s /g_cat /atm^1.5
+k0_f = k0_f * 3600 # lbmol /h lb_cat /atm^1.5
+E_f = 31000 # cal /mol
+E_f = E_f   * 0.00397*453.6 # BTU /lbmol
+k0_r = 7.59E9 # mol /s /g_cat /atm
+k0_r = k0_r * 3600 # lbmol /h lb_cat /atm
+E_r = 53600 # cal /mol
+E_r = E_r * 0.00397*453.6 # BTU /lbmol
+hf298 = np.array([-70950, 0, -94470, 0]) # cal /mol
+hf298 = hf298 * 0.00397*453.6 # BTU /lbmol
+alpha = np.array([5.697, 6.713, 12.13, 7.44]) # cal /mol /K
+alpha = alpha * 0.00397*453.6/1.8 # BTU /lbmol /°R
+beta = np.array([0.016, -8.790E-07, 0.00812, -0.00324]) # cal /mol /K**2
+beta = beta * 0.00397*453.6/1.8**2 # BTU /lbmol /°R**2
+gamma = np.array([-1.185E-05, 4.175E-06, 0, 6.4E-06]) # cal /mol /K**3
+gamma = gamma * 0.00397*453.6/1.8**3 # BTU /lbmol /°R**3
+delta = np.array([3.172E-09, -2.544E-09, 0.0, -2.790E-09]) # cal /mol /K**4
+delta = delta * 0.00397*453.6/1.8**4 # BTU /lbmol /°R**4
 # known
-R = 1.987 # BTU / lbmol / R
+mw_D = 64 # lbm/lbmol
+mw_O = 32 # lbm/lbmol
+mw_I = 28 # lbm/lbmol
+Ren = 1.986 # BTU /lbmol /°R
+Rpv = 0.7302 # ft3 atm / °R / lbmol
 # calculated
-nDotA_in = CA_in * Vdot_in
-Vdot = Vdot_in
-k0_1 = k_1_120 * np.exp(E_1 / (R * (120 + 459.67)))
-G = 4*Vdot_in*rho / (np.pi * D**2)
+nDot_D_in = y_D_in*nDot_in
+nDot_O_in = y_O_in*nDot_in
+nDot_I_in = y_I_in*nDot_in
+nDot_D_out = nDot_D_in * (1 - f_D)
+G = 4*(nDot_D_in*mw_D + nDot_O_in*mw_O + nDot_I_in*mw_I)/(np.pi*D**2) # lbm /h /ft2
+dH_298 = hf298[2] - 0.5*hf298[1] - hf298[0] # BTU /lbmol
+dalpha = alpha[2] - 0.5*alpha[1] - alpha[0] # BTU /lbmol /°R
+dbeta = beta[2] - 0.5*beta[1] - beta[0] # BTU /lbmol /°R**2
+dgamma = gamma[2] - 0.5*gamma[1] - gamma[0] # BTU /lbmol /°R**3
+ddelta = delta[2] - 0.5*delta[1] - delta[0] # BTU /lbmol /°R**4
 
-# global variables for the current value of the exchange fluid temperature
-g_Tex = float('nan')
+# parameter and global variable for its current value
+D_values = np.array([6, 8, 10]) # ft
+g_D = float('nan')
 
 # PFR reactor function
-def pfr_model_variables(Tex):
-    # make Tex available to the derivatives function
-    global g_Tex
-    g_Tex = Tex
+def pfr_model_variables(D):
+    # make the current value of D available to the derivatives function
+    global g_D
+    g_D = D
 
     # define the initial values
     ind_0 = 0
-    dep_0 = np.array([nDotA_in, 0, T_in, P_in])
+    dep_0 = np.array([nDot_D_in, nDot_O_in, 0, nDot_I_in, T_in, P_in])
 
     # define the stopping criterion
-    f_var = 0
-    f_val = L
+    f_var = 1
+    f_val = nDot_D_out
 
     # solve the design equations
     z, dep, success, message = solve_ivodes(ind_0, dep_0, f_var, f_val
-            , pfr_derivatives, odes_are_stiff=True)
+            ,pfr_derivatives, odes_are_stiff=False)
     
     # check for solver issues
     if not success:
@@ -64,91 +91,93 @@ def pfr_model_variables(Tex):
         print(f'PFR model issue: {message}')
         print('')
         input('Press return to continue or CTRL-C to exit.')
-
+    
     # return the pfr model variables
-    return z, dep[0,:], dep[1,:], dep[2,:], dep[3,:]
+    return z, dep[0,:], dep[1,:], dep[2,:], dep[3,:], dep[4,:], dep[5,:]
 
 # PFR derivatives function
-def pfr_derivatives(z, dep):
+def pfr_derivatives(ind, dep):
+    # use the current value of D
+    D = g_D
+
     # extract the dependent variables
-    nA = dep[0]
-    nZ = dep[1]
-    T = dep[2]
-    P = dep[3]
+    nDot_D = dep[0]
+    nDot_O = dep[1]
+    nDot_T = dep[2]
+    nDot_I = dep[3]
+    T = dep[4]
+    P = dep[5]
 
     # calculate the additional unknowns
-    k_1 = k0_1 * np.exp(-E_1 / (R * T))
-    CA = nA / Vdot
-    r_1 = k_1 * CA
+    nDot = nDot_D + nDot_O + nDot_T + nDot_I
+    vDot = nDot*Rpv*T/P
+    rho = G * np.pi*D**2/4 / vDot
+    dT = T - 536.4
+    dT2 = T**2 - 536.4**2
+    dT3 = T**3 - 536.4**3
+    dT4 = T**4 - 536.4**4
+    dH = dH_298 + dalpha*dT + dbeta/2.*dT2 + dgamma/3.*dT3 + ddelta/4.*dT4
+    CpD = alpha[0] + beta[0]*T + gamma[0]*T**2 + delta[0]*T**3
+    CpO = alpha[1] + beta[1]*T + gamma[1]*T**2 + delta[1]*T**3
+    CpT = alpha[2] + beta[2]*T + gamma[2]*T**2 + delta[2]*T**3
+    CpI = alpha[3] + beta[3]*T + gamma[3]*T**2 + delta[3]*T**3
+    PD = nDot_D*P/nDot
+    PO = nDot_O*P/nDot
+    PT = nDot_T*P/nDot
+    k_f = k0_f*np.exp(-E_f/Ren/T)
+    k_r = k0_r*np.exp(-E_r/Ren/T)
+    r = rho_bed*(k_f*PD*PO - k_r*PT*np.sqrt(PO))/np.sqrt(PD)
 
     # evaluate the derivatives
-    dnA_dz = np.pi*D**2/4*(-r_1)
-    dnB_dz = np.pi*D**2/4*(r_1)
-    dT_dz = (np.pi*D*U*(g_Tex - T) - np.pi*D**2/4*r_1*dH_1) / ((nA + nZ)*Cp)
-    dP_dz = -fD*G**2/(2*D*rho)/32.174/(3600**2)/144 # psi/ft
+    dnDotDdz = -np.pi*D**2/4*r
+    dnDotOdz = -0.5*np.pi*D**2/4*r
+    dnDotTdz = np.pi*D**2/4*r
+    dnDotIdz = 0.0
+    dTdz = (-np.pi*D**2/4*r*dH)/(nDot_D*CpD + nDot_O*CpO
+            + nDot_T*CpT + nDot_I*CpI)
+    dPdz = -(1.-eps)/eps**3*G**2/rho/Dp*(150*(1-eps)*mu/Dp/G + 1.75)
+    dPdz = dPdz / 32.174 /3600**2 * 0.000472
 
-    # return the derivatives
-    return [dnA_dz, dnB_dz, dT_dz, dP_dz]
-
-# coupled unknown residual function
-def coupled_unknown_residual(guess):
-    # solve the PFR design equations
-    z, nDotA, nDotZ, T, P = pfr_model_variables(guess)
-
-    # evaluate and return the residual
-    Qdot = np.pi*D*U*(sp.trapezoid(guess - T, z))
-    epsilon = Qdot + mDot*Cp_ex*(guess - Tex_in)
-
-    return epsilon
+    # return the pfr derivatives
+    return [dnDotDdz, dnDotOdz, dnDotTdz, dnDotIdz, dTdz, dPdz]
 
 # deliverables function
 def deliverables():
-    # guess the exchange fluid temperature
-    Tex_guess = Tex_in + 5
+    # allocate storage for the quantities of interest
+    V_cat = np.ones_like(D_values) * float('nan')
+    P_out = np.ones_like(D_values) * float('nan')
 
-    # calculate the exchange fluid temperature
-    soln, success, message = solve_ates(coupled_unknown_residual, Tex_guess)
-    Tex = soln[0]
-
-    # check for solver issues
-    if not success:
-        print('')
-        print(f'Coupled Unknown issue: {message}')
-        print('')
-        input('Press return to continue of CTRL-C to exit')
-
-    print(f'The outlet exchange fluid temperature is {Tex - 459.6:.0f} °F')
-    
-    # solve the PFR design equations
-    z, nDotA, nDotZ, T, P = pfr_model_variables(Tex)
-
-    # calculate the conversion
-    fA = 100*(nDotA_in - nDotA)/nDotA_in
-
-    # generate the requested graphs
+    # define a figure for the T vs. z graph
     plt.figure(1)
-    plt.plot(z, fA)
-    plt.xlabel('Axial position, z (ft)')
-    plt.xlim(left=0)
-    plt.ylabel('Conversion (%)')
-    plt.ylim(bottom=0)
-    plt.savefig('activity_22_fA_vs_z.pdf')
-    plt.show(block=False)
 
-    plt.figure(2)
-    plt.plot(z, T-459.6)
-    plt.xlabel('Axial position, z (ft)')
+    # loop through the D values
+    for i, D in enumerate(D_values):
+        # solve the PFR design equations
+        z, nDot_D, nDot_O, nDot_T, nDot_I, T, P = pfr_model_variables(D)
+
+        # calculate the quantities of interest
+        V_cat[i] = np.pi*D**2/4*z[-1]
+        P_out[i] = P[-1]
+
+        # add to the figure
+        plt.figure(1)
+        plt.plot(z, (T/1.8 - 273.15), label=format(D,'.0f'))
+
+    # tabulate, show, and save the results
+    results_df = pd.DataFrame({'Diameter (ft)': D_values, 'Catalyst Volume (ft^3)' : V_cat
+                            ,'Pressure Drop (atm)': P_in - P_out})
+    print('')
+    print(results_df)
+    print('')
+    results_df.to_csv('activity_22_results.csv',index=False)
+
+    # complete the graph
+    plt.figure(1)
+    plt.xlabel('Axial Position, z (ft)')
     plt.xlim(left=0)
-    plt.ylabel('Temperature (°F)')
+    plt.ylabel('Temperature (°c)')
+    plt.legend(title='Diameter (ft)')
     plt.savefig('activity_22_T_vs_z.pdf')
-    plt.show(block=False)
-    
-    plt.figure(3)
-    plt.plot(z, P)
-    plt.xlabel('Axial position, z (ft)')
-    plt.xlim(left=0)
-    plt.ylabel('Pressure (psi)')
-    plt.savefig('activity_22_P_vs_z.pdf')
     plt.show()
 
 # execution command

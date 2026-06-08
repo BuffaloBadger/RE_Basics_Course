@@ -1,0 +1,21 @@
+**Class 23 Learning Activity** On a molar basis, a gas phase mixture contains 20% reagent A, 45% reagent B, 25% reagent C, and 10% reagent I at 220 °C and 3 atm. The mixture is fed at a rate of 1000 L min^–1^ to a PFR with a diameter of 5 cm and a length of 1 m. A fluid at a constant temperature of 185 °C surrounds the reactor tube which has a heat transfer coefficient of 850 cal m^–2^ min^–1^ K^–1^. The heat capacities of A, B, C, X, Y, ,Z and I are constant and equal to 12.7, 8.6, 11.3, 6.3, 14.4, 10.8, and 15.6 cal mol^–1^ K^–1^, respectively.
+
+Heterogeneous catalytic reactions (1) and (2) take place within the PFR with no pressure drop. The bed density is 2.3 g cm^–3^. The rate expressions are given in equations (3) and (4). The pre-exponential factors for reactions (3) and (4) are 4.35 x 10^5^ mol g^–1^ atm^–2^ min^–1^ and 2.17 x 10^6^ mol g^–1^ atm^–2^ min^–1^, respectively, and the activation energies are 19.7 and 21.3 kcal mol^–1^, respectively. The heat of reaction 1 is 28.3 kcal mol^–1^ and the heat of reaction (2) is 29.8 kcal mol^–1^.
+
+What are the conversion of B, the selectivity in moles of Y per mole of Z, and the temperature at the reactor outlet?
+
+$$
+A + B \rightarrow X+Y \tag{1}
+$$
+
+$$
+B + C \rightarrow X + Z \tag{2}
+$$
+
+$$
+r_1 = k_1P_AP_B \tag{3}
+$$
+
+$$
+r_2 = k_2P_BP_C \tag{4}
+$$

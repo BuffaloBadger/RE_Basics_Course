@@ -30,7 +30,7 @@ After completing Class 21 you should...
 
 * Attend Class 21 virtually using the Class 21 Video, and engage in completing the following Learning Activity.
 
-{{< include ../activities/class_21/class_21_activity_narrative.qmd >}}
+{{< include ../activities/class_21/activity_21_narrative.qmd >}}
 
 [Learning Activity 21 Solution](../activities/class_21/Activity%2021.pdf)
 

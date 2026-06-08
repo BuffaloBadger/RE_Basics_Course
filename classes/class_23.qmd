@@ -29,7 +29,11 @@ After completing Class 23 you should...
 
 * Attend Class 23 virtually using the Class 23 Video, and engage in completing the following Learning Activity.
 
-[include learning activity narrative]
+{{< include ../activities/class_23/activity_23_narrative.qmd >}}
+
+[Learning Activity 23 Solution](../activities/class_23/Activity%2023.pdf)
+
+[Learning Activity 23 Calculations](../activities/class_23/activity_23.py)
 
 ## Practice {.ch}
 

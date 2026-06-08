@@ -1,9 +1,25 @@
-**Class 22 Learning Activity** A PFR surrounded by a perfectly mixed jacket is going to be used to produce Z according to liquid-phase reaction (1). The feed to the reactor is at 45 psi and flows at 120 ft^3^ h^–1^. It contains only A at a concentration of 0.025 lbmol ft^–3^ and a temperature of 120 °F. Water at 75 °F flows into the shell at 2000 lb h^–1^. The reactor tubes have a diameter of 1 in,  a length of 125 ft, a heat transfer coefficient of 150 BTU ft^–2^ h^–1^ °F^–1^, and a Darcy friction factor of 0.018.
+**Class 22 Learning Activity** Hill and Root (“Introduction to Chemical Engineering Kinetics and Reactor Design,” 2nd Ed. Wiley, Hoboken, NJ, 2014.) describe the adiabatic oxidation of sulfur dioxide, reaction (1), in a steady-state, packed-bed PFR. A feed containing 8% SO2, 13% O2, and 79% N2 at 1 atm and 370 °C was fed to the first of two reactors at 0.149 lbmol s^–1^. It was assumed to have an effective viscosity of 0.09 lb h^–1^ ft^–1^. Spherical catalyst particles with a diameter of 0.25 in formed a packed bed with a porosity of 0.4 and a density of 0.6 g cm^–3^. The reactor diameter was 6 ft, and it operated at a conversion of 0.81. The rate expression shown in equation (2) was used with  = 1.745 x 10^5^ mol s^–1^ g~cat~^–1^ atm^–1.5^,  = 31 kcal mol^–1^,  = 7.59 x 10^9^ mol s^–1^ g~cat~^–1^ atm, and  = 53.6 kcal mol^–1^. Their analysis assumed no pressure drop, but after completing the analysis they estimated the pressure drop and found it to be significant. They suggested that the pressure drop could be decreased by using a larger reactor diameter.
+
+Repeat their analysis, accounting for pressure drop, for reactors with diameters of 3, 6, and 9 ft and comment on the results. Specifically calculate the required catalyst volume and the pressure drop, and plot the temperature as a function of axial position in the reactor. Selected thermodynamic data are given in Table 1 where the heats of formation are in cal mol^–1^, and the heat capacities of the reagents in cal mol^–1^ K^–1^ can be calculated using the coefficients, $\alpha_i$, $\beta_i$, $\gamma_i$, and $\delta_i$, with temperatures in K.
 
 $$
-A \rightarrow Z \tag{1}
+SO_2 + \frac{1}{2} O_2 \rightleftarrows SO_3 \tag{1}
 $$
 
-The reacting fluid heat capacity is 8 BTU lbmol^–1^ °F^–1^.  Its viscosity is 1 lb ft^–1^ h^–1^, and its density is 57 lb ft^–3^. The cooling water heat capacity is 1 BTU lb^–1^ °F^–1^. The reaction is exothermic with a heat of reaction of –30,500 BTU lbmol^–1^. The rate coefficient equals 0.059 s^–1^ at 120 °F, and the activation energy is 14,000 BTU lbmol^–1^.
+$$
+r = \frac{k_fP_{SO_2}P_{O_2} - k_rP_{SO_3}\sqrt{P_{O_2}}}{\sqrt{P_{SO_2}}} \tag{2}
+$$
 
-Plot the conversion, reacting fluid temperature and pressure along the length of the PFR.
+$$
+\hat C_{p,i} = \alpha _i + \beta _i T + \gamma _i T^2 + \delta _i T^3 \tag{3}
+$$
+
+| *i* | $\Delta H_{f,i}\big\vert_{298\,K}$ | $\alpha_i$ | $\beta_i$ | $\gamma_i$ | $\delta_i$ |
+|:------:|:------:|:------:|:------:|:------:|:------:|
+| SO~2~ |	–70950 |	5.697 |	0.016 |	–1.185 x 10^–5^|	3.172 x 10^–9^ |
+| O~2~ |	0 |	6.713 |	–8.79 x 10^–7^ |	4.175 x 10^–6^ |	–2.544x 10^–9^ |
+| SO~3~ |	–94470 |	12.13 |	0.00812		| | |
+| N~2~ |	0 |	7.44 |	–0.00324 |	6.4 x 10^–6^ |	2.79 X 10^–9^ |
+
+: Table 1. Thermodynamic Data.
+
