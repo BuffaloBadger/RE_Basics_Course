@@ -2,7 +2,7 @@
 
 ![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
-## Analysis of CSTR Kinetics Data {.cc}
+## Analysis Using a Fitting Function {.cc}
 
 to be added
 

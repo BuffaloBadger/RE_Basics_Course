@@ -2,7 +2,7 @@
 
 ![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
-## Analysis of PFR Kinetics Data {.cc}
+## Analysis Using Same-Temperature Data Blocks {.cc}
 
 to be added
 

@@ -98,13 +98,13 @@ website:
         contents:
           - text: "Class 25: Kinetics Experiments and Data Generation"
             href: classes/class_25.qmd
-          - text: "Class 26: Analysis of CSTR Kinetics Data"
+          - text: "Class 26: Analysis Using a Fitting Function"
             href: classes/class_26.qmd
-          - text: "Class 27: Analysis of BSTR Kinetics Data"
+          - text: "Class 27: Analysis Using Linear Least Squares"
             href: classes/class_27.qmd
-          - text: "Class 28: Analysis of PFR Kinetics Data"
+          - text: "Class 28: Analysis Using Same-Temperature Data Blocks"
             href: classes/class_28.qmd
-          - text: "Class 29: Differential and Linearized Model Data Analysis"
+          - text: "Class 29: Analysis Using Approximate Reactor Models"
             href: classes/class_29.qmd
       - section: "*Reactor System Analysis*"
         contents:

@@ -2,7 +2,7 @@
 
 ![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
-## Differential and Linearized Model Data Analysis {.cc}
+## Analysis Using Approximate Reactor Models {.cc}
 
 to be added
 

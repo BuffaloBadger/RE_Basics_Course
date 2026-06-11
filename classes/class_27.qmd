@@ -2,7 +2,7 @@
 
 ![](../graphics/REB_Logo.png){fig-alt="Reaction Engineering Basics Logo" fig-align="center" width="200"}
 
-## Analysis of BSTR Kinetics Data {.cc}
+## Analysis Using Linear Least Squares {.cc}
 
 to be added
 
