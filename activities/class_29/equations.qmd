@@ -1,0 +1,10 @@
+
+
+$$
+A + B \rightarrow Z \tag{1}
+$$
+
+$$
+r = k P_A \sqrt{P_B} \tag{2}
+$$
+

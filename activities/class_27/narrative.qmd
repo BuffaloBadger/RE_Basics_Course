@@ -1,0 +1,3 @@
+**Learning Activity 27** Experiments have been performed using an isothermal BSTR for the purpose of developing a rate expression for liquid-phase reaction (1). At the start of each experiment, the reactor contained 1 gal of a solution containing A and B at one of three temperatures (150 °F, 160 °F, or 170 °F). In each experiment, the reaction proceeded isothermally and the concentration of Z was measured at reaction times of 10, 30, and 50 min. Use the resulting data and a linearized BSTR model to assess the accuracy of the rate expression proposed in equation (2), assuming Arrhenius temperature dependence for the rate coefficient, k. 
+
+

@@ -1,0 +1,9 @@
+
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r=kC_AC_B \tag{2}
+$$

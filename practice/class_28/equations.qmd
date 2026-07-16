@@ -1,0 +1,9 @@
+
+
+$$
+A + B \rightarrow Z \tag{1}
+$$
+
+$$
+r = kP_A^{\alpha_A} P_B^{\alpha_B} \tag{2}
+$$

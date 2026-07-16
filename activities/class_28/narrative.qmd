@@ -1,0 +1,4 @@
+**Learning Activity 28** Kinetics data for reaction (1) were generated in a steady-state, isothermal PFR operating at 1 atm pressure. Only one temperature was studied. The same amount of catalyst, 3.0 g, was present in the reactor, forming a small packed bed. The apparent density of the catalyst bed was constant, and pressure drop across the catalyst bed was negligible. The inlet volumetric flow rate was also the same in all experiments and equal to 0.85 L min^-1^ at standard temperature and pressure. The inlet mole fractions of A, B, Y, and Z were varied in the experiments and the partial pressure of A at the reactor outlet was recorded. Use the resulting data to assess the accuracy of the mechanistic rate expression shown in equation (2). The equilibrium constant, $K$, in equation (2) can be calculated from available thermodynamic data. At the temperature of the experiments, 400 °C, the value of $K$ is 12.2.
+
+
+

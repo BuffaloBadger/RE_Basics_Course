@@ -6,22 +6,32 @@ from scipy.optimize import root
 from scipy.integrate import solve_ivp
 from scipy.integrate import solve_bvp
 
-def lls_parameters(y,x,model_has_intercept):
+def lls_parameters(y,x,model_has_intercept,use_rel_errors):
     # revised 3/4/26
+    # revised 6/12/26 to also return the predicted responses
+    # revised 6/13/26 to allow using relative errors
 
     # if the model has an intercept, add an array of ones to x
     if model_has_intercept:
         x = sm.add_constant(x)
 
     # fit the linear model to the data
-    res = sm.OLS(y,x).fit()
+    if use_rel_errors:
+        res = sm.WLS(y,x,x*x).fit()
+    else:
+        res = sm.OLS(y,x).fit()
+
+    # calculate the predicted responses
+    y_pred = res.predict()
 
     # return an array with the parameters, an array of arrays with their
-    # 95% confidence intervals, and the coefficient of determination
-    return res.params, res.conf_int(alpha=0.05), res.rsquared
+    # 95% confidence intervals, the coefficient of determination, and the
+    # predicted responses
+    return res.params, res.conf_int(alpha=0.05), res.rsquared, y_pred
 
 def Arrhenius_parameters(k,T,R):
     # revised 3/5/26
+    # revised 6/13/26 for compatibility with lls_parameters
 
     # define x and y in the linearized Arrhenius expression
     x = 1/T
@@ -29,7 +39,7 @@ def Arrhenius_parameters(k,T,R):
 
     # fit the linearized Arrhenius expression to the data
     model_has_intercept = True
-    beta, beta_ci, r_squared = lls_parameters(y, x, model_has_intercept)
+    beta, beta_ci, r_squared, y_pred = lls_parameters(y, x, model_has_intercept, use_rel_errors=False)
 
     # calculate the Arrhenius parameters and their 95% confidence intervals
     k0 = np.exp(beta[0])
@@ -98,6 +108,7 @@ def solve_ivodes(ind_0, dep_0, stop_var, stop_val, derivs_fcn, odes_are_stiff,
 
 def fit_to_SR_data(beta_guess, x, y_meas, pred_resp_fcn, use_rel_error):
     # revised 9/22/25
+    # revised 6/12/26 to also return predictes responses
 
     # set the weights
     if use_rel_error:
@@ -125,8 +136,8 @@ def fit_to_SR_data(beta_guess, x, y_meas, pred_resp_fcn, use_rel_error):
         beta_ci[i,0] = beta[i] - beta_cov[i,i]**0.5*t_val
         beta_ci[i,1] = beta[i] + beta_cov[i,i]**0.5*t_val
     
-    # return the results
-    return beta, beta_ci, r_squared
+    # return the results and the predicted responses
+    return beta, beta_ci, r_squared, y_pred
 
 def solve_ates(residuals_fcn, guess):
     # revised 9/22/25

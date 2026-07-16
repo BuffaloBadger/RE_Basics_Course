@@ -1,0 +1,9 @@
+
+$$
+S \rightarrow P + H_2O \tag{1}
+$$
+
+$$
+r = \frac{V_{max}C_S}{K_m + C_S} \tag{2}
+$$
+

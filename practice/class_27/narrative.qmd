@@ -1,0 +1,3 @@
+**Practice Assignment 27** A 1 L, isothermal BSTR was used to generate kinetics data for the liquid-phase reaction, equation (1). In each experiment the temperature, initial concentration of A and initial concentration of B were set, after which the concentration of A was measured at several reaction times. Use those data and a linear BSTR model to estimate the pre-exponential factor and activation energy for the rate coefficient in equation (2), and assess the accuracy of the resulting rate expression.
+
+

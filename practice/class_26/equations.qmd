@@ -1,0 +1,9 @@
+
+
+$$
+A \rightleftarrows Y + 3Z \tag{1}
+$$
+
+$$
+r = kP_A \left(1 - \frac{P_YP_Z^3}{K_1P_A}\right) \tag{2}
+$$

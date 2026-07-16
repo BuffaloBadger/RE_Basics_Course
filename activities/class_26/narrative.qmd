@@ -1,0 +1,5 @@
+**Learning Activity 26** An isothermal, steady-state PFR with negligible pressure drop was used to generate kinetics data for liquid-phase reaction (1). In each experiment the temperature (°C), feed concentration of A (M), feed concentration of B (M), and space time (min) were set and the outlet concentration of A (M) was measured. The PFR diameter was 0.3 dm and its length, 10 dm.
+
+In the rate expression, equation (2), the rate coefficient displays Arrhenius temperature dependence. Use the experimental data to estimate the pre-exponential factor and activation energy using (a) a fitting function and (b) a linearized reactor model. Compare the results from the two parameter estimation approaches.
+
+

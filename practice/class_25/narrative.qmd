@@ -1,0 +1,3 @@
+**Practice Assignment 25** Gas phase reaction (1) was studied in a 2 L batch reactor. Three experiments were performed, each at a different temperature. The initial reactor pressure in all experiments was 1 atm, and the starting mixture consisted of only A and B. The initial ratio of A to B was different for each experiment, and the mole fraction of Z was measured as a function of reaction time (in min) in each experiment. Determine the best values of the activation energy and pre-exponential factor for $k$ in the proposed rate expression, equation (2), and determine whether that rate expression is accurate.
+
+

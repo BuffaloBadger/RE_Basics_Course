@@ -1,0 +1,10 @@
+
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r = \frac{kP_{A}P_{B}}{1 + K_AP_A + K_BP_B + K_YP_Y + K_ZP_Z }\left( 1 - \frac{P_YP_Z}{K_1P_AP_B} \right) \tag{2}
+$$
+
