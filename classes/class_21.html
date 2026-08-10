@@ -114,7 +114,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <a href="http://buffalobadger.github.io" class="navbar-brand navbar-brand-logo">
     <img src="../graphics/Banner.png" alt="" class="navbar-logo light-content">
     <img src="../graphics/Banner.png" alt="" class="navbar-logo dark-content">
     </a>
@@ -841,7 +841,7 @@ Table&nbsp;1: Heat capacities of the reagents.
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/BuffaloBadger\.github\.io\/RE_Basics_Course\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
