@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>cstr_examples – Reaction Engineering Basics, The Course</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./graphics/BuffaloBadger_16_16.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-445b8638c3d06994fee0907d791121c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./graphics/Banner.png" alt="" class="navbar-logo light-content">
+    <img src="./graphics/Banner.png" alt="" class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="http://buffalobadger.github.io/RE_Basics"> 
+<span class="menu-text">REB, The Book</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="http://buffalobadger.github.io/RE_Basics_Course"> 
+<span class="menu-text">REB, The Course</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="http://buffalobadger.github.io/RE_Basics_Design"> 
+<span class="menu-text">REB, The Design</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="http://buffalobadger.github.io/The_Sett"> 
+<span class="menu-text">The Sett</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="http://buffalobadger.github.io/about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reaction_rate_expression_examples.html"><strong>Assignments by Topic</strong></a></li><li class="breadcrumb-item"><a href="./CSTR_examples.html">CSTR Analysis</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>Getting Started</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preparing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preparing for the Course</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./taking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taking the Course</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>Classes</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 1: Reaction Engineering, Ethics, and Safety</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>Reactions, Rates, and Rate Expressions</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 2: Reactions and Stoichiometry</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 3: Rates and Rate Expressions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 4: The Bodenstein Steady-State Approximation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 5: Rate-Determining Steps and Quasi-Equilibrium</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 6: Conservation of Catalyst and Charge</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 7: Most Abundant Intermediate</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 8: Analysis of Ideal Reactors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>CSTR Analysis</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 9: Steady-State CSTR Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 10: Selectivity in Steady-State CSTRs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 11: Multiplicity of CSTR Steady States</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 12: CSTR Startup and Shut Down</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 13: Stability of CSTR Steady States</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>BSTR Analysis</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 14: BSTR Response Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 15: BSTR Operation and Sizing Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 16: Net BSTR Production Rate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 17: Gas Phase Reactions in BSTRs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_18.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 18: Variable BSTR Heating or Cooling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>SBSTR Analysis</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_19.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 19: Use of SBSTRs to Control Temperature</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_20.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 20: Selectivity in SBSTRs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>PFR Analysis</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_21.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 21: Non-Isothermal, Steady-State PFR Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_22.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 22: Pressure Drop in Steady-State PFRs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 23: Steady-State Packed Bed PFRs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 24: Design of Ideal Reactors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>Kinetics Data Analysis</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 25: Kinetics Experiments and Data Generation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_26.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 26: Analysis of CSTR Kinetics Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_27.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 27: Analysis of BSTR Kinetics Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_28.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 28: Analysis of PFR Kinetics Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_29.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 29: Analysis Using Approximate Reactor Models</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>Reactor System Analysis</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_30.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 30: Analysis of Steady-State Flow Reactor Systems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_31.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 31: Analysis of Steady-State, Thermally Back-Mixed PFRs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_32.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 32: Analysis of Steady-State, Recycle PFRs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>Non-Ideal Reactor Models</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_33.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 33: The Age Function from Step-Change Stimuli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_34.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 34: The Age Function from Impulse Stimuli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_35.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 35: An Early Mixing Segregated Flow Reactor Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_36.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 36: A Late Mixing Segregated Flow Reactor Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_37.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 37: An Empirical Axial Dispersion Reactor Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_38.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 38: Zoned Reactor Models</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_39.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 39: Intermediate Reaction Engineering</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>Assignments by Topic</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reaction_rate_expression_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reactions, Rates, and Rate Expressions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mechanism_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mechansitic Rate Expressions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./qualitative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Qualitative Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./CSTR_examples.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">CSTR Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./BSTR_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BSTR Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./SBSTR_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SBSTR Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./PFR_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PFR Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kinetics_data_analysis_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kinetics Data Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reactor_system_analysis_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reactor System Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./non_ideal_reactor_models_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Non-Ideal Reactor Models</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>Additional Resources</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./REB_Equation_Summary.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">REB Equation Summary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nm_videos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Numerical Methods Videos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reaction_rate_expression_examples.html"><strong>Assignments by Topic</strong></a></li><li class="breadcrumb-item"><a href="./CSTR_examples.html">CSTR Analysis</a></li></ol></nav></header>
+
+
+
+
+<section id="assignments-involving-cstr-analysis" class="level1">
+<h1>Assignments Involving CSTR Analysis</h1>
+<section id="examples-from-reb-the-book" class="level2 ch">
+<h2 class="ch anchored" data-anchor-id="examples-from-reb-the-book">Examples from <em>REB, The Book</em></h2>
+<p><strong>Example 6.6.1</strong> The amount of A, (10%), in a gas mixture with B (65%), and inert, I, (25%) at 165 °C and 5 atm needs to be reduced to 0.1%. This is going to be accomplished by converting the A into Z according to reaction (1). An adiabatic CSTR is going to be used. The rate expression is given in equation (2) where the pre-exponential factor is 1.37 x 10<sup>5</sup> m<sup>3</sup> mol<sup>-1</sup> min<sup>-1</sup> and the activation energy is 11,100 cal mol<sup>-1</sup>. The heat of reaction is constant and equal to -7200 cal mol<sup>-1</sup>, and the heat capacities of A, B, I, and Z are equal to 7.6, 8.2, 4.3, and 13.8 cal mol<sup>-1</sup> K<sup>-1</sup>, respectively. What space time is required, and what temperature will result?</p>
+<p><span class="math display">\[
+A + B \rightarrow Z \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1C_AC_B \tag{2}
+\]</span></p>
+<p><a href="examples/6_6_1/Example 6.6.1.pdf">Example 6.6.1 Solution</a></p>
+<p><a href="examples/6_6_1/example_6_6_1.py">Example 6.6.1 Calculations</a></p>
+<hr>
+<p><strong>Example 6.6.2</strong> Reactants A and B can react irreversibly to produce either a desired product, D, or an undesired product, U, as shown in equations (1) and (2). The rate expressions for reactions (1) and (2) are given in equations (3) and (4), respectively. In those rate expressions, the pre-exponential factors for <span class="math inline">\(k_1\)</span> and <span class="math inline">\(k_2\)</span> are 10.2 gal mol<sup>-1</sup> min<sup>-1</sup> and 17.0 gal mol<sup>-1</sup> min<sup>-1</sup>, respectively, and the activation energies are 15.3 kJ mol<sup>-1</sup> and 23.7 kJ mol<sup>-1</sup>, respectively. A liquid mixture containing 10 mol A gal<sup>-1</sup> and 12 mol B gal<sup>-1</sup> at 350 K is fed to an adiabatic 25 gal CSTR at a rate of 12.5 gal min<sup>-1</sup>. If the standard heats of reactions (1) and (2) at 298 K are -12.0 and -21.3 kJ mol<sup>-1</sup>, respectively, and if the reagents form an ideal liquid mixture with the temperature-independent heat capacities of A, B, D and U equal to 85, 125, 200 and 170 J mol<sup>-1</sup> K<sup>-1</sup>, what are the conversion of the limiting reagent, the outlet selectivity (in mol D per mol U) and the outlet temperature?</p>
+<p><span class="math display">\[
+A + B \rightarrow D \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+A + B \rightarrow U \tag{2}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1 C_AC_B \tag{3}
+\]</span></p>
+<p><span class="math display">\[
+r_2 = k_2 C_AC_B \tag{4}
+\]</span></p>
+<p><a href="examples/6_6_2/Example 6.6.2.pdf">Example 6.6.2 Solution</a></p>
+<p><a href="examples/6_6_2/example_6_6_2.py">Example 6.6.2 Calculations</a></p>
+<hr>
+<p><strong>Example 6.6.3</strong> To produce Z via reaction (1), reagent A will be fed to an adiabatic 0.5 m<sup>3</sup> CSTR at 70 mol min<sup>-1</sup>, and B will be fed at 1500 mol min<sup>-1</sup> giving a total liquid feed rate of 40 L min<sup>-1</sup>. The rate expression for reaction (1) is given in equation (2), where the pre-exponential factor for the rate coefficient is 1.2 x 10<sup>9</sup> m<sup>3</sup> mol<sup>-1</sup> min<sup>-1</sup> and the activation energy is 25.8 kcal mol<sup>-1</sup>. The equilibrium constant appearing in the rate expression can be calculated using equation (3), where the pre-exponential factor is 4.2 x 10<sup>-18</sup> m<sup>3</sup> mol<sup>-1</sup> and the heat of reaction is -22.4 kcal mol<sup>-1</sup>. The heat capacities of A, B, and Z are 412, 75.5, and 512 J mol<sup>-1</sup> K<sup>-1</sup>, respectively, and may be taken to be independent of temperature. What feed temperature will maximize the conversion of A?</p>
+<p><span class="math display">\[
+A + B \rightarrow Z \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1C_AC_B\left( 1 - \frac{C_Z}{K_1C_AC_B}\right) \tag{2}
+\]</span></p>
+<p><span class="math display">\[
+K_1 = K_{0,1}\exp{\frac{-\Delta H_1}{RT}} \tag{3}
+\]</span></p>
+<p><a href="examples/6_6_3/Example 6.6.3.pdf">Example 6.6.3 Solution</a></p>
+<p><a href="examples/6_6_3/example_6_6_3.py">Example 6.6.3 Calculations</a></p>
+<hr>
+<p><strong>Example 6.6.4</strong> An adiabatic, steady-state CSTR with a volume of 500 cm<sup>3</sup> is going to be used to convert A and B into Y and Z according to reaction (1). A liquid solution flowing at 1.0 cm<sup>3</sup> s<sup>-1</sup> and containing equal amounts of A and B (0.015 mol cm<sup>-3</sup>) at 50 °C will be used. The heat capacity of the fluid is essentially equal to that of the solvent, 0.35 cal g<sup>-1</sup> K<sup>-1</sup> and can be considered to be constant. The density of the fluid, also constant, is 0.93 gm cm<sup>-3</sup>. The rate expression for reaction (1) is given in equation (2), and the heat of reaction (1) may be assumed to be constant and equal to -20 kJ mol<sup>-1</sup>. The rate coefficient displays Arrhenius temperature dependence with a pre-exponential factor equal to 3.24 x 10<sup>12</sup> cm<sup>3</sup> mol<sup>-1</sup> s<sup>-1</sup>, and an activation energy of 105.0 kJ mol<sup>-1</sup>. How many steady states are possible at these conditions, and what are the conversion and outlet temperature for each of them?</p>
+<p><span class="math display">\[
+A + B \rightarrow Y + Z \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1C_AC_B \tag{2}
+\]</span></p>
+<p><a href="examples/6_6_4/Example 6.6.4.pdf">Example 6.6.4 Solution</a></p>
+<p><a href="examples/6_6_4/example_6_6_4_part_A.py">Example 6.6.4 Calculations for Multiplicity Plot</a></p>
+<p><a href="examples/6_6_4/example_6_6_4_part_B.py">Example 6.6.4 Calculations for Steady States</a></p>
+<hr>
+<p><strong>Example 6.6.5</strong> A 10 gal CSTR with a 1.25 gal shell is going to be used for the conversion of A and B according to reactions (1), (2), and (3). Both the reactor and the shell are perfectly mixed. Before flow into the reactor begins, it is full and contains a solution containing only B at a concentration of 3 mol gal<sup>-1</sup> and a temperature of 20 °C, while the shell contains cooling water at 20 °C. To start up the reactor, 0.5 gal min<sup>-1</sup> of a feed consisting of a liquid solution of A (7.5 mol gal<sup>-1</sup>) and B (3 mol gal<sup>-1</sup>) at 50 °C starts flowing into the reactor and simultaneously cooling water at 20 °C starts flowing into the shell at a rate of 250 g min<sup>-1</sup>. The heat transfer coefficient between the reactor and the shell is 190 cal ft<sup>-2</sup> min<sup>-1</sup> K<sup>-1</sup> and the heat transfer area is 4 ft<sup>2</sup>. The entire process operates at a constant pressure of 1 atm.</p>
+<p><span class="math display">\[
+A + B \rightarrow W + Z \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+A + B \rightarrow X + Z \tag{2}
+\]</span></p>
+<p><span class="math display">\[
+A + B \rightarrow Y + Z \tag{3}
+\]</span></p>
+<p>Each of the reactions is first order in the concentration of A and first order in the concentration of B. The pre-exponential factors, activation energies and heats of reaction are listed in the table below. The heats of reaction may be taken to be constant. The cooling water has a constant density of 1 g cm<sup>-3</sup> and a constant heat capacity of 1 cal g<sup>-1</sup> K<sup>-1</sup>. The reacting fluid may be assumed to have a constant heat capacity of 1600 cal gal<sup>-1</sup> K<sup>-1</sup>.</p>
+<p>Plot the temperature of the reacting fluid, the temperature of the cooling water in the jacket, and the concentration of B in the reactor during the first 30 minutes of the start-up process.</p>
+<div id="tbl-ch6_ex5_data" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ch6_ex5_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Reaction Data
+</figcaption>
+<div aria-describedby="tbl-ch6_ex5_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Reaction</th>
+<th style="text-align: center;">k<sub>0</sub> (gal mol<sup>-1</sup> min<sup>-1</sup>)</th>
+<th style="text-align: center;">E (kcal mol<sup>-1</sup>)</th>
+<th style="text-align: center;"><span class="math inline">\(\Delta H\)</span> (kcal mol<sup>-1</sup>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4.3 x 10<sup>8</sup></td>
+<td style="text-align: center;">14.2</td>
+<td style="text-align: center;">-11.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2.7 x 10<sup>8</sup></td>
+<td style="text-align: center;">16.1</td>
+<td style="text-align: center;">-11.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3.9 x 10<sup>8</sup></td>
+<td style="text-align: center;">14.8</td>
+<td style="text-align: center;">-12.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="examples/6_6_5/Example 6.6.5.pdf">Example 6.6.5 Solution</a></p>
+<p><a href="examples/6_6_5/example_6_6_5.py">Example 6.6.5 Calculations</a></p>
+<hr>
+<p><strong>Example 6.6.6</strong> Example 6.6.4 showed conditions where three steady states are possible when reaction (1) takes place in an adiabatic CSTR. Specifically, the reactor volume is 500 cm<sup>3</sup> and the feed is 1.0 cm<sup>3</sup> s<sup>-1</sup> of a solution containing 0.015 mol cm<sup>-3</sup> each of A and B at 50 °C. The heat capacity is 0.35 cal g<sup>-1</sup> K<sup>-1</sup>, and the density is 0.93 gm cm<sup>-3</sup>. The heat of reaction is -20 kJ mol<sup>-1</sup>, and the rate is given by equation (2) with the pre-exponential factor equal to 3.24 x 10<sup>12</sup> cm<sup>3</sup> mol<sup>-1</sup> s<sup>-1</sup> and the activation energy equal to 105.0 kJ mol<sup>-1</sup>. The steady-state conversions were 0.03, 39.9, and 97.5%, and the corresponding outlet temperatures were 50, 183, and 265 °C.</p>
+<p><span class="math display">\[
+A + B \rightarrow Y + Z \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1C_AC_B \tag{2}
+\]</span></p>
+<p>The outlet temperature for this reactor was plotted as a function of the feed temperature , and that graph is reproduced here as <a href="#fig-ch6_ex6_initial_steady_states" class="quarto-xref">Figure&nbsp;1</a>, with three steady states labeled “S<sub>high</sub>,” “U<sub>mid</sub>,” and “S<sub>low</sub>” Steady states S<sub>high</sub> (97.5% conversion) and S<sub>low</sub> (0.03% conversion) are stable while steady state U<sub>mid</sub> (39.3% conversion) is unstable.</p>
+<div id="fig-ch6_ex6_initial_steady_states" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch6_ex6_initial_steady_states-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="examples/6_6_6/example_6_6_6_multiplicity.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch6_ex6_initial_steady_states-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Steady-state temperatures prior to perturbation.
+</figcaption>
+</figure>
+</div>
+<p>To show that steady state U<sub>mid</sub> is unstable, plot the outlet temperature <em>vs</em>. time if the temperature of a CSTR at steady state U<sub>mid</sub> is perturbed +1 °C, and by -1 °C holding all of the inputs constant. To show the two other steady states are stable, plot the outlet temperature <em>vs</em>. time if the temperature of a CSTR at each of those steady states is perturbed +20 °C, and by -20 °C holding all of the inputs constant.</p>
+<p><a href="examples/6_6_6/Example 6.6.6.pdf">Example 6.6.6 Solution</a></p>
+<p><a href="examples/6_6_6/example_6_6_6.py">Example 6.6.6 Calculations</a></p>
+</section>
+<section id="learning-activities-from-reb-the-course" class="level2 ch">
+<h2 class="ch anchored" data-anchor-id="learning-activities-from-reb-the-course">Learning Activities from <em>REB, The Course</em></h2>
+<p><strong>Learning Activity 9</strong> A 150°C solution containing 2 mol L<sup>–1</sup> of A is being fed to a 500 L CSTR at a rate of 250 L h<sup>–1</sup>. A jacket surrounding the CSTR contains molten salt at a constant temperature of 180 °C. The contact area between the CSTR contents and the jacket is 2 m<sup>2</sup> and the overall heat transfer coefficient is equal to 500 kcal m<sup>–2</sup> h<sup>–1</sup> K<sup>–1</sup>. Within the reactor reaction (1) occurs at a rate given by equation (2). The pre–exponential factor for the rate coefficient in equation (2) is 1.14 × 10<sup>9</sup> L mol<sup>–1</sup> h<sup>–1</sup> and the activation energy is 16.2 kcal mol<sup>–1</sup>. The reacting solution has a constant density and a constant heat capacity of 1.17 cal ml<sup>–1</sup> K<sup>–1</sup>. The heat of reaction is 18.2 kcal mol<sup>–1</sup> and is independent of temperature. At steady state, what are the outlet temperature and conversion of A?</p>
+<p><span class="math display">\[
+A \rightarrow Z \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1C_A^2 \tag{2}
+\]</span></p>
+<p><a href="activities/class_9/Activity 9.pdf">Learning Activity 9 Solution</a></p>
+<p><a href="activities/class_9/activity_9.py">Learning Activity 9 Calculations</a></p>
+<hr>
+<p><strong>Learning Activity 10</strong> An ideal, 50 gal CSTR is fed a liquid solution containing 0.014 lbmol A gal<sup>−1</sup> and 0.020 lbmol B gal<sup>−1</sup> at a temperature of 70 °F. The heat capacity of the reacting liquid is constant and equal to 65 BTU ft<sup>−3</sup> °R<sup>−1</sup>. A jacket surrounding the reactor is supplied with saturated steam at 220 °F. The steam condenses in the jacket, leaving as a saturated liquid. The overall heat transfer coefficient is 60 BTU ft<sup>−2</sup> °R<sup>−1</sup> h<sup>−1</sup>, and the heat transfer area is 13 ft<sup>2</sup>. Reactions (1) and (2) take place within the steady-state CSTR. The heat of reaction (1) is 45,000 BTU lbmol<sup>−1</sup>, and the heat of reaction (2) is 39,500 BTU lbmol<sup>−1</sup>. The rate expressions for reactions (1) and (2) are given in equations (3) and (4). The rate coefficients obey the Arrhenius expression. For reaction (1) the pre-exponential factor is 1.6 × 10<sup>18</sup> gal lbmol<sup>−1</sup> h<sup>−1</sup>, and the activation energy is 46,000 BTU lbmol<sup>−1</sup>. For reaction (2) the pre-exponential factor is 4.5 × 10<sup>18</sup> gal lbmol<sup>−1</sup> h<sup>−1</sup>, and the activation energy is 54,000 BTU lbmol<sup>−1</sup>. What volumetric feed rate will maximize the rate of production of reagent D? At that feed rate, what is the conversion of A and the reactor temperature?</p>
+<p><span class="math display">\[
+A + B \rightarrow D + Z \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+D + B \rightarrow U + Z \tag{2}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1C_AC_B \tag{3}
+\]</span></p>
+<p><span class="math display">\[
+r_2 = k_2C_DC_B \tag{4}
+\]</span></p>
+<p><a href="activities/class_10/Activity 10.pdf">Learning Activity 10 Solution</a></p>
+<p><a href="activities/class_10/activity_10.py">Learning Activity 10 Calculations</a></p>
+<hr>
+<p><strong>Learning Activity 11</strong> Equal molar amounts of gases A and B flow into an adiabatic CSTR at 260 °C and 3 atm. The space time is 80 s. Reagent Z is generated according to reaction (1) which obeys the rate expression shown in equation (2). The rate coefficient exhibits Arrhenius temperature dependence. The pre-exponential factor is 1.26 x 10<sup>6</sup> L mol<sup>–1</sup> s<sup>–1</sup> and the activation energy is 19 kcal mol<sup>–1</sup>. The heat of reaction (1) is –10.5 kcal mol<sup>–1</sup>, and the heat capacities of A, B, and Z are 42, 122, and 173 J mol<sup>–1</sup> K<sup>–1</sup>. How many steady states are possible, and what are the conversion and outlet temperature for each of them?</p>
+<p><span class="math display">\[
+A + B \rightarrow Z \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1C_AC_B \tag{2}
+\]</span></p>
+<p><a href="activities/class_11/Activity 11.pdf">Learning Activity 11 Solution</a></p>
+<p><a href="activities/class_11/activity_11_multiplicity.py">Learning Activity 11 Calculations for Multiplicity Plot</a></p>
+<p><a href="activities/class_11/activity_11_steady_states.py">Learning Activity 11 Calculations for Steady States</a></p>
+<hr>
+<p><strong>Learning Activity 12</strong> Examples 6.6.4 and 6.6.6 from REB, The Book analyzed an adiabatic, steady-state CSTR with a volume of 500 cm<sup>3</sup> that was going to be used to convert A and B into Y and Z according to reaction (1). A liquid solution flowing at 1.0 cm<sup>3</sup> s<sup>–1</sup> and containing equal amounts of A and B (0.015 mol cm<sup>–3</sup>) at 50 °C was going be used. The heat capacity of the fluid is essentially equal to that of the solvent, and can be considered to be constant and equal to 0.35 cal g<sup>–1</sup> K<sup>–1</sup>. The density of the fluid, also constant, is 0.93 g cm<sup>–3</sup>. The rate expression for reaction (1) is given in equation (2), and the heat of reaction (1) may be assumed to be constant and equal to –20 kJ mol<sup>–1</sup>. The rate coefficient displays Arrhenius temperature dependence with a pre-exponential factor equal to 3.24 x 10<sup>12</sup> cm<sup>3</sup> mol<sup>–1</sup> s<sup>–1</sup>, and an activation energy of 105.0 kJ mol<sup>–1</sup>.</p>
+<p>Example 6.6.4 showed that three steady states are possible for this reactor, and Example 6.6.6 showed that the high temperature (265 °C) and low temperature (50.1 °C) steady states are stable while the steady state at 138 °C is unstable. One possible startup procedure for this reactor is to fill it with pure solvent, heat the solvent to some initial temperature, and then initiate the feed flow. Compare the transient outlet temperature vs.&nbsp;time for initial temperatures of 180 °C and 190 °C.</p>
+<p><span class="math display">\[
+A + B \rightarrow Y + Z \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1C_AC_B \tag{2}
+\]</span></p>
+<p><a href="activities/class_12/Activity 12.pdf">Learning Activity 12 Solution</a></p>
+<p><a href="activities/class_12/activity_12.py">Learning Activity 12 Calculations</a></p>
+<hr>
+<p><strong>Learning Activity 13</strong> Cells are growing in an isothermal, steady-state CSTR. The effective reaction, in mass units, is given in equation (1). The reaction is auto-catalytic, and the rate is accurately described by the Monod equation, equation (2), with equal to 0.014 min<sup>–1</sup> and equal to 0.001 g cm<sup>–3</sup>. Through an appropriate startup process, the 4.43 L reactor can operate at steady-state with no cell mass in the feed. Specifically, if 60 cm<sup>3</sup> min<sup>–1</sup> of feed containing only substrate at a concentration of 0.04 g cm<sup>-3</sup>, the steady-state product stream contains substrate at a concentration of 2.97 x 10<sup>–2</sup> g cm<sup>–3</sup> and cell mass at at concentration of 4.68 x 10<sup>–3</sup> g cm<sup>–3</sup>. However, reactor operation is parametrically sensitive to the volumetric flow rate. Show that to be true by calculating the transient outlet concentration of cell mass as a function of time if the inlet volumetric flow rate changes from 60 to 61 cm<sup>3</sup> min<sup>–1</sup>.</p>
+<p><span class="math display">\[
+2.2 \, S \rightarrow X \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = \frac{V_{max}\left[S\right]\left[X\right]}{K_m + \left[S\right]} \tag{2}
+\]</span></p>
+<p><a href="activities/class_13/Activity 13.pdf">Learning Activity 13 Solution</a></p>
+<p><a href="activities/class_13/activity_13_ss.py">Learning Activity 13 Steady-State Calculations</a></p>
+<p><a href="activities/class_13/activity_13.py">Learning Activity 13 Transient Calculations</a></p>
+</section>
+<section id="practice-assignments-from-reb-the-course" class="level2 ch">
+<h2 class="ch anchored" data-anchor-id="practice-assignments-from-reb-the-course">Practice Assignments from <em>REB, The Course</em></h2>
+<p><strong>Practice Assignment 9</strong> The rate of liquid-phase reaction (1) is adequately described by the rate expression given in equation (2). The rate coefficients exhibits Arrhenius temperature dependence with a forward pre-exponential factor of 1.93 x 10<sup>13</sup> ft<sup>3</sup> lbmol<sup>–1</sup> min<sup>–1</sup>, a reverse pre-exponential factor of 2.86 x 10<sup>26</sup> min<sup>–1</sup>, a forward activation energy of 46,400 BTU lbmol<sup>–1</sup>, and a reverse activation energy of 86,700 BTU lbmol<sup>–1</sup>. The heat of reaction (1) is constant and equal to –40,300 BTU lbmol<sup>–1</sup>.</p>
+<p>Reactant A is fed to a steady state CSTR at a rate of 0.015 lbmol min<sup>–1</sup>, and reactant B is fed at a rate of 3.3 lbmol min<sup>–1</sup>. This corresponds to an inlet volumetric flow rate of 1.41 ft<sup>3</sup> min<sup>–1</sup>. The CSTR has a fluid volume of 18 ft<sup>3</sup>, and it operates adiabatically. The heat capacity of reagent A is 100 BTU lbmol<sup>–1</sup> °R<sup>–1</sup>, that of B is 18 BTU lbmol<sup>–1</sup> °R<sup>–1</sup>, and the heat capacity of Z is 120 BTU lbmol<sup>–1</sup> °R<sup>–1</sup>, and they may be considered to be independent of temperature. What will the conversion and outlet temperatures equal if the combined feed enters at 200 °F.</p>
+<p><span class="math display">\[
+A + B \rightleftarrows Z \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_{1,f}C_AC_B\ - k_{1,r}C_Z \tag{2}
+\]</span></p>
+<p><a href="practice/class_9/Practice Assignment 9.pdf">Practice Assignment 9 Solution</a></p>
+<p><a href="practice/class_9/practice_9.py">Practice Assignment 9 Calculations</a></p>
+<hr>
+<p><strong>Practice Assignment 10</strong> A 4 L CSTR is being used to convert A to Z according to reaction (1). The rate expression for reaction (1) is given in equation (2). The rate coefficient obeys the Arrhenius expression with a pre-exponential factor equal to 2.59 x 10<sup>9</sup> min<sup>–1</sup> and an activation energy equal to 16,500 cal mol<sup>–1</sup>. The heat of reaction (1) may be taken to be constant and equal to –22,200 cal mol<sup>–1</sup>. The heat capacity of the reacting solution is approximately constant and equal to 440 cal L<sup>–1</sup> K<sup>–1</sup>, and its density is constant. The reactor has a jacket with a volume of 0.5 L, a heat transfer area of 0.6 ft<sup>2</sup> and a heat transfer coefficient of 5.65 x 10<sup>3</sup> cal ft<sup>–2</sup> h<sup>–1</sup> K<sup>–1</sup>. The cooling water may be taken to have a constant density of 1 g cm<sup>–3</sup> and a constant heat capacity of 1 cal g<sup>–1</sup> K<sup>–1</sup>.</p>
+<p>The feed is a solution containing only A at a concentration of 2M and a temperature of 60 °C, and cooling water at 20 °C flows into the jacket at 0.2 kg min<sup>–1</sup>. Compare the conversion, outlet temperature, and outlet coolant temperature for space times of 50 and 60 min.</p>
+<p><span class="math display">\[
+A \rightarrow Z \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1C_A \tag{2}
+\]</span></p>
+<p><a href="practice/class_10/Practice Assignment 10.pdf">Practice Assignment 10 Solution</a></p>
+<p><a href="practice/class_10/practice_10.py">Practice Assignment 10 Calculations</a></p>
+<hr>
+<p><strong>Practice Assignment 11</strong> Suppose a steady state, 500 ml CSTR operates adiabatically at a space time of 0.4 min. The liquid feed concentration is 5 M, and the feed temperature is 60 ºC. The fluid heat capacity is constant and equal to 1 cal ml<sup>–1</sup> K<sup>–1</sup>. In the reactor the feed, A, is converted to Z, reaction (1). The heat released by the reaction is 30 kcal mol<sup>–1</sup>. The reaction rate is first order in A, equation (2), with a pre-exponential factor of 4.75 x 10<sup>13</sup> min<sup>–1</sup> and an activation energy of 25 kcal mol<sup>–1</sup>. Determine how many steady states are possible at these conditions and the conversion and outlet temperature for each of them.</p>
+<p><span class="math display">\[
+A \rightarrow Z \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1C_A \tag{2}
+\]</span></p>
+<p><a href="practice/class_11/Practice Assignment 11.pdf">Practice Assignment 11 Solution</a></p>
+<p><a href="practice/class_11/practice_11_multiplicity.py">Practice Assignment 11 Multiplicity Calculations</a></p>
+<p><a href="practice/class_11/practice_11.py">Practice Assignment 11 Steady-State Calculations</a></p>
+<hr>
+<p><strong>Practice Assignment 12</strong> Liquid phase reaction (1) takes place in an adiabatic CSTR with a volume of 1.5 L operating at atmospheric pressure. The 50 °C feed to the reactor is 1.5 M in A and 2.5 M in B. The kinetics are given by equation (2) with k<sub>0,1</sub> = 1.4 x 10<sup>14</sup> min<sup>–1</sup> and E<sub>1</sub> = 22 kcal mol<sup>–1</sup>. The heat of reaction is –211 kJ mol<sup>–1</sup>, and the heat capacity of the fluid is 1.3 cal cm<sup>–3</sup> K<sup>–1</sup>. The reactor is going to be started up at a space time of 10 min by initially filling it with solvent (no reactants or products) at 50 °C and then starting the feed flow. Calculate and plot the outlet molar flow of Y and the outlet temperature as functions of time.</p>
+<p><span class="math display">\[
+2 \, A + B \rightleftarrows 2 \, Y + 2 \, Z \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1C_A \tag{2}
+\]</span></p>
+<p><a href="practice/class_12/Practice Assignment 12.pdf">Practice Assignment 12 Solution</a></p>
+<p><a href="practice/class_12/practice_12.py">Practice Assignment 12 Calculations</a></p>
+<hr>
+<p><strong>Practice Assignment 13</strong> A jacketed, 17.7 ft<sup>3</sup> CSTR is operating at steady state. A liquid solution containing only reagent A at a concentration of 0.125 lbmol ft<sup>–3</sup> is flowing into the reactor at 0.15 ft<sup>3</sup> min<sup>–1</sup>, 300 °F, and 1 atm. The reacting solution is incompressible and has a constant heat capacity of 73.1 BTU ft<sup>–3</sup> °F<sup>–1</sup>. Reaction (1) is taking place within the CSTR at a rate given by equation (2) where the rate coefficient pre-exponential factor is 3.04 × 10<sup>8</sup> ft<sup>3</sup> lbmol<sup>–1</sup> min<sup>–1</sup> and the activation energy is 29,100 BTU lbmol<sup>–1</sup>. The heat of reaction is 32,800 BTU lbmol<sup>–1</sup> and is independent of temperature. A heat exchange fluid with a density of 81.2 lb<sub>m</sub> ft<sup>–3</sup> and a heat capacity of 1.06 BTU lb<sub>m</sub><sup>–1</sup> °F<sup>–1</sup> flows into the jacket at 15 lb<sub>m</sub> min<sup>–1</sup> and 410 °F. The heat exchange fluid leaves the jacket at 355 °F. The jacket volume is 7 ft<sup>3</sup>, the heat transfer area is 21.5 ft<sup>2</sup> and the overall heat transfer coefficient is equal to 1.71 BTU ft<sup>–2</sup> min<sup>–1</sup> °F<sup>–1</sup>. The steady-state conversion of A is 85.3% and the steady-state outlet temperature is 332 °F. Suppose that an equipment failure elsewhere in the chemical plant caused the exchange fluid flow rate to instantaneously drop to a constant value of 5 lb<sub>m</sub> min<sup>–1</sup>. Plot the outlet concentration of Z and the reacting fluid temperature over the next 10 h assuming all other reactor inputs are unaffected.</p>
+<p><span class="math display">\[
+A \rightarrow Z \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1C_A^2 \tag{2}
+\]</span></p>
+<p><a href="practice/class_13/Practice Assignment 13.pdf">Practice Assignment 13 Solution</a></p>
+<p><a href="practice/class_13/practice_13.py">Practice Assignment 13 Calculations</a></p>
+</section>
+<section id="additional-assignments-for-extra-practice" class="level2 ch">
+<h2 class="ch anchored" data-anchor-id="additional-assignments-for-extra-practice">Additional Assignments for Extra Practice</h2>
+<p>Additional assignments will be added as they become available.</p>
+<hr>
+<p>This website is licensed under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-Non-Commercial-NoDerivatives 4.0 International License</a> (CC BY-NC-ND 4.0).</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

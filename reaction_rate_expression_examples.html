@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>reaction_rate_expression_examples – Reaction Engineering Basics, The Course</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./graphics/BuffaloBadger_16_16.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-445b8638c3d06994fee0907d791121c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./graphics/Banner.png" alt="" class="navbar-logo light-content">
+    <img src="./graphics/Banner.png" alt="" class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="http://buffalobadger.github.io/RE_Basics"> 
+<span class="menu-text">REB, The Book</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="http://buffalobadger.github.io/RE_Basics_Course"> 
+<span class="menu-text">REB, The Course</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="http://buffalobadger.github.io/RE_Basics_Design"> 
+<span class="menu-text">REB, The Design</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="http://buffalobadger.github.io/The_Sett"> 
+<span class="menu-text">The Sett</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="http://buffalobadger.github.io/about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reaction_rate_expression_examples.html"><strong>Assignments by Topic</strong></a></li><li class="breadcrumb-item"><a href="./reaction_rate_expression_examples.html">Reactions, Rates, and Rate Expressions</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>Getting Started</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preparing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preparing for the Course</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./taking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taking the Course</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>Classes</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 1: Reaction Engineering, Ethics, and Safety</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>Reactions, Rates, and Rate Expressions</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 2: Reactions and Stoichiometry</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 3: Rates and Rate Expressions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 4: The Bodenstein Steady-State Approximation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 5: Rate-Determining Steps and Quasi-Equilibrium</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 6: Conservation of Catalyst and Charge</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 7: Most Abundant Intermediate</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 8: Analysis of Ideal Reactors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>CSTR Analysis</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 9: Steady-State CSTR Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 10: Selectivity in Steady-State CSTRs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 11: Multiplicity of CSTR Steady States</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 12: CSTR Startup and Shut Down</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 13: Stability of CSTR Steady States</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>BSTR Analysis</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 14: BSTR Response Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 15: BSTR Operation and Sizing Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 16: Net BSTR Production Rate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 17: Gas Phase Reactions in BSTRs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_18.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 18: Variable BSTR Heating or Cooling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>SBSTR Analysis</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_19.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 19: Use of SBSTRs to Control Temperature</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_20.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 20: Selectivity in SBSTRs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>PFR Analysis</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_21.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 21: Non-Isothermal, Steady-State PFR Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_22.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 22: Pressure Drop in Steady-State PFRs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 23: Steady-State Packed Bed PFRs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 24: Design of Ideal Reactors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>Kinetics Data Analysis</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 25: Kinetics Experiments and Data Generation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_26.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 26: Analysis of CSTR Kinetics Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_27.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 27: Analysis of BSTR Kinetics Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_28.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 28: Analysis of PFR Kinetics Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_29.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 29: Analysis Using Approximate Reactor Models</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>Reactor System Analysis</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_30.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 30: Analysis of Steady-State Flow Reactor Systems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_31.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 31: Analysis of Steady-State, Thermally Back-Mixed PFRs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_32.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 32: Analysis of Steady-State, Recycle PFRs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>Non-Ideal Reactor Models</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_33.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 33: The Age Function from Step-Change Stimuli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_34.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 34: The Age Function from Impulse Stimuli</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_35.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 35: An Early Mixing Segregated Flow Reactor Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_36.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 36: A Late Mixing Segregated Flow Reactor Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_37.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 37: An Empirical Axial Dispersion Reactor Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_38.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 38: Zoned Reactor Models</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classes/class_39.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class 39: Intermediate Reaction Engineering</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text"><strong>Assignments by Topic</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reaction_rate_expression_examples.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Reactions, Rates, and Rate Expressions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mechanism_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mechansitic Rate Expressions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./qualitative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Qualitative Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./CSTR_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CSTR Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./BSTR_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BSTR Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./SBSTR_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SBSTR Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./PFR_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PFR Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kinetics_data_analysis_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kinetics Data Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reactor_system_analysis_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reactor System Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./non_ideal_reactor_models_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Non-Ideal Reactor Models</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text"><strong>Additional Resources</strong></span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./REB_Equation_Summary.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">REB Equation Summary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nm_videos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Numerical Methods Videos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reaction_rate_expression_examples.html"><strong>Assignments by Topic</strong></a></li><li class="breadcrumb-item"><a href="./reaction_rate_expression_examples.html">Reactions, Rates, and Rate Expressions</a></li></ol></nav></header>
+
+
+
+
+<section id="assignments-involving-reactions-rates-and-rate-expressions" class="level1">
+<h1>Assignments Involving Reactions, Rates, and Rate Expressions</h1>
+<section id="examples-from-reb-the-book" class="level2 ch">
+<h2 class="ch anchored" data-anchor-id="examples-from-reb-the-book">Examples from <em>REB, The Book</em></h2>
+<p><strong>Example 2.6.1</strong> Carbon monoxide (CO) can be oxidized by molecular oxygen (O<sub>2</sub>) to produce carbon dioxide (CO<sub>2</sub>). If equal volumes of carbon monoxide and air at equal temperature and pressure are mixed and flow into a chemical reactor, which reactant is limiting?</p>
+<p><a href="examples/2_6_2/Example 2.6.2.pdf">Example 2.6.1 Solution</a></p>
+<hr>
+<p><strong>Example 2.6.2</strong> A new reactor is being developed with the hope of generating ethylene by the oxidative dehydrogenation of ethane, reaction (1). Reactions (2) and (3) also take place at the operating conditions of 1 atm and 150 °C. The process starts with 90% ethane and 10% air (you may take air to contain 79% N<sub>2</sub> and 21% O<sub>2</sub>) and ends with a 50% conversion of O<sub>2</sub> and a selectivity of 3 C<sub>2</sub>H<sub>4</sub>/CO<sub>2</sub>. Calculate the final mole fraction of CO<sub>2</sub>.</p>
+<p><span class="math display">\[
+2 C_2H_6 + O_2 \leftrightarrows 2 C_2H_4 + 2 H_2O \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+C_2H_4 + 3 O_2 \leftrightarrows 2 CO_2 + 2 H_2O \tag{2}
+\]</span></p>
+<p><span class="math display">\[
+2 C_2H_6 + 7 O_2 \leftrightarrows 4 CO_2 + 6 H_2O \tag{3}
+\]</span></p>
+<p><a href="examples/2_6_2/Example 2.6.2.pdf">Example 2.6.2 Solution</a></p>
+<hr>
+<p><strong>Example 2.6.3</strong> Suppose gas-phase reaction (1) was studied in an open, steady-state, isothermal, isobaric system. The flow into the system contained 0.5 mol min<sup>−1</sup> of N<sub>2</sub>O<sub>5</sub> and 0.5 mol min<sup>−1</sup> of N<sub>2</sub> at 600 K and 5 MPa.</p>
+<ol type="a">
+<li>Write an equation for the outlet molar flow rate of NO<sub>2</sub> in terms of the outlet molar flow rate of N<sub>2</sub>O<sub>5</sub>.</li>
+<li>If the outlet flow contains 30% N<sub>2</sub>, calculate the conversion of N<sub>2</sub>O<sub>5</sub>.</li>
+</ol>
+<p><span class="math display">\[
+2 N_2O_5 \leftrightarrows 4 NO_2 + O_2 \tag{1}
+\]</span></p>
+<p><a href="examples/2_6_3/Example 2.6.3.pdf">Example 2.6.3 Solution</a></p>
+<hr>
+<p><strong>Example 2.6.4</strong> Suppose a system initially contains 1 mole of CH<sub>4</sub> and 2.5 moles of H<sub>2</sub>O. Reactions (1) through (4) occur at 920 °C with 88% conversion of CH<sub>4</sub> and a CO yield of 65%. Selected thermodynamic data are presented in <a href="#tbl-ch2_example4" class="quarto-xref">Table&nbsp;1</a>. Generate the necessary expressions for heats of reaction and use them to calculate the net heat released.</p>
+<p><span class="math display">\[
+CH_4 + H_2O \rightarrow CO + 3 H_2 \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+CH_4 + CO_2 \rightarrow 2 CO + 2 H_2 \tag{2}
+\]</span></p>
+<p><span class="math display">\[
+CH_4 + 2 H_2O \rightarrow CO_2 + 4 H_2 \tag{3}
+\]</span></p>
+<p><span class="math display">\[
+CO + H_2O \rightarrow CO_2 + H_2 \tag{4}
+\]</span></p>
+<div id="tbl-ch2_example4" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[10,10,80]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ch2_example4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Ideal gas standard heats of formation<sup>1</sup> and heat capacities<sup>2</sup> from Reid, Robert C., J. M. Prausnitz, and Thomas Kilgore Sherwood. 1977. The Properties of Gases and Liquids. McGraw-Hill.
+</figcaption>
+<div aria-describedby="tbl-ch2_example4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 80%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(i\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\Delta H_{f,i}\big\vert_{T=298K}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\hat{C}_{p,i}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">CH<sub>4</sub></td>
+<td style="text-align: center;">-17.89</td>
+<td style="text-align: center;">4.598 + 1.245 x 10<sup>-2</sup> T + 2.86 x 10<sup>-6</sup> T<sup>2</sup> - 2.703 x 10<sup>-9</sup> T<sup>3</sup></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">H<sub>2</sub>O</td>
+<td style="text-align: center;">-57.8</td>
+<td style="text-align: center;">7.701 + 4.595 x 10<sup>-4</sup> T + 5.521 x 10<sup>-6</sup> T<sup>2</sup> - 0.859 x 10<sup>-9</sup> T<sup>3</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">CO</td>
+<td style="text-align: center;">-26.42</td>
+<td style="text-align: center;">7.373 - 3.07 x 10<sup>-3</sup> T + 6.662 x 10<sup>-6</sup> T<sup>2</sup> - 3.037 x 10<sup>-9</sup> T<sup>3</sup></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">H<sub>2</sub></td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">6.483 + 2.215 x 10<sup>-3</sup> T - 3.298 x 10<sup>-6</sup> T<sup>2</sup> + 1.826 x 10<sup>-9</sup> T<sup>3</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">CO<sub>2</sub></td>
+<td style="text-align: center;">-94.05</td>
+<td style="text-align: center;">4.728 + 1.754 x 10<sup>-2</sup> T - 1.338 x 10<sup>-5</sup> T<sup>2</sup> + 4.097 x 10<sup>-9</sup> T<sup>3</sup></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><sup>1</sup> kcal mol<sup>-1</sup><br>
+<sup>2</sup> cal mol<sup>-1</sup> K<sup>-1</sup> for T in K</p>
+<p><a href="examples/2_6_4/Example 2.6.4.pdf">Example 2.6.4 Solution</a></p>
+<hr>
+<p><strong>Example 3.6.1</strong> The synthesis of ammonia, reaction (1), is one of the highest production chemical processes in the world. (One reason for this is that ammonia is used to make fertilizer.) It is a heterogeneous catalytic reaction. The ammonia synthesis catalyst takes the form of pellets that pack into the the reactor with an apparent density of 155 lb<sub>m</sub> ft<sup>-3</sup>. Rase (1977. Chemical Reactor Design for Process Plants. Vol. 2. New York: John Wiley.) provides the expression in equation (2) for the rate of generation of ammonia via reaction (1). In that expression, <span class="math inline">\(E_1\)</span> is the activation energy, <span class="math inline">\(K_{1,eq}\)</span> is the equilibrium constant and <span class="math inline">\(a_i\)</span> represents the thermodynamic activity of reagent <span class="math inline">\(i\)</span>.</p>
+<p><span class="math display">\[
+3 H_2 + N_2 \rightleftarrows 2 NH_3 \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+\begin{align}
+r_{NH_3,1} &amp;= 1.54 \times 10^{15} \exp{\left( \frac{-E_1}{RT} \right)} \\
+&amp;\times \left[ K_{1,eq}^2\left( \frac{a_{N_2}a_{H_2}^{1.5}}{a_{NH_3}} \right) - \left( \frac{a_{NH_3}}{a_{H_2}^{1.5}} \right)  \right] \frac{\text{kmol NH}_3}{\text{m}_{\text{bed}}^3 \text{h}}
+\end{align} \tag{2}
+\]</span></p>
+<p>Write an expression for the general rate of reaction (1), <span class="math inline">\(r_1\)</span>, that is normalized per lb<sub>m</sub> of catalyst.</p>
+<p><a href="examples/3_6_1/Example 3.6.1.pdf">Example 3.6.1 Solution</a></p>
+<hr>
+<p><strong>Example 3.6.2</strong> The water-gas shift, reaction (1), is used commercially to remove CO impurities from hydrogen. Suppose the rate expression shown in equation (2) was validated using experimental data that were far from thermodynamic equilibrium. At 675 K, the rate coefficient, <span class="math inline">\(k_1\)</span>, was found to equal to 3.37 lbmol h<sup>-1</sup> ft<sup>-3</sup> atm<sup>-0.55</sup>. In equation (3), that power-law rate expression has been multiplied by a factor that will force it to evaluate to zero at equilibrium. At 675 K, the equilibrium constant, <span class="math inline">\(K_1\)</span> is equal to 12.0.</p>
+<p>If a system initially containing 75% H<sub>2</sub>O, 24% CO, and 1% CO<sub>2</sub> at 10 atm and 675 K reacts isothermally and isobarically, the equilibrium conversion of CO will equal 96.3%. The net rate should go to zero at this conversion.</p>
+<p><span class="math display">\[
+CO + H_2O \rightleftarrows CO_2 + H_2 \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1 P_{CO}^{0.9} P_{H_2O}^{0.25} P_{CO_2}^{-0.6} \tag{2}
+\]</span></p>
+<p><span class="math display">\[
+r_1 = k_1 P_{CO}^{0.9} P_{H_2O}^{0.25} P_{CO_2}^{-0.6} \left\{ 1 - \frac{P_{CO_2} P_{H_2}}{K_1 P_{CO} P_{H_2O}} \right\} \tag{3}
+\]</span></p>
+<p>For the system described above, make a plot of the net rate of reaction (1) predicted by equations (2) and (3) at CO conversions between 0 and 100%. Then make a second plot at conversions between 85 and 100%. Comment upon the results.</p>
+<p><a href="examples/3_6_2/Example 3.6.2.pdf">Example 3.6.2 Solution</a></p>
+<p><a href="examples/3_6_2/example_3_6_2.py">Example 3.6.2 Calculations</a></p>
+<hr>
+<p><strong>Example 3.6.3</strong> Kinetic studies were performed at a number of different temperatures, <span class="math inline">\(T\)</span>, to find the value of a second order rate coefficient, <span class="math inline">\(k\)</span>, at those temperatures. The results for each experiment, <span class="math inline">\(i\)</span>, are given in the table below. Determine whether the temperature dependence of this rate coefficient is consistent with the Arrhenius expression, and find the best values for the pre-exponential factor and the activation energy.</p>
+<div id="tbl-ch3_ex3_data" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ch3_ex3_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Rate coefficients measured experimentally at different temperatures.
+</figcaption>
+<div aria-describedby="tbl-ch3_ex3_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">i (Experiment Number)</th>
+<th style="text-align: center;">T (°C)</th>
+<th style="text-align: center;">k (L mol<sup>–1</sup> min<sup>–1</sup>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">2.63 <span class="math inline">\(\times\)</span> 10<sup>-4</sup></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">4.78 <span class="math inline">\(\times\)</span> 10<sup>-4</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">1.52 <span class="math inline">\(\times\)</span> 10<sup>-3</sup></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">54</td>
+<td style="text-align: center;">4.18 <span class="math inline">\(\times\)</span> 10<sup>-3</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">9.07 <span class="math inline">\(\times\)</span> 10<sup>-3</sup></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">78</td>
+<td style="text-align: center;">2.14 <span class="math inline">\(\times\)</span> 10<sup>-2</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">89</td>
+<td style="text-align: center;">4.2 <span class="math inline">\(\times\)</span> 10<sup>-2</sup></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">103</td>
+<td style="text-align: center;">9.42 <span class="math inline">\(\times\)</span> 10<sup>-2</sup></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The data are available in the .csv file, <a href="./solutions/ch3_ex3/example_3_6_3_data.csv">example_3_6_3_data.csv</a>.</p>
+<p><a href="examples/3_6_3/Example 3.6.3.pdf">Example 3.6.3 Solution</a></p>
+<p><a href="examples/3_6_3/example_3_6_3.py">Example 3.6.3 Calculations</a></p>
+<hr>
+<p><strong>Example 3.6.4</strong> The decomposition of HI, equation (1), is elementary. Collision theory predicts the rate coefficient to depend upon temperature as shown in equation (2) where <span class="math inline">\(N_{av}\)</span> is Avogadro’s number and <span class="math inline">\(k_B\)</span> is the Boltzmann constant. The collision cross-section, <span class="math inline">\(\sigma_{HI-HI}\)</span>, is 38.5 Å, the reduced mass, <span class="math inline">\(\mu\)</span>, is 1.063 x 10<sup>-22</sup> g, and the activation energy, <span class="math inline">\(E\)</span>, is 184.1 kJ mol<sup>-1</sup>.</p>
+<p><span class="math display">\[
+2 HI \rightleftarrows H_2 + I_2 \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+k = N_{av}\sigma_{HI-HI} \sqrt{\frac{2k_BT}{\pi \mu}} \exp{\left( \frac{-E}{RT}\right)} \tag{2}
+\]</span></p>
+<p>Use equation (2) to calculate the rate coefficient at several temperatures between 300 and 400 K. Then use the resulting <span class="math inline">\(\underline{k}\)</span> <em>vs.</em> <span class="math inline">\(\underline{T}\)</span> data to assess how well the Arrhenius expression describes the rate coefficient.</p>
+<p><a href="examples/3_6_4/Example 3.6.4.pdf">Example 3.6.4 Solution</a></p>
+<p><a href="examples/3_6_4/example_3_6_4.py">Example 3.6.4 Calculations</a></p>
+</section>
+<section id="learning-activities-from-reb-the-course" class="level2 ch">
+<h2 class="ch anchored" data-anchor-id="learning-activities-from-reb-the-course">Learning Activities from <em>REB, The Course</em></h2>
+<p><strong>Learning Activity 2.1</strong> The gas phase reaction synthesis of ammonia from NO, reaction (1), takes place in a system that initially contained 2 moles of H<sub>2</sub> and 1 mole of NO. If 50% of the limiting reactant was converted, what was the final mole fraction of ammonia?</p>
+<p><span class="math display">\[
+2 NO + 5 H_2 \leftrightarrows 2 NH_3 + 2 H_2O \tag{1}
+\]</span></p>
+<p><a href="activities/class_2/Activity 2.1.pdf">Activity 2.1 Solution</a></p>
+<hr>
+<p><strong>Learning Activity 2.2</strong> The charge to a reactor consisted of 66 mol H<sub>2</sub> and 34 mol CO. Reactions (1) through (6) occurred, after which 40% of the CO had been converted. The final ratio of H<sub>2</sub> to CO was 1.5, and the selectivity for methanol over carbon dioxide was 8.3. Calculate the final molar amount of each reagent in the system.</p>
+<p><span class="math display">\[
+CO + 2 H_2 \rightleftarrows CH_3OH \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+CO_2 + 3 H_2 \rightleftarrows CH_3OH + H_2O \tag{2}
+\]</span></p>
+<p><span class="math display">\[
+CO + H_2O \rightleftarrows CO_2 + H_2 \tag{3}
+\]</span></p>
+<p><span class="math display">\[
+CO + 3 H_2 \rightleftarrows CH_4 + H_2O \tag{4}
+\]</span></p>
+<p><span class="math display">\[
+CO_2 + 4 H_2 \rightleftarrows CH_4 + 2 H_2O \tag{5}
+\]</span></p>
+<p><span class="math display">\[
+CH_4 + H_2O \rightleftarrows CH_3OH + H_2 \tag{6}
+\]</span></p>
+<p><a href="activities/class_2/Activity 2.2.pdf">Activity 2.2 Solution</a></p>
+<p><a href="activities/class_2/activity_2_2.py">Calculations for Activity 2.2</a></p>
+<hr>
+<p><strong>Learning Activity 2.3</strong> The vapor phase synthesis of methanol is given in reaction (1). The gas phase heat capacity of reagent <span class="math inline">\(i\)</span>, <span class="math inline">\(\hat{C}_{p,i}\)</span>, in J mol<sup>-1</sup> K<sup>-1</sup> can be calculated using equation (2) where <span class="math inline">\(t\)</span> is the temperature in K divided by 1000. The constants for use in equation (2), <span class="math inline">\(A_i\)</span> through <span class="math inline">\(E_i\)</span>, are given in <a href="#tbl-ch2_activity4" class="quarto-xref">Table&nbsp;3</a>, which also includes the standard heat of formation at 298 K, the standard change in Gibbs free energy for formation, and the standard entropy of the reagents in kJ mol<sup>-1</sup>, kJ mol<sup>-1</sup>, and J mol<sup>-1</sup> K<sup>-1</sup>, respectively. Generate an expression for the heat of reaction (1) as a function of temperature.</p>
+<p><span class="math display">\[
+CO + 2 H_2 \rightleftarrows CH_3OH \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+\hat{C}_{p,i} = A_i + B_i t + C_i t^2 + D_i t^3 + \frac{E_i}{t^2} \tag{2}
+\]</span></p>
+<div id="tbl-ch2_activity4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ch2_activity4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Thermodynamic data for Activity 4 from Chase, M. W., Jr., C. A. Davies, J. R. Downey, Jr., D. J. Frurip, R. A. McDonald and A. N. Syverud, “JANAF Thermochemical Tables,” 3rd ed.&nbsp;American Chemical Society and American Institute of Physics, New York, 1986.
+</figcaption>
+<div aria-describedby="tbl-ch2_activity4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">i</th>
+<th style="text-align: center;">CO</th>
+<th style="text-align: center;">H<sub>2</sub></th>
+<th style="text-align: center;">CH<sub>3</sub>OH</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A<sub>i</sub></td>
+<td style="text-align: center;">25.567590</td>
+<td style="text-align: center;">33.107800</td>
+<td style="text-align: center;">21.138073</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B<sub>i</sub></td>
+<td style="text-align: center;">6.096130</td>
+<td style="text-align: center;">-11.508000</td>
+<td style="text-align: center;">70.878654</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C<sub>i</sub></td>
+<td style="text-align: center;">4.054656</td>
+<td style="text-align: center;">11.609300</td>
+<td style="text-align: center;">25.853554</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">D<sub>i</sub></td>
+<td style="text-align: center;">-2.671301</td>
+<td style="text-align: center;">-2.844400</td>
+<td style="text-align: center;">-28.497905</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">E<sub>i</sub></td>
+<td style="text-align: center;">0.131021</td>
+<td style="text-align: center;">-0.159665</td>
+<td style="text-align: center;">0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\Delta H_{f,i}\big\vert_{298K}\)</span></td>
+<td style="text-align: center;">-110.53</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">-201.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\Delta G_{f,i}\big\vert_{298K}\)</span></td>
+<td style="text-align: center;">-137.3689</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">-162.6153</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(S_i^0\)</span></td>
+<td style="text-align: center;">197.6482155</td>
+<td style="text-align: center;">130.6656268</td>
+<td style="text-align: center;">239.7234884</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="activities/class_2/Activity 2.3.pdf">Activity 2.3 Solution</a></p>
+<hr>
+<p><strong>Learning Activity 3</strong> Reversible reaction (1) is elementary and the forward rate coefficient obeys the Arrhenius expression with a pre-exponential factor equal to 6.97 x 10<sup>6</sup> L mol<sup>–1</sup> min<sup>–1</sup> and an activation energy equal to 57.3 kJ mol<sup>–1</sup>. Use the ideal gas law to replace the concentrations in the rate expression with partial pressures in atm, and combine the terms involving temperature into apparent forward and reverse rate coefficients.</p>
+<p><span class="math display">\[
+A + B \rightleftarrows C + D \tag{1}
+\]</span></p>
+<p>Write a utility function that takes the ideal gas constant and equal-sized arrays of absolute temperatures and rate coefficients as arguments and returns the pre-exponential factor and activation energy, their 95% confidence intervals (CIs), and the coefficient of determination. Add the function to reb_utils.py and use it to determine whether the apparent forward rate coefficient displays Arrhenius temperature dependence, and, if so, what are the best estimates for the pre-exponential factor and the activation energy at temperatures between 0 and 100 °C?</p>
+<p><a href="activities/class_3/Activity 3.pdf">Activity 3 Solution</a></p>
+<p><a href="./code/reb_utils.py">reb_utils.py</a></p>
+</section>
+<section id="practice-assignments-from-reb-the-course" class="level2 ch">
+<h2 class="ch anchored" data-anchor-id="practice-assignments-from-reb-the-course">Practice Assignments from <em>REB, The Course</em></h2>
+<p><strong>Practice Assignment 2.1</strong> Cellulosic biomass, represented here as C<sub>6</sub>H<sub>10</sub>O<sub>5</sub>, can be gasified using steam. Reactions (1) through (3) take place. Suppose gasification began with 10 moles of H<sub>2</sub>O for every mole of C<sub>6</sub>H<sub>10</sub>O<sub>5</sub>, and no other reagents present. If 50% of the cellulose is converted and the selectivity for CO<sub>2</sub> over CO is 3, what will the CO to H<sub>2</sub> ratio equal?</p>
+<p><span class="math display">\[
+C_6H_{10}O_5 + 7 H_2O \rightarrow 6 CO_2 + 12 H_2 \tag{1}
+\]</span></p>
+<p><span class="math display">\[
+C_6H_{10}O_5 + H_2O \rightarrow 6 CO + 6 H_2 \tag{2}
+\]</span></p>
+<p><span class="math display">\[
+CO + H_2O \rightarrow CO_2 + H_2 \tag{3}
+\]</span></p>
+<p><a href="practice/class_2/Practice Assignment 2.1.pdf">Practice Assignment 2.1 Solution</a></p>
+<hr>
+<p><strong>Practice Assignment 2.2</strong> The oxidation of ethanol to produce acetic acid is given in equation (1). Standard gas phase heats of formation at 298 K and heat capacities for the reagents are provided in <a href="#tbl-ch2_practice2" class="quarto-xref">Table&nbsp;4</a>. Generate an expression for the standard heat of reaction as a function of temperature and use it to calculate the standard heat of reaction at 300, 350, and 400 K.</p>
+<p><span class="math display">\[
+C_2H_5OH + O_2 \rightarrow CH_3COOH + H_2O \tag{1}
+\]</span></p>
+<div id="tbl-ch2_practice2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ch2_practice2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Thermodynamic data for Practice Assignment 2.2.
+</figcaption>
+<div aria-describedby="tbl-ch2_practice2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Reagent</th>
+<th style="text-align: center;"><span class="math inline">\(\Delta H_f\big\vert_{298K}\)</span> (kJ mol<sup>-1</sup>)</th>
+<th style="text-align: center;"><span class="math inline">\(\hat{C}_p\)</span> (J mol<sup>-1</sup> K<sup>-1</sup>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">C<sub>2</sub>H<sub>6</sub>O</td>
+<td style="text-align: center;">-234</td>
+<td style="text-align: center;">73.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">C<sub>2</sub>H<sub>4</sub>O<sub>2</sub></td>
+<td style="text-align: center;">-443</td>
+<td style="text-align: center;">71.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">H<sub>2</sub>O</td>
+<td style="text-align: center;">-242</td>
+<td style="text-align: center;">33.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">O<sub>2</sub></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">29.7</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="practice/class_2/Practice Assignment 2.2.pdf">Practice Assignment 2.2 Solution</a></p>
+<hr>
+<p><strong>Practice Assignment 3</strong> A reaction was studied at the temperatures, <span class="math inline">\(T\)</span>, listed in the <a href="#tbl-ch3_practice3_data" class="quarto-xref">Table&nbsp;5</a>, and at each temperature the value of the first-order rate coefficient, <span class="math inline">\(k\)</span>, was determined. On the basis of the information provided in the table, does the rate coefficient display Arrhenius temperature dependence? If it does, what are the values of the pre-exponential factor and the activation energy? The data are also available in the file, <a href="practice/class_3/practice_3_data.csv">practice_3_data.csv</a>.</p>
+<div id="tbl-ch3_practice3_data" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ch3_practice3_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: Rate coefficients measured experimentally at different temperatures for Practice Assignment 3.
+</figcaption>
+<div aria-describedby="tbl-ch3_practice3_data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">T (°F)</th>
+<th style="text-align: center;">k (s<sup>-1</sup>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">76.7</td>
+<td style="text-align: center;">1.12 <span class="math inline">\(\times\)</span> 10<sup>5</sup></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">92.9</td>
+<td style="text-align: center;">3.63 <span class="math inline">\(\times\)</span> 10<sup>5</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">114.5</td>
+<td style="text-align: center;">1.15 <span class="math inline">\(\times\)</span> 10<sup>-4</sup></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">132.5</td>
+<td style="text-align: center;">3.26 <span class="math inline">\(\times\)</span> 10<sup>-4</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">148.7</td>
+<td style="text-align: center;">8.92 <span class="math inline">\(\times\)</span> 10<sup>-4</sup></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><a href="practice/class_3/Practice Assignment 3.pdf">Practice Assignment 3 Solution</a></p>
+<p><a href="practice/class_3/practice_3.py">Practice Assignment 3 Calculations</a></p>
+</section>
+<section id="additional-assignments-for-extra-practice" class="level2 ch">
+<h2 class="ch anchored" data-anchor-id="additional-assignments-for-extra-practice">Additional Assignments for Extra Practice</h2>
+<p>Additional assignments will be added as they become available.</p>
+<hr>
+<p>This website is licensed under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-Non-Commercial-NoDerivatives 4.0 International License</a> (CC BY-NC-ND 4.0).</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
