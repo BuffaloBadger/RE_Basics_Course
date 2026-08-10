@@ -1,0 +1,11 @@
+$$
+CO + H_2O \rightleftarrows CO_2 + H_2 \tag{1}
+$$
+
+$$
+K = K_0 \exp{ \left( \frac{-\Delta H}{RT} \right)} \tag{2}
+$$
+
+$$
+r = k \left( P_{CO} P_{H_2O} - \frac{P_{CO_2}P_{H_2}}{K} \right) \tag{3}
+$$

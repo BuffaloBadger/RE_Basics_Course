@@ -1,0 +1,8 @@
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r_1 = k_1 C_A \tag{2}
+$$

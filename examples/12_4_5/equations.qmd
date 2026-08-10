@@ -1,0 +1,4 @@
+
+$$
+A \rightarrow Z \tag{1}
+$$

@@ -1,0 +1,8 @@
+
+$$
+2 A \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r_1 = k_1 C_A^2 \tag{2}
+$$

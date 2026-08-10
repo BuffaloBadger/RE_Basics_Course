@@ -1,0 +1,10 @@
+
+A liquid phase process that uses a 60 dm^3^ PFR is going to be shut down so that a second 40 dm^3^
+PFR can be added to increase throughput. Space constraints dictate that the second reactor will be
+added in parallel with the first. The design calls for processing a feed solution containing 1 mol L^-1^ of A at
+60 °C and flowing at a rate of 0.55 dm^3^ min^-1^. The solution density may be assumed to be constant. The
+reactors will operate adiabatically, at steady state, and with negligible pressure drop. The reaction is irreversible, and the reaction rate is
+given in equation (2) where k~0~ = 2.63 x 10^7^ L mol^-1^ min^-1^ and E = 62 kJ mol^-1^. The heat of reaction and the
+heat capacity of the solution may be assumed to be constant and equal to -35 kJ mol^-1^ and 800 J L^-1^ K^-1^,
+respectively. Compare the conversion when the feed is split equally between the two reactors to the
+conversion when the feed is split so that the space times are equal in the two reactors.
