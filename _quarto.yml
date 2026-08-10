@@ -12,6 +12,7 @@ website:
     title: false
     search: true
     logo: graphics/Banner.png
+    logo-href: http://buffalobadger.github.io
     left:
       - text: "REB, The Book"
         href: http://buffalobadger.github.io/RE_Basics
