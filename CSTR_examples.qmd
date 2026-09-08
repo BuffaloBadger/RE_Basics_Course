@@ -14,7 +14,9 @@ $$
 
 [Example 6.6.1 Solution](examples/6_6_1/Example%206.6.1.pdf)
 
-[Example 6.6.1 Calculations](examples/6_6_1/example_6_6_1.py)
+[Example 6.6.1 Calculations using Python](examples/6_6_1/example_6_6_1.py)
+
+[Example 6.6.1 Calculations using Matlab](examples/6_6_1/example_6_6_1.m)
 
 ---
 
@@ -38,7 +40,9 @@ $$
 
 [Example 6.6.2 Solution](examples/6_6_2/Example%206.6.2.pdf)
 
-[Example 6.6.2 Calculations](examples/6_6_2/example_6_6_2.py)
+[Example 6.6.2 Calculations using Python](examples/6_6_2/example_6_6_2.py)
+
+[Example 6.6.2 Calculations using Matlab](examples/6_6_2/example_6_6_2.m)
 
 ---
 
@@ -58,7 +62,9 @@ $$
 
 [Example 6.6.3 Solution](examples/6_6_3/Example%206.6.3.pdf)
 
-[Example 6.6.3 Calculations](examples/6_6_3/example_6_6_3.py)
+[Example 6.6.3 Calculations using Python](examples/6_6_3/example_6_6_3.py)
+
+[Example 6.6.3 Calculations using Matlab](examples/6_6_3/example_6_6_3.m)
 
 ---
 
@@ -74,9 +80,13 @@ $$
 
 [Example 6.6.4 Solution](examples/6_6_4/Example%206.6.4.pdf)
 
-[Example 6.6.4 Calculations for Multiplicity Plot](examples/6_6_4/example_6_6_4_part_A.py)
+[Example 6.6.4 Calculations for Multiplicity Plot using Python](examples/6_6_4/example_6_6_4_part_A.py)
 
-[Example 6.6.4 Calculations for Steady States](examples/6_6_4/example_6_6_4_part_B.py)
+[Example 6.6.4 Calculations for Multiplicity Plot using Matlab](examples/6_6_4/example_6_6_4_part_A.m)
+
+[Example 6.6.4 Calculations for Steady States using Python](examples/6_6_4/example_6_6_4_part_B.py)
+
+[Example 6.6.4 Calculations for Steady States using Matlab](examples/6_6_4/example_6_6_4_part_B.m)
 
 ---
 
@@ -108,7 +118,9 @@ Plot the temperature of the reacting fluid, the temperature of the cooling water
 
 [Example 6.6.5 Solution](examples/6_6_5/Example%206.6.5.pdf)
 
-[Example 6.6.5 Calculations](examples/6_6_5/example_6_6_5.py)
+[Example 6.6.5 Calculations using Python](examples/6_6_5/example_6_6_5.py)
+
+[Example 6.6.5 Calculations using Matlab](examples/6_6_5/example_6_6_5.m)
 
 ---
 
@@ -130,7 +142,9 @@ To show that steady state U~mid~ is unstable, plot the outlet temperature *vs*. 
 
 [Example 6.6.6 Solution](examples/6_6_6/Example%206.6.6.pdf)
 
-[Example 6.6.6 Calculations](examples/6_6_6/example_6_6_6.py)
+[Example 6.6.6 Calculations using Python](examples/6_6_6/example_6_6_6.py)
+
+[Example 6.6.6 Calculations using Matlab](examples/6_6_6/example_6_6_6.m)
 
 ## Learning Activities from *REB, The Course* {.ch}
 
@@ -146,7 +160,9 @@ $$
 
 [Learning Activity 9 Solution](activities/class_9/Activity%209.pdf)
 
-[Learning Activity 9 Calculations](activities/class_9/activity_9.py)
+[Learning Activity 9 Calculations Using Python](activities/class_9/activity_9.py)
+
+[Learning Activity 9 Calculations Using MATLAB](activities/class_9/activity_9.m)
 
 ---
 

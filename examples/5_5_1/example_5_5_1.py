@@ -157,6 +157,22 @@ def deliverables():
     plt.yticks([])
     plt.savefig("concave_up_and_down.png")
     plt.savefig("../../../RE_Basics/figures/concave_up_and_down.png")
+    plt.show(block=False)
+
+    # graph the rate profile only where the rate is decreasing
+    plt.figure(7)
+    plt.rcParams['axes.spines.left'] = True
+    plt.rcParams['axes.spines.right'] = True
+    plt.rcParams['axes.spines.top'] = True
+    plt.rcParams['axes.spines.bottom'] = True
+    plt.plot(t[i_opt:-1], r[i_opt:-1])
+    plt.xlabel("Time")
+    plt.ylabel("Net Rate of Reaction")
+    plt.xlim(left=t[i_opt])
+    plt.ylim(bottom=0)
+    plt.xticks([])
+    plt.yticks([])
+    plt.savefig("example_5_5_1_full_rate_profile_decreasing.png")
     plt.show()
 
 # execution command

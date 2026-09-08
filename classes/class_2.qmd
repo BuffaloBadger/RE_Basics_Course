@@ -24,15 +24,15 @@ After completing Class 2 you should...
 
 ## Prepare {.ch}
 
-* Read Chapter 2 of REB, The Book
-* Watch the Class 2 Preparation Video
+* Read [Chapter 2 of REB, The Book](https://buffalobadger.github.io/RE_Basics/rxns_stoichiometry.html)
+* Watch the Class 2 Preparation Video (forthcoming)
 
 ## Participate {.ch}
 
-to be added
+* Attend Virtual Class 2 (forthcoming)
 
 ## Practice {.ch}
 
-to be added
+* Complete the Class 2 Practice Assignment (forthcoming)
 
 {{< include ../includes/_bottom_license.qmd >}}

@@ -24,14 +24,14 @@ Cp_B = 75.5 # J /mol /K
 # known
 R = 8.314 # J /mol /K
 
-# make T_in globally available
-T_in = float('NaN')
+# global variable for the current value of T_in
+g_T_in = float('NaN')
 
 # cstr model function
 def cstr_model_variables(current_T_in, init_guess):
-    # set T_in
-    global T_in
-    T_in = current_T_in
+    # set g_T_in
+    global g_T_in
+    g_T_in = current_T_in
      
 	# solve the ATEs
     soln, success, message = solve_ates(cstr_residuals,init_guess)
@@ -63,7 +63,7 @@ def cstr_residuals(guess):
     residual_1 = nA_in - nA - V*r
     residual_2 = nB_in - nB - V*r
     residual_3 = -nZ + V*r
-    residual_4 = -(nA_in*Cp_A + nB_in*Cp_B)*(T-T_in) - V*r*dH
+    residual_4 = -(nA_in*Cp_A + nB_in*Cp_B)*(T-g_T_in) - V*r*dH
 
     # return the residuals
     return np.array([residual_1, residual_2, residual_3, residual_4])

@@ -20,15 +20,15 @@ After completing Class 1 you should...
 
 ## Prepare {.ch} 
 
-* Read Chapter 1 of REB, The Book
-* Watch the Class 1 Preparation Video
+* Read [Chapter 1 of REB, The Book](https://buffalobadger.github.io/RE_Basics/rxn_eng_ethics_safety.html)
+* Watch the Class 1 Preparation Video (forthcoming)
 
 ## Participate {.ch}
 
-* Attend Virtual Class 1
+* Attend Virtual Class 1 (forthcoming)
 
 ## Practice {.ch}
 
-* Complete the Class 1 Practice Assignment
+* Complete the Class 1 Practice Assignment (forthcoming)
 
 {{< include ../includes/_bottom_license.qmd >}}

@@ -38,8 +38,10 @@ def reactor_model_variables(init_guess):
 
     # check that the solution is converged
     if not(success):
-        print("")
-        print(f"The solver did NOT converge: {message}")
+        print('')
+        print(f"CSTR reactor model issue: {message}")
+        print('')
+        input('Press return to continue or CTRL-C to exit.')
 
     # return the solution
     return soln

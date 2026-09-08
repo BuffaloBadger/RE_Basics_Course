@@ -30,15 +30,10 @@ global g_tau
 g_tau = float('NaN')
 
 # CSTR reactor model function
-def cstr_model_variables(tau):
+def cstr_model_variables(tau, guess):
     # make tau available to the CSTR residuals function
     global g_tau
     g_tau = tau
-
-    # define an initial guess for the cstr reactor model variables
-    Vdot_in = V/tau
-    nA_in = CA_in*Vdot_in
-    guess = np.array([nA_in, 0, T_in + 5, Tex_in + 5])
 
     # solve the cstr design equations
     soln, success, message = solve_ates(cstr_residuals, guess)
@@ -82,6 +77,11 @@ def cstr_residuals(guess):
 
 # deliverables function
 def deliverables():
+    # define an initial guess for the cstr reactor model variables
+    Vdot_in = V/tau_values[0]
+    nA_in = CA_in*Vdot_in
+    guess = np.array([nA_in, 0, T_in + 5, Tex_in + 5])
+
     # allocate storage for the conversions and temperatures corresponding to each space time
     fA = np.ones_like(tau_values) * float('NaN')
     T = np.ones_like(tau_values) * float('NaN')
@@ -90,12 +90,15 @@ def deliverables():
     # loop through the space times
     for i, tau in enumerate(tau_values):
         # solve the cstr design equations
-        nA, nZ, T[i], Tex[i] = cstr_model_variables(tau)
+        nA, nZ, T[i], Tex[i] = cstr_model_variables(tau, guess)
 
         # calculate the conversion
         Vdot_in = V/tau
         nA_in = CA_in*Vdot_in
         fA[i] = 100*(nA_in - nA)/nA_in
+
+        # use the results as the guess for the next iteration
+        guess = np.array([nA, nZ, T[i], Tex[i]])
 
     # tabulate, display, and save the results
     results_df = pd.DataFrame({'Space Time (min)': tau_values, 'Conversion (%)':fA, 'T (°C)': T - 273.15
