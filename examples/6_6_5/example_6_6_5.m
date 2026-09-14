@@ -82,7 +82,7 @@ function example_6_6_5()
         T = dep(7);
         Tex = dep(8);
 
-        % calculate the reaction rates
+        % calculate the additional unknowns
         k1 = k01*exp(-E1/(R*T));
         k2 = k02*exp(-E2/(R*T));
         k3 = k03*exp(-E3/(R*T));

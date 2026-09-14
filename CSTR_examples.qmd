@@ -186,7 +186,9 @@ $$
 
 [Learning Activity 10 Solution](activities/class_10/Activity%2010.pdf)
 
-[Learning Activity 10 Calculations](activities/class_10/activity_10.py)
+[Learning Activity 10 Calculations Using Python](activities/class_10/activity_10.py)
+
+[Learning Activity 10 Calculations Using Matlab](activities/class_10/activity_10.m)
 
 ---
 
@@ -202,9 +204,13 @@ $$
 
 [Learning Activity 11 Solution](activities/class_11/Activity%2011.pdf)
 
-[Learning Activity 11 Calculations for Multiplicity Plot](activities/class_11/activity_11_multiplicity.py)
+[Learning Activity 11 Calculations for Multiplicity Plot using Python](activities/class_11/activity_11_multiplicity.py)
 
-[Learning Activity 11 Calculations for Steady States](activities/class_11/activity_11_steady_states.py)
+[Learning Activity 11 Calculations for Steady States using Python](activities/class_11/activity_11_steady_states.py)
+
+[Learning Activity 11 Calculations for Multiplicity Plot using Matlab](activities/class_11/activity_11_multiplicity.m)
+
+[Learning Activity 11 Calculations for Steady States using Python](activities/class_11/activity_11_steady_states.m)
 
 ---
 
@@ -222,7 +228,9 @@ $$
 
 [Learning Activity 12 Solution](activities/class_12/Activity%2012.pdf)
 
-[Learning Activity 12 Calculations](activities/class_12/activity_12.py)
+[Learning Activity 12 Calculations using Python](activities/class_12/activity_12.py)
+
+[Learning Activity 12 Calculations using Matalb](activities/class_12/activity_12.m)
 
 ---
 
@@ -238,9 +246,9 @@ $$
 
 [Learning Activity 13 Solution](activities/class_13/Activity%2013.pdf)
 
-[Learning Activity 13 Steady-State Calculations](activities/class_13/activity_13_ss.py)
+[Learning Activity 13 Calculations using Python](activities/class_13/activity_13.py)
 
-[Learning Activity 13 Transient Calculations](activities/class_13/activity_13.py)
+[Learning Activity 13  Calculations using Matlab](activities/class_13/activity_13.m)
 
 ## Practice Assignments from *REB, The Course* {.ch}
 
@@ -258,7 +266,9 @@ $$
 
 [Practice Assignment 9 Solution](practice/class_9/Practice%20Assignment%209.pdf)
 
-[Practice Assignment 9 Calculations](practice/class_9/practice_9.py)
+[Practice Assignment 9 Calculations using Python](practice/class_9/practice_9.py)
+
+[Practice Assignment 9 Calculations using Matlab](practice/class_9/practice_9.m)
 
 ---
 
@@ -292,9 +302,13 @@ $$
 
 [Practice Assignment 11 Solution](practice/class_11/Practice%20Assignment%2011.pdf)
 
-[Practice Assignment 11 Multiplicity Calculations](practice/class_11/practice_11_multiplicity.py)
+[Practice Assignment 11 Multiplicity Calculations using Python](practice/class_11/practice_11_multiplicity.py)
 
-[Practice Assignment 11 Steady-State Calculations](practice/class_11/practice_11.py)
+[Practice Assignment 11 Steady-State Calculations using Python](practice/class_11/practice_11.py)
+
+[Practice Assignment 11 Multiplicity Calculations using Matlab](practice/class_11/practice_11_multiplicity.m)
+
+[Practice Assignment 11 Steady-State Calculations using Matlab](practice/class_11/practice_11.m)
 
 ---
 
@@ -310,7 +324,9 @@ $$
 
 [Practice Assignment 12 Solution](practice/class_12/Practice%20Assignment%2012.pdf)
 
-[Practice Assignment 12 Calculations](practice/class_12/practice_12.py)
+[Practice Assignment 12 Calculations using Python](practice/class_12/practice_12.py)
+
+[Practice Assignment 12 Calculations using Matlab](practice/class_12/practice_12.m)
 
 ---
 
@@ -326,7 +342,9 @@ $$
 
 [Practice Assignment 13 Solution](practice/class_13/Practice%20Assignment%2013.pdf)
 
-[Practice Assignment 13 Calculations](practice/class_13/practice_13.py)
+[Practice Assignment 13 Calculations using Python](practice/class_13/practice_13.py)
+
+[Practice Assignment 13 Calculations using Matlab](practice/class_13/practice_13.m)
 
 ## Additional Assignments for Extra Practice {.ch}
 
