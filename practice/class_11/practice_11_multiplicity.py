@@ -31,7 +31,11 @@ nZ_in = 0
 g_T = float('NaN')
 
 # cstr model function
-def cstr_model_variables(init_guess):
+def cstr_model_variables(T, init_guess):
+    # make T available to the residuals function
+    global g_T
+    g_T = T
+
     # solve the cstr design equations
     soln, success, message = solve_ates(cstr_residuals, init_guess)
 
@@ -79,15 +83,11 @@ def deliverables():
 
     # loop through all of the outlet temperatures
     for i in range(100):
-        # make T available to the residuals function
-        global g_T
-        g_T = T_range[i]
-
         # solve the design equations for the first outlet temperature
-        nA, nZ, T_in_range[i] = cstr_model_variables(init_guess)
+        nA, nZ, T_in_range[i] = cstr_model_variables(T_range[i], init_guess)
 
         # save the guess for the next outlet temperature
-        init_guess = np.array([nA, nZ, T_in_range[0]])
+        init_guess = np.array([nA, nZ, T_in_range[i]])
 
     # generate, show, and save the multiplicity plot
     plt.figure(1)

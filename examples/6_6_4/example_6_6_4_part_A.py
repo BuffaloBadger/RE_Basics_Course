@@ -52,7 +52,7 @@ def cstr_residuals(guess):
     nZ = guess[3]
     T_in = guess[4]
 
-    # calculate the rate
+    # calculate the additional unknowns
     k = k0*np.exp(-E/R/T)
     CA = nA/Vdot_in
     CB = nB/Vdot_in
@@ -82,7 +82,7 @@ def deliverables():
     init_guess = np.array([nA_in, nB_in, 0.0, 0.0 ,T_range[0] - 1.0])
 
     # allocate storage for the inlet temperatures
-    Tin_range = np.zeros(350)
+    Tin_range = np.ones_like(T_range)*float('NaN')
 
     # calculate the inlet temperature for each outlet temperature
     for i in range(0,350):

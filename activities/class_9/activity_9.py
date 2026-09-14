@@ -7,21 +7,21 @@ from reb_utils import solve_ates
 
 # global constants
 # given
-T_in = 150 + 273.15; # K
-CA_in = 2.0; # mol/L
-V = 500.0; # L
-Vdot_in = 250.0; # L/h
-T_ex = 180 + 273.15; # K
-A = 2.0; # m2
-U = 500E3; # cal/m2/h/K
-k01 = 1.14E9; # L/mol/h
-E1 = 16200.; # cal/mol
-Cp = 1.17E3; # cal/L/K
-dH1 = 18.2E3; # cal/mol
+T_in = 150 + 273.15 # K
+CA_in = 2.0 # mol/L
+V = 500.0 # L
+Vdot_in = 250.0 # L/h
+T_ex = 180 + 273.15 # K
+A = 2.0 # m2
+U = 500E3 # cal/m2/h/K
+k01 = 1.14E9 # L/mol/h
+E1 = 16200. # cal/mol
+Cp = 1.17E3 # cal/L/K
+dH1 = 18.2E3 # cal/mol
 # known
-R = 1.987; # cal/mol/K
+R = 1.987 # cal/mol/K
 # calculated
-nA_in = CA_in*Vdot_in;
+nA_in = CA_in*Vdot_in
 
 # cstr reactor model function
 def cstr_model_variables(init_guess):
@@ -29,8 +29,11 @@ def cstr_model_variables(init_guess):
     soln, success, message = solve_ates(cstr_residuals, init_guess)
 
     # check for solver issues
-    if not success:
-        print(f".  CSTR model function error: {message}")
+    if not(success):
+        print('')
+        print(f"CSTR reactor model issue: {message}")
+        print('')
+        input('Press return to continue or CTRL-C to exit.')
 
     # extract and return the results
     return soln[0], soln[1], soln[2]

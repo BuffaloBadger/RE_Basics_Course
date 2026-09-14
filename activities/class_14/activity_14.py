@@ -35,11 +35,11 @@ def bstr_model_variables():
     dep_0 = np.array([nA_0, nB_0, nZ_0, T_0])
 
     # set the stopping criterion
-    f_var = 1
-    f_val = nA_f
+    StopVar = 1
+    StopVal = nA_f
 
     # solve the design equations
-    t, dep, success, message = solve_ivodes(ind_0, dep_0, f_var, f_val
+    t, dep, success, message = solve_ivodes(ind_0, dep_0, StopVar, StopVal
         , bstr_derivatives, odes_are_stiff=False)
     
     # check for solver issues

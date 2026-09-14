@@ -88,7 +88,7 @@ def cstr_derivatives(ind, dep):
     dnBdt = VFR/V*(nBin - nB - V*(r1 + r2 + r3))
     dnWdt = VFR/V*(-nW + r1*V)
     dnXdt = VFR/V*(-nX + r2*V)
-    dnYdt = VFR/V*(-nY + r2*V)
+    dnYdt = VFR/V*(-nY + r3*V)
     dnZdt = VFR/V*(-nZ + V*(r1 + r2 + r3))
     dTdt = (Q - VFR*Cp*(T-Tin) - V*(r1*dH1 + r2*dH2 + r3*dH3))/V/Cp
     dTedt = (-Q-mex_in*Cpex*(Te-Texin))/(rhoex*Ve*Cpex)
