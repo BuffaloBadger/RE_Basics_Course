@@ -36,7 +36,7 @@ nA0 = CA0 * V
 g_stage = 1
 
 # BSTR reactor function
-def bstr_model_variables(t1):
+def bstr_model_variables():
     # set the protocol stage to 1
     global g_stage
     g_stage = 1
@@ -129,7 +129,7 @@ def bstr_derivatives(t, dep):
 # deliverables function
 def deliverables():
     # solve the BSTR design equations
-    t, nA, nZ, T = bstr_model_variables(t1)
+    t, nA, nZ, T = bstr_model_variables()
 
     # calculate the net rate of production of Z
     rNet_Z = nZ[-1] / (t[-1] + t_turn)

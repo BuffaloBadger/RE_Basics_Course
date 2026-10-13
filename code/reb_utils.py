@@ -54,7 +54,7 @@ def Arrhenius_parameters(k,T,R):
 
 def solve_ivodes(ind_0, dep_0, stop_var, stop_val, derivs_fcn, odes_are_stiff,
                  rel_tol = 1.0E-3, abs_tol = 1.0E-6):
-    # revised 4/24/26
+    # revised 10/8/26
     
     # define an event for when the final value of a dependent variable is known
     def event(ind, dep):
@@ -93,17 +93,16 @@ def solve_ivodes(ind_0, dep_0, stop_var, stop_val, derivs_fcn, odes_are_stiff,
             else:
                 success = soln.success
                 message = soln.message
-        # re-solve with 100 interior points
-        ind = (ind_0, soln.t[-1])
-        t_eval = np.linspace(ind_0, soln.t[-1], 100)
-        if odes_are_stiff:
-            soln = solve_ivp(derivs_fcn, ind, dep_0, method='LSODA', t_eval = t_eval
-                             , rtol = rel_tol, atol = abs_tol)
-        else:
-            soln = solve_ivp(derivs_fcn, ind, dep_0, method='RK45', t_eval = t_eval
-                             , rtol = rel_tol, atol = abs_tol)
-        success = soln.success
-        message = soln.message
+        if success:
+            # re-solve with 100 interior points
+            ind = (ind_0, soln.t[-1])
+            t_eval = np.linspace(ind_0, soln.t[-1], 100)
+            if odes_are_stiff:
+                soln = solve_ivp(derivs_fcn, ind, dep_0, method='LSODA', t_eval = t_eval
+                                , rtol = rel_tol, atol = abs_tol)
+            else:
+                soln = solve_ivp(derivs_fcn, ind, dep_0, method='RK45', t_eval = t_eval
+                                , rtol = rel_tol, atol = abs_tol)
     return soln.t, soln.y, success, message
 
 def fit_to_SR_data(beta_guess, x, y_meas, pred_resp_fcn, use_rel_error):
