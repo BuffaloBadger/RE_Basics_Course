@@ -1,0 +1,18 @@
+---
+title: "Class 17 Practice Assignment"
+format: pdf
+---
+
+```{=latex}
+\vspace{-2.5cm}
+```
+
+Irreversible gas phase reaction (1) is exothermic with a heat of reaction equal to –12.9 kcal mol^–1^. The rate expression is presented in equation (2), where the pre-exponential factor equals 1.75 x 10^9^ L^0.5^ mol^–0.5^ s^–1^ and the activation energy is 35.7 kcal mol^–1^. The heat capacities of A, B, Y, and Z are 37, 34, 36, and 38 cal mol^–1^ K^–1^, respectively. If an adiabatic 5.0 L BSTR is charged with equal molar amounts of A and B at 400 °C and 1 atm, how long will it take to convert 50% of reagent A and what will the temperature equal?
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+$$
+r_1 = k_1 C_A \sqrt{C_B} \tag{2}
+$$

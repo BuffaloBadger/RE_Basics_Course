@@ -1,0 +1,38 @@
+---
+title: "Example 8.4.3"
+subtitle: "Reaction Engineering Basics, The Book"
+format: pdf
+---
+
+```{=latex}
+\vspace{-2.5cm}
+```
+
+The hydrolysis of acetic anhydride, reaction (1), can run away thermally in a batch reactor, but this can be prevented using semi-batch operation. Suppose the rate can be described using the rate expression shown in equation (2) where the reaction is first order in acetic anhydride with a pre-exponential factor of 1.192 x 10^15^ min^-1^ and an activation energy of 97,600 J mol^-1^. The heat of reaction may be taken to be constant and equal to -58,615 J mol^-1^.
+
+$$
+\left(CH_3CO\right)_2O + H_2O \rightarrow 2 CH_3CO_2H \tag{1}
+$$
+
+$$
+r_1 = k_1C_{\left(CH_3CO\right)_2O} \tag{2}
+$$
+
+The reacting fluid is cooled by water that is fed to the perfectly mixed, 300 cm^3^ reactor jacket at 60 °C and 250 cm^3^ min^-1^. The product of the heat transfer area and the heat transfer coefficient, $UA$, equals 260 cal min^-1^ K^-1^. 
+
+The reactor operates at atmospheric pressure and initially contains an ideal liquid mixture of 67 cm^3^ of water, 283 cm^3^ of acetic acid (the solvent and product) and 0.30 cm^3^ of sulfuric acid at 60 °C. Initially the temperature of the water in the jacket is 60 °C, too. The heat capacity of the fluid in the reactor may be taken to be constant and equal to 2.68 J cm^-3^ K^-1^. A total of 350 cm^3^ of acetic anhydride at 21 °C needs to be processed. To do so, it will be fed to the reactor at a constant volumetric flow rate until all of it has been added, after which the reactor will operate in batch mode until the reacting fluid cools to 65 °C. At no time during processing can the reacting fluid temperature exceed 95 °C. What volumetric feed rate will minimize the processing time, and at that feed rate what will the final conversion of A equal? Plot (a) the temperature of the fluid in the reactor and (b) the concentration of acetic anhydride in the reactor as a function of processing time when that feed rate is used.
+
+You may assume the liquid mixture to be ideal, and that the densities of acetic anhydride, acetic acid, and water are constant and equal to 1.082, 1.0, and 1.049 g cm^-3^, respectively. Their molecular weights are 102, 18, and 60 g mol^-1^, respectively, and the heat capacity of acetic anhydride being added to the reactor can be taken to be 168.2 J mol^-1^ K^-1^.
+
+::: {.content-hidden unless-format="html"}
+
+:::{.callout-note collapse="false"}
+## Note
+
+This problem is loosely based upon the work of Haldar and Rao [-@haldar_experimental_1992; -@haldar_experimental_1992-1], but the rate expression was modified and additional assumptions regarding fluid and reactor properties were introduced. This was done to avoid intricate details from obscuring the basic approach to the analysis of a semi-batch reactor. Therefore, the results presented here should not be used for engineering purposes, but rather the original work should be consulted.
+
+:::
+
+:::
+
+---

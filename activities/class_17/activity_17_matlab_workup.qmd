@@ -1,0 +1,358 @@
+---
+title: "Class 17 Learning Activity"
+subtitle: "Matlab Work-Up"
+format: pdf
+---
+
+```{=latex}
+\vspace{-1.5cm}
+```
+
+Before summarizing the assignment, the file, `activity_17.m`, was created for performing the calculations. Within it a function of the same name was declared. Each of the blocks of code listed below are added to this file to complete the function for performing the calculations.
+
+```matlab
+function activity_17()
+% Calculations for the Class 17 Learning Activity in REB, The Course
+```
+
+# Assignment Summary
+
+[Reaction]{.underline}
+
+$$
+2A \rightarrow 2Y + Z \tag{1}
+$$
+
+[Rate Expression]{.underline}
+
+$$
+r_1 = k_1 C_A^2 \tag{2}
+$$
+
+[Reactor]{.underline}: Adiabatic, gas-phase BSTR
+
+&nbsp;
+
+[Given Constants]{.underline}:
+$k_{0,1}$ = 265 L mol^-1^ min^-1^,
+$E_1$ = 73 kJ mol^-1^,
+$\Delta H_1\big|_{298K}$ = -165 kJ mol^-1^,
+$P_0$ = 1000 Torr,
+$T_0$ = 1225 K, and
+$T_f$ = [10, 100] K
+
+```matlab
+    % global constants available to all functions in consistent units
+    % given
+    k01 = 265; % L /mol /min
+    E1 = 73000; % J /mol
+    dH298 = -165000; % J /mol
+    P0 = 1000; % Torr
+    T0 = 1225; % K
+    V = 1; % basis
+    Tf = [1235,1325]; % K
+    % known
+    Re = 8.314; % J /mol /K
+    Rw = 62.36367; % L Torr /mol \K
+    % calculated
+    nA0 = P0*V/(Rw*T0);
+```
+
+[Given Equations]{.underline}
+
+$$
+\hat{C}_{p,A} = 28 + 0.05T \tag{3}
+$$
+
+$$
+\hat{C}_{p,Y} = 26 + 0.01T \tag{4}
+$$
+
+$$
+\hat{C}_{p,Z} = 30 + 0.005T \tag{5}
+$$
+
+```matlab
+    % given equations
+    Cp_A = @(T) 28 + 0.05*T;
+    Cp_Y = @(T) 26 + 0.01*T;
+    Cp_Z = @(T) 30 + 0.005*T;
+```
+
+[Task]{.underline}: Parametric analysis
+
+* [Parameter]{.underline}: $T_f$
+* [Quantities of Interest]{.underline}: $t_f$ and $f_{A,f}$ 
+
+# Preliminary Analysis
+
+The reactor is adiabatic and at 298 K the reaction is exothermic. Assuming it remains exothermic at reaction temperature, the temperature is expected to rise as the reaction occurs. There is only one reaction taking place, so the amount of A is expected to decrease and the amounts of Y and Z, to increase. The times may be small given the very high reaction temperature, but it will depend upon the rate coefficient.
+
+# BSTR Model Function
+
+[BSTR Design Equations]{.underline}
+
+$$
+\frac{dn_A}{dt} = -2Vr_1 \tag{6}
+$$
+
+$$
+\frac{dn_Y}{dt} = 2Vr_1 \tag{7}
+$$
+
+$$
+\frac{dn_Z}{dt} = Vr_1 \tag{8}
+$$
+
+$$
+\left(n_A\hat{C}_{p,A} + n_Y\hat{C}_{p,Y} + n_Z\hat{C}_{p,Z}\right)\frac{dT}{dt} -V\frac{dP}{dt} = -Vr_1\Delta H_1 \tag{9}
+$$
+
+$$
+RT\left(\frac{dn_A}{dt} + \frac{dn_Y}{dt} + \frac{dn_Z}{dt}\right) + \left(n_A + n_Y + n_Z\right)R\frac{dT}{dt} - V\frac{dP}{dt} = 0 \tag{10}
+$$
+
+
+[BSTR Model Variables]{.underline}: $\underline{t}$, $\underline{n}_A$, $\underline{n}_Y$, $\underline{n}_Z$, $\underline{T}$, and $\underline{P}$
+
+&nbsp;
+
+[Additional Computable Unknowns]{.underline}: $r_1$, $k_1$, $C_A$, $\hat{C}_{p,A}$, $\hat{C}_{p,Y}$, $\hat{C}_{p,Z}$, and $\Delta H_1$
+
+$$
+k_1 = k_{0,1} \exp{\left(\frac{-E_1}{RT}\right)} \tag{11}
+$$
+
+$$
+C_A = \frac{n_A}{V} \tag{12}
+$$
+
+$$
+\Delta H_1^0 = \Delta H_1^0\Bigr\rvert_{T=298K} + \int_{298\text{ K}}^T \left(-2\hat C_{p,A} + 2\hat{C}_{p,Y} + \hat{C}_{p,Z}\right)dT \tag{13}
+$$
+
+&nbsp;
+
+[Uncomputable Unknowns (Received as Arguments)]{.underline}: $T_f$
+
+&nbsp;
+
+[IVODE Solver Requirements]{.underline}
+
+1. Initial values
+
+$$
+t_{iv} = 0
+$$
+$$
+n_{A,iv} = n_{A,0} = \frac{P_0 V}{RT_0}
+$$
+$$
+n_{Y,iv} = n_{Z,iv} =0
+$$
+$$
+T_{iv} = T_0
+$$
+$$
+P_{iv} = P_0
+$$
+
+2. Stopping criterion
+
+$$
+T = T_f
+$$
+
+3. BSTR derivatives function (see below)
+
+```matlab
+    % BSTR reactor function
+    function [t, nA, nY, nZ, T, P] = bstr_model_variables(Tf)
+        % define the initial values
+        ind_0 = 0;
+        dep_0 = [nA0; 0; 0; T0; P0];
+
+        % define the stopping criterion
+        stopVar = 4;
+        stopVal = Tf;
+
+        % solve the design equations
+        odes_are_stiff = false;
+        [t, dep, success, message] = solve_ivodes(ind_0, dep_0, stopVar...
+            , stopVal, @bstr_derivatives, odes_are_stiff);
+        
+        % check for solver issues
+        if ~success
+            disp('')
+            disp(["BSTR model function issue: ", message])
+            disp('')
+        end
+
+        % return the individual dependent variables
+        nA = dep(:,1);
+        nY = dep(:,2);
+        nZ = dep(:,3);
+        T = dep(:,4);
+        P = dep(:,5);
+    end
+```
+
+# BSTR Derivatives Function
+
+1. receives the BSTR model variables at the start of an integration step
+
+2. calculates additional unknowns using equations (2), (11), (12), and (13)
+
+3. evaluates and returns design equation (residuals/derivatives) using equations (14) through (16).
+
+$$
+\underline{\underline{M}} = \begin{bmatrix} 
+1 & 0 & 0 & 0 & 0 \\ 
+0 & 1 & 0 & 0 & 0 \\ 
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & \displaystyle\sum_i\left(n_i \hat{C}_{p,i} \right) & -V \\ 
+RT & RT & RT & R\displaystyle\sum_i n_i & -V  \\
+\end{bmatrix} \tag{14}
+$$
+
+$$
+\underline{g} = \begin{bmatrix} 
+-2Vr_1 \\ 
+2Vr_1 \\ 
+Vr_1 \\  
+-Vr_1\Delta H_1 \\ 
+0 
+\end{bmatrix} \tag{15}
+$$
+
+$$
+\begin{bmatrix} 
+\frac{dn_A}{dt} \\[0.5em]
+\frac{dn_Y}{dt} \\[0.5em]
+\frac{dn_Z}{dt} \\[0.5em]
+\frac{dT}{dt} \\[0.5em] \frac{dP}{dt}
+\end{bmatrix} = \underline{\underline{M}}^{-1} \underline{g} \tag{16}
+$$
+
+```matlab
+    % BSTR derivatives function
+    function ddt = bstr_derivatives(~, dep)
+        % extract the dependent variables
+        nA = dep(1);
+        nY = dep(2);
+        nZ = dep(3);
+        T = dep(4);
+
+        % calculate the additional unknowns
+        dH_1 = dH298 -2*integral(Cp_A,298,T) + 2*integral(Cp_Y,298,T)...
+            + integral(Cp_Z,298,T);
+        r_1 = k01*exp(-E1/Re/T)*(nA/V)^2;
+
+        % Create mass matrix, setting all elements to zero
+        mass_matrix = zeros(5,5);
+
+        % Add 1 on the diagonal for the first 3 rows
+        mass_matrix(1,1) = 1.0;
+        mass_matrix(2,2) = 1.0;
+        mass_matrix(3,3) = 1.0;
+
+        % Add the elements for the energy balance
+        mass_matrix(4,4) = nA*Cp_A(T) + nY*Cp_Y(T) + nZ*Cp_Z(T);
+        mass_matrix(4,5) = -V*Re/Rw;
+
+        % Add the elements for the ideal gas law equation
+        mass_matrix(5,1) = Rw*T;
+        mass_matrix(5,2) = Rw*T;
+        mass_matrix(5,3) = Rw*T;
+        mass_matrix(5,4) = Rw*(nA + nY + nZ);
+        mass_matrix(5,5) = -V;
+
+        % Create right side vector
+        rhs1 = -2*V*r_1;
+        rhs2 = 2*V*r_1;
+        rhs3 = V*r_1;
+        rhs4 = -V*r_1*dH_1;
+        rhs5 = 0.0;
+        rhs = [rhs1; rhs2; rhs3; rhs4; rhs5];
+
+        % Evaluate the derivatives to be returned
+        ddt = mass_matrix\rhs;
+    end
+```
+
+# Items of Interest Function
+
+1. For each specified value of $T_f$
+    a. Call the BSTR model function with that value as the argument to get $\underline{t}$, $\underline{n}_A$, $\underline{n}_Y$, $\underline{n}_Z$, $\underline{T}$, and $\underline{P}$
+
+    b. Extract the final time and calculate the final conversion.
+
+    $$
+    t_f = \underline{t} \big|_{T=T_f} \tag{17}
+    $$
+    $$
+    f_{A,f} = \frac{n_{A,0} - \underline{n}_A \big|_{T=T_f}}{n_{A,0}} \tag{18}
+    $$
+
+2. Tabulate, show, and save the results.
+
+```matlab
+    % items of interest function
+    function items_of_interest()
+        % allocate storage for the deliverables
+        tf = [nan, nan];
+        fA = [nan, nan];
+
+        % loop through the Tf values
+        for n=1:2
+            % solve the bstr design equations
+            [t, nA, ~, ~, ~, ~] = bstr_model_variables(Tf(n));
+
+            % save the final time and the conversion
+            tf(n) = t(end);
+            fA(n) = 100*(nA0 - nA(end))/nA0;
+        end
+        
+        % tabulate, show, and save the results
+        item = ["Final T (K)"; "Time (min)"; "Conversion (%)"];
+        value = [Tf; tf; fA];
+        resultsTable = table(item, value);
+        disp('')
+        disp(resultsTable)
+        disp('')
+        writetable(resultsTable,'results.csv');
+    end
+
+    % perform the calculations
+    items_of_interest();
+end
+```
+
+# Results
+
+The calculations were performed by calling the function, `activity_17`. No solver issues were reported.
+
+```matlab
+>> activity_17
+          item                value       
+    ________________    __________________
+
+    "Final T (K)"          1235       1325
+    "Time (min)"         1.4513     12.178
+    "Conversion (%)"    0.79294      7.878
+```
+
+# Discussion
+
+As expected (see the preliminary analysis above), the temperature increases by 10 K during the first 1.5 min, resulting in a conversion of 0.8%. After a total of 12.2 min, the temperature has increased by 100 K and the conversion is 7.9%. Apparently this reaction is quite slow, given the very high temperatures involved.
+
+# Summary
+
+
+| Temperature increase | 10 K | 100 K |
+|:------:|:-------:|:-------:|
+| Final Temperature (K) | 1235 K | 1325 K |
+| Reaction Time (min) | 1.5 | 12.2 |
+| Conversion | 0.8% | 7.9% |
+  
+: Required reaction time and final conversion for temperature increases of 10 and 100 K. {#tbl-results}

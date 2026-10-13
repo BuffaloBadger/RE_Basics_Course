@@ -1,0 +1,22 @@
+---
+title: "Class 18 Learning Activity"
+format: pdf
+---
+
+```{=latex}
+\vspace{-2.5cm}
+```
+
+Liquid-phase reaction (1) is exothermic with a heat of reaction equal to –16.6 kcal mol^–1^. If a solution containing only A at a concentration of 2 M and a temperature of 20 °C reacts adiabatically in a BSTR, the temperature increases to 110 °C. The reaction is first order in the concentration of A as shown in equation (2). The pre-exponential factor is 2.5 x 10^8^ L mol^–1^ min^–1^, and the activation energy is 14.3 kcal mol^–1^.
+
+$$
+A \rightarrow Z \tag{1}
+$$
+
+$$
+r_1 = k_1 C_A \tag{2}
+$$
+
+Adiabatic operation has undesirable side effects, making isothermal operation preferable. To do so, using a 0.4 L BSTR with a 0.1 L shell has been proposed. The heat transfer area is 32.5 cm^2^, and the heat transfer coefficient is 0.2 cal min^–1^ cm^–2^ K^–1^. Chilled water at 10 °C would initially fill the shell and be fed to it. The water can be taken to have a density of 1 g cm^–3^ and a heat capacity of 1 cal g^–1^ K^–1^. The reactor temperature will not be close to isothermal if a fixed coolant flow rate is used. Consequently it has been proposed to set the cooling water flow rate to 217 g min^–1^ initially and to linearly decrease it by 212 g min^–1^ over the duration of the 60 min reaction time.
+
+Assuming the reacting fluid density to equal 879 g L^–1^ and its heat capacity to equal 0.42 cal g^–1^ K^–1^, plot the conversion, reacting fluid temperature, and cooling water temperature over the course of the reaction and comment on how closely the operation approaches being isothermal.

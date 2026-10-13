@@ -1,0 +1,19 @@
+---
+title: "Example 8.4.1"
+subtitle: "Reaction Engineering Basics, The Book"
+format: pdf
+---
+
+```{=latex}
+\vspace{-2.5cm}
+```
+
+A strong acid, A (15 M), at 20 °C is going to be neutralized using a strong base, B (15 M NaOH), also at 20 °C, producing a salt, S, and water, W, equation (1). If the acid and the base were simply mixed together, they would react violently, releasing enough energy to raise their temperature to over 225 °C. Instead, a 10 L SBSTR will be used to neutralize 5.0 L of the acid. The acid will initially be present in the reactor, and the base will be added a rate of 0.25 L min^–1^ until 5 L of the base have been added. The reacting fluid will exchange heat with 2.5 L cooling water in a perfectly mixed shell. Chilled water at 20 °C will enter the shell at a rate of 2.5 L min^–1^. The heat transfer area is 2150 cm^2^ and the heat transfer coefficient is 73 cal cm^–2^ h^–1^ K^–1^. At the time the acid is charged to the reactor, the cooling water temperature within the heat exchanger is 20 °C. The density and heat capacity of the acid solution, base solution, and cooling water can all be taken to be those of water, 1 g cm^–3^ and  1 cal g^–1^ K^–1^. The neutralization reaction, equation (1), is irreversible with a heat of reaction equal to –13.7 kcal mol^–1^. The reaction is first order in both acid and base with a pre-exponential factor of 8.11 x 10^12^ L mol^–1^ s^–1^ and an activation energy of 17.7 kcal mol^–1^, equation (2). The pressure in the reactor will be constant and equal to 1 atm. Plot the acid concentration and the reactor temperature as functions of time while the base is being added.
+
+$$
+A + B \rightarrow S + W \tag{1}
+$$
+
+$$
+r_1 = k_1 C_A C_B \tag{2}
+$$

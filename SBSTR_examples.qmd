@@ -12,7 +12,7 @@ $$
 r_1 = k_1C_AC_B \tag{2}
 $$
 
-[Example 8.4.1 Solution](examples/8_4_1/Example%208.4.1.pdf)
+[Example 8.4.1 Matlab Workup](examples/8_4_1/example_8_4_1_matlab_workup.pdf)
 
 [Example 8.4.1 Calculations](examples/8_4_1/example_8_4_1.py)
 
@@ -38,7 +38,7 @@ $$
 r_2 = k_2C_B^2 \tag{4}
 $$
 
-[Example 8.4.2 Solution](examples/8_4_2/Example%208.4.2.pdf)
+[Example 8.4.2 Matlab Workup](examples/8_4_2/example_8_4_2_matlab_workup.pdf)
 
 [Example 8.4.2 Calculations](examples/8_4_2/example_8_4_2.py)
 
@@ -60,7 +60,7 @@ The reactor operates at atmospheric pressure and initially contains an ideal liq
 
 You may assume the liquid mixture to be ideal, and that the densities of acetic anhydride, acetic acid, and water are constant and equal to 1.082, 1.0, and 1.049 g cm^-3^, respectively. Their molecular weights are 102, 18, and 60 g mol^-1^, respectively, and the heat capacity of acetic anhydride being added to the reactor can be taken to be 168.2 J mol^-1^ K^-1^.
 
-[Example 8.4.3 Solution](examples/8_4_3/Example%208.4.3.pdf)
+[Example 8.4.3 Matlab Workup](examples/8_4_3/example_8_4_3_matlab_workup.pdf)
 
 [Example 8.4.3 Calculations](examples/8_4_3/example_8_4_3.py)
 

@@ -1,0 +1,332 @@
+---
+title: "Class 17 Practice Assignment"
+subtitle: "Matlab Work-Up"
+format: pdf
+---
+
+```{=latex}
+\vspace{-1.5cm}
+```
+
+Before summarizing the assignment, the file, `practice_17.m`, was created for performing the calculations. Within it a function of the same name was declared.
+
+```matlab
+function practice_17()
+% Calculations for the Class 17 Practice Assignment from REB, The Course
+```
+
+# Assignment Summary
+
+[Reaction]{.underline}
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+[Rate Expression]{.underline}
+
+$$
+r_1 = k_1 C_A \sqrt{C_B} \tag{2}
+$$
+
+[Reactor]{.underline}: adiabatic, gas-phase BSTR
+
+&nbsp;
+
+[Given Constants]{.underline}: $\Delta H_1$ = –12.9 kcal mol^–1^, $k_{0,1}$ = 1.75 x 10^9^ L^0.5^ mol^–0.5^ s^–1^, $E_1$ =  35.7 kcal mol^–1^, $\hat{C}_{p,A}$ = 37 cal mol^–1^ K^–1^, $\hat{C}_{p,B}$ = 34 cal mol^–1^ K^–1^, $\hat{C}_{p,Y}$ = 36 cal mol^–1^ K^–1^, $\hat{C}_{p,Z}$ = 38 cal mol^–1^ K^–1^, $V$ = 5.0 L, $y_{A,0}$ = 0.5, $y_{B,0}$ = 0.5, $T_0$ = 400 °C, $P_0$ 1 atm, and $f_{A,f}$ = 0.5.
+
+```matlab
+    %global constants available to all functions
+    %given
+    k01 = 1.75E9; %L^0.5 mol^-1.5 s^-1
+    E1 = 35700; %cal/mol
+    dH1 = -12900; %cal/mol
+    CpA = 37.0; %cal/mol/K
+    CpB = 34.0; %cal/mol/K
+    CpY = 36.0; %cal/mol/K
+    CpZ = 38.0; %cal/mol/K
+    P0 = 1.0; %atm
+    T0 = 400 + 273.15; %K
+    yA0 = 0.5;
+    yB0 = 0.5;
+    fA = 0.5;
+    V = 5.0; %L
+    %known
+    Rpv = 0.08206; %L-atm/mol/K
+    R = 1.987; %cal/mol/K
+    %calculated
+    n0 = P0*V/Rpv/T0;
+    nA0 = yA0*n0;
+    nB0 = yB0*n0;
+    nAf = nA0*(1-fA);
+```
+
+[Task]{.underline}: Analysis
+
+* [Quantities of Interest]{.underline}: $t_f$, and $T_f$ 
+
+# Preliminary Analysis
+
+Only one reaction is taking place, and it is exothermic. The reactor is adiabatic, so the temperature is expected to increase as the reaction proceeds.
+
+# (Reactor Type) Model Function
+
+[BSTR Design Equations]{.underline}
+
+$$
+\frac{dn_A}{dt} = -r_1V \tag{3}
+$$
+
+$$
+\frac{dn_B}{dt} = -r_1V \tag{4}
+$$
+
+$$
+\frac{dn_Y}{dt} = r_1V \tag{5}
+$$
+
+$$
+\frac{dn_Z}{dt} = r_1V \tag{6}
+$$
+
+$$
+\left(n_A\hat{C}_{p,A} + n_B\hat{C}_{p,B} + n_Y\hat{C}_{p,Y} + n_Z\hat{C}_{p,Z}\right) \frac{dT}{dt} - V\frac{dP}{dt} = -r_1V\Delta H_1 \tag{7}
+$$
+
+$$
+RT\left(\frac{dn_A}{dt} + \frac{dn_B}{dt} + \frac{dn_Y}{dt} + \frac{dn_Z}{dt}\right) +
+ \left(n_A + n_B + n_Y + n_z\right)R\frac{dT}{dt} - V\frac{dP}{dt}=0
+\tag{8}
+$$
+
+&nbsp;
+
+[BSTR Model Variables]{.underline}: $\underline{t}$, $\underline{n}_A$, $\underline{n}_B$, $\underline{n}_Y$, $\underline{n}_Z$, $\underline{T}$, and $\underline{P}$
+
+&nbsp;
+
+[Additional Computable Unknowns]{.underline}: $r_1$, $k_1$, $C_A$, and $C_B$
+
+$$
+k_1 = k_{0,1} \exp{\left(\frac{-E_1}{RT}\right)} \tag{9}
+$$
+
+$$
+C_i = \frac{n_i}{V} \qquad i = A \text{ and } B \tag{10}
+$$
+
+&nbsp;
+
+[IVODE Solver Requirements]{.underline}
+
+1. Initial values
+
+$$
+t_{iv} = 0 \tag{11}
+$$
+
+$$
+n_{A,iv} = n_{A,0} = y_{A,0}\frac{P_0V}{RT_0} \tag{12}
+$$
+
+$$
+n_{B,iv} = n_{B,0} = y_{B,0}\frac{P_0V}{RT_0} \tag{13}
+$$
+
+$$
+n_{Y,iv} = n_{Z,iv} = 0 \tag{14}
+$$
+
+$$
+T_{iv} = T_0 \tag{15}
+$$
+
+$$
+P_{iv} = P_0 \tag{16}
+$$
+
+2. Stopping criterion
+
+$$
+n_A = n_{A,f} = n_{A,0}\left(1-f_{A,f}\right) \tag{17}
+$$
+
+3. BSTR derivatives function (see below)
+
+```matlab
+    % BSTR reactor function
+    function [t, nA, nB, nY, nZ, T, P] = bstr_model_variables()
+        %define the initial values
+        ind_0 = 0;
+        dep_0 = [nA0, nB0, 0, 0, T0, P0];
+
+        %define the stopping criterion
+        stopVar = 1;
+        stopVal = nAf;
+
+        %solve the BSTR design equations
+        odes_are_stiff = true;
+        [t, dep, success, message] = solve_ivodes(ind_0, dep_0, stopVar...
+            , stopVal, @bstr_derivatives, odes_are_stiff);
+        
+        %check for solver issues
+        if ~success
+            disp('')
+            disp(["BSTR model function issue: ", message])
+            disp('Press any key to continue or CTRL-C to exit')
+            pause;
+        end
+        
+        %return the individual bstr model variables
+        nA = dep(:,1);
+        nB = dep(:,2);
+        nY = dep(:,3);
+        nZ = dep(:,4);
+        T = dep(:,5);
+        P = dep(:,6);
+    end
+```
+
+# BSTR Derivatives Function
+
+1. receives the BSTR model variables ($t$, $n_A$, $n_B$, $n_Y$, $n_Z$, $T$, and $P$) at the start of an integration step
+2. calculates additional unknowns using equations (2), (9), and (10)
+3. evaluates and returns design equation derivatives using equations (18), (19), and (20)
+
+$$
+\underline{\underline{M}} = \begin{bmatrix} 
+1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 \\ 
+0 & 0 & 1 & 0 & 0 & 0 \\ 
+0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & \displaystyle\sum_i\left(n_i \hat{C}_{p,i} \right) & -V \\ 
+RT & RT & RT & RT & R\displaystyle\sum_i n_i & -V  \\
+\end{bmatrix} \tag{18}
+$$
+
+$$
+\underline{g} = \begin{bmatrix} 
+-Vr_1 \\ 
+-Vr_1 \\ 
+Vr_1 \\ 
+Vr_1 \\  
+-Vr_1\Delta H_1 \\ 
+0 
+\end{bmatrix} \tag{19}
+$$
+
+$$
+\begin{bmatrix} 
+\frac{dn_A}{dt} \\[0.5em]
+\frac{dn_B}{dt} \\[0.5em]
+\frac{n_Y}{dt} \\[0.5em] 
+\frac{n_Z}{dt} \\[0.5em] 
+\frac{dT}{dt} \\[0.5em] \frac{dP}{dt}
+\end{bmatrix} = \underline{\underline{M}}^{-1} \underline{g} \tag{20}
+$$
+
+```matlab
+    %BSTR derivatives function
+    function ddt = bstr_derivatives(~, dep)
+        %extract the dependent variables
+        nA = dep(1);
+        nB = dep(2);
+        nY = dep(3);
+        nZ = dep(4);
+        T = dep(5);
+
+        %calculate the additional unknowns
+        k1 = k01*exp(-E1/(R*T));
+        CA = nA/V;
+        CB = nB/V;
+        r1 = k1*CA*sqrt(CB);
+
+        %form the mass matrix
+        mm = zeros(6,6);
+
+        %add the coefficients for the mole balances
+        mm(1,1) = 1;
+        mm(2,2) = 1;
+        mm(3,3) = 1;
+        mm(4,4) = 1;
+
+        %add the coefficients for the energy balance
+        mm(5,5) = nA*CpA + nB*CpB + nY*CpY + nZ*CpZ;
+        mm(5,6) = -V;
+
+        %add the coefficients for the differential gas law
+        mm(6,1) = Rpv*T;
+        mm(6,2) = Rpv*T;
+        mm(6,3) = Rpv*T;
+        mm(6,4) = Rpv*T;
+        mm(6,5) = Rpv*(nA + nB + nY + nZ);
+        mm(6,6) = -V;
+
+        %form the right side vector
+        rhs = [-r1*V; -r1*V; r1*V; r1*V; -r1*V*dH1; 0];
+
+        %evaluate and return the derivatives
+        ddt = mm\rhs;
+    end
+```
+
+# Items of Interest Function
+
+1. Call the BSTR model function to get $\underline{t}$, $\underline{n}_A$, $\underline{n}_B$, $\underline{n}_Y$, $\underline{n}_Z$, $\underline{T}$, and $\underline{P}$
+
+2. Extract the final time and temperature
+
+$$
+t_f = \underline{t} \big|_{n_A = n_{A,f}} \tag{21}
+$$
+
+$$
+T_f = \underline{T} \big|_{n_A = n_{A,f}} \tag{22}
+$$
+
+3. Tabulate, show, and save the results. 
+
+```matlab
+    % items of interest function
+    function items_of_interest()
+        %solve the BSTR design equations
+        [t, ~, ~, ~, ~, T, P] = bstr_model_variables();
+
+        %tabulate, show, and save the results
+        item = ["Time"; "Temperature"];
+        value = [t(end)/60; T(end) - 273.15];
+        units = ["min"; "°C"];
+        resultsTable = table(item, value, units);
+        disp('')
+        disp(resultsTable)
+        disp('')
+        writetable(resultsTable, 'results.csv');
+    end
+
+    % perform the calculations
+    items_of_interest()
+end
+```
+
+# Results
+
+The calculations were performed by calling the function, `practice_17`.
+
+```matlab
+>> practice_17
+        item         value     units
+    _____________    ______    _____
+
+    "Time"           7.2027    "min"
+    "Temperature"    490.09    "°C" 
+```
+
+# Discussion
+
+The calculations were performed as described. Reaching 50% conversion requires 7.2 min and results in a temperature of 490 °C. As noted above, the temperature is expected to increase because the reaction is exothermic and the reactor is adiabatic.
+
+The calculations were checked by noting that the reaction does not affect the total number of moles and the volume is constant, so the pressure depends only on the temperature. Solving the design equations yields the final pressure, and it can be calculated using the ideal gas law and the final temperature. Both calculations yielded the same value for the final pressure, 1.13 atm.
+
+# Summary
+
+Reaching 50% conversion requires 7.2 min and results in a temperature of 490 °C.

@@ -1,0 +1,19 @@
+---
+title: "Class 19 Learning Activity"
+subtitle: "Reaction Engineering Basics, The Course"
+format: pdf
+---
+
+```{=latex}
+\vspace{-2.5cm}
+```
+
+In concentrated aqueous solutions, the irreversible condensation reaction (1) is highly exothermic, $\Delta H_1$ = –184 kJ mol^–1^. The rate expression is given in equation (2) where the pre–exponential factor equals 4.866 x 10^11^ m^3^ mol^–1^ min^–1^ and the activation energy equals 74.1 kJ mol^–1^. A stirred tank reactor operating at atmospheric pressure will be charged with 4.0 L of a solution containing A at a concentration of 10 mol L^–1^ and 20°C. The reactor is cooled using water at 20 °C flowing into a perfectly mixed, 500 cm^3^ shell with a heat transfer area of 550 cm^2^ and a heat transfer coefficient of 8480 J m^–2^ min^–1^ K^–1^. The cooling water flows at a steady rate of 1.0 L min^–1^, and initially the water in the shell is at 20 °C. The reacting fluid and the cooling water may be assumed to have a heat capacity and density equal to that of water, 1 cal g^–1^ K^–1^ and 1 g cm^–3^, respectively. A 10 M solution of B at 20 °C will be added to the reacting fluid at a constant flow rate. What is the maximum volumetric flow rate at which the base solution at 20 °C can be added to the reactor without causing the reacting fluid temperature to exceed 80 °C?
+
+$$
+A + B \rightarrow 2Z \tag{1}
+$$
+
+$$
+r_1 = k_1 C_A C_B \tag{2}
+$$

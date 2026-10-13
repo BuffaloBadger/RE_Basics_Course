@@ -1,0 +1,12 @@
+---
+title: "Example"
+format: pdf
+---
+
+```{=latex}
+\vspace{-2.5cm}
+```
+
+narrative
+
+equations

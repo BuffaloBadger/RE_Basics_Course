@@ -11,13 +11,6 @@ plt.rc('savefig', dpi=300)
 
 # global constants available to all functions
 # given
-k01 = 2.193e+12 # gal/lbmol/h
-E1 = 32400 # BTU/lbmol
-k02 = 6.087e+14 # gal/lbmol/h
-E2 = 36900 # BTU/lbmol
-dH1 = -16190 # BTU/lbmol
-dH2 = -14030 # BTU/lbmol
-Cp = 7.2 # BTU/gal/°R
 P = 1.0 # atm
 V0 = 550. # gal
 T0 = 100 + 459.7 # °R
@@ -27,6 +20,14 @@ Tin = 100 + 459.7 # °R
 CBin = 0.004 # lbmol/gal
 fB_min = 0.9
 tTurn = 0.5 # h
+k01 = 4.193e+11 # gal/lbmol/h
+E1 = 32400 # BTU/lbmol
+dH1 = -16190 # BTU/lbmol
+k02 = 6.087e+14 # gal/lbmol/h
+E2 = 36900 # BTU/lbmol
+dH2 = -14030 # BTU/lbmol
+Cp = 7.2 # BTU/gal/°R
+
 # known
 R = 1.987 # BTU/lbmol/°R
 Rpv = 5.4584 # gal-atm/lbmol/°R
@@ -70,44 +71,42 @@ def sbstr_model_variables(Vdot):
         input('Press Enter to continue or CTRL+C to exit')
     
     # calculate the conversion of B during stage 1
-    fB1 = 100*(VB*CBin - nB[-1])/VB*CBin
+    fB1 = 100*(VB*CBin - nB[-1])/(VB*CBin)
 
-    # if the conversion is greater or equal to 90% there is no stage 2
-    if fB1 >= 90:
-        # return the model variables
-        return t, nA, nB, nD, nU, T, V
-    
-    # set the volumetric flow rate for stage 2
-    g_Vdot = 0
+    # if the conversion is below 90% continue with stage 2
+    if fB1 < 90:
+        
+        # set the volumetric flow rate for stage 2
+        g_Vdot = 0
 
-    # set the initial values equal to the final values from stage 1
-    ind_0 = t[-1]
-    dep_0 = np.array([nA[-1], nB[-1], nD[-1], nU[-1], T[-1], V[-1]])
+        # set the initial values equal to the final values from stage 1
+        ind_0 = t[-1]
+        dep_0 = np.array([nA[-1], nB[-1], nD[-1], nU[-1], T[-1], V[-1]])
 
-    # set the stopping criterion for stage 2
-    f_var = 2
-    f_val = VB*CBin*(1 - fB_min)
-    
-    # solve the design equations for stage 2
-    t2, dep, success, message = solve_ivodes(ind_0, dep_0, f_var, f_val
-                , sbstr_derivatives, odes_are_stiff=False)
-    
-    # combine the results for the two stages
-    t = np.concatenate([t, t2])
-    nA = np.concatenate([nA, dep[0,:]])
-    nB = np.concatenate([nB, dep[1,:]])
-    nD = np.concatenate([nD, dep[2,:]])
-    nU = np.concatenate([nU, dep[3,:]])
-    T = np.concatenate([T, dep[4,:]])
-    V = np.concatenate([V, dep[5,:]])
-    
-    # check for solver issues
-    if not success:
-        print('')
-        print(f'SBSTR Model stage 2 issue: {message}')
-        print('')
-        input('Press Enter to continue or CTRL+C to exit')
-    
+        # set the stopping criterion for stage 2
+        f_var = 2
+        f_val = VB*CBin*(1 - fB_min)
+        
+        # solve the design equations for stage 2
+        t2, dep, success, message = solve_ivodes(ind_0, dep_0, f_var, f_val
+                    , sbstr_derivatives, odes_are_stiff=False)
+        
+        # combine the results for the two stages
+        t = np.concatenate([t, t2])
+        nA = np.concatenate([nA, dep[0,:]])
+        nB = np.concatenate([nB, dep[1,:]])
+        nD = np.concatenate([nD, dep[2,:]])
+        nU = np.concatenate([nU, dep[3,:]])
+        T = np.concatenate([T, dep[4,:]])
+        V = np.concatenate([V, dep[5,:]])
+        
+        # check for solver issues
+        if not success:
+            print('')
+            print(f'SBSTR Model stage 2 issue: {message}')
+            print('')
+            input('Press Enter to continue or CTRL+C to exit')
+        
     # return the reactor model variables
     return t, nA, nB, nD, nU, T, V
 
@@ -144,7 +143,7 @@ def sbstr_derivatives(ind, dep):
 def deliverables():
     # set a range of values for the volumetric flow rate
     #Vdot_range = np.linspace(20, 40, 100)
-    Vdot_range = np.linspace(25, 30, 100)
+    Vdot_range = np.linspace(5, 20, 100)
 
     # allocate storage for the corresponding net rate and number of stages
     rNet = np.ones_like(Vdot_range)*float('nan')

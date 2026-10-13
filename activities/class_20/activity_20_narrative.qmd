@@ -1,0 +1,28 @@
+---
+title: "Class 20 Learning Activity"
+format: pdf
+---
+
+```{=latex}
+\vspace{-2.5cm}
+```
+
+The desired product, D, can be synthesized from reagents A and B as shown in equation (1), but reagent B also reacts according to equation (2)  to form an undesired product, D. Use of an adiabatic SBSTR has been suggested as a means to improve selectivity. Specifically the SBSTR, operating at 1 atm, will be charged with 550 gal of a 100 °F solution containing the catalyst and reagent A at a concentration of 0.015 lbmol gal^–1^. Two thousand gallons of a 100 °F solution containing only B at a concentration of 0.004 lbmol gal^–1^ will be fed to the reactor at a constant rate. At least 90% of the added B must be converted in the process, so if necessary, the reaction will continue in batch mode until that conversion is attained. What volumetric feed rate will maximize the net rate of production of D if the turnaround time for the reactor is 30 min?
+
+Reaction (1) is first order in each reactant. The rate coefficient pre–exponential factor is 4.193 x 10^11^ gal lbmol^–1^ h^–1^ and the activation energy is 32,400 BTU lbmol^–1^. The heat of reaction is –16,190 BTU lbmol^–1^. Reaction (2) is second order in reagent B, the pre–exponential factor is 6.087 x 10^14^ gal lbmol^–1^ h^–1^ and the activation energy is 36,900 BTU lbmol^–1^. The heat of reaction is –14,030 BTU lbmol^–1^. Solutions containing the reagents have a heat capacity that is essentially equal to that of the solvent, 7.2 BTU gal^–1^ °R^–1^.
+
+$$
+A + B \rightarrow D \tag{1}
+$$
+
+$$
+2 B \rightarrow U \tag{2}
+$$
+
+$$
+r_1 = k_1C_AC_B \tag{3}
+$$
+
+$$
+r_2 = k_2C_B^2 \tag{4}
+$$

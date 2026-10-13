@@ -1,0 +1,32 @@
+---
+title: "Class 17 Learning Activity"
+format: pdf
+---
+
+```{=latex}
+\vspace{-2.5cm}
+```
+
+The rate of gas phase reaction (1) is given by the rate expression, equation (2). The pre-exponential factor, $k_{0,1}$, is equal to 265 L mol^-1^ min^-1^, and the activation energy, $E_1$, is equal to 73 kJ mol^-1^. The standard heat of reaction (1) at 298 K is equal to -165 kJ mol^-1^. The heat capacities of A, Y and Z are given by equations (3) through (5), where the temperature must be substituted in K, and the resulting heat capacity will have units of J mol^-1^ K^-1^.
+
+If the reaction takes place in a constant volume, adiabatic batch reactor that is initially charged with pure A at 1000 Torr and 1225 K, how long will it take for the temperature to increase by 10 K and at that point what percentage of the original A will have been converted? How long will it take for the temperature to increase by 100 K and at that point what percentage of the original A will have been converted?
+
+$$
+2A \rightarrow 2Y + Z \tag{1}
+$$
+
+$$
+r_1 = k_1 C_A^2 \tag{2}
+$$
+
+$$
+\hat{C}_{p,A} = 28 + 0.05T \tag{3}
+$$
+
+$$
+\hat{C}_{p,Y} = 26 + 0.01T \tag{4}
+$$
+
+$$
+\hat{C}_{p,Z} = 30 + 0.005T \tag{5}
+$$
