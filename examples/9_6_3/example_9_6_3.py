@@ -34,15 +34,13 @@ mu = 0.027E-2 # g /cm /s
 Re = 8.314 # J /mol /K
 Rw = 82.06 # cm^3 atm /mol /K
 P_conv = 9.872E-7 # atm cm^2 /dyne
-# calculated
-G = mDot_in/(np.pi*D**2/4)
-nA_in = yA_in*Vdot_in*P_in/Rw/T_in
-nI_in = yI_in*Vdot_in*P_in/Rw/T_in
 
 # PFR reactor function
 def pfr_model_variables():
 	# set the initial values
     ind_0 = 0.0
+    nA_in = yA_in*Vdot_in*P_in/Rw/T_in
+    nI_in = yI_in*Vdot_in*P_in/Rw/T_in
     dep_0 = np.array([nA_in, 0.0, 0.0, nI_in, T_in, P_in])
 
 	# define the stopping criterion
@@ -51,7 +49,7 @@ def pfr_model_variables():
      
 	# solve the IVODEs
     z, dep, success, message = solve_ivodes(ind_0, dep_0, f_var, f_val
-                , pfr_derivatives, odes_are_stiff=False)
+                , pfr_derivatives, odes_are_stiff=False, rel_tol=1.0E-6, abs_tol=1.0E-9)
 
     # check that a solution was found
     if not(success):
@@ -91,6 +89,7 @@ def pfr_derivatives(ind, dep):
     r = kf*PA - kr*PY*PZ**3
     Vdot = ntot*Rw*T/P
     rho = mDot_in/Vdot
+    G = mDot_in/(np.pi*D**2/4)
 
 	# evaluate the derivatives
     dnAdz = -np.pi*D**2/4*r
@@ -113,6 +112,7 @@ def deliverables():
     # calculate the quantities of interest
     T_out = T[-1] - 273.15
     P_out = P[-1]
+    nA_in = yA_in*Vdot_in*P_in/Rw/T_in
     fA = 100*(nA_in - nA[-1])/nA_in
 
     # tabulate the results

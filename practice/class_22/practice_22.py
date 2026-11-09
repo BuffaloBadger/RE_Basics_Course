@@ -92,19 +92,20 @@ def pfr_derivatives(z, dep):
 
 # coupled unknown residual function
 def coupled_unknown_residual(guess):
+    Tex = guess[0]
     # solve the PFR design equations
-    z, nDotA, nDotZ, T, P = pfr_model_variables(guess)
+    z, nDotA, nDotZ, T, P = pfr_model_variables(Tex)
 
     # evaluate and return the residual
-    Qdot = np.pi*D*U*(sp.trapezoid(guess - T, z))
-    epsilon = Qdot + mDot*Cp_ex*(guess - Tex_in)
+    Qdot = np.pi*D*U*(sp.trapezoid(Tex - T, z))
+    epsilon = Qdot + mDot*Cp_ex*(Tex - Tex_in)
 
     return epsilon
 
 # deliverables function
 def deliverables():
     # guess the exchange fluid temperature
-    Tex_guess = Tex_in + 5
+    Tex_guess = np.array([Tex_in + 5])
 
     # calculate the exchange fluid temperature
     soln, success, message = solve_ates(coupled_unknown_residual, Tex_guess)

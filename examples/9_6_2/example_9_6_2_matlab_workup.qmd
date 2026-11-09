@@ -1,0 +1,536 @@
+---
+title: "Reaction Engineering Basics Example 9.6.2"
+subtitle: "Matlab Work-Up"
+format: pdf
+---
+::: {.content-hidden unless-format="pdf"}
+
+```{=latex}
+\vspace{-1.5cm}
+```
+
+Before summarizing the assignment, the file, `ex_9_6_2.m`, was created for performing the calculations. Within it a function of the same name was declared. Each of the blocks of code listed below are added to this file to complete the function for performing the calculations.
+
+```matlab
+function ex_9_6_2()
+% Calculations for Example 9.6.2 from REB, The Book
+```
+
+:::
+
+::: {.content-hidden unless-format="html"}
+
+:::{.callout-tip collapse="true"}
+## Click Here to See What an Expert Might be Thinking at this Point
+
+I'll start by reading through the assignment narrative and creating a concise assignment summary. The liquid phase PFR is described as perfectly insulated. This means it is adiabatic, and there is no mention of anything changing, so it also operates at steady state. Extensive quantities are given, so a basis cannot be chosen. I'll use common variables symbols to represent the given quantities, making sure that the symbol I use is consistent with the quantity's units. I'll use a subscripted "in" to denote inlet values and a subscripted "out" to denote outlet values. I'll underline variables representing vectors.
+
+The assignment narrative only mentions the concentrations of A and B in the feed, so I'll assume not Y or Z are present. The assignment asks for inlet and outlet temperatures for one set of operating conditions, so the task to be performed is a simple analysis.
+
+:::
+
+:::
+
+::: {.content-hidden unless-format="pdf"}
+
+# Assignment Summary
+
+:::
+
+::: {.content-hidden unless-format="html"} 
+
+<center>**Assignment Summary**</center>
+
+:::
+
+[Reaction]{.underline}
+
+$$
+A + B \rightarrow Y + Z \tag{1}
+$$
+
+[Rate Expression]{.underline}
+
+$$
+r_1 = k_1 C_A C_B \tag{2}
+$$
+
+[Reactor]{.underline}: Liquid-phase, steady-state, adiabatic PFR
+
+&nbsp;
+
+[Given Constants]{.underline}: V_{PFR}$ = 40 L, $C_{A,in}$ = 1.0 M, $C_{B,in}$ = 1.2 M, $\dot{V}_{in}$ = 75 L min^-1^, $k_{0,1}$ = 8.72 x 10^5^ L mol^-1^ min^-1^, $E_1$ = 7200 cal mol^-1^, $\Delta H_1$ = –10,700 cal mol^-1^, $\tilde{C}_p$ = 1.0 cal g^-1^ K^-1^, $\rho$ = 1.0 g cm^-3^, and $f_A$ = 0.95.
+
+::: {.content-hidden unless-format="pdf"}
+
+{{<pagebreak>}}
+
+The given and known constants and the basis are converted to consistent units and the given equations are converted to anonymous functions and all are addded to `ex_9_6_2`. 
+
+```matlab
+    % global constants available to all functions
+    % given
+    Vpfr = 40E3; % cm^3
+    CA_in = 1E-3; % mol /cm^3
+    CB_in = 1.2E-3; % mol /cm^3
+    Vdot_in = 75E3; % cm^3 /min
+    k0_1 = 8.72E8; % cm^3 /mol /min
+    E_1 = 7200; % cal /mol
+    dH_1 = -10700; % cal /mol
+    Cp = 1.0; % cal /g /K
+    rho = 1.0; % g /cm^3
+    f_A = 0.95;
+    % known
+    R = 1.987; % cal /mol /K
+    % calculated
+    nA_in = Vdot_in*CA_in;
+    nB_in = Vdot_in*CB_in;
+    nA_out = nA_in*(1-f_A);
+```
+
+:::
+
+[Task]{.underline}: Analysis
+
+* Items of Interest: $T_{in}$ and $T_{out}$
+
+::: {.content-hidden unless-format="pdf"}
+
+# Preliminary Analysis
+
+:::
+
+::: {.content-hidden unless-format="html"}
+
+<center>**Preliminary Analysis**</center>
+
+:::
+
+A single exothermic reaction is taking place in an adiabatic reactor. Since the heat released by the reaction is not being removed, the temperature of the reacting fluid is expected to increase as it moves through the reactor. The concentrations of the reactants will decrease and those of the products will increase.
+
+::: {.content-hidden unless-format="html"}
+
+:::{.callout-tip collapse="true"}
+## Click Here to See What an Expert Might be Thinking at this Point
+
+I'm going to need to solve the PFR Design equations to complete this assignment, so I'll start by defining a PFR model function. To do that I'll need to 
+
+* generate and simplify the design equations, 
+* identify the PFR model variables I'll get by solving them, 
+* identify any additional computable unknowns they contain and write the equations for calculating them,
+* identify any non-computable unknows that will need to be passed to the BSTR model function as arguments, and
+* determine the type of equation solver that I'll need and what input it will require.
+
+The reactor specifications do not include the reactor diameter. Since the reactor is adiabatic, the diameter can be eliminated from the design equations by using the cumulative volume of the reactor as the independent variable. That is, $dz$ in the design equations can be replaced by $\frac{4dV}{\pi D^2}$.
+
+Mole balances are always needed, and I prefer to write a mole balance for every reagent in the system other than solvent. This reactor operates at steady-state, so the general form of the mole balance is given by @eq-pfr_ss_mol_balance. There is only one reaction taking place, so the summation reduces to a single term.
+
+$$
+\frac{d \dot{n}_i}{dV} = \sum_j \nu_{i,j}r_j = \nu_{i,1}r_1
+$$
+
+The reactor is not isothermal, so I cannot solve the mole balances independently. I need to add an energy balance on the reacting fluid. The general form of the steady-state PFR reacting fluid energy balance is given by @eq-pfr_ss_energy_balance. The narrative provides the gravimetric heat capacity and the density of the liquid phase reacting fluid, to the first term can be modified to use that information. This PFR is adiabatic, so the heat exchange term is equal to zero, and again, there is only one reaction taking place.
+
+$$
+\cancelto{\rho \dot{V} \breve{C}_p}{\left(\sum_i \dot{n}_i \hat{C}_{p,i} \right)} \frac{d T}{dV} = \cancelto{0}{\pi D U\left( T_{ex} - T  \right)} - \cancelto{\frac{\pi D^2}{4}r_1 \Delta H_1}{\sum_j r_j \Delta H_j}
+$$
+
+When I solve the design equations numerically, I'm going to need to evaluate the derivatives, so I will re-write the equation in the form of a derivative expression (see @sec-apxd_ivodes).
+
+$$
+\frac{d T}{dV} = - \frac{r_1 \Delta H_1}{\rho \dot{V} \tilde{C}_p}
+$$
+
+The reactor is adiabatic, so there isn't a heat exchange fluid to write an energy balance on. The pressure drop is negligible, so a momentum balance is not needed. The number of dependent variables in the design equations is equal to the number of design equations, so no additional equations are needed.
+
+:::
+
+:::
+
+::: {.content-hidden unless-format="pdf"}
+
+# PFR Model Function
+
+:::
+
+::: {.content-hidden unless-format="html"}
+
+<center>**PFR Model Function**</center>
+
+:::
+
+[PFR Design Equations]{.underline}
+
+$$
+\frac{d \dot{n}_A}{dV} = - r_1 \tag{3}
+$$
+
+$$
+\frac{d \dot{n}_B}{dV} = - r_1 \tag{4}
+$$
+
+$$
+\frac{d \dot{n}_Y}{dV} = r_1 \tag{5}
+$$
+
+$$
+\frac{d \dot{n}_Z}{dV} = r_1 \tag{6}
+$$
+
+$$
+\frac{d T}{dV} = -\frac{r_1 \Delta H_1}{\rho \dot{V} \tilde{C}_p} \tag{7}
+$$
+
+::: {.content-hidden unless-format="html"}
+
+:::{.callout-tip collapse="true"}
+## Click Here to See What an Expert Might be Thinking at this Point
+
+Solving the design equations numerically will yield vectors containing the independent and dependent variables, each spanning the range from its initial value to the point where the stopping criterion is satisfied. 
+
+Examination of the design equations shows that $r_1$ and $\dot{V}_out$ are additional unknowns. The assignment narrative provides a rate expression that can be used to calculate the rate, but it introduces the rate coefficient and concentrations of A and B as additional unknowns. The rate coefficient can be calculated using the Arrhenius expression and the concentrations can be calculated using their defining equation for an open system. The outlet volumetric flow rate equals the inlet volumetric flow rate because the reacting fluid is a liquid and can be assumed to be a perfect, incompressible mixture.
+
+The design equations are IVODEs. When I solve them I'll need to provide initial values, a stopping criterion, and a derivatives function to the IVODE solver. I can define $V=0$ to be the inlet to the reactor, in which case the other initial values are the molar flow rates and the temperture at the reactor inlet. The feed only contains A and B, so the inlet molar flow rates of Y and Z are zero. The assignment doesn't provide the feed temperature, in fact, that is one of the quantities of interest. When an initial value or other constant appearing in the design equations is unknown, two final values will be known. Here, the volume of the reactor is given, so that can serve as the stopping criterion. The conversion is also given, so I can use that to write an implicit equation for the feed temperature that is coupled to the IVODEs. Since I'll be solving the equation numerically, I'll write it in the form of a residual expression.
+
+:::
+
+:::
+
+[PFR Model Variables]{.underline}: $\underline{V}$, $\underline{\dot{n}}_A$, $\underline{\dot{n}}_B$, $\underline{\dot{n}}_Y$, $\underline{\dot{n}}_Z$, and $\underline{T}$.
+
+&nbsp;
+
+[Additional Computable Unknowns]{.underline}: $r_1$, $k_1$, $C_A$, $C_B$, and $\dot{V}$
+
+$$
+k_1 = k_{0,1} \exp{\left( \frac{-E_1}{RT} \right)} \tag{8}
+$$
+
+$$
+C_A = \frac{\dot{n}_A}{\dot{V}} \tag{9}
+$$
+
+$$
+C_B = \frac{\dot{n}_B}{\dot{V}} \tag{10}
+$$
+
+$$
+\dot{V} = \dot{V}_{in} \tag{11}
+$$
+
+[Coupled Unknown (Received as an Argument)]{.underline}: $T_{in}$
+
+$$
+T_{in}: \, \frac{\dot{n}_{A,in} - \underline{\dot{n}}_A}{\dot{n}_{A,in}} \Bigg|_{V=V_{PFR}} = f_A \qquad \Rightarrow \qquad \epsilon = \frac{\dot{n}_{A,in} - \underline{\dot{n}}_A}{\dot{n}_{A,in}} \Bigg|_{V=V_{PFR}} - f_A \tag{12}
+$$
+
+{{<pagebreak>}}
+
+[IVODE Solver Requirements]{.underline}
+
+1. Initial values
+$$
+V_{iv} = 0 \tag{13}
+$$
+$$
+\dot{n}_{i,iv} = \dot{n}_{A,in} = \dot{V}_{in}C_{A,in} \quad i = A \text{ and } B \tag{14}
+$$
+$$
+\dot{n}_{i,iv} = 0 \quad i = Y \text{ and } Z \tag{15}
+$$
+$$
+T_{iv} = T_{in} \tag{16}
+$$
+2. Stopping criterion
+$$
+V = V_{PFR} \tag{17}
+$$
+3. PFR derivatives function that
+    a. receives the PFR model variables ($V$, $\dot{n}_A$, $\dot{n}_B$, $\dot{n}_Y$, $\dot{n}_Z$, and $T$) at the start of an integration step
+    b. calculates the additional unknowns using equations (2), (8), (9), (10), and (11)
+    c. evaluates and returns the PFR design equation derivatives using equations (3) through (7)
+
+::: {.content-hidden unless-format="pdf"}
+
+&nbsp;
+
+The PFR model and derivatives functions are added to `ex_9_6_2`.
+
+```matlab
+    % PFR reactor function
+    function [V, nA, nB, nY, nZ, T] = pfr_model_variables(T_in)
+        % set the initial values
+        ind_0 = 0.0;
+        dep_0 = [nA_in, nB_in, 0.0, 0.0, T_in];
+
+        % define the stopping criterion
+         stopVar = 0;
+         stopVal = Vpfr;
+        
+        % solve the IVODEs
+        odes_are_stiff = false;
+        [V, dep, success, message] = solve_ivodes(ind_0, dep_0,  stopVar...
+            ,  stopVal, @pfr_derivatives, odes_are_stiff);
+
+        % check for solver issues
+        if ~(success)
+             disp('')
+             disp(["PFR model function issue: ", message])
+             disp('Press any key to continue or CTRL-C to exit')
+            pause
+        end
+
+        % extract the individual dependent variables to return
+        nA = dep(:,1);
+        nB = dep(:,2);
+        nY = dep(:,3);
+        nZ = dep(:,4);
+        T = dep(:,5);
+    end
+
+    % PFR derivatives function
+    function ddz = pfr_derivatives(~, dep)
+        % extract the dependent variables
+        nA = dep(1);
+        nB = dep(2);
+        T = dep(5);
+
+        % calculate the additional unknowns
+        k_1 = k0_1*exp(-E_1/R/T);
+        CA = nA/Vdot_in;
+        CB = nB/Vdot_in;
+        r_1 = k_1*CA*CB;
+
+        % evaluate the derivatives
+        dnAdV = -r_1;
+        dnBdV = -r_1;
+        dnYdV = r_1;
+        dnZdV = r_1;
+        dTdV = -r_1*dH_1/(Vdot_in*rho*Cp);
+
+        % return the derivatives as a column vector
+        ddz = [dnAdV; dnBdV; dnYdV; dnZdV; dTdV];
+    end
+```
+
+:::
+
+::: {.content-hidden unless-format="html"}
+
+:::{.callout-tip collapse="true"}
+## Click Here to See What an Expert Might be Thinking at this Point
+
+Before the PFR function can be called, $T_{in}$ must be found by solving equation (12) numerically. To do so I'll need to provide an initial guess and a residuals function. So I'll define the coupled unknown residual function next. The only argument it can recieve is a guess for $T_{in}$, and the only thing it can return is the residual corresponding to the implicit equation above. Clearly, to evaluate that residual it will need to call the PFR model function to solve the PFR design equations. Then it can use the returned value of $\underline{\dot{n}}_A$ to calculate the conversion.
+
+:::
+
+:::
+
+::: {.content-hidden unless-format="pdf"}
+
+# Coupled Unknowns Residuals Function
+
+:::
+
+::: {.content-hidden unless-format="html"}
+
+<center>**Coupled Unknown Residuals Function**</center>
+
+:::
+1. receives a guess for the coupled unknown, $T_{in}$, as an argument
+2. calls the PFR model function using the guess as the argument to get $\underline{V}$, $\underline{\dot{n}}_A$, $\underline{\dot{n}}_B$, $\underline{\dot{n}}_Y$, $\underline{\dot{n}}_Z$, and $\underline{T}$.
+4. evaluates and returns the coupled unknown residual using equation (12)
+
+::: {.content-hidden unless-format="pdf"}
+
+The coupled unknowns residuals function is added to `ex_9_6_2` next.
+
+```matlab
+    % coupled unknown residual function
+    function epsilon = coupled_unknown_residual(guess)
+        % extract the guess
+        T_in = guess(1);
+
+        % solve the reactor design equations
+        [~, nA, ~, ~, ~, ~] = pfr_model_variables(T_in);
+
+        % extract the calculated final value of nA
+        nA_f = nA(end);
+
+        % evaluate  and return the residual
+        epsilon = nA_out - nA_f;
+    end
+```
+
+:::
+
+::: {.content-hidden unless-format="html"}
+
+:::{.callout-tip collapse="true"}
+## Click Here to See What an Expert Might be Thinking at this Point
+
+At this point I have functions that can be used to solve the PFR design equations and get $T_{in}$ and $T_{out}$. The last function I need is an items of interest function that does that.
+
+Before the PFR model function can be called, the coupled unknown must be calculated. This can be done by calling an ATE solver, passing the coupled residual function and a guess for the initial temperature as arguments. I have no basis for making a guess, so I'll just use 25 °C. If the ATE solver fails to converge, I'll need to change the guess and repeat the calculations.
+
+Once the inlet temperature has been found, the PFR model function can be called and the outlet temperture can be extracted from the results.
+
+:::
+
+:::
+
+::: {.content-hidden unless-format="pdf"}
+
+# Items of Interest Function
+
+:::
+
+::: {.content-hidden unless-format="html"}
+
+<center>**Items of Interest Function**</center>
+
+:::
+
+1. Define an initial guess for the inlet temperature
+$$
+T_{in,guess} = 25 \text{ °C} \tag{18}
+$$
+2. Call an ATE solver passing that guess and the coupled unknown residual function as arguments to get $T_{in}$
+3. Call the PFR model function using $T_{in}$ as the argument to get $\underline{V}$, $\underline{\dot{n}}_A$, $\underline{\dot{n}}_B$, $\underline{\dot{n}}_Y$, $\underline{\dot{n}}_Z$, and $\underline{T}$.
+4. Extract the final temperature
+$$
+T_{out} = \underline{T} \big |_{V=V_{PFR}} \tag{19}
+$$
+5. Display and save the results.
+
+::: {.content-hidden unless-format="pdf"}
+
+&nbsp;
+
+To complete `ex_9_6_2`, the items of interest function was added along with a line of code to call it and perform the calculations.
+
+```matlab
+    % items of interest function
+    function items_of_interest()
+        % set an initial guess for T_in
+        initial_guess = 25 + 273.15;
+
+        % solve the implict equation for [missing constant]
+        [soln, success, message] = solve_ates(@coupled_unknown_residual...
+            , initial_guess);
+
+        % check for solver issues
+        if ~(success)
+            disp('')
+            disp(["Issue solving for the coupled unknown: ", message])
+            disp('Press any key to continue or CTRL-C to exit')
+            pause
+        end
+
+        % extract the result
+        T_in = soln(1);
+
+        % solve the reactor design equations
+        [~, ~, ~, ~, ~, T] = pfr_model_variables(T_in);
+
+        % calculate the other quantities of interest
+        T_f = T(end);
+
+        % tabulate, show and save the results
+        item = ["Inlet T"; "Outlet T"];
+        value = [T_in - 273.15; T_f - 273.15];
+        units = ["°C"; "°C"];
+        resultsTable = table(item, value, units);
+         disp(' ')
+         disp(resultsTable)
+         disp('')
+         writetable(resultsTable, 'ex_9_6_2_results.csv');
+    end
+
+    % perform the calculations
+    items_of_interest()
+end
+```
+
+:::
+
+::: {.content-hidden unless-format="html"}
+
+<center>**Implementation of the Calculations.**</center>
+
+ Computer code to perform the calculations can be written using a variety of programming languages and environments, and the actual code can be structured in a variety of ways. Referring to the preceding assignment summary, computational strategy and formulation of the equations, here are the essential things it must do.
+
+1. Make the given and known constants available wherever they are needed.
+2. Define the coupled unknown residual function.
+3. Define the derivatives function.
+4. Define an initial guess for the the coupled unknown, equation (18)
+5. Solve the implicit coupled unknown equation by calling an ATE solver
+	a. passing the initial guess and the residual function as arguments
+	b. receiving the coupled unknown, $T_{in}$
+6. Define the initial values and stopping criterion
+7. Solve the PFR design equations by calling an IVODE solver
+	a. passing the initial values, stopping criterion, and derivatives function as arguments
+	b. receiving the PFR model variables
+8. Extract the outlet temperature, equation (19)
+
+One way to structure the code, based on the preceding workup, is to write a single master function for the assignment. Within it declare the given constants as global constants, define the BSTR model function, the BSTR derivatives function, the coupled unknown residual function, and the items of interest function, and then call the items of interest function.
+
+:::
+
+::: {.content-hidden unless-format="pdf"}
+
+# Results
+
+:::
+
+::: {.content-hidden unless-format="html"}
+
+<center>**Results**</center>
+
+The calculations were performed as described above. The ATE solver converged using the initial guess in equation (18), so it wasn't necessary to adjust the guess. When the feed temperature is 45.6 °C, 95% of the A in the feed is converted and the outlet temperature equals 55.7 °C.
+
+:::
+
+::: {.content-hidden unless-format="pdf"}
+
+The calculations were performed by calling the function, `ex_9_6_2`. The ATE solver converged using the initial guess in equation (18), so it wasn't necessary to adjust the guess.
+
+```matlab
+>> ex_9_6_2
+ 
+       item       value     units
+    __________    ______    _____
+
+    "Inlet T"     45.497    "°C" 
+    "Outlet T"    55.662    "°C" 
+```
+
+:::
+
+::: {.content-hidden unless-format="pdf"}
+
+# Discussion
+
+:::
+
+::: {.content-hidden unless-format="html"}
+
+<center>**Discussion**</center>
+
+:::
+
+As noted in the preliminary analysis, the reaction is exothermic and the reactor is adiabatic. The heat released by the reaction is not removed, and so the temperature of the reacting fluid rises as the reaction proceeds. In this case the temperature only rises by 10 °C between the reactor inlet and the outlet, so it was not necessary to cool the reacting fluid during processing.
+
+::: {.content-hidden unless-format="pdf"}
+
+# Summary
+
+:::
+
+::: {.content-hidden unless-format="html"}
+
+<center>**Summary**</center>
+
+:::
+
+A feed temperature of 45.6 °C is required to achieve the specified conversion. The corresponding outlet temperature is 55.7 °C.
